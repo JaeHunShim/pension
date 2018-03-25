@@ -173,7 +173,7 @@
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
-			<iframe src="/pension/index.html" frameBorder="no" width="100%" height="900px"  scrolling="auto"></iframe>
+			<iframe src="/pension/index.jsp" frameBorder="no" width="100%" height="900px"  scrolling="auto"></iframe>
     </div>	
 </section> 
 

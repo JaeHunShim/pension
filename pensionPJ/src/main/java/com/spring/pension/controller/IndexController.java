@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/main")
 public class IndexController {
 
-	@RequestMapping(value="/index", method=RequestMethod.GET)
+	@RequestMapping(value="/sub2", method=RequestMethod.GET)
 	public String main() {
 		
-		return "/index";
+		return "/sub2";
 	}
 }
