@@ -1,0 +1,125 @@
+@charset "utf-8";
+@import url(http://designbom2.cafe24.com/pen/css/font.css); /* web fonts */
+
+/* HTML Reset */
+body,table,input,select,textarea,button,li,th,td{font-family:NanumGothic,나눔고딕,Dotum,돋움,Tahoma,Geneva,sans-serif; font-size:12px; color:#555;}
+body,h1,h2,h3,h4,h5,ol,ul,li,dl,dt,dd,p{margin:0; padding:0;}
+li{overflow:hidden;}
+em,address{font-style:normal}
+button,label{cursor:pointer;_cursor:hand;}
+button *{position:relative}
+button img{left:-3px;*left:auto}
+textarea{overflow:auto;}
+body{background:url(../img/tbg.gif) repeat-x center 0;}
+caption{visibility:hidden;font-size:0;height:0;overflow:hidden;}
+td {table-layout:fixed;}
+input,select{border:1px solid #CCC;}
+img,fieldset,iframe,.bnone{border:0 none;}
+
+a:link,a:visited {color:#555; text-decoration:none;}
+a:active,a:hover,a:focus {color:#111; text-decoration:none;}
+
+body{width:100%;margin:0 auto;}
+
+.wRap{zoom:1;}
+.wRap:after{content:"";  clear:both; display:block;}
+.Left{float:left;}
+.Right{float:right;}
+
+p.line{width:99%;margin:0 auto 25px auto;background:url(../img/line.gif) 0 0 repeat-x;height:4px;line-height:4px;}
+
+/* Header */
+.header{height:65px;border-top:2px solid #262626;border-bottom:1px solid #262626;background-color:#3d3d3d;}
+.header>h1{float:left;font-size:2.25em; height:65px;line-height:65px;color:#FFF;padding:0 40px 0 20px;z-index:100;font-weight:500;}
+.header div.Right{width:270px;float:right;}
+.header div.Right>a{display:block;float:left;width:90px;height:65px;}
+
+/* Sub Title */
+.sTitle{padding:42px 0 35px 20px;background:url(../img/line.gif) 0 bottom repeat-x;}
+	.sTitle em{font-size:0.8em;color:#999;line-height:18px;text-transform:uppercase;}
+	.sTitle h2{font-size:2.2em;line-height:38px;font-weight:normal;}
+.sTitle .tab1{width:400px;background:url(../img/proc1.gif) right 0 no-repeat;}
+.sTitle .tab2{width:200px;background:url(../img/proc2.gif) right 0 no-repeat;}
+	.sTitle .tab1 ol li,.sTitle .tab2 ol li{float:left;width:100px;text-indent:-200px;overflow:hidden;}
+	.sTitle .tab1 ol li>img,.sTitle .tab2 ol li>img{float:right;}
+
+/***** Contents *****/
+.conT{}
+h3{font-size:1.2em;background:url(../img/dot.gif) 0 2px no-repeat;padding-left:16px;margin:20px 0 7px 2px;}
+.conT>big{font-size:2.2em;display:block;text-align:center;margin:25px 0;}
+.carnSet .yms{width:230px;margin:25px auto 13px auto;}
+  .carnSet .yms.dayS{width:400px;margin:25px auto 13px auto;}
+.carnSet .yms>p, 
+.carnSet .yms>a{float:left;height:40px;line-height:40px;}
+    /* 달력 상단 */
+	.carnSet .yms>p{width:170px;font-size:2em;text-align:center;}
+	.carnSet .yms>a{display:block;width:30px;background-image:url(../img/bt_arr.gif);background-repeat:no-repeat;overflow:hidden;text-indent:100px;}
+		.carnSet .yms>a.prev{background-position:7px 14px;}
+		.carnSet .yms>a.next{background-position:-25px 14px}
+	.carnSet>p{text-align:center;line-height:20px;}
+		.carnSet>p>span{padding-right:8px;}
+    /* 객실선택 상단 */
+	.carnSet .yms.dayS>p{width:250px;}
+	.carnSet .yms.dayS>select{float:left;width:130px;font-size:1.5em;font-weight:600;height:30px;line-height:30px;margin-top:5px;}
+	p.btn{text-align:center;margin:20px auto 30px auto;}
+
+/* Room Type TAB */		
+ul.tabr{margin:20px 0 5px 5px;}
+ul.tabr li{float:left;height:40px;margin-right:5px;}
+ul.tabr li a{display:block;background-color:#c7c7c7;border-radius:3px;padding:0 35px;height:40px;line-height:40px;color:#FFF !important;font-size:1.25em;font-weight:600;letter-spacing:1px;}
+ul.tabr li.on a, ul.tabr li a:active, ul.tabr li a:hover, ul.tabr li a:focus{background-color:#565660;}
+	  
+/* 컨텐츠 표 */
+.wideT{background-color:#d7d8de;width:99%;margin:10px 0;border-top:2px solid #666;border-bottom:1px solid #666;margin:5px auto;}
+.wideT th{background-color:#f5f5f5; padding:7px 0; color:#373737;}
+.wideT .lef{background-color:#FAFAFA;color:#505050;}
+.wideT td{padding:7px; background-color:#FFF;}
+.wideT textarea{padding:2px 5px;margin:3px;width:98%;}
+    /* 달력 */
+	.wideT.caren th{font-weight:normal;width:100px;}
+	.wideT.caren td{vertical-align:top;padding-bottom:15px;}
+	.wideT.caren td strong{display:block;line-height:16px;}
+		td.b4_day{color:#999;}
+		th.red, .red strong, .red{color:#d0382d;}
+		th.blue, .blue strong, .blue{color:#0078c9;}
+		td.sel_day{background-color:#fffaae;}
+	.wideT ul.reList li{font-size:1.0em;line-height:20px;}
+	/*.wideT ul.reList li{font-size:1.1em;line-height:20px;font-weight:600;} 수정 20150401*/
+    /* 객실선택 */
+	.wideT.num td s{display:block;text-decoration:line-through;color:#e35046;text-align:right;}
+	.wideT.num td b{display:block;text-align:right;}
+
+	.bgBlu, .bgRed, .bgGry{color:#FFF;padding:0 2px;}
+	.bgBlu{background-color:#018fc9;} .bgRed{background-color:#e43737;} .bgGry{background-color:#a2a2a2;}
+
+	/* 예약정보입력 */
+	.wideT.sortL th{text-align:left;padding-left:10px;}
+	.wideT.sortL td.red strong{font-size:1.15em;}
+	div.wideT{background-color:#FFF;}
+	div.wideT>p{margin:10px 0;}
+
+	/* 색상변경 */
+	.wideT.green{background-color:#b8d8b7;border-bottom-color:#62a93a;border-top-color:#62a93a;}
+	.wideT.green th{background-color:#71bf44;color:#FFF;}
+	.wideT.green th.lef{background-color:#acd252;color:#157e0f;}
+	
+	.wideT.orange{background-color:#fce0c3;border-bottom-color:#cf6807;border-top-color:#cf6807;}
+	.wideT.orange th{background-color:#f7c796;}
+	.wideT.orange .lef{background-color:#fff6ec;color:#505050;}
+	.wideT.orange thead th,.wideT.orange .bb{border-bottom:1px solid #e38024;}
+
+	.wideT.blue{background-color:#dddddd;border-bottom-color:#3380ca;border-top-color:#3380ca;}
+	.wideT.blue th{background-color:#3f9be1;color:#FFF;}
+	
+		.wideT.num td,table tr td.num{text-align:center;}
+		td.txt,th.txt{text-align:left !important;}
+		th.txt{padding-left:10px;}
+		.wideT.blueP{margin:15px 0 25px 20px;border-top:2px solid #3792de;border-bottom:1px solid #9cadba;}
+
+/* Basic List*/
+ul.bList{margin:0 0 10px 5px;}
+ul.bList>li{padding:3px 0;}
+
+/* footer */
+.footer{width:98%;padding:15px 0 25px 0;text-align:right;background:url(../img/line.gif) 0 0 repeat-x;margin-top:35px;}
+.footer a{color:#690 !important;text-decoration:underline !important;}
