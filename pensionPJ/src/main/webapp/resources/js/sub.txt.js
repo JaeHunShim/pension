@@ -1,6 +1,4 @@
-/*sub txt*/
 $(function(){
-
 	//animation생성
 	controller = new ScrollMagic();
 	
@@ -8,7 +6,6 @@ $(function(){
 	//section 높이설정
 	setSectionHeight();
 	
-
 	
 });
 

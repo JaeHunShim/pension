@@ -12,7 +12,7 @@
 <script src="/resources/js/jQuery-2.1.4.min.js"></script>
 <script src="/resources/js/gnb.js"></script>
 <!-- 서브 텍스트 -->
-<script src="/resources/js/jquery.ScrollMagic.min.js"></script>
+<script src="/resources/js/jquery.scrollmagic.min.js"></script>
 <script src="/resources/js/sub.txt.js"></script>
 <!-- 서브 텍스트 end -->
 <!-- 메인 이미지 롤링 -->
@@ -35,7 +35,6 @@
 	<div class="Web navi">
         <div class="navi_box">
             <h1><a href="/"><img src="/resources/img/logo.png" alt="이루펜션" /></a></h1>  
-            
                 <div class="nav">
                     <div class="gnb">
                         <div class="gnb_wrap">
