@@ -10,10 +10,10 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
 <!--<![endif]-->
 <script src="/resources/js/jQuery-2.1.4.min.js"></script>
-<script src="/resources/js/gnb.js"></script>
+<script src="/resources/js/gnb1.js"></script>
 <!-- 서브 텍스트 -->
 <script src="/resources/js/jquery.scrollmagic.min.js"></script>
-<script src="/resources/js/sub.txt.js"></script>
+<script src="/resources/js/sub.txt.js"></script>	
 <!-- 서브 텍스트 end -->
 <!-- 메인 이미지 롤링 -->
 <script src="/resources/js/common.js"></script>
@@ -215,7 +215,6 @@
 });
 </script>
    <div id="back2top" title="상단으로 가기"><img src="/resources/img/top_but.gif" alt="↑"></div>
-   
    
 </body>
 </html>

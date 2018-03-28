@@ -214,7 +214,7 @@
 					<td class='b4_day'><strong>26 <img
 							src='/resources/img/ico_2day.gif' alt=""></strong>
 					<ul class='reList'>
-							<li><a
+							<li><a'
 								href='/pension/index.html?step=reserV&amp;code=1471309602&amp;year=2018&amp;month=3&amp;day=26&amp;selDay=2018-3-26'><img
 									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>데이지(복층)</span></a></li>
