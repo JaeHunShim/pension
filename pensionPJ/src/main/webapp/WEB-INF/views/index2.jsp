@@ -7,7 +7,8 @@
 <meta name="description" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta name="keywords" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="/resources/css/sub_layout.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/layout1.css" />
+
 <!--<![endif]-->
 <script src="/resources/js/jQuery-2.1.4.min.js"></script>
 <script src="/resources/js/gnb1.js"></script>
@@ -20,8 +21,9 @@
 <script src="/resources/js/jquery.slides.min.js" ></script>
 <script src="/resources/js/TweenMax.min.js"></script>
 <script src="/resources/js/main.js"></script>
-<title>Insert title here</title>
-
+<script src="/resources/js/shop.js"></script>
+<script src="/resources/js/owl.carousel.js"></script>
+<title>메인 화면</title>
 </head>
 <body>
 <div class="header">
@@ -31,9 +33,10 @@
             <li><a href="/index.htm">HOME</a></li>
         </ul>
     </div>
+
 	<div class="Web navi">
         <div class="navi_box">
-            <h1><a href="/"><img src="/resources/img/main/logo.png" alt="이루펜션" /></a></h1>  
+            <h1><a href="/"><img src="/resources/img/logo.png" alt="이루펜션" /></a></h1>  
                 <div class="nav">
                     <div class="gnb">
                         <div class="gnb_wrap">
@@ -110,9 +113,6 @@
 
 		<div class="cts" id="main_cts">
 			<div id="slides">
-				
-                
-                
 				<div class="data-1">
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
@@ -158,25 +158,44 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 </div>
-
-<section class="sub_con sub02" id="scene1">
-	<div class="title">
-        <h2><b>reservation</b></h2>
-        <h3>실시간예약</h3>
-        <h4>무창포 이루펜션의 바다의 향기를 느껴보세요.</h4>
-        <p class="tit_line"></p>
+<div class="room_box">
+	<h2><b>Room</b> Information</h2>
+    <h3>무창포 이루펜션의 바다의 향기를 느껴보세요.</h3>
+	<div class="owl_box">
+        <div id="owl-demo" class="owl-carousel">
+            <div class="item">
+            	<p class="room_img"><img src="/resources/img/main/room_img.jpg" /></p>
+                <p class="room_name">데이지</p>
+                <p class="room_txt">무창포 이루펜션</p>
+                <p class="room_view"><a href="/sub2/sub1.htm">객실보기</a></p>
+            </div>
+            <div class="item">
+            	<p class="room_img"><img src="/resources/img/main/room_img1.jpg" /></p>
+                <p class="room_name">릴리</p>
+                <p class="room_txt">무창포 이루펜션</p>
+                <p class="room_view"><a href="/sub2/sub2.htm">객실보기</a></p>
+            </div>
+            <div class="item">
+            	<p class="room_img"><img src="/resources/img/main/room_img2.jpg" /></p>
+                <p class="room_name">아이비</p>
+                <p class="room_txt">무창포 이루펜션</p>
+                <p class="room_view"><a href="/sub2/sub3.htm">객실보기</a></p>
+            </div>
+            <div class="item">
+            	<p class="room_img"><img src="/resources/img/main/room_img3.jpg" /></p>
+                <p class="room_name">마가렛</p>
+                <p class="room_txt">무창포 이루펜션</p>
+                <p class="room_view"><a href="/sub2/sub4.htm">객실보기</a></p>
+            </div>
+        </div>
+        
     </div>
-    <div class="sub_txt box">
-			<iframe src="/main/index" frameBorder="no" width="100%" height="900px"  scrolling="auto"></iframe>
-    </div>	
-</section> 
-
+</div>
 <div class="ban_box">
 	<div class="ban_con">
-        <h2>무창포 이루펜션<br />소개 및 예약안내, 실시간예약</h2>
+        <h2>무창포 이루펜션<br>소개 및 예약안내, 실시간예약</h2>
         <h3>신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실수 있습니다.  고품격의 여유로움 속으로 당신을 초대합니다.</h3>
         <ul>
             <li><a href="/sub1/sub1.htm" class="ban01">이루펜션소개</a></li>
@@ -188,7 +207,7 @@
 </div>
 <div class="footer">
 	<div class="bottom">
-    	<h1><img src="/resources/img/main/f_logo.png" alt="이루펜션" onClick="window.open('/zzAppModule/admin','','');"></h1>
+    	<h1><img src="/resources/img/f_logo.png" alt="이루펜션" onClick="window.open('/zzAppModule/admin','','');"></h1>
        <p class="address">충청남도 보령시 웅천읍 간드리큰길 104-3 (관당리 165)<span></span>전화: 010-8598-4075, 010-9270-4073<span></span>대표: 염인선<span></span>사업자등록번호: 299-11-00402<span></span><br>계좌번호: <b>농협(염인선) 203027-51-050385</b><br />
 <span class="copy">Copyright 2016 © 이루펜션  All rights reserved.</span></p>
     </div>
@@ -213,6 +232,18 @@
 });
 </script>
    <div id="back2top" title="상단으로 가기"><img src="/resources/img/top_but.gif" alt="↑"></div>
- 
 </body>
+<script>
+    $(document).ready(function() {
+      $("#owl-demo").owlCarousel({
+        autoPlay: 3000,
+        items : 3,
+		navigation : true,
+		pagination:false,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+      });
+
+    });
+</script>
 </html>

@@ -10,9 +10,9 @@
 <div class="header wRap">
    <h1>이루펜션</h1>
    <div class="Right">
-     <a href="/main/index"><img src="/resources/img/top1on.gif" alt="예약하기"></a> <!-- //이미지파일이름...on.gif -->
-     <a href="/main/index"><img src="/resources/img/top2.gif" alt="예약안내"></a> <!-- /pen/img/top2on.gif -->
-     <a href="/main/index"><img src="/resources/img/top3.gif" alt="예약확인"></a> <!-- /pen/img/top3on.gif -->
+     <a href="/main/index"><img src="/resources/img/reservation/top1on.gif" alt="예약하기"></a> <!-- //이미지파일이름...on.gif -->
+     <a href="/main/index"><img src="/resources/img/reservation/top2.gif" alt="예약안내"></a> <!-- /pen/img/top2on.gif -->
+     <a href="/main/index"><img src="/resources/img/reservation/top3.gif" alt="예약확인"></a> <!-- /pen/img/top3on.gif -->
    </div>
 </div>
 <body>
@@ -26,7 +26,7 @@
 		<!-- -->
 		<div class="tab1 Right">
 			<ol>
-				<li><img src="/resources/img/proc1_01.gif"
+				<li><img src="/resources/img/reservation/proc1_01.gif"
 					alt="일자선택"></li>
 				<li>객실선택</li>
 				<li>정보입력</li>
@@ -99,12 +99,12 @@
 		<!-- //Year & Month -->
 
 		<p>
-			<span><img src="/resources/img/ico_2day.gif"
+			<span><img src="/resources/img/reservation/ico_2day.gif"
 				alt="To Day" align="absmiddle"> 오늘</span> <span><img
-				src="/resources/img/ico_ye.gif" alt="예"
+				src="/resources/img/reservation/ico_ye.gif" alt="예"
 				align="absmiddle"> 예약가능</span> <span><img
-				src="/resources/img/ico_end.gif" alt="완" align="absmiddle"> 예약완료</span> <span><img
-				src="/resources/img/ico_wait.gif" alt="대" align="absmiddle"> 예약대기</span><br>
+				src="/resources/img/reservation/ico_end.gif" alt="완" align="absmiddle"> 예약완료</span> <span><img
+				src="/resources/img/reservation/ico_wait.gif" alt="대" align="absmiddle"> 예약대기</span><br>
 			* 원하시는 날짜의 객실명을 선택하시면 실시간 예약이 가능합니다.
 		</p>
 
@@ -216,112 +216,112 @@
 					<ul class='reList'>
 							<li><a'
 								href='/pension/index.html?step=reserV&amp;code=1471309602&amp;year=2018&amp;month=3&amp;day=26&amp;selDay=2018-3-26'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>데이지(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309564&amp;year=2018&amp;month=3&amp;day=26&amp;selDay=2018-3-26'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>릴리(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309372&amp;year=2018&amp;month=3&amp;day=26&amp;selDay=2018-3-26'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>아이비</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1464661788&amp;year=2018&amp;month=3&amp;day=26&amp;selDay=2018-3-26'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>마가렛</span></a></li>
 						</ul></td>
 					<td class='b4_day'><strong>27 </strong>
 					<ul class='reList'>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309602&amp;year=2018&amp;month=3&amp;day=27&amp;selDay=2018-3-27'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>데이지(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309564&amp;year=2018&amp;month=3&amp;day=27&amp;selDay=2018-3-27'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>릴리(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309372&amp;year=2018&amp;month=3&amp;day=27&amp;selDay=2018-3-27'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>아이비</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1464661788&amp;year=2018&amp;month=3&amp;day=27&amp;selDay=2018-3-27'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>마가렛</span></a></li>
 						</ul></td>
 					<td class='b4_day'><strong>28 </strong>
 					<ul class='reList'>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309602&amp;year=2018&amp;month=3&amp;day=28&amp;selDay=2018-3-28'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>데이지(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309564&amp;year=2018&amp;month=3&amp;day=28&amp;selDay=2018-3-28'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>릴리(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309372&amp;year=2018&amp;month=3&amp;day=28&amp;selDay=2018-3-28'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>아이비</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1464661788&amp;year=2018&amp;month=3&amp;day=28&amp;selDay=2018-3-28'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>마가렛</span></a></li>
 						</ul></td>
 					<td class='b4_day'><strong>29 </strong>
 					<ul class='reList'>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309602&amp;year=2018&amp;month=3&amp;day=29&amp;selDay=2018-3-29'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>데이지(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309564&amp;year=2018&amp;month=3&amp;day=29&amp;selDay=2018-3-29'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>릴리(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309372&amp;year=2018&amp;month=3&amp;day=29&amp;selDay=2018-3-29'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>아이비</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1464661788&amp;year=2018&amp;month=3&amp;day=29&amp;selDay=2018-3-29'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>마가렛</span></a></li>
 						</ul></td>
 					<td class='b4_day'><strong>30 </strong>
 					<ul class='reList'>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309602&amp;year=2018&amp;month=3&amp;day=30&amp;selDay=2018-3-30'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>데이지(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309564&amp;year=2018&amp;month=3&amp;day=30&amp;selDay=2018-3-30'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>릴리(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309372&amp;year=2018&amp;month=3&amp;day=30&amp;selDay=2018-3-30'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>아이비</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1464661788&amp;year=2018&amp;month=3&amp;day=30&amp;selDay=2018-3-30'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>마가렛</span></a></li>
 						</ul></td>
 					<td class='blue b4_day'><strong>31 </strong>
 					<ul class='reList'>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309602&amp;year=2018&amp;month=3&amp;day=31&amp;selDay=2018-3-31'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>데이지(복층)</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1471309564&amp;year=2018&amp;month=3&amp;day=31&amp;selDay=2018-3-31'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>릴리(복층)</span></a></li>
-							<li><a href='#'><img src='/resources/img/ico_end.gif' alt='완'
+							<li><a href='#'><img src='/resources/img/reservation/ico_end.gif' alt='완'
 									align='absmiddle'><span style='color: #6a6a6a'>아이비</span></a></li>
 							<li><a
 								href='/pension/index.html?step=reserV&amp;code=1464661788&amp;year=2018&amp;month=3&amp;day=31&amp;selDay=2018-3-31'><img
-									src='/resources/img/ico_ye.gif' alt='예' align='absmiddle'><span
+									src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span
 									style='color: #6a6a6a'>마가렛</span></a></li>
 						</ul></td>
 				</tr>

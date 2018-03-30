@@ -5,7 +5,7 @@
 @import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
 @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 
-* {font-family:'Noto Sans KR','Nanum Gothic',Dotum,����,Tahoma,Geneva,sans-serif;}
+* {font-family:'Noto Sans KR','Nanum Gothic',Dotum,µ¸¿ò,Tahoma,Geneva,sans-serif;}
 /* HTML Reset */
 header,footer,section,article,aside,nav,menu,details,figure,figcaption,hgroup{display:block;}
 body,table,input,select,textarea,button,li,th,td{ font-size:14px; color:#272629; font-weight:400}
@@ -20,7 +20,7 @@ a, img { outline:none; temp:expression(this.hideFocus=true);}
 
 
 /************************************************************************
-                                   *���*
+                                   *»ó´Ü*
 ************************************************************************/
 .header{width:100%; margin:0 auto; z-index:99; padding:0;}
 .header:after {content:""; display:block; clear:both;}
@@ -43,7 +43,7 @@ a, img { outline:none; temp:expression(this.hideFocus=true);}
 .gnb_3{margin:0 105px 0 0; padding:0; float:left;}
 .gnb_4{margin:0 105px 0 0; padding:0; float:left;}
 .gnb_5{margin:0; padding:0; float:left;}
-	
+
 .gnb_1>a, .gnb_2>a, .gnb_3>a, .gnb_4>a, .gnb_5>a, .gnb_6>a{color:#fff; font-size:20px; font-weight:400; line-height:48px;}
 .depth1>li>a:active,.depth1>li>a:hover,.depth1>li>a:focus{color:#fff; font-size:20px; font-weight:400; line-height:48px;}
 .sub_menu{background:#1e1e1f; overflow:hidden; position: absolute; top:50px; left:0; right:0; display:none}
@@ -62,7 +62,7 @@ a, img { outline:none; temp:expression(this.hideFocus=true);}
 
 
 /************************************************************************
-                                   *���κ��־�*
+                                   *¸ÞÀÎºñÁÖ¾ó*
 ************************************************************************/
 .main_vi{margin:0 auto; padding:0; width:100%; height:502px; position:relative; overflow:hidden;}
 
@@ -81,9 +81,9 @@ a, img { outline:none; temp:expression(this.hideFocus=true);}
 #slides .slidesjs-play,
 #slides .slidesjs-stop {display:block; position:absolute; top:450px; font-size:0; z-index:20; margin:0; padding:0;  font-size:0px; text-indent:-9999px}
 
-#slides .slidesjs-play {left:50%; margin-left:570px; width:665px; text-align:left; background:url(/img/btn_play.png) 0 0 no-repeat; 
+#slides .slidesjs-play {left:50%; margin-left:570px; width:665px; text-align:left; background:url(/reources/img/main/btn_play.png) 0 0 no-repeat; 
 width:20px; height:20px;}
-#slides .slidesjs-stop {left:50%; margin-left:600px; width:635px; text-align:left; background:url(/img/btn_stop.png) 0 0 no-repeat; 
+#slides .slidesjs-stop {left:50%; margin-left:600px; width:635px; text-align:left; background:url(/resources/img/main/btn_stop.png) 0 0 no-repeat; 
 width:20px; height:20px;}
 
 #slides .slidesjs-pagination {position:absolute; bottom:23px; left:47%; margin-right:626px; width:144px; text-align:right; z-index:999; margin:0; padding:0;}
@@ -104,7 +104,7 @@ width:20px; height:20px;}
 
 /* img1*/
 .data-1 {text-shadow:1px 2px 3px #000000; margin:0; padding:0;}
-.data-1 .prd {top:0px; right:0px; background:url(/img/main_img.jpg) bottom center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
+.data-1 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img.jpg) bottom center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
 .data-1 .water01 {top:203px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-1 .water0102 {top:261px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:51.5%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-1 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -116,7 +116,7 @@ width:20px; height:20px;}
 
 /* img2*/
 .data-2 {text-shadow:1px 2px 3px #000000; margin:0; padding:0;}
-.data-2 .prd {top:0px; right:0px; background:url(/img/main_img1.jpg) center center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
+.data-2 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img1.jpg) center center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
 .data-2 .water01 {top:203px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-2 .water0102 {top:261px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:51.5%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-2 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -128,7 +128,7 @@ width:20px; height:20px;}
 
 /* img3*/
 .data-3 {text-shadow:1px 2px 3px #000000; margin:0; padding:0;}
-.data-3 .prd {top:0px; right:0px; background:url(/img/main_img2.jpg) center center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
+.data-3 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img2.jpg) center center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
 .data-3 .water01 {top:203px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-3 .water0102 {top:261px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:51.5%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-3 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -141,7 +141,7 @@ text-shadow:0 0 0 #ffffff;}
 
 /* img3*/
 .data-4 {text-shadow:1px 2px 3px #000000; margin:0; padding:0;}
-.data-4 .prd {top:0px; right:0px; background:url(/img/main_img3.jpg) center center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
+.data-4 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img3.jpg) center center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
 .data-4 .water01 {top:203px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-4 .water0102 {top:261px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:51.5%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-4 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -153,7 +153,7 @@ text-shadow:0 0 0 #ffffff;}
 
 /* img3*/
 .data-5 {text-shadow:1px 2px 3px #000000; margin:0; padding:0;}
-.data-5 .prd {top:0px; right:0px; background:url(/img/main_img4.jpg) bottom center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
+.data-5 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img4.jpg) bottom center no-repeat; width:100%; height:502px; margin-right:0px; z-index:1; overflow:hidden}
 .data-5 .water01 {top:203px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-5 .water0102 {top:261px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:51.5%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-5 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -167,7 +167,7 @@ text-shadow:0 0 0 #ffffff;}
 
 
 /************************************************************************
-                                   *���� ����*
+                                   *¼­ºê ³»¿ë*
 ************************************************************************/
 .sub_con{position:relative; margin:0 auto; padding:0; width:100%; clear:both}
 
@@ -179,7 +179,7 @@ text-shadow:0 0 0 #ffffff;}
 .s1_txt li.bt{float:none; margin:0; padding:0 0 60px 0; line-height:20px; overflow:hidden; word-wrap:break-word; word-break:keep-all;  font-size:15px; line-height:26px; text-align:center; letter-spacing:1px; width:1100px;}
 
 
-/*Ÿ��Ʋ*/
+/*Å¸ÀÌÆ²*/
 .title h2{margin:0 auto; padding:0; clear:both; overflow:hidden; text-align:center; font-size:42px; font-weight:100; text-transform:uppercase; color:#272629}
 .title h2 b{font-weight:400; margin:0; padding:0;}
 .title h3{margin:0 auto; padding:0 0 10px 0; clear:both; overflow:hidden; text-align:center; font-size:25px; font-weight:300; color:#7e7e7e;}
@@ -192,7 +192,7 @@ text-shadow:0 0 0 #ffffff;}
 
 
 /************************************************************************
-                                   *���ô±�*
+                                   *¿À½Ã´Â±æ*
 ************************************************************************/
 p.add b{font-weight: bold; margin:0; padding:0;}
 p.add{margin:0 auto; padding:16px 0 23px 0; clear:both; overflow:hidden; text-align:center; font-size:20px; font-weight:300; color:#3e3748;}
@@ -202,11 +202,11 @@ p.tel b{ font-size:22px; font-weight:400; line-height:0px;}
 
 
 /************************************************************************
-                                   *����ȳ�*
+                                   *¿¹¾à¾È³»*
 ************************************************************************/
 .info_box{margin:0 auto; padding:0; width:1252px; clear:both; overflow:hidden; text-align:left}
 .info_box>h3{font-size:1.25em;color:#3f3f3f;text-transform:uppercase;height:auto;line-height:100%;margin:15px 0 5px 0;background:none;padding-left:0;}
-/* ������ ǥ */
+/* ÄÁÅÙÃ÷ Ç¥ */
 caption{display:none; visibility:hidden;}
 .wideT{background-color:#d7d8de;margin:10px 0;border-top:2px solid #666;border-bottom:1px solid #666;}
 .wideT caption,
@@ -245,7 +245,7 @@ ul.list li b{color:#FF3300; font-size:14px;}
 
 
 /************************************************************************
-                                   *�ֺ�������*
+                                   *ÁÖº¯°ü±¤Áö*
 ************************************************************************/
 .tour_list{margin:0 0 6px 0; padding:0; width:620px; overflow:hidden; position:relative; float:left}
 .tour_list .txt{margin:0; padding:0; width:313px; height:340px; color:#fff; text-align:center; background-color:#2b1b58; position:absolute; transition:left 0.25s; left:-333px;}
@@ -275,7 +275,7 @@ ul.list li b{color:#FF3300; font-size:14px;}
 
 
 /************************************************************************
-                                   *�ϴ� ���*
+                                   슬라이드 css
 ************************************************************************/
 .ban_box{margin:160px auto 0 auto; padding:87px 0 107px 0; width:100%; clear:both; overflow:hidden; background-image:linear-gradient(-90deg,#f5f5f5,#e4e5e7); background:url(/img/ban_bg.gif) repeat-y;}
 .ban_con{margin:0 auto; padding:0; width:1252px; clear:both; overflow:hidden;}
@@ -284,18 +284,18 @@ ul.list li b{color:#FF3300; font-size:14px;}
 .ban_con ul{margin:0 auto; padding:58px 0 0 0; width:1252px; clear:both; overflow:hidden;}
 .ban_con ul li{float:left; margin:0 77.5px; padding:0; width:158px; height:158px;}
 
-.ban_con ul li a.ban01{background:url(/img/ban01.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban01:hover{background:url(/img/ban01_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban02{background:url(/img/ban02.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban02:hover{background:url(/img/ban02_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban03{background:url(/img/ban03.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban03:hover{background:url(/img/ban03_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban04{background:url(/img/ban04.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban04:hover{background:url(/img/ban04_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban01{background:url(/resources/img/main/ban01.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban01:hover{background:url(/resources/img/main/ban01_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban02{background:url(/resources/img/main/ban02.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban02:hover{background:url(/resources/img/main/ban02_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban03{background:url(/resources/img/main/ban03.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban03:hover{background:url(/resources/img/main/ban03_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban04{background:url(/resources/img/main/ban04.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban04:hover{background:url(/resources/img/main/ban04_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
 
 
 /************************************************************************
-                                   *�ϴ�*
+                                   footter css
 ************************************************************************/
 .footer{margin:0 auto; padding:22px 0; width:100%; clear:both; overflow:hidden; background-color:#1b1721;}
 .bottom{margin:0 auto; padding:0; width:1252px; clear:both; overflow:hidden;}
