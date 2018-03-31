@@ -81,9 +81,9 @@ a, img { outline:none; temp:expression(this.hideFocus=true);}
 #slides .slidesjs-play,
 #slides .slidesjs-stop {display:block; position:absolute; top:470px; font-size:0; z-index:20; margin:0; padding:0;  font-size:0px; text-indent:-9999px}
 
-#slides .slidesjs-play {left:50%; margin-left:570px; width:665px; text-align:left; background:url(/resources/img/main/btn_play.png) 0 0 no-repeat; 
+#slides .slidesjs-play {left:50%; margin-left:570px; width:665px; text-align:left; background:url(/resources/img/btn_play.png) 0 0 no-repeat; 
 width:20px; height:20px;}
-#slides .slidesjs-stop {left:50%; margin-left:600px; width:635px; text-align:left; background:url(/resources/img/main/btn_stop.png) 0 0 no-repeat; 
+#slides .slidesjs-stop {left:50%; margin-left:600px; width:635px; text-align:left; background:url(/resources/img/btn_stop.png) 0 0 no-repeat; 
 width:20px; height:20px;}
 
 #slides .slidesjs-pagination {position:absolute; bottom:43px; left:47%; margin-right:626px; width:144px; text-align:right; z-index:999; margin:0; padding:0;}
@@ -104,7 +104,7 @@ width:20px; height:20px;}
 
 /* img1*/
 .data-1 {text-shadow:1px 2px 3px #000000;margin:0; padding:0;}
-.data-1 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
+.data-1 .prd {top:0px; right:0px; background:url(/resources/img/main_img.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
 .data-1 .water01 {top:223px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-1 .water0102 {top:281px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:7%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-1 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -115,7 +115,7 @@ width:20px; height:20px;}
 
 /* img2*/
 .data-2 {text-shadow:1px 2px 3px #000000;margin:0; padding:0;}
-.data-2 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img1.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
+.data-2 .prd {top:0px; right:0px; background:url(/resources/img/main_img1.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
 .data-2 .water01 {top:223px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-2 .water0102 {top:281px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:7%; margin-right:662px; width:590px; text-align:left;  font-weight:200}
 .data-2 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -126,7 +126,7 @@ width:20px; height:20px;}
 
 /* img3*/
 .data-3 {text-shadow:1px 2px 3px #000000;margin:0; padding:0;}
-.data-3 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img2.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
+.data-3 .prd {top:0px; right:0px; background:url(/resources/img/main_img2.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
 .data-3 .water01 {top:223px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-3 .water0102 {top:281px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:51.5%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-3 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -137,7 +137,7 @@ width:20px; height:20px;}
 
 /* img3*/
 .data-4 {text-shadow:1px 2px 3px #000000;margin:0; padding:0;}
-.data-4 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img3.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
+.data-4 .prd {top:0px; right:0px; background:url(/resources/img/main_img3.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
 .data-4 .water01 {top:223px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-4 .water0102 {top:281px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:51.5%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-4 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -148,7 +148,7 @@ width:20px; height:20px;}
 
 /* img3*/
 .data-5 {text-shadow:1px 2px 3px #000000;margin:0; padding:0;}
-.data-5 .prd {top:0px; right:0px; background:url(/resources/img/main/main_img4.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
+.data-5 .prd {top:0px; right:0px; background:url(/resources/img/main_img4.jpg) top center no-repeat; width:100%; height:902px; margin-right:0px; z-index:1; overflow:hidden}
 .data-5 .water01 {top:223px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; text-transform:uppercase; left:45.3%; margin-right:502px; width:750px; text-align:right; font-weight:200} /* -345.5 */
 .data-5 .water0102 {top:281px; overflow:hidden;   z-index:11; font-size:48px; color:#fff; left:51.5%; margin-right:662px; width:590px; text-align:right;  font-weight:200}
 .data-5 .water02 {top:305px; z-index:11; font-size:25px; color:#fff; text-align:left; line-height:32px; left:7%; margin-right:642px; width:700px; font-weight: 200;} /* -75px */
@@ -168,8 +168,8 @@ width:20px; height:20px;}
 
 
 	#owl-demo{margin:0; padding:0 67.5px; width:1252px; overflow:hidden}
-	#owl-demo .owl-prev{ position:absolute; left:0px; top:30%; background:url(/resources/img/main/pr.gif); width:21px; height:35px; display:block}
-	#owl-demo .owl-next{ position:absolute; right:0px; top:30%; background:url(/resources/img/main/ne.gif); width:21px; height:35px; display:block}
+	#owl-demo .owl-prev{ position:absolute; left:0px; top:30%; background:url(/resources/img/pr.gif); width:21px; height:35px; display:block}
+	#owl-demo .owl-next{ position:absolute; right:0px; top:30%; background:url(/resources/img/ne.gif); width:21px; height:35px; display:block}
     #owl-demo .item{
         margin: 0;
     }
@@ -194,21 +194,21 @@ width:20px; height:20px;}
 /************************************************************************
                                    슬라이드쇼에  대한 css처리 
 ************************************************************************/
-.ban_box{margin:89px auto 0 auto; padding:67px 0; width:100%; clear:both; overflow:hidden; background-image:linear-gradient(-90deg,#f5f5f5,#e4e5e7); background:url(/img/ban_bg.gif) repeat-y;}
+.ban_box{margin:89px auto 0 auto; padding:67px 0; width:100%; clear:both; overflow:hidden; background-image:linear-gradient(-90deg,#f5f5f5,#e4e5e7); background:url(/resources/img/ban_bg.gif) repeat-y;}
 .ban_con{margin:0 auto; padding:0; width:1252px; clear:both; overflow:hidden;}
 .ban_con h2{margin:0 auto; padding:0; clear:both; overflow:hidden; text-align:left; font-size:42px; font-weight:100; text-transform:uppercase; color:#272629; line-height:62px;}
 .ban_con h3{margin:0 auto; padding:28px 0 0 0; clear:both; overflow:hidden; text-align:left; font-size:16px; font-weight:300; color:#272629;}
 .ban_con ul{margin:0 auto; padding:58px 0 0 0; width:1252px; clear:both; overflow:hidden;}
 .ban_con ul li{float:left; margin:0 0 0 162px; padding:0; width:158px; height:158px;}
 .ban_con ul li:first-child{margin:0 0 0 32px;}
-.ban_con ul li a.ban01{background:url(/resources/img/main/ban01.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban01:hover{background:url(/resources/img/main/ban01_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban02{background:url(/resources/img/main/ban02.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban02:hover{background:url(/resources/img/main/ban02_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban03{background:url(/resources/img/main/ban03.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban03:hover{background:url(/resources/img/main/ban03_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban04{background:url(/resources/img/main/ban04.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban04:hover{background:url(/resources/img/main/ban04_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban01{background:url(/resources/img/ban01.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban01:hover{background:url(/resources/img/ban01_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban02{background:url(/resources/img/ban02.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban02:hover{background:url(/resources/img/ban02_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban03{background:url(/resources/img/ban03.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban03:hover{background:url(/resources/img/ban03_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban04{background:url(/resources/img/ban04.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban04:hover{background:url(/resources/img/ban04_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
 
 
 

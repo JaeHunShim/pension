@@ -33,7 +33,7 @@
     </div>
 	<div class="Web navi">
         <div class="navi_box">
-            <h1><a href="/"><img src="/resources/img/main/logo.png" alt="이루펜션" /></a></h1>  
+            <h1><a href="/"><img src="/resources/img/logo.png" alt="이루펜션" /></a></h1>  
                 <div class="nav">
                     <div class="gnb">
                         <div class="gnb_wrap">
@@ -170,7 +170,7 @@
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
-			<iframe src="/main/index" frameBorder="no" width="100%" height="900px"  scrolling="auto"></iframe>
+			<iframe src="/main/reservation" frameBorder="no" width="100%" height="900px"  scrolling="auto"></iframe>
     </div>	
 </section> 
 
@@ -188,7 +188,7 @@
 </div>
 <div class="footer">
 	<div class="bottom">
-    	<h1><img src="/resources/img/main/f_logo.png" alt="이루펜션" onClick="window.open('/zzAppModule/admin','','');"></h1>
+    	<h1><img src="/resources/img/f_logo.png" alt="이루펜션" onClick="window.open('/zzAppModule/admin','','');"></h1>
        <p class="address">충청남도 보령시 웅천읍 간드리큰길 104-3 (관당리 165)<span></span>전화: 010-8598-4075, 010-9270-4073<span></span>대표: 염인선<span></span>사업자등록번호: 299-11-00402<span></span><br>계좌번호: <b>농협(염인선) 203027-51-050385</b><br />
 <span class="copy">Copyright 2016 © 이루펜션  All rights reserved.</span></p>
     </div>
