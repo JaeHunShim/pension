@@ -1,0 +1,49 @@
+
+
+/*ì „ì²´*/
+div.jq_gallery{width:1252px; height:860px; position:relative; margin:0 auto; background:none; padding:20px;  border:1px solid #666}
+div.jq_gallery:after{content:""; display:block; clear:both;}
+div.content{margin:0 auto; padding:0; width:1252px; height:860px;}
+
+
+/*ì‚¬ì§„ë‚˜ì˜¤ëŠ”ê³³ ì‚¬ì´ì¦ˆ*/
+div.slideshow-container, div.loader, div.slideshow a.advance-link, div.gallery_content{width:1252px;  padding:0; margin:0 auto;}
+div.slideshow-container{padding:0; top:0;  margin:0 auto;}
+div.slideshow-container .advance-link{line-height:0; font-size:0;  margin:0 auto;}
+div.slideshow-container .advance-link img{width:1252px; height:800px; margin:0; padding:0;}
+
+div.slideshow span.image-wrapper {display: block;position: absolute;top:0;left:0;}
+div.slideshow a.advance-link {display: block;text-align: center;}
+div.slideshow a.advance-link:hover,
+div.slideshow a.advance-link:active,
+div.slideshow a.advance-link:visited {text-decoration: none;}
+div.slideshow a.advance-link:focus {outline: none;}
+div.caption-container {float: right;position: relative;margin-top: 30px;}
+span.image-caption {display: block;position: absolute;top: 0;left: 0;}
+
+/*í°ì´ë¯¸ì§€ ì¢Œìš°ë²„íŠ¼*/
+div.navigation-container{position:absolute; top:822px; width:729px; margin:0 auto}
+div.navigation{width:1252px; height:63px; margin:0 auto; position:relative}
+.nav-controls{}
+.nav-controls a{position:absolute; width:67px; height:67px;  top:380px; overflow:hidden; line-height:300px; z-index:900;}
+div.controls a{padding:0;}
+.nav-controls a.prev{left:0; background-position:left 0; background:url(/resources/img/pre.png);}
+.nav-controls a.next{right:0; background-position:right 0; background:url(/resources/img/next.png);}
+/*í°ì´ë¯¸ì§€ ì¢Œìš°ë²„íŠ¼*/
+
+/*ìž‘ì€ì´ë¯¸ì§€ ì¢Œìš°ë²„íŠ¼*/
+div.navigation a.pageLink{width:27px; height:27px; overflow:hidden; position:absolute; top:8px; font-size:0px;}
+div.navigation a.pageLink.prev{left:0px; background:url(/resources/img/s_pre.png);}
+div.navigation a.pageLink.next{right:0px; background:url(/resources/img/s_next.png);}
+/*ìž‘ì€ì´ë¯¸ì§€ ì¢Œìš°ë²„íŠ¼*/
+
+
+
+div.navigation ul.thumbs img{width:80px; height:51px; border:none;}
+ul.thumbs{padding:0; margin:0 auto; width:1170px;}
+ul.thumbs li{margin:0 8px 0 0;  padding:0; float:left; border:1px solid #000000; overflow:hidden; font-size:0px;}
+ul.thumbs li a.thumb{margin:0; padding:0;}
+
+.gallery_content{position:relative;}
+
+

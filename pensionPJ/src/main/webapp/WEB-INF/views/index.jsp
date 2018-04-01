@@ -68,7 +68,7 @@
                                 <li class="gnb_3"><a href="/sub3/sub1.htm">예약안내</a>
                                     <div class="sub_menu">
                                         <ul class="depth2">
-                                            <li class="first"><a href="/sub3/sub1.htm">예약종합안내</a></li>
+                                            <li class="first"><a href="/main/resGuide">예약종합안내</a></li>
                                             <li><a href="/main/sub2">실시간예약</a></li>
                                         </ul>
                                     </div>

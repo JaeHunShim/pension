@@ -28,4 +28,9 @@ public class IndexController {
 		
 		return "/resGuide";
 	}
+	@RequestMapping(value="/intro",method=RequestMethod.GET)
+	public String intro() {
+		
+		return "intro";
+	}
 }
