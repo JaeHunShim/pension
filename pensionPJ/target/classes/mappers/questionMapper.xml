@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mapper.QuestionMapper">
+	<!-- 질문 삽입하는 부분  -->
+	<insert id="create">
+		insert into question(title,content,writer,password)values(#{title},#{content},#{writer},#{password})
+	</insert>
+</mapper>

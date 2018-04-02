@@ -2,7 +2,7 @@ package com.spring.pension.domain;
 
 import java.util.Date;
 
-public class BoardVO {
+public class ReserVO {
 
 		private Integer rCode;	//예약코드
 		private Date reserDate; //예약날짜
