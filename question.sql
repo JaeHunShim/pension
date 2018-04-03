@@ -1,6 +1,6 @@
 -- 질문과 답변 게시판 만들기
 
-use pention;
+use pension;
 
 CREATE TABLE `pension`.`question` (
   `qno` INT NOT NULL AUTO_INCREMENT,

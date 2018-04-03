@@ -6,4 +6,5 @@ public interface QuestionDAO {
 	
 	//질문등록
 	public void creat(QuestionVO questionVO) throws Exception;
+	
 }
