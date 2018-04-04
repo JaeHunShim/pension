@@ -41,4 +41,15 @@ public class QuestionController {
 		logger.info("rttr 메세지........................"+rttr.getFlashAttributes());
 		return "redirect:/main/index";
 	}
+	//smartEditor페이지 불러오는 부분
+	@RequestMapping(value="/SmartEditor2Skin", method=RequestMethod.GET)
+	public String SmartEditor2Skin() throws Exception{
+		
+		return "SmartEditor2Skin";
+	}
+	//smart_editor inputarea 불러오는 부분
+	@RequestMapping(value="/smart_editor2_inputarea",method=RequestMethod.GET)
+	public String inputArea() throws Exception {
+		return "/smart_editor2_inputarea";
+	}
 }

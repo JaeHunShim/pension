@@ -170,11 +170,11 @@
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
-		<script type='text/javascript' src='/zzAppModule/editors/se2/js/HuskyEZCreator.js' charset='utf-8'></script>
-		<script language='javascript' src='/zzAppModule/module/script/common.js'></script>
-		<script language='javascript' src='/zzAppModule/module/script/board.js'></script>
-		<script language='javascript' src='/zzAppModule/module/script/ajax.js'></script>
-		<link rel='stylesheet' href='/zzAppModule/bskin__collect/css/default.css'/>
+		<script src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8'></script>
+		<script src='/resources/js/common.js'></script>
+		<script src='/resources/js/board.js'></script>
+		<script src='/resources/js/ajax.js'></script>
+		<link rel='stylesheet' href='/resources/css/default.css'/>
 		<form method='post' name='writeF' action='/zzAppModule/process/board_ok.php' enctype='multipart/form-data'><input type='hidden' name='board_id' id='board_id' value="bbs2"><input type='hidden' name='bnum' id='bnum' value=""><input type='hidden' name='bmode' id='bmode' value="write"><input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121"><input type='hidden' name='fid' id='fid' value=""><input type='hidden' name='page' id='page' value=""><input type='hidden' name='set' id='set' value=""><input type='hidden' name='thread' id='thread' value=""><input type='hidden' name='viewMode' id='viewMode' value=""><input type='hidden' name='user_id' id='user_id' value=""><input type='hidden' name='rImURL' id='rImURL' value=""><input type='hidden' name='ttest' id='ttest' value=""><input type='hidden' name='smode' id='smode' value=""><input type='hidden' name='scode' id='scode' value=""><input type='hidden' name='_zct1' id='_zct1' value=""><input type='hidden' name='_zct2' id='_zct2' value=""><input type='hidden' name='sidx' id='sidx' value=""><input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,viewMode,_menu,page,set,ttest"><style type="text/css">
 .zz_new_write{margin:0 auto; position:relative; padding-bottom:90px; width:100%}
 </style>

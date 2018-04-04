@@ -7,18 +7,18 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <title>네이버 :: Smart Editor 2 &#8482;</title>
-<link href="css/smart_editor2.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/smart_editor2.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 	body { margin: 10px; }
 </style>
-<script type="text/javascript" src="./resources/js/writejs/jindo.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="./resources/js/writejs/jindo_component.js" charset="utf-8"></script>
-<script type="text/javascript" src="./resources/js/writejs/SE2B_Configuration_Service.js" charset="utf-8"></script>	<!-- 설정 파일 -->
-<script type="text/javascript" src="./resources/js/writejs/SE2B_Configuration_General.js" charset="utf-8"></script>	<!-- 설정 파일 -->
-<script type="text/javascript" src="./resources/js/writejs/SE2BasicCreator.js" charset="utf-8"></script>
+<script src="/resources/js/writeJs/jindo.min.js" charset="utf-8"></script>
+<script src="/resources/js/writeJs/jindo_component.js" charset="utf-8"></script>
+<script src="/resources/js/writeJs/SE2B_Configuration_Service.js" charset="utf-8"></script>	<!-- 설정 파일 -->
+<script src="/resources/js/writeJs/SE2B_Configuration_General.js" charset="utf-8"></script>	<!-- 설정 파일 -->
+<script src="/resources/js/writeJs/SE2BasicCreator.js" charset="utf-8"></script>
 
-<script src='js/smarteditor2.min.js' charset='utf-8'></script>
-<script src=/resources/js/writejs/hp_SE2M_AttachQuickPhoto.js' charset='utf-8'></script>
+<script src="/resources//js/writeJs/smarteditor2.min.js" charset='utf-8'></script>
+<script src="/resources/js/writeJs/hp_SE2M_AttachQuickPhoto.js" charset='utf-8'></script>
 </head>
 <body>
 

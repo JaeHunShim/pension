@@ -10,7 +10,7 @@ nhn.husky.SE2M_Configuration = nhn.husky.SE2M_Configuration || {};
  */
 nhn.husky.SE2M_Configuration.Editor = {
 	sJsBaseURL : './js_src',
-	sImageBaseURL : './img/'
+	sImageBaseURL : '/resources/img/'
 };
 
 /**
@@ -24,15 +24,15 @@ nhn.husky.SE2M_Configuration.LazyLoad = {
  * CSS LazyLoad를 위한 경로
  */
 nhn.husky.SE2M_Configuration.SE2B_CSSLoader = {
-	sCSSBaseURI : "css"
+	sCSSBaseURI : "/resources/css/"
 };
 
 /**
  * 편집영역 설정
  */
 nhn.husky.SE2M_Configuration.SE_EditingAreaManager = {
-	sCSSBaseURI : "css",
-	sBlankPageURL : "smart_editor2_inputarea.html",
+	sCSSBaseURI : "/resources/css/",
+	sBlankPageURL : "smart_editor2_inputarea",
 	sBlankPageURL_EmulateIE7 : "smart_editor2_inputarea_ie8.html",
 	aAddtionalEmulateIE7 : [] // IE8 default 사용, IE9 ~ 선택적 사용
 };
