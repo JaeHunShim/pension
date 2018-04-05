@@ -17,7 +17,7 @@
 <script src="/resources/js/writeJs/SE2B_Configuration_General.js" charset="utf-8"></script>	<!-- 설정 파일 -->
 <script src="/resources/js/writeJs/SE2BasicCreator.js" charset="utf-8"></script>
 
-<script src="/resources//js/writeJs/smarteditor2.min.js" charset='utf-8'></script>
+<script src="/resources/js/writeJs/smarteditor2.min.js" charset='utf-8'></script>
 <script src="/resources/js/writeJs/hp_SE2M_AttachQuickPhoto.js" charset='utf-8'></script>
 </head>
 <body>

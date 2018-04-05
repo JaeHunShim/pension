@@ -9,8 +9,8 @@ nhn.husky.SE2M_Configuration = nhn.husky.SE2M_Configuration || {};
  * 스마트에디터2에서 접근하는 JS, IMG 디렉토리
  */
 nhn.husky.SE2M_Configuration.Editor = {
-	sJsBaseURL : './js_src',
-	sImageBaseURL : '/resources/img/'
+	sJsBaseURL : '/resources/js/',
+	sImageBaseURL :'/resources/img/'
 };
 
 /**
