@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<style type="text/css">
+.zz_new_write{margin:0 auto; position:relative; padding-bottom:90px; width:100%}
+</style>
 <html>
 <head>
 <meta name="naver-site-verification" content="4be275fbcf12fb470711cb98c210da2e3861002e"/>
@@ -175,27 +178,53 @@
 		<script src='/resources/js/board.js'></script>
 		<script src='/resources/js/ajax.js'></script>
 		<link rel='stylesheet' href='/resources/css/default.css'/>
-		<form method='post' name='writeF' action='/zzAppModule/process/board_ok.php' enctype='multipart/form-data'><input type='hidden' name='board_id' id='board_id' value="bbs2"><input type='hidden' name='bnum' id='bnum' value=""><input type='hidden' name='bmode' id='bmode' value="write"><input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121"><input type='hidden' name='fid' id='fid' value=""><input type='hidden' name='page' id='page' value=""><input type='hidden' name='set' id='set' value=""><input type='hidden' name='thread' id='thread' value=""><input type='hidden' name='viewMode' id='viewMode' value=""><input type='hidden' name='user_id' id='user_id' value=""><input type='hidden' name='rImURL' id='rImURL' value=""><input type='hidden' name='ttest' id='ttest' value=""><input type='hidden' name='smode' id='smode' value=""><input type='hidden' name='scode' id='scode' value=""><input type='hidden' name='_zct1' id='_zct1' value=""><input type='hidden' name='_zct2' id='_zct2' value=""><input type='hidden' name='sidx' id='sidx' value=""><input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,viewMode,_menu,page,set,ttest"><style type="text/css">
-.zz_new_write{margin:0 auto; position:relative; padding-bottom:90px; width:100%}
-</style>
+	<form method='post' name='writeF' action='/question/register' enctype='multipart/form-data'>
+		<input type='hidden' name='board_id' id='board_id' value="bbs2">
+		<input type='hidden' name='bnum' id='bnum' value="">
+		<input type='hidden' name='bmode' id='bmode' value="write">
+		<input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121">
+		<input type='hidden' name='fid' id='fid' value="">
+		<input type='hidden' name='page' id='page' value="">
+		<input type='hidden' name='set' id='set' value="">
+		<input type='hidden' name='thread' id='thread' value="">
+		<input type='hidden' name='viewMode' id='viewMode' value="">
+		<input type='hidden' name='user_id' id='user_id' value="">
+		<input type='hidden' name='rImURL' id='rImURL' value="">
+		<input type='hidden' name='ttest' id='ttest' value="">
+		<input type='hidden' name='smode' id='smode' value="">
+		<input type='hidden' name='scode' id='scode' value="">
+		<input type='hidden' name='_zct1' id='_zct1' value="">
+		<input type='hidden' name='_zct2' id='_zct2' value="">
+		<input type='hidden' name='sidx' id='sidx' value="">
+		<input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,viewMode,_menu,page,set,ttest">
+
 <div class="zz_new_write">  
     <div class="zz_new_write contenter">
     	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zz_write_table">
 													 <tr>
             <th scope="row">제목</th>
-            <td><input type='text' name='title' id='title' value="" in_ttl='제목'  in_mode='y' in_type='01' class='iptborder' style='width:300px'></td>
+            	<td>
+            		<input type='text' name='title' id='title' value="" in_ttl='제목'  in_mode='y' in_type='01' class='iptborder' style='width:300px'>
+            		
+            	</td>
           </tr>
 									 <tr>
             <th scope="row">비밀글</th>
-            <td><input type='radio' name='privacy' id='privacy' value='y'  in_lng='1' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> y<input type='radio' name='privacy' id='privacy' value='n' checked in_lng='2' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> n</td>
+            	<td>
+            		<input type='radio' name='privacy' id='privacy' value='y'  in_lng='1' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> y<input type='radio' name='privacy' id='privacy' value='n' checked in_lng='2' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> n</td>
           </tr>
 									 <tr>
             <th scope="row">성명</th>
-            <td><input type='text' name='name' id='name' value="" in_ttl='성명'  in_mode='y' in_type='01' class='iptborder' ></td>
+            	<td>
+            		<input type='text' name='writer' id='writer' value="" in_ttl='성명'  in_mode='y' in_type='01' class='iptborder' >
+
+            	</td>
           </tr>
 									 <tr>
             <th scope="row">비밀번호</th>
-            <td><input type='password' name='pwd' id='pwd' value="" in_ttl='비밀번호'  in_mode='y' in_type='10' class='iptborder' ></td>
+            	<td>
+            		<input type='password' name='password' id='password' value="" in_ttl='비밀번호'  in_mode='y' in_type='10' class='iptborder' >
+            	</td>
           </tr>
 				          <tr>
             <th scope="row">내용</th>
@@ -226,8 +255,9 @@
 				        </table>
     </div>
     <div class="zz_new_write but">
-		
-    	<a href="javascript:chkBoardForm(writeF)" class="ok">확인</a>  <a href="javascript:history.go('-1')" class="list">리스트</a>
+		<button type="submit" class="ok">확인</button>
+    	<!-- <a href="javascript:chkBoardForm(writeF)" class="ok">확인</a> 
+    	<a href="javascript:history.go('-1')" class="list">리스트</a> -->
     </div>
 </div></form>
  
