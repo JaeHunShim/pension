@@ -6,4 +6,8 @@
 	<insert id="create">
 		insert into question(title,content,writer,password)values(#{title},#{content},#{writer},#{password})
 	</insert>
+	<!-- content 만따로 빼서 삽입하는 부분 -->
+	<insert id="content">
+		insert into question(content)values(#{content})
+	</insert>
 </mapper>

@@ -24,7 +24,15 @@
 <script src="/resources/js/TweenMax.min.js"></script>
 <script src="/resources/js/main.js"></script>
 <title>Insert title here</title>
-
+<script>
+	$(document).ready(function(){
+		$('#regisger').on('click',function(){
+			
+			$(".writeF").submit();	
+		});	
+	});
+	
+</script>
 </head>
 <body>
 <div class="header">
@@ -255,11 +263,12 @@
 				        </table>
     </div>
     <div class="zz_new_write but">
-		<button type="submit" class="ok">확인</button>
+		<button type="button" id="register" class="ok">확인</button>
     	<!-- <a href="javascript:chkBoardForm(writeF)" class="ok">확인</a> 
     	<a href="javascript:history.go('-1')" class="list">리스트</a> -->
     </div>
-</div></form>
+</div>
+</form>
  
 
     </div>	

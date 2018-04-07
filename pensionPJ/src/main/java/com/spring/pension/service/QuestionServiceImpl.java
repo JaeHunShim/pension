@@ -25,4 +25,5 @@ public class QuestionServiceImpl implements QuestionService {
 		questionDAO.creat(questionVO);
 	}
 
+
 }
