@@ -23,10 +23,9 @@ public class QuestionController {
 	private QuestionService questionService;
 	// 질문과 답변 으로 이동
 	@RequestMapping(value="/register" ,method= RequestMethod.GET)
-	public String regiserGet(QuestionVO questionVO,Model model) throws Exception{
+	public void regiserGet(QuestionVO questionVO,Model model) throws Exception{
 		logger.info("질문와 답변 게시판으로 이동------------------------");
 		
-		return "register";
 	}
 	// 질문등록 처리
 	@RequestMapping(value="/register", method=RequestMethod.POST)

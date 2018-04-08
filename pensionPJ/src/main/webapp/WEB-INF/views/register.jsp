@@ -23,16 +23,7 @@
 <script src="/resources/js/jquery.slides.min.js" ></script>
 <script src="/resources/js/TweenMax.min.js"></script>
 <script src="/resources/js/main.js"></script>
-<title>Insert title here</title>
-<script>
-	$(document).ready(function(){
-		$('#regisger').on('click',function(){
-			
-			$(".writeF").submit();	
-		});	
-	});
-	
-</script>
+<title>글쓰기 페이지</title>
 </head>
 <body>
 <div class="header">
@@ -186,7 +177,7 @@
 		<script src='/resources/js/board.js'></script>
 		<script src='/resources/js/ajax.js'></script>
 		<link rel='stylesheet' href='/resources/css/default.css'/>
-	<form method='post' name='writeF' action='/question/register' enctype='multipart/form-data'>
+	<form method='post' name='writeF'id="writeF" action="/question/register">
 		<input type='hidden' name='board_id' id='board_id' value="bbs2">
 		<input type='hidden' name='bnum' id='bnum' value="">
 		<input type='hidden' name='bmode' id='bmode' value="write">
@@ -225,13 +216,14 @@
             <th scope="row">성명</th>
             	<td>
             		<input type='text' name='writer' id='writer' value="" in_ttl='성명'  in_mode='y' in_type='01' class='iptborder' >
-
+					
             	</td>
           </tr>
 									 <tr>
             <th scope="row">비밀번호</th>
             	<td>
             		<input type='password' name='password' id='password' value="" in_ttl='비밀번호'  in_mode='y' in_type='10' class='iptborder' >
+            		
             	</td>
           </tr>
 				          <tr>
@@ -247,11 +239,23 @@
 			elPlaceHolder: 'content',
 			//sSkinURI: '/zzAppModule/editors/se2/SmartEditor2Skin.html',
 			sSkinURI: '/question/SmartEditor2Skin',
-			htParams : {bUseToolbar : true,
+			htParams : {
+				bUseToolbar : true,
+				bUseModeChanger : true,
 				fOnBeforeUnload : function(){}
 			}, 
 			fCreator: 'createSEditor2'
 		});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#insertBoard").click(function(){
+		            //id가 smarteditor인 textarea에 에디터에서 대입
+		            oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+		            //폼 submit
+		            $("#writeF").submit();
+		        });
+			});
 		</script>
 		</td>
           </tr>
@@ -263,7 +267,7 @@
 				        </table>
     </div>
     <div class="zz_new_write but">
-		<button type="button" id="register" class="ok">확인</button>
+		<button type="button" id="insertBoard" class="ok">확인</button>
     	<!-- <a href="javascript:chkBoardForm(writeF)" class="ok">확인</a> 
     	<a href="javascript:history.go('-1')" class="list">리스트</a> -->
     </div>
