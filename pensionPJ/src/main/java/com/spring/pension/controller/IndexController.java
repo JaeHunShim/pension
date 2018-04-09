@@ -18,4 +18,10 @@ public class IndexController {
 		
 		return "intro";
 	}
+
+	@RequestMapping(value="question",method=RequestMethod.GET)
+	public String question() {
+		
+		return "question";
+	}
 }

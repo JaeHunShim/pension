@@ -41,7 +41,11 @@
 		<div class="Web navi">
 			<div class="navi_box">
 				<h1>
+<<<<<<< HEAD
 					<a href="/main/index"><img src="/resources/img/logo.png" alt="이루펜션" /></a>
+=======
+					<a href="/"><img src="/resources/img/logo.png" alt="이루펜션" /></a>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 				</h1>
 				<div class="nav">
 					<div class="gnb">
@@ -50,14 +54,20 @@
 								<li class="gnb_1"><a href="/main/index">이루펜션</a>
 									<div class="sub_menu">
 										<ul class="depth2">
+<<<<<<< HEAD
 											<li class="first"><a href="#">인사말</a></li>
 											<li><a href="#">오시는 길</a></li>
+=======
+											<li class="first"><a href="/sub1/sub1.htm">인사말</a></li>
+											<li><a href="/sub1/sub2.htm">오시는 길</a></li>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 										</ul>
 									</div></li>
 
 
 
 
+<<<<<<< HEAD
 								<li class="gnb_2"><a href="#">객실안내</a>
 									<div class="sub_menu">
 										<ul class="depth2">
@@ -65,6 +75,15 @@
 											<li><a href="#">릴리</a></li>
 											<li><a href="#">아이비</a></li>
 											<li><a href="#">마가렛</a></li>
+=======
+								<li class="gnb_2"><a href="/sub2/sub1.htm">객실안내</a>
+									<div class="sub_menu">
+										<ul class="depth2">
+											<li class="first"><a href="/sub2/sub1.htm">데이지</a></li>
+											<li><a href="/sub2/sub2.htm">릴리</a></li>
+											<li><a href="/sub2/sub3.htm">아이비</a></li>
+											<li><a href="/sub2/sub4.htm">마가렛</a></li>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 										</ul>
 									</div></li>
 
@@ -72,12 +91,21 @@
 								<li class="gnb_3"><a href="/sub3/sub1.htm">예약안내</a>
 									<div class="sub_menu">
 										<ul class="depth2">
+<<<<<<< HEAD
 											<li class="first"><a href="/reservation/resGuide">예약종합안내</a></li>
 											<li><a href="/reservation/sub2">실시간예약</a></li>
 										</ul>
 									</div></li>
 
 								<li class="gnb_4"><a href="#">주변관광지</a>
+=======
+											<li class="first"><a href="/main/resGuide">예약종합안내</a></li>
+											<li><a href="/main/sub2">실시간예약</a></li>
+										</ul>
+									</div></li>
+
+								<li class="gnb_4"><a href="/sub4/sub1.htm">주변관광지</a>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 									<div class="sub_menu">
 										<ul class="depth2">
 											<li class="first"><a href="/sub4/sub1.htm#tour01">대천해수욕장</a></li>
@@ -91,7 +119,11 @@
 
 
 
+<<<<<<< HEAD
 								<li class="gnb_5"><a href="/notice/listAll">커뮤니티</a>
+=======
+								<li class="gnb_5"><a href="/main/notice">커뮤니티</a>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 									<div class="sub_menu">
 										<ul class="depth2">
 											<li class="first"><a href="/notice/listAll">공지사항</a></li>
@@ -122,7 +154,11 @@
 							초대합니다.
 						</div>
 						<div class="opa water03">
+<<<<<<< HEAD
 							<a href="/reservation/sub2">실시간예약</a>
+=======
+							<a href="/main/sub2">실시간예약</a>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 						</div>
 						<div class="opa prd"></div>
 					</div>
@@ -136,7 +172,11 @@
 							초대합니다.
 						</div>
 						<div class="opa water03">
+<<<<<<< HEAD
 							<a href="/reservation/sub2">실시간예약</a>
+=======
+							<a href="/main/sub2">실시간예약</a>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 						</div>
 						<div class="opa prd"></div>
 					</div>
@@ -150,7 +190,11 @@
 							초대합니다.
 						</div>
 						<div class="opa water03">
+<<<<<<< HEAD
 							<a href="/reservation/sub2">실시간예약</a>
+=======
+							<a href="/main/sub2">실시간예약</a>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 						</div>
 						<div class="opa prd"></div>
 					</div>
@@ -164,7 +208,11 @@
 							초대합니다.
 						</div>
 						<div class="opa water03">
+<<<<<<< HEAD
 							<a href="/reservation/sub2">실시간예약</a>
+=======
+							<a href="/main/sub2">실시간예약</a>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 						</div>
 						<div class="opa prd"></div>
 					</div>
@@ -178,7 +226,11 @@
 							초대합니다.
 						</div>
 						<div class="opa water03">
+<<<<<<< HEAD
 							<a href="/reservation/sub2">실시간예약</a>
+=======
+							<a href="/main/sub2">실시간예약</a>
+>>>>>>> 1f0f98dd0e5342c76be3fceb40d634c190492c74
 						</div>
 						<div class="opa prd"></div>
 					</div>

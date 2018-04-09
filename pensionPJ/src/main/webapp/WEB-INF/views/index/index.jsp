@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="include/header.jsp" %>
+<%@ include file="../include/header.jsp" %>
 <div class="room_box">
 	<h2><b>Room</b> Information</h2>
     <h3>무창포 이루펜션의 바다의 향기를 느껴보세요.</h3>
@@ -34,4 +34,4 @@
         
     </div>
 </div>
-<%@ include file="include/footer.jsp" %>
+<%@ include file="../include/footer.jsp" %>
