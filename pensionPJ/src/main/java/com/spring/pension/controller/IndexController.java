@@ -5,34 +5,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/main")
+@RequestMapping("/main/*")
 public class IndexController {
-
+	//메인 페이지로 이동
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String main() {
 		
-		return "/index";
+		return "index";
 	}
-	@RequestMapping(value="/sub2",method=RequestMethod.GET)
-	public String index() {
-		
-		return "/sub2";
-	}
-	@RequestMapping(value="/reservation",method=RequestMethod.GET)
-	public String index2() {
-		
-		return "/reservation";
-	}
-	@RequestMapping(value="/resGuide",method=RequestMethod.GET)
-	public String resGuide() {
-		
-		return "/resGuide";
-	}
-	@RequestMapping(value="/intro",method=RequestMethod.GET)
+	@RequestMapping(value="/intro", method=RequestMethod.GET)
 	public String intro() {
 		
 		return "intro";
 	}
+
 	@RequestMapping(value="question",method=RequestMethod.GET)
 	public String question() {
 		

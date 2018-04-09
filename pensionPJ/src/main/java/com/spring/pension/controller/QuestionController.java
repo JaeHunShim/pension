@@ -51,4 +51,9 @@ public class QuestionController {
 	public String inputArea() throws Exception {
 		return "/smart_editor2_inputarea";
 	}
+	@RequestMapping(value="/listAll", method=RequestMethod.GET)
+	public String listAll() {
+		
+		return "question";
+	}
 }
