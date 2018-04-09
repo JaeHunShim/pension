@@ -161,19 +161,95 @@
 
 	</div>
 </div>
-
 <section class="sub_con sub02" id="scene1">
-	<div class="title">
-        <h2><b>reservation</b></h2>
-        <h3>실시간예약</h3>
-        <h4>무창포 이루펜션의 바다의 향기를 느껴보세요.</h4>
+
+<div class="title">
+        <h2>community</h2>
+        <h3>공지사항</h3>
+        <h4>무창포 이루펜션의 바다의 향기를 느껴보세요. </h4>
         <p class="tit_line"></p>
     </div>
-    <div class="sub_txt box">
-			<iframe src="/reservation/reservation" frameBorder="no" width="100%" height="900px"  scrolling="auto"></iframe>
-    </div>	
-</section> 
+    <div class="sub_txt box"><script language="javascript" src="/zzAppModule/module/script/ajax.js"></script>
+<script language="javascript" src="/zzAppModule/module/script/board.js"></script>
+<script language="javascript" src="/zzAppModule/module/script/common.js"></script>
+<link rel="stylesheet" href="/zzAppModule/bskin__collect/css/default.css"/>
+<style type="text/css">
+.zz_new_list{margin:0 auto; position:relative; padding-bottom:90px; width:100%}
+</style>
+<div class="zz_new_list">
+	<form name="bSchForm" method="get" action="">
+	<input type="hidden" name="_zidx" value="1464662100^1^1464662114">
+	<input type="hidden" name="viewMode" value="">
+	<input type="hidden" name="bflag" value="">
+	<input type="hidden" name="code" value="">
+	<div class="zz_new_list_header">
+    	<ul class="zz_search_box">
+        	<li>
+            	<select name="skey" id="skey">
+                    <option value="1" selected>제목</option>
+                    <option value="2">내용</option>
+                    <option value="3">작성자 </option>
+                </select>
+            </li>
+            <li><input type="text" name="sword" id="textfield"></li>
+            <li><img src="/zzAppModule/bskin__collect/img/search.gif" onClick="javascript:bSchForm.submit();"  style="cursor:pointer"></li>
+        </ul>
+    </div>
+	</form>
+		<div class="zz_new_list contenter">
+			<table border="0" cellspacing="0" cellpadding="0" width="100%" class="zz_new_d table">
+          <tr>
+            <th scope="col" width="60">번호</th>
+            <th scope="col">제목</th>
+            <th scope="col" width="100">작성자</th>
+            <th scope="col" width="100">작성일</th>
+            <th scope="col" width="100">조회수</th>
+          </tr>
+					
+          <tr >
+            <td>2</td>
+            <td class="title"><a href="?_zidx=1464662100^1^1464662114&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=11&"> 2018년 무창포 신비의 바닷길 시간</a></td>
+            <td>관리자</td>
+            <td>2018-02-02</td>
+            <td>21</td>
+          </tr>
 
+
+					
+          <tr >
+            <td>1</td>
+            <td class="title"><a href="?_zidx=1464662100^1^1464662114&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=7&"> 이루펜션 이용후기 이벤트</a></td>
+            <td>관리자</td>
+            <td>2017-01-07</td>
+            <td>108</td>
+          </tr>
+         
+        
+    </table>
+    </div>
+    <div class="zz_new_list bottom">
+        <div class="zz_new_list pageing">
+
+				 <table cellpadding="0" cellspacing="0" border="0" align="center">
+                <tr>
+                    <td>
+                     <img src=/zzAppModule/bskin__collect/img/prev.gif class='prev'><ul><li class='on'>1</li></ul><img src=/zzAppModule/bskin__collect/img/next.gif class='next'>                    </td>
+                </tr>
+            </table>
+            
+                        
+        </div>
+        <div class="zz_new_list but"></div>
+    </div>
+    
+</div>
+
+
+ 
+
+    </div>	
+
+</section>
 <div class="ban_box">
 	<div class="ban_con">
         <h2>무창포 이루펜션<br />소개 및 예약안내, 실시간예약</h2>
