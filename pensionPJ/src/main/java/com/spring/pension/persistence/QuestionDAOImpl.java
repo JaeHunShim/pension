@@ -1,5 +1,7 @@
 package com.spring.pension.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,6 +26,12 @@ public class QuestionDAOImpl implements QuestionDAO {
 		logger.info("질문등록DAO--------" + questionVO);
 		
 		sqlSession.insert(namespace+".create", questionVO);
+	}
+	// 등록된 글목록 불러오기 
+	@Override
+	public List<QuestionVO> listAll() throws Exception {
+		
+		return sqlSession.selectList(namespace+".listAll");
 	}
 
 }

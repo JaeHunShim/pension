@@ -1,5 +1,7 @@
 package com.spring.pension.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -23,6 +25,12 @@ public class QuestionServiceImpl implements QuestionService {
 		logger.info("게시물 등록 Service" + questionDAO);
 		
 		questionDAO.creat(questionVO);
+	}
+	// 게시글 목록 가져오기
+	@Override
+	public List<QuestionVO> listAll() throws Exception {
+		
+		return questionDAO.listAll();
 	}
 
 

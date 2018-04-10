@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -207,16 +209,16 @@
             <th scope="col" width="100">조회수</th>
           </tr>
            		
-          
-          <tr >
-            <td>1</td>
-            <td class="title"> <font color='red'><img src='/resources/img/icon_secret.gif' border='0' align='absmiddle'></font><a href="?_zidx=1464662100^1^1464662121&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=7&"> 질문(1)</a></td>
+          <c:forEach items="${list}" var="questionVO">
+          <tr>
+            <td>${qustionVO.qno}</td>
+            <td class="title"><font color='red'><img src='/resources/img/icon_secret.gif' border='0' align='absmiddle'></font><a href="?_zidx=1464662100^1^1464662121&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=7&">${qustionVO.title}</a></td>
             <td><p class='flag_but'>대기중</p></td>
-            <td>정다경</td>
-            <td>2017-09-14</td>
-            <td>6</td>
-                 </tr>
-         
+            <td></td>
+            <td>${qustionVO.regdate}</td>
+            <td>${questionVO.viewcnt}</td>
+           </tr>
+         </c:forEach>
         
     </table>
     </div>

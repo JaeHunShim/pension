@@ -21,3 +21,10 @@ insert into question(title,content,writer,password) values('첫번째글','첫�
 -- 질문 게시판 보기 --
 
 select * from question;
+
+-- 질문 게시판 목록 보기
+
+select qno,title,content,writer,regdate,viewcnt
+	from question
+    order by qno desc, regdate;
+

@@ -6,4 +6,15 @@
 	<insert id="create">
 		insert into question(title,content,writer,password)values(#{title},#{content},#{writer},#{password})
 	</insert>
+	<!-- 질문 목록 보여주는 부분 -->
+	<select id="listAll" resultType="com.spring.pension.domain.QuestionVO">
+		<![CDATA[
+		select
+			qno,title,content,writer,regdate,viewcnt
+		from
+			question
+		where bno>0
+		order by qno desc,regdate desc
+		]]>
+	</select>
 </mapper>

@@ -22,10 +22,10 @@ public class QuestionController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(QuestionController.class);
 	//글 몰록보기
-	@RequestMapping(value="/list",method=RequestMethod.GET)
-	public  String list() throws Exception {
+	@RequestMapping(value="/listAll",method=RequestMethod.GET)
+	public  void listAll(Model model) throws Exception {
 		
-		return "/question/list";
+		model.addAttribute("list",questionServcie.listAll());
 	}
 	//글작성 페이지 이동 
 	@RequestMapping(value="/register", method=RequestMethod.GET)
