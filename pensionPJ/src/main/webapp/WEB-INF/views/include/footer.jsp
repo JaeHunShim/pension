@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/footer.jsp" %>
 <div class="ban_box">
 	<div class="ban_con">
         <h2>무창포 이루펜션<br>소개 및 예약안내, 실시간예약</h2>
@@ -41,6 +40,7 @@
 </script>
    <div id="back2top" title="상단으로 가기"><img src="/resources/img/top_but.gif" alt="↑"></div>
 </body>
+</html>
 <script>
     $(document).ready(function() {
       $("#owl-demo").owlCarousel({
@@ -54,3 +54,6 @@
 
     });
 </script>
+<script src="/resources/js/common.js"></script>
+<script src="/resources/js/board.js"></script>
+<script src="/resources/js/ajax.js"></script> 

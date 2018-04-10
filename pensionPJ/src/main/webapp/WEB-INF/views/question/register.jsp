@@ -23,6 +23,8 @@
 <script src="/resources/js/jquery.slides.min.js" ></script>
 <script src="/resources/js/TweenMax.min.js"></script>
 <script src="/resources/js/main.js"></script>
+<script src="/resources/js/shop.js" type="text/javascript"></script>
+<script src="/resources/js/owl.carousel.js" type="text/javascript"></script>
 <title>글쓰기 페이지</title>
 </head>
 <body>

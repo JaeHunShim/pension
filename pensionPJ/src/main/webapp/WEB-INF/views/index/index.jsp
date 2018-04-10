@@ -31,7 +31,6 @@
                 <p class="room_view"><a href="/sub2/sub4.htm">객실보기</a></p>
             </div>
         </div>
-        
     </div>
 </div>
 <%@ include file="../include/footer.jsp" %>
