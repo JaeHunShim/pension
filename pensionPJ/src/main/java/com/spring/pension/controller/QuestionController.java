@@ -24,7 +24,7 @@ public class QuestionController {
 	//글 몰록보기
 	@RequestMapping(value="/listAll",method=RequestMethod.GET)
 	public  void listAll(Model model) throws Exception {
-		
+		logger.info("글목록 불러오기------------------");
 		model.addAttribute("list",questionServcie.listAll());
 	}
 	//글작성 페이지 이동 
@@ -43,7 +43,7 @@ public class QuestionController {
 		rttr.addFlashAttribute("msg","success");
 		logger.info("rttr 메세지........................"+rttr.getFlashAttributes());
 		
-		return "redirect:/question/list";
+		return "redirect:/question/listAll";
 	}
 	//smartSkin 으로 텍스트 에어리어 불러오기
 	@RequestMapping(value="/SmartEditor2Skin",method=RequestMethod.GET)

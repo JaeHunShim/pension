@@ -211,11 +211,11 @@
            		
           <c:forEach items="${list}" var="questionVO">
           <tr>
-            <td>${qustionVO.qno}</td>
-            <td class="title"><font color='red'><img src='/resources/img/icon_secret.gif' border='0' align='absmiddle'></font><a href="?_zidx=1464662100^1^1464662121&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=7&">${qustionVO.title}</a></td>
+            <td>${questionVO.qno}</td>
+            <td>${questionVO.title}<font color='red'><img src='/resources/img/icon_secret.gif' border='0' align='absmiddle'></font><a href="#"></a></td>
             <td><p class='flag_but'>대기중</p></td>
             <td></td>
-            <td>${qustionVO.regdate}</td>
+            <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${questionVO.regdate}"/></td>
             <td>${questionVO.viewcnt}</td>
            </tr>
          </c:forEach>
