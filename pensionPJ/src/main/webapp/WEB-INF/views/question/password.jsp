@@ -38,8 +38,8 @@
 <div class="header">
 	<div class="top_box">
         <ul>
-            <li><a href="/sub1/sub2.htm">contact us</a></li>
-            <li><a href="/index.htm">HOME</a></li>
+            <li><a href="/main/intro">contact us</a></li>
+            <li><a href="/main/index">HOME</a></li>
         </ul>
     </div>
     
@@ -51,11 +51,11 @@
                     <div class="gnb">
                         <div class="gnb_wrap">
                                 <ul class="depth1">
-                                    <li class="gnb_1"><a href="/sub1/sub1.htm">이루펜션</a>
+                                    <li class="gnb_1"><a href="/main/index">이루펜션</a>
                                     <div class="sub_menu">
                                         <ul class="depth2">
-                                            <li class="first"><a href="/sub1/sub1.htm">인사말</a></li>
-                                            <li><a href="/sub1/sub2.htm">오시는 길</a></li>
+                                            <li class="first"><a href="main/intro">인사말</a></li>
+                                            <li><a href="#">오시는 길</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -75,11 +75,11 @@
                                 </li>
                                 
                                 
-                                <li class="gnb_3"><a href="/sub3/sub1.htm">예약안내</a>
+                                <li class="gnb_3"><a href="/reservation/guide">예약안내</a>
                                     <div class="sub_menu">
                                         <ul class="depth2">
-                                            <li class="first"><a href="/sub3/sub1.htm">예약종합안내</a></li>
-                                            <li><a href="/sub3/sub2.htm">실시간예약</a></li>
+                                            <li class="first"><a href="/reservation/guide">예약종합안내</a></li>
+                                            <li><a href="/reservation/realRes">실시간예약</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -130,7 +130,7 @@
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/sub3/sub2.htm">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
                 
@@ -139,7 +139,7 @@
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/sub3/sub2.htm">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
                 
@@ -148,7 +148,7 @@
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/sub3/sub2.htm">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
                 
@@ -157,7 +157,7 @@
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/sub3/sub2.htm">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
                 
@@ -166,7 +166,7 @@
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/sub3/sub2.htm">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
 			</div>
@@ -186,10 +186,10 @@
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
-		<script type='text/javascript' src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8'></script>
-		<script language='javascript' src='/resources/js/common.js'></script>
-		<script language='javascript' src='/resources/js/board.js'></script>
-		<script language='javascript' src='/resources/js/ajax.js'></script>
+		<script src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8'></script>
+		<script src='/resources/js/common.js'></script>
+		<script src='/resources/js/board.js'></script>
+		<script src='/resources/js/ajax.js'></script>
 		<link rel='stylesheet' href='/resources/css/default.css'/>
 		<form name="del_f" method="post" action="/zzAppModule/process/board_ok.php" onSubmit="return chkBoardDeleteForm(this);">
  <input type='hidden' name='board_id' id='board_id' value="bbs2"><input type='hidden' name='bnum' id='bnum' value="7"><input type='hidden' name='bmode' id='bmode' value="auth"><input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121"><input type='hidden' name='page' id='page' value=""><input type='hidden' name='set' id='set' value=""><input type='hidden' name='rurl' id='rurl' value="/HOME/index.php?_zidx=1464662100^1^1464662121&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=7&"><input type='hidden' name='ttest' id='ttest' value=""><input type='hidden' name='user_id' id='user_id' value=""><input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,board_id,page,set,ttest">
@@ -222,10 +222,10 @@
         <h2>무창포 이루펜션<br />소개 및 예약안내, 실시간예약</h2>
         <h3>신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실수 있습니다.  고품격의 여유로움 속으로 당신을 초대합니다.</h3>
         <ul>
-            <li><a href="/sub1/sub1.htm" class="ban01">이루펜션소개</a></li>
-            <li><a href="/sub3/sub2.htm" class="ban02">실시간예약</a></li>
-            <li><a href="/sub3/sub1.htm" class="ban03">예약안내</a></li>
-            <li><a href="/sub1/sub2.htm" class="ban04">오시는길</a></li>
+            <li><a href="/main/intro" class="ban01">이루펜션소개</a></li>
+            <li><a href="/reservation/realRes" class="ban02">실시간예약</a></li>
+            <li><a href="/reservation/guide" class="ban03">예약안내</a></li>
+            <li><a href="#" class="ban04">오시는길</a></li>
         </ul>
     </div>
 </div>
