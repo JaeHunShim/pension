@@ -12,11 +12,11 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
 <!--<![endif]-->
-<script src="/resources/js/jQuery-2.1.4.min.js" type="text/javascript"></script>
-<script src="/resources/js/gnb1.js" type="text/javascript"></script>
+<script src="/resources/js/jQuery-2.1.4.min.js"></script>
+<script src="/resources/js/gnb1.js"></script>
 <!-- 서브 텍스트 -->
-<script src="/resources/js/jquery.scrollmagic.min.js" type="text/javascript"></script>
-<script src="/resources/js/sub.txt.js" type="text/javascript"></script>
+<script src="/resources/js/jquery.scrollmagic.min.js"></script>
+<script src="/resources/js/sub.txt.js"></script>
 <!-- 서브 텍스트 end -->
 <!-- 메인 이미지 롤링 -->
 <script src="/resources/js/common.js" type="text/javascript"></script>
@@ -25,6 +25,10 @@
 <script src="/resources/js/main.js" type="text/javascript"></script>
 <script src="/resources/js/shop.js" type="text/javascript"></script>
 <script src="/resources/js/owl.carousel.js" type="text/javascript"></script>
+<!-- 질문/답변에 관한 js -->
+<script src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8'></script>
+<script src='/resources/js/board.js'></script>
+<script src='/resources/js/ajax.js'></script>
 <title>메인 화면</title>
 </head>
 <body>

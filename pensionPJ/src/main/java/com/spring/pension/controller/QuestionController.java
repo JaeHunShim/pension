@@ -57,4 +57,10 @@ public class QuestionController {
 		logger.info("inputArea 불러오기-------------");
 		return "/question/smart_editor2_inputarea";
 	}
+	//글조회 할때 password 입력창 불러오기
+	@RequestMapping(value="/password",method=RequestMethod.GET)
+	public String password() {
+		logger.info("패스워드 입력창 출력-------------");
+		return "/question/password";
+	}
 }

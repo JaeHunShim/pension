@@ -16,7 +16,7 @@
 <script src="/resources/js/gnb1.js"></script>
 <!-- 서브 텍스트 -->
 <script src="/resources/js/jquery.scrollmagic.min.js"></script>
-<script src="/resources/js/sub.txt.js"></script>	
+<script src="/resources/js/sub.txt.js"></script>
 <!-- 서브 텍스트 end -->
 <!-- 메인 이미지 롤링 -->
 <script src="/resources/js/common.js"></script>
