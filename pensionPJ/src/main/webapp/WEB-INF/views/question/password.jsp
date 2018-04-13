@@ -191,8 +191,17 @@
 		<script src='/resources/js/board.js'></script>
 		<script src='/resources/js/ajax.js'></script>
 		<link rel='stylesheet' href='/resources/css/default.css'/>
-		<form name="del_f" method="post" action="/zzAppModule/process/board_ok.php" onSubmit="return chkBoardDeleteForm(this);">
- <input type='hidden' name='board_id' id='board_id' value="bbs2"><input type='hidden' name='bnum' id='bnum' value="7"><input type='hidden' name='bmode' id='bmode' value="auth"><input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121"><input type='hidden' name='page' id='page' value=""><input type='hidden' name='set' id='set' value=""><input type='hidden' name='rurl' id='rurl' value="/HOME/index.php?_zidx=1464662100^1^1464662121&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=7&"><input type='hidden' name='ttest' id='ttest' value=""><input type='hidden' name='user_id' id='user_id' value=""><input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,board_id,page,set,ttest">
+		
+	<form name="del_f" method="post" action="/question/password" onSubmit="return chkBoardDeleteForm(this);">
+		 <input type='hidden' name='board_id' id='board_id' value="bbs2">
+		 <input type='hidden' name='bnum' id='bnum' value="7">
+		 <input type='hidden' name='bmode' id='bmode' value="auth">
+		 <input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121">
+		 <input type='hidden' name='page' id='page' value="">
+		 <input type='hidden' name='set' id='set' value="">
+		 <input type='hidden' name='rurl' id='rurl' value="/HOME/index.php?_zidx=1464662100^1^1464662121&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=7&">
+		 <input type='hidden' name='ttest' id='ttest' value=""><input type='hidden' name='user_id' id='user_id' value="">
+		 <input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,board_id,page,set,ttest">
 
 
 <div class="zz_new_delete">
@@ -200,7 +209,9 @@
     	<li>
         	            비밀번호
                     </li>
-        <li><INPUT name="pwd" type="password"></li>
+        <li><input name="pwd" type="password"></li>
+        <li><input type="text" name="qno"></li>
+        ${qno}
     </ul>
     
     <ul class="zz_new_delete_but">

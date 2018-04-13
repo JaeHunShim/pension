@@ -17,4 +17,6 @@
 		order by qno desc,regdate desc
 		]]>
 	</select>
+	<!-- 상세페이지 받아노는 부분   -->
+	
 </mapper>

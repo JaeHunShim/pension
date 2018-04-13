@@ -6,8 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.pension.domain.QuestionVO;
@@ -58,9 +60,18 @@ public class QuestionController {
 		return "/question/smart_editor2_inputarea";
 	}
 	//글조회 할때 password 입력창 불러오기
-	@RequestMapping(value="/password",method=RequestMethod.GET)
-	public String password() {
+	@RequestMapping(value="/passwordCheck" ,method=RequestMethod.GET)
+	public String password(@RequestParam("qno") int qno ,Model model) {
 		logger.info("패스워드 입력창 출력-------------");
+		logger.info("받아온 qno-------" + qno);
+		model.addAttribute("qno", qno);
 		return "/question/password";
+	}
+	@RequestMapping(value="/password",method=RequestMethod.POST)
+	public String passwordCheck(int qno,String password) {
+		
+		logger.info("받아온 qno,password" + qno,password);
+		
+		return "/list/All";
 	}
 }
