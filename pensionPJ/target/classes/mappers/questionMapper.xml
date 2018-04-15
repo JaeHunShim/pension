@@ -17,6 +17,9 @@
 		order by qno desc,regdate desc
 		]]>
 	</select>
-	<!-- 상세페이지 받아노는 부분   -->
+	<!-- 상세페이지 받아오는 부분 -->
+	<select id="list" resultType="QuestionVO">
+		select qno,title,content,
+	</select>
 	
 </mapper>
