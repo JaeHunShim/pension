@@ -28,3 +28,11 @@ select qno,title,content,writer,regdate,viewcnt
 	from question
     order by qno desc, regdate;
 
+-- 조건에 맞는 상세 게시물 보여주기
+
+	select 
+		qno,title,content,regdate,viewcnt 
+	from 
+		question 
+	where 
+		qno=1 and password=1;

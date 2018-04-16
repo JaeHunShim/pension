@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
+<script src="/resources/js/jQuery-2.1.4.min.js"></script>
 <meta name="naver-site-verification" content="4be275fbcf12fb470711cb98c210da2e3861002e"/>
 <meta name="description" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta name="keywords" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
@@ -34,7 +36,6 @@
 </head>
 
 <body>
-
 <div class="header">
 	<div class="top_box">
         <ul>
@@ -192,7 +193,9 @@
 		<script src='/resources/js/ajax.js'></script>
 		<link rel='stylesheet' href='/resources/css/default.css'/>
 		
-	<form name="del_f" method="post" action="/question/password" onSubmit="return chkBoardDeleteForm(this);">
+	<!-- <form name="del_f" method="post" action="/question/password" onSubmit="return chkBoardDeleteForm(this);"> -->
+	<form action="/question/password" method="post">
+	
 		 <input type='hidden' name='board_id' id='board_id' value="bbs2">
 		 <input type='hidden' name='bnum' id='bnum' value="7">
 		 <input type='hidden' name='bmode' id='bmode' value="auth">
@@ -209,9 +212,8 @@
     	<li>
         	            비밀번호
                     </li>
-        <li><input name="pwd" type="password"></li>
-        <li><input type="text" name="qno"></li>
-        ${qno}
+        <li><input type="password" name="password"></li>
+        <li><input name="qno" type="hidden" value="${qno}"></li>
     </ul>
     
     <ul class="zz_new_delete_but">

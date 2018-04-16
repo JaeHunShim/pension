@@ -67,11 +67,19 @@ public class QuestionController {
 		model.addAttribute("qno", qno);
 		return "/question/password";
 	}
+	//조건에 맞는 상세페이지 불러오기 
 	@RequestMapping(value="/password",method=RequestMethod.POST)
-	public String passwordCheck(int qno,String password) {
+	public String passwordCheck(String password,Model model) throws Exception{
 		
-		logger.info("받아온 qno,password" + qno,password);
+		logger.info("받아온 qno,password" +password);
 		
-		return "/list/All";
+		questionServcie.read(password);
+		
+		return "redirect:/question/read";
+	}
+	@RequestMapping(value="/read",method=RequestMethod.GET)
+	public String read() {
+		
+		return "/question/read";
 	}
 }

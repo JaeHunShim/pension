@@ -18,8 +18,8 @@
 		]]>
 	</select>
 	<!-- 상세페이지 받아오는 부분 -->
-	<select id="list" resultType="QuestionVO">
-		select qno,title,content,
+	<select id="read" resultType="QuestionVO">
+		select qno,title,content,regdate,viewcnt from question where password=#{password}
 	</select>
 	
 </mapper>

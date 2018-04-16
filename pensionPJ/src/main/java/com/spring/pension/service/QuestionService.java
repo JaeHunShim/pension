@@ -10,4 +10,6 @@ public interface QuestionService {
 	public void regist(QuestionVO questionVO) throws Exception;
 	// 질문 목록 가져오기
 	public List<QuestionVO> listAll() throws Exception;
+	// 상세페이지 가지고오기
+	public QuestionVO read(String password) throws Exception;
 }

@@ -193,13 +193,13 @@
 		<link rel='stylesheet' href='/resources/css/default.css'/>
 		<div class="zz_new_view">
     <ul class="date">
-    	<li>작성자 : 심재훈</li>
-    	<li>작성일 : 2018.04.15</li>
-        <li>조회수 : 3</li>
+    	<li>${questionVO.qno}</li>
+    	<li>작성일 :${questionVO.regdate}</li>
+        <li>조회수 : ${questionVO.viewcnt}</li>
     </ul>
     
 	<div class="zz_new_view_header">
-        <h3 class="zz_view_title">성수기때 예약 할수 있나요</h3>
+        <h3 class="zz_view_title">${questionVO.content}</h3>
         <div class="file">
 										<ul>
                 <li>비밀글</li>

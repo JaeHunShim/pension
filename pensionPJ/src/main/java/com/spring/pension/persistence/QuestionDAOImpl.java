@@ -1,6 +1,8 @@
 package com.spring.pension.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -32,6 +34,14 @@ public class QuestionDAOImpl implements QuestionDAO {
 	public List<QuestionVO> listAll() throws Exception {
 		
 		return sqlSession.selectList(namespace+".listAll");
+	}
+	// 게시물 상세 보여주는 부분
+	@Override
+	public QuestionVO read(String password) throws Exception {
+		
+		logger.info("보내는 데이터  pw" +password);
+		
+		return sqlSession.selectOne(namespace+".read", password);
 	}
 
 }
