@@ -37,11 +37,16 @@ public class QuestionDAOImpl implements QuestionDAO {
 	}
 	// 게시물 상세 보여주는 부분
 	@Override
-	public QuestionVO read(String password) throws Exception {
+	public QuestionVO read(Integer qno, String password) throws Exception {
 		
-		logger.info("보내는 데이터  pw" +password);
+		logger.info("보내는 데이터  pw" + qno,password);
 		
-		return sqlSession.selectOne(namespace+".read", password);
+		Map<String,Object> map = new HashMap<String,Object>();
+		
+		map.put("qno", qno);
+		map.put("password", password);
+		
+		return sqlSession.selectOne(namespace+".read",map);
 	}
 
 }

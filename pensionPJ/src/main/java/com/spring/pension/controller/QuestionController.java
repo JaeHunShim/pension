@@ -60,7 +60,7 @@ public class QuestionController {
 		return "/question/smart_editor2_inputarea";
 	}
 	//글조회 할때 password 입력창 불러오기
-	@RequestMapping(value="/passwordCheck" ,method=RequestMethod.GET)
+	@RequestMapping(value="/password" ,method=RequestMethod.GET)
 	public String password(@RequestParam("qno") int qno ,Model model) {
 		logger.info("패스워드 입력창 출력-------------");
 		logger.info("받아온 qno-------" + qno);
@@ -68,18 +68,13 @@ public class QuestionController {
 		return "/question/password";
 	}
 	//조건에 맞는 상세페이지 불러오기 
-	@RequestMapping(value="/password",method=RequestMethod.POST)
-	public String passwordCheck(String password,Model model) throws Exception{
+	@RequestMapping(value="/read",method=RequestMethod.POST)
+	public void passwordCheck(int qno ,String password,Model model) throws Exception{
 		
-		logger.info("받아온 qno,password" +password);
+		logger.info("받아온 qno,password" +qno, password);
 		
-		questionServcie.read(password);
-		
-		return "redirect:/question/read";
+		model.addAttribute(questionServcie.read(qno,password));
+	
 	}
-	@RequestMapping(value="/read",method=RequestMethod.GET)
-	public String read() {
-		
-		return "/question/read";
-	}
+
 }

@@ -34,9 +34,9 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 	// 상세글 가지고오기 
 	@Override
-	public QuestionVO read(String password) throws Exception {
-		logger.info("가져오는 데이터 " + questionDAO.read(password));
-		return questionDAO.read(password);
+	public QuestionVO read(Integer qno, String password) throws Exception {
+		logger.info("가져오는 데이터 " + questionDAO.read(qno, password));
+		return questionDAO.read(qno,password);
 	}
 
 

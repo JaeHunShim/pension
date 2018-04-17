@@ -18,6 +18,10 @@ DEFAULT CHARACTER SET = utf8;
 
 insert into question(title,content,writer,password) values('첫번째글','첫번째글 등록입니다.','심재훈','1');
 
+-- auto_increament 초기화
+
+ALTER TABLE pjtmake AUTO_INCREMENT=1;
+
 -- 질문 게시판 보기 --
 
 select * from question;

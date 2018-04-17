@@ -194,8 +194,7 @@
 		<link rel='stylesheet' href='/resources/css/default.css'/>
 		
 	<!-- <form name="del_f" method="post" action="/question/password" onSubmit="return chkBoardDeleteForm(this);"> -->
-	<form action="/question/password" method="post">
-	
+	<form action="/question/read" method="post">
 		 <input type='hidden' name='board_id' id='board_id' value="bbs2">
 		 <input type='hidden' name='bnum' id='bnum' value="7">
 		 <input type='hidden' name='bmode' id='bmode' value="auth">

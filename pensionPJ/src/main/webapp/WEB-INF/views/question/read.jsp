@@ -45,7 +45,7 @@
     
 	<div class="Web navi">
         <div class="navi_box">
-            <h1><a href="/"><img src="/img/logo.png" alt="이루펜션" /></a></h1>  
+            <h1><a href="/"><img src="/resources/img/logo.png" alt="이루펜션" /></a></h1>  
             
                 <div class="nav">
                     <div class="gnb">
@@ -189,23 +189,23 @@
 		<script src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8'></script>
 		<script src='/resources/js/common2.js'></script>
 		<script src='/resources/js/board.js'></script>
-		<script src='//resources/js/ajax.js'></script>
+		<script src='/resources/js/ajax.js'></script>
 		<link rel='stylesheet' href='/resources/css/default.css'/>
 		<div class="zz_new_view">
     <ul class="date">
-    	<li>${questionVO.qno}</li>
-    	<li>작성일 :${questionVO.regdate}</li>
-        <li>조회수 : ${questionVO.viewcnt}</li>
+    	<li>작성자:${questionVO.writer}</li>
+    	<li><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></li>
+        <li>조회수 :${questionVO.viewcnt}</li>
     </ul>
     
 	<div class="zz_new_view_header">
-        <h3 class="zz_view_title">${questionVO.content}</h3>
+        <h3 class="zz_view_title">${questionVO.title}</h3>
         <div class="file">
 										<ul>
                 <li>비밀글</li>
                 <li>y</li>
             </ul>
-           						<div class="zz_new_view contenter"><div class='zzbbs_view_content'><p>&nbsp;</p></div></div>
+           						<div class="zz_new_view contenter"><div class='zzbbs_view_content'>${questionVO.content}<p>&nbsp;</p></div></div>
 						 
            
         </div>
@@ -294,7 +294,7 @@
 </div>
 <div class="footer">
 	<div class="bottom">
-    	<h1><img src="/img/f_logo.png" alt="이루펜션" onClick="window.open('/zzAppModule/admin','','');"></h1>
+    	<h1><img src="/resources/img/f_logo.png" alt="이루펜션" onClick="window.open('/zzAppModule/admin','','');"></h1>
        <p class="address">충청남도 보령시 웅천읍 간드리큰길 104-3 (관당리 165)<span></span>전화: 010-8598-4075, 010-9270-4073<span></span>대표: 염인선<span></span>사업자등록번호: 299-11-00402<span></span><br>계좌번호: <b>농협(염인선) 203027-51-050385</b><br />
 <span class="copy">Copyright 2016 © 이루펜션  All rights reserved.</span></p>
     </div>
@@ -318,7 +318,7 @@
     });
 });
 </script>
-   <div id="back2top" title="상단으로 가기"><img src="/img/top_but.gif" alt="↑"></div>
+   <div id="back2top" title="상단으로 가기"><img src="/resources/img/top_but.gif" alt="↑"></div>
    
    
 </body>

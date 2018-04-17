@@ -19,7 +19,7 @@
 	</select>
 	<!-- 상세페이지 받아오는 부분 -->
 	<select id="read" resultType="QuestionVO">
-		select qno,title,content,regdate,viewcnt from question where password=#{password}
+		select qno,title,content,regdate,viewcnt,writer from question where qno=#{qno} and password=#{password}
 	</select>
 	
 </mapper>
