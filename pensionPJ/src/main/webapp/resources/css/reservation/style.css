@@ -10,7 +10,7 @@ button,label{cursor:pointer;_cursor:hand;}
 button *{position:relative}
 button img{left:-3px;*left:auto}
 textarea{overflow:auto;}
-body{background:url(../img/tbg.gif) repeat-x center 0;}
+body{background:url(/resources/img/reservation/tbg.gif) repeat-x center 0;}
 caption{visibility:hidden;font-size:0;height:0;overflow:hidden;}
 td {table-layout:fixed;}
 input,select{border:1px solid #CCC;}
@@ -26,7 +26,7 @@ body{width:100%;margin:0 auto;}
 .Left{float:left;}
 .Right{float:right;}
 
-p.line{width:99%;margin:0 auto 25px auto;background:url(../img/line.gif) 0 0 repeat-x;height:4px;line-height:4px;}
+p.line{width:99%;margin:0 auto 25px auto;background:url(/resources/img/reservation/line.gif) 0 0 repeat-x;height:4px;line-height:4px;}
 
 /* Header */
 .header{height:65px;border-top:2px solid #262626;border-bottom:1px solid #262626;background-color:#3d3d3d;}
@@ -35,11 +35,11 @@ p.line{width:99%;margin:0 auto 25px auto;background:url(../img/line.gif) 0 0 rep
 .header div.Right>a{display:block;float:left;width:90px;height:65px;}
 
 /* Sub Title */
-.sTitle{padding:42px 0 35px 20px;background:url(../img/line.gif) 0 bottom repeat-x;}
+.sTitle{padding:42px 0 35px 20px;background:url(/resources/img/reservation/line.gif) 0 bottom repeat-x;}
 	.sTitle em{font-size:0.8em;color:#999;line-height:18px;text-transform:uppercase;}
 	.sTitle h2{font-size:2.2em;line-height:38px;font-weight:normal;}
-.sTitle .tab1{width:400px;background:url(../img/proc1.gif) right 0 no-repeat;}
-.sTitle .tab2{width:200px;background:url(../img/proc2.gif) right 0 no-repeat;}
+.sTitle .tab1{width:400px;background:url(/resources/img/reservation/proc1.gif) right 0 no-repeat;}
+.sTitle .tab2{width:200px;background:url(/resources/img/reservation/proc2.gif) right 0 no-repeat;}
 	.sTitle .tab1 ol li,.sTitle .tab2 ol li{float:left;width:100px;text-indent:-200px;overflow:hidden;}
 	.sTitle .tab1 ol li>img,.sTitle .tab2 ol li>img{float:right;}
 
@@ -53,7 +53,7 @@ h3{font-size:1.2em;background:url(../img/dot.gif) 0 2px no-repeat;padding-left:1
 .carnSet .yms>a{float:left;height:40px;line-height:40px;}
     /* 달력 상단 */
 	.carnSet .yms>p{width:170px;font-size:2em;text-align:center;}
-	.carnSet .yms>a{display:block;width:30px;background-image:url(../img/bt_arr.gif);background-repeat:no-repeat;overflow:hidden;text-indent:100px;}
+	.carnSet .yms>a{display:block;width:30px;background-image:url(/resources/img/reservation/bt_arr.gif);background-repeat:no-repeat;overflow:hidden;text-indent:100px;}
 		.carnSet .yms>a.prev{background-position:7px 14px;}
 		.carnSet .yms>a.next{background-position:-25px 14px}
 	.carnSet>p{text-align:center;line-height:20px;}
@@ -121,5 +121,5 @@ ul.bList{margin:0 0 10px 5px;}
 ul.bList>li{padding:3px 0;}
 
 /* footer */
-.footer{width:98%;padding:15px 0 25px 0;text-align:right;background:url(../img/line.gif) 0 0 repeat-x;margin-top:35px;}
+.footer{width:98%;padding:15px 0 25px 0;text-align:right;background:url(/resources/img/reservation/line.gif) 0 0 repeat-x;margin-top:35px;}
 .footer a{color:#690 !important;text-decoration:underline !important;}

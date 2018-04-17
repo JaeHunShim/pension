@@ -71,7 +71,8 @@ public class QuestionController {
 	@RequestMapping(value="/read",method=RequestMethod.POST)
 	public void passwordCheck(int qno ,String password,Model model) throws Exception{
 		
-		logger.info("받아온 qno,password" +qno, password);
+		logger.info("passwrod에서 받아온  qno" +qno);
+		logger.info("받아온 password" + password);
 		
 		model.addAttribute(questionServcie.read(qno,password));
 	

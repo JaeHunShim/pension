@@ -81,9 +81,9 @@ a, img { outline:none; temp:expression(this.hideFocus=true);}
 #slides .slidesjs-play,
 #slides .slidesjs-stop {display:block; position:absolute; top:450px; font-size:0; z-index:20; margin:0; padding:0;  font-size:0px; text-indent:-9999px}
 
-#slides .slidesjs-play {left:50%; margin-left:570px; width:665px; text-align:left; background:url(/resources/img/btn_play.png) 0 0 no-repeat; 
+#slides .slidesjs-play {left:50%; margin-left:570px; width:665px; text-align:left; background:url(/resources/img/main/btn_play.png) 0 0 no-repeat; 
 width:20px; height:20px;}
-#slides .slidesjs-stop {left:50%; margin-left:600px; width:635px; text-align:left; background:url(/resources/img/btn_stop.png) 0 0 no-repeat; 
+#slides .slidesjs-stop {left:50%; margin-left:600px; width:635px; text-align:left; background:url(/resources/img/main/btn_stop.png) 0 0 no-repeat; 
 width:20px; height:20px;}
 
 #slides .slidesjs-pagination {position:absolute; bottom:23px; left:47%; margin-right:626px; width:144px; text-align:right; z-index:999; margin:0; padding:0;}
@@ -197,7 +197,7 @@ text-shadow:0 0 0 #ffffff;}
 p.add b{font-weight: bold; margin:0; padding:0;}
 p.add{margin:0 auto; padding:16px 0 23px 0; clear:both; overflow:hidden; text-align:center; font-size:20px; font-weight:300; color:#3e3748;}
 p.tel{border-bottom:1px solid #e5e2e8; border-top:1px solid #e5e2e8; width:408px; padding:12px 0 12px 48px; margin:0 auto 53px auto; background:url(/img/tel_img.gif) left top no-repeat; background-position:20px 14px; font-size:18px; font-weight:300; color:#231d2b; overflow:hidden;}
-p.tel span{ margin:0; padding:0 8px; background:url(/img/tel_line.gif)  center no-repeat; width:15px; overflow:hidden;}
+p.tel span{ margin:0; padding:0 8px; background:url(/resources/reservation/img/tel_line.gif)  center no-repeat; width:15px; overflow:hidden;}
 p.tel b{ font-size:22px; font-weight:400; line-height:0px;}
 
 

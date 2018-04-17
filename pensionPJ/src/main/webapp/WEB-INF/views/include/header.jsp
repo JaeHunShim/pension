@@ -7,28 +7,17 @@
 <meta name="description" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta name="keywords" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="/resources/css/layout.css" />
-<link rel="stylesheet" type="text/css" href="/resources/css/sub_layout.css" />
-<link rel="stylesheet" type="text/css" href="/resources/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
 <!--<![endif]-->
-<script src="/resources/js/jQuery-2.1.4.min.js"></script>
-<script src="/resources/js/gnb1.js"></script>
-<!-- 서브 텍스트 -->
-<script src="/resources/js/jquery.scrollmagic.min.js"></script>
-<script src="/resources/js/sub.txt.js"></script>
-<!-- 서브 텍스트 end -->
+<script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
+<script src="/resources/js/basic/gnb1.js"></script>
 <!-- 메인 이미지 롤링 -->
-<script src="/resources/js/common.js" type="text/javascript"></script>
-<script src="/resources/js/jquery.slides.min.js" type="text/javascript"></script>
-<script src="/resources/js/TweenMax.min.js" type="text/javascript"></script>
-<script src="/resources/js/main.js" type="text/javascript"></script>
-<script src="/resources/js/shop.js" type="text/javascript"></script>
-<script src="/resources/js/owl.carousel.js" type="text/javascript"></script>
-<!-- 질문/답변에 관한 js -->
-<script src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8'></script>
-<script src='/resources/js/board.js'></script>
-<script src='/resources/js/ajax.js'></script>
+<script src="/resources/js/rolling/common.js"></script>
+<script src="/resources/js/rolling/jquery.slides.min.js"></script>
+<script src="/resources/js/rolling/TweenMax.min.js"></script>
+<script src="/resources/js/rolling/main.js"></script>
+
+
+
 <title>메인 화면</title>
 </head>
 <body>
@@ -41,7 +30,7 @@
     </div>
 	<div class="Web navi">
         <div class="navi_box">
-            <h1><a href="/main/index"><img src="/resources/img/logo.png" alt="이루펜션" /></a></h1>  
+            <h1><a href="/main/index"><img src="/resources/img/main/logo.png" alt="이루펜션" /></a></h1>  
                 <div class="nav">
                     <div class="gnb">
                         <div class="gnb_wrap">

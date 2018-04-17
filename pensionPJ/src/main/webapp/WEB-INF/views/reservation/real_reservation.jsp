@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="/resources/js/reservation/jquery.scrollmagic.min.js"></script>
+<script src="/resources/js/reservation/sub.txt.js"></script>
+<link href="/resources/css/reservation/sub_layout.css" rel="stylesheet" type="text/css">
 <%@ include file="../include/header.jsp" %>
+<!-- sub text  -->
 <section class="sub_con sub02" id="scene1">
 	<div class="title">
         <h2><b>reservation</b></h2>
