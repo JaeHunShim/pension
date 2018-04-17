@@ -7,10 +7,10 @@
 <meta name="description" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta name="keywords" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=1387px" />
 
 <title>메인 화면</title>
 <link href="/resources/css/reservation/sub_layout.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/resources/css/top/layout.css" />
 <!--<![endif]-->
 <script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
 <script src="/resources/js/basic/gnb1.js"></script>

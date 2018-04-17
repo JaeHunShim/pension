@@ -202,7 +202,7 @@ width:20px; height:20px;}
 .ban_con ul li{float:left; margin:0 0 0 162px; padding:0; width:158px; height:158px;}
 .ban_con ul li:first-child{margin:0 0 0 32px;}
 .ban_con ul li a.ban01{background:url(/resources/img/main/ban01.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
-.ban_con ul li a.ban01:hover{background:url(/resources/main/img/ban01_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
+.ban_con ul li a.ban01:hover{background:url(/resources/img/main/ban01_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
 .ban_con ul li a.ban02{background:url(/resources/img/main/ban02.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
 .ban_con ul li a.ban02:hover{background:url(/resources/img/main/ban02_on.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}
 .ban_con ul li a.ban03{background:url(/resources/img/main/ban03.png); display:block; width:158px; height:158px; font-size:0px; text-indent:-9999px;}

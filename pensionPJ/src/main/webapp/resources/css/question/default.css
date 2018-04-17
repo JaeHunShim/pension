@@ -13,8 +13,8 @@
 .zz_search_box{margin:0; padding:0 0 15px 0; float:right; overflow:hidden}
 .zz_search_box li{float:left; margin:0; padding:0; list-style:none; z-index:999; position:relative; height:28px; !important}
 .zz_search_box li:first-child{margin:0 5px 0 0;}
-.zz_search_box li select{margin:0; padding:3px 5px; width:120px; text-align:left; height:28px; border:none;  overflow:hidden; background:url(/resources/img/select.gif) left top no-repeat; border-width:none; line-height:28px; !important}
-.zz_search_box li input{width:240px; border:none; overflow:hidden; height:28px;  z-index:1; background:url(/resources/img/select_box.gif) left top no-repeat; margin:0; padding:0;  border-width:0px; !important}
+.zz_search_box li select{margin:0; padding:3px 5px; width:120px; text-align:left; height:28px; border:none;  overflow:hidden; background:url(/resources/img/question/select.gif) left top no-repeat; border-width:none; line-height:28px; !important}
+.zz_search_box li input{width:240px; border:none; overflow:hidden; height:28px;  z-index:1; background:url(/resources/img/question/select_box.gif) left top no-repeat; margin:0; padding:0;  border-width:0px; !important}
 
 /* 내용 */
 .zz_new_list.contenter{margin:0; padding:0; width:100%; clear:both; overflow:hidden;}
@@ -144,8 +144,8 @@
 .zz_new_view.bottom ul{margin:0; padding:0; clear:both; overflow:hidden; width:100%;}
 .zz_new_view.bottom ul li{float:none; margin:0; padding:0; list-style:none; line-height:40px; overflow:hidden}
 .zz_new_view.bottom ul li:first-child{border-bottom:1px solid #eaeaea;}
-.zz_new_view.bottom ul li:first-child p.left{float:left; margin:0 25px 0 0; padding:0 0 0 35px; background:url(/resources/img/bg_prev_view.png) left top no-repeat; background-position:5px 13px;}
-.zz_new_view.bottom ul li p.left{float:left; margin:0 25px 0 0; padding:0 0 0 35px; background:url(/resources/img/bg_next_view.png) left top no-repeat; background-position:5px 15px;}
+.zz_new_view.bottom ul li:first-child p.left{float:left; margin:0 25px 0 0; padding:0 0 0 35px; background:url(/resources/img/question/bg_prev_view.png) left top no-repeat; background-position:5px 13px;}
+.zz_new_view.bottom ul li p.left{float:left; margin:0 25px 0 0; padding:0 0 0 35px; background:url(/resources/img/question/bg_next_view.png) left top no-repeat; background-position:5px 15px;}
 .zz_new_view.bottom ul li p.right{float:left; margin:0; padding:0;}
 
 
@@ -201,10 +201,10 @@
                        * delete *
 ********************************************************************/
 .zz_new_delete{margin:0 auto; padding:0; clear:both;  width:100%; position:relative; border-top:2PX solid #333; border-bottom:1PX solid #333;} 
-.zz_new_delete input.Ddelete{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/Ddelete_off.gif);}
-.zz_new_delete input.Ddelete:hover{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/Ddelete_on.gif);}
-.zz_new_delete input.auth_ok{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/ok_off.gif);}
-.zz_new_delete input.auth_ok:hover{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/ok_on.gif);}
+.zz_new_delete input.Ddelete{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/question/Ddelete_off.gif);}
+.zz_new_delete input.Ddelete:hover{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/question/Ddelete_on.gif);}
+.zz_new_delete input.auth_ok{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/question/ok_off.gif);}
+.zz_new_delete input.auth_ok:hover{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/question/ok_on.gif);}
 
 
 .zz_new_delete_inp{margin:0 auto; padding:2%; width:50%; clear:both;}
@@ -225,13 +225,13 @@
 ********************************************************************/
 .zz_new_gallery{margin:0 auto; padding:0; clear:both;  width:100%; position:relative;}
 .zz_new_gallery_header{margin:0; padding:0; clear:both; z-index:999;}
-.zz_new_gallery_header a.search_but{width:137px; height:40px; overflow:hidden; background:url(/resources/img/search_but.gif); display:block; color:#FFFFFF; text-align:left;  font-weight:bold; text-decoration:none; line-height:40px; text-indent:13px; float:right;}
-.zz_new_gallery_header a.search_but1{width:137px; height:40px; overflow:hidden; background:url(/resources/img/search_but_on.gif); display:none; color:#333333; text-align:left;  font-weight:bold; text-decoration:none; line-height:40px; text-indent:13px; float:right;}
+.zz_new_gallery_header a.search_but{width:137px; height:40px; overflow:hidden; background:url(/resources/img/question/search_but.gif); display:block; color:#FFFFFF; text-align:left;  font-weight:bold; text-decoration:none; line-height:40px; text-indent:13px; float:right;}
+.zz_new_gallery_header a.search_but1{width:137px; height:40px; overflow:hidden; background:url(/resources/img/question/search_but_on.gif); display:none; color:#333333; text-align:left;  font-weight:bold; text-decoration:none; line-height:40px; text-indent:13px; float:right;}
 .zz_new_gallery_header .search_Con{margin:39px 0 0 0; padding:0;  display:none; position: absolute; z-index:999; right:0; top:0; width:100%;}
 .zz_new_gallery_header .search_box{margin:0; padding:2%; width:95.6%; border:2px solid #333333; position: relative; float:right; background-color:#f5f5f5}
 .zz_new_gallery_header .search_box li{float:left; margin:0; padding:0; list-style:none; z-index:999; position:relative; }
-.zz_new_gallery_header .search_box li select{ margin:0; padding:3px 5px; width:120px; text-align:left; height:28px; border:none; overflow:hidden; background:url(/resources/img/select.gif) left top no-repeat; border-width:none; !important}
-.zz_new_gallery_header .search_box li input{width:320px; border:none; overflow:hidden; height:28px;  z-index:1; background:url(/resources/img/select_box.gif) left top no-repeat; !important}
+.zz_new_gallery_header .search_box li select{ margin:0; padding:3px 5px; width:120px; text-align:left; height:28px; border:none; overflow:hidden; background:url(/resources/img/question/select.gif) left top no-repeat; border-width:none; !important}
+.zz_new_gallery_header .search_box li input{width:320px; border:none; overflow:hidden; height:28px;  z-index:1; background:url(/resources/img/question/select_box.gif) left top no-repeat; !important}
 .zz_new_gallery_header .search_box li.txt{margin:0; padding:6px 30px 0 0;}
 
 .zz_new_gallery.contenter{margin:0; padding:0; width:100%; clear:both; overflow:hidden; z-index:1; position:relative;}
