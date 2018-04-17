@@ -168,8 +168,8 @@ width:20px; height:20px;}
 
 
 	#owl-demo{margin:0; padding:0 67.5px; width:1252px; overflow:hidden}
-	#owl-demo .owl-prev{ position:absolute; left:0px; top:30%; background:url(/resources/main/img/pr.gif); width:21px; height:35px; display:block}
-	#owl-demo .owl-next{ position:absolute; right:0px; top:30%; background:url(/resources/main/img/ne.gif); width:21px; height:35px; display:block}
+	#owl-demo .owl-prev{ position:absolute; left:0px; top:30%; background:url(/resources/img/main/pr.gif); width:21px; height:35px; display:block}
+	#owl-demo .owl-next{ position:absolute; right:0px; top:30%; background:url(/resources/img/main/ne.gif); width:21px; height:35px; display:block}
     #owl-demo .item{
         margin: 0;
     }

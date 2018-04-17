@@ -45,7 +45,7 @@ p.line{width:99%;margin:0 auto 25px auto;background:url(/resources/img/reservati
 
 /***** Contents *****/
 .conT{}
-h3{font-size:1.2em;background:url(../img/dot.gif) 0 2px no-repeat;padding-left:16px;margin:20px 0 7px 2px;}
+h3{font-size:1.2em;background:url(/resources/img/reservation/dot.gif) 0 2px no-repeat;padding-left:16px;margin:20px 0 7px 2px;}
 .conT>big{font-size:2.2em;display:block;text-align:center;margin:25px 0;}
 .carnSet .yms{width:230px;margin:25px auto 13px auto;}
   .carnSet .yms.dayS{width:400px;margin:25px auto 13px auto;}

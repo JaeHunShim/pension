@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="/resources/css/reservation/style.css" rel="stylesheet" type="text/css">
 <script src="/resources/js/reservation/pension.js"></script>
+<link href="/resources/css/reservation/style.css?ver=1" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
