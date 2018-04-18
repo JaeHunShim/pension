@@ -36,8 +36,22 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public QuestionVO read(Integer qno, String password) throws Exception {
 		logger.info("가져오는 데이터 " + questionDAO.read(qno, password));
+		//상세페이지 볼때 viewCnt 증가시키기 
+		questionDAO.updateViewCnt(qno);
+		
 		return questionDAO.read(qno,password);
 	}
-
+	//게시물 삭제
+	@Override
+	public void remove(Integer qno) throws Exception {
+		
+		questionDAO.delete(qno);
+	}
+	//게시물 수정 
+	@Override
+	public void modify(QuestionVO questionVO) throws Exception{
+		
+		questionDAO.modify(questionVO);
+	}
 
 }

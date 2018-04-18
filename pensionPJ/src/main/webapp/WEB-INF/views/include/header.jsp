@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>메인 화면</title>
-<link href="/resources/css/reservation/sub_layout.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/resources/css/reservation/sub_layout.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/top/layout.css" />
 <!--<![endif]-->
 <script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>

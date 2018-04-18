@@ -17,7 +17,8 @@
 		<script src='/resources/js/module/board.js'></script>
 		<script src='/resources/js/module/ajax.js'></script>
 		<link rel='stylesheet' href='/resources/css/question/default.css'/>
-	<form method='post' name='writeF'id="writeF" action="/question/register">
+		
+	<form method='post' name='writeF'id="writeF" action="/question/modify">
 		<input type='hidden' name='board_id' id='board_id' value="bbs2">
 		<input type='hidden' name='bnum' id='bnum' value="">
 		<input type='hidden' name='bmode' id='bmode' value="write">
@@ -44,34 +45,24 @@
     	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zz_write_table">
 													 <tr>
             <th scope="row">제목</th>
-            	<td>
-            		<input type='text' name='title' id='title' value="" in_ttl='제목'  in_mode='y' in_type='01' class='iptborder' style='width:300px'>
-            		
-            	</td>
+            <td><input type='text' name='title' id='title' value="${questionVO.title}" in_ttl='제목'  in_mode='y' in_type='01' class='iptborder' style='width:300px'></td>
           </tr>
 									 <tr>
             <th scope="row">비밀글</th>
-            	<td>
-            		<input type='radio' name='privacy' id='privacy' value='y'  in_lng='1' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> y<input type='radio' name='privacy' id='privacy' value='n' checked in_lng='2' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> n</td>
+            <td><input type='radio' name='privacy' id='privacy' value='y'  in_lng='1' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> y<input type='radio' name='privacy' id='privacy' value='n' checked in_lng='2' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> n</td>
           </tr>
 									 <tr>
             <th scope="row">성명</th>
-            	<td>
-            		<input type='text' name='writer' id='writer' value="" in_ttl='성명'  in_mode='y' in_type='01' class='iptborder' >
-					
-            	</td>
+            <td><input type='text' name='name' id='name' value="${questionVO.name}  readonly" in_ttl='성명'  in_mode='y' in_type='01' class='iptborder'></td>
           </tr>
 									 <tr>
             <th scope="row">비밀번호</th>
-            	<td>
-            		<input type='password' name='password' id='password' value="" in_ttl='비밀번호'  in_mode='y' in_type='10' class='iptborder' >
-            		
-            	</td>
+            <td><input type='password' name='password' id='password' value="${questionVO.password}" in_ttl='비밀번호'  in_mode='y' in_type='10' class='iptborder' ></td>
           </tr>
 				          <tr>
             <th scope="row">내용</th>
             <td>
-		<textarea name='content' id='content' style='width:500px;; height:470px;;dispaly:none;'></textarea>
+		<textarea name='content' id='content' style='width:500px;; height:470px;;dispaly:none;'><p>${questionVO.content}</p></textarea>
 		<script type='text/javascript'>
 			if(oEditors == undefined){
 				var oEditors = [];
@@ -79,25 +70,12 @@
 			nhn.husky.EZCreator.createInIFrame({
 			oAppRef: oEditors,
 			elPlaceHolder: 'content',
-			//sSkinURI: '/zzAppModule/editors/se2/SmartEditor2Skin.html',
 			sSkinURI: '/question/SmartEditor2Skin',
-			htParams : {
-				bUseToolbar : true,
-				bUseModeChanger : true,
+			htParams : {bUseToolbar : true,
 				fOnBeforeUnload : function(){}
 			}, 
 			fCreator: 'createSEditor2'
 		});
-		</script>
-		<script>
-			$(document).ready(function(){
-				$("#insertBoard").click(function(){
-		            //id가 smarteditor인 textarea에 에디터에서 대입
-		            oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
-		            //폼 submit
-		            $("#writeF").submit();
-		        });
-			});
 		</script>
 		</td>
           </tr>
@@ -109,14 +87,14 @@
 				        </table>
     </div>
     <div class="zz_new_write but">
-		<button type="button" id="insertBoard" class="ok">확인</button>
+		
+    	<button type="button" id="insertBoard" class="ok">확인</button>  
     	<a href="/question/listAll" class="list">리스트</a>
     </div>
-</div>
-</form>
+</div></form>
  
 
     </div>	
 
-</section>
+</section>    
 <%@ include file="../include/footer.jsp" %>

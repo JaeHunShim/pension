@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.pension.domain.QuestionVO;
+import com.spring.pension.persistence.QuestionDAO;
 import com.spring.pension.service.QuestionService;
 
 @Controller
@@ -71,11 +72,30 @@ public class QuestionController {
 	@RequestMapping(value="/read",method=RequestMethod.POST)
 	public void passwordCheck(int qno ,String password,Model model) throws Exception{
 		
-		logger.info("passwrod에서 받아온  qno" +qno);
-		logger.info("받아온 password" + password);
+		logger.info("passwrod에서 받아온  qno: "+qno + " 받오는 password: " +password );
 		
 		model.addAttribute(questionServcie.read(qno,password));
 	
 	}
-
+	// 게시글 삭제 하기
+	@RequestMapping(value="/delete",method=RequestMethod.GET)
+	public String remove(int qno,RedirectAttributes rttr) throws Exception{
+			
+		logger.info("삭제페이지에서 받아오는 qno:" + qno);
+		questionServcie.remove(qno);
+		rttr.addFlashAttribute("msg","success");
+		return "redirect:/question/listAll";
+	}
+	// 게시물 수정하기 위해서 read 페이지에서 qno,password 받아오기 model에 넝어서 modify 페이지에 뿌리기
+	@RequestMapping(value="/modify",method=RequestMethod.GET)
+	public void modifyGET(int qno, String password,Model model) throws Exception{
+		
+		model.addAttribute(questionServcie.read(qno, password));
+	}
+	@RequestMapping(value="/modify",method=RequestMethod.POST)
+	public String modifyPOST(QuestionVO questionVO,RedirectAttributes rttr) throws Exception{
+		
+		questionServcie.modify(questionVO);
+		return "redirect:/question/listAll";
+	}
 }

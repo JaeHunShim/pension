@@ -19,7 +19,24 @@
 	</select>
 	<!-- 상세페이지 받아오는 부분 -->
 	<select id="read" resultType="QuestionVO">
-		select qno,title,content,regdate,viewcnt,writer from question where qno=#{qno} and password=#{password}
+		select qno,title,content,regdate,viewcnt,writer 
+		from 
+			question 
+		where 
+			qno=#{qno} and password=#{password}
 	</select>
-	
+	<!-- 조회수 증가 시키기  -->
+	<update id="updateViewCnt">
+		update question set viewcnt=viewcnt+1
+		where
+			qno=#{qno}
+	</update>
+	<!--  조건에 맞는 게시물 삭제  -->
+	<delete id="delete">
+		delete from question where qno=#{qno}
+	</delete>
+	<!-- 자신의 게시물 수정 -->
+	<update id="modify">
+		update question set title=#{title},content=#{content} where qno=#{qno} 
+	</update>
 </mapper>

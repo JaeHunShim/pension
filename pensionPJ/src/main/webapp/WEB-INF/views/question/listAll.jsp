@@ -3,6 +3,13 @@
 <%@ include file="../include/header.jsp" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<script>
+	var result='${msg}';
+	
+	if(result='success'){
+		alert('입력이 정사적으로 처리 되었습니다.');
+	}
+</script>
 <section class="sub_con sub02" id="scene1">
 
 <div class="title">
@@ -14,7 +21,7 @@
     <div class="sub_txt box"><script language="javascript" src="/resources/js/module/ajax.js"></script>
 <script src="/resources/js/module/common2.js"></script>
 <script src="/resources/js/module/board.js"></script>
-<link rel="stylesheet" href="/resources/css/question/default.css"/>
+<link rel="stylesheet" href="/resources/css/question/default.css"/>	
 <div class="zz_new_list">
 <form name="bSchForm" method="get" action="">
 	<input type="hidden" name="_zidx" value="1464662100^1^1464662121">
@@ -31,7 +38,7 @@
                 </select>
             </li>
             <li><input type="text" name="sword" id="textfield"></li>
-            <li><img src="/resources/img/search.gif" onClick="javascript:bSchForm.submit();"  style="cursor:pointer"></li>
+            <li><img src="/resources/img/question/search.gif" onClick="javascript:bSchForm.submit();"  style="cursor:pointer"></li>
         </ul>
     </div>
 </form>
@@ -51,7 +58,7 @@
           <c:forEach items="${list}" var="questionVO">
           <tr>
             <td>${questionVO.qno}</td>
-            <td><a href="/question/password?qno=${questionVO.qno}">${questionVO.title}</a><font color='red'><img src='/resources/img/icon_secret.gif' border='0' align='absmiddle'></font></td>
+            <td><a href="/question/password?qno=${questionVO.qno}">${questionVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
             <td><p class='flag_but'>대기중</p></td>
             <td>${questionVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></td>
@@ -67,7 +74,7 @@
 				 <table cellpadding="0" cellspacing="0" border="0" align="center">
                 <tr>
                     <td>
-                     <img src=/resources/img/prev.gif class='prev'><ul><li class='on'>1</li></ul><img src=/resources/img/next.gif class='next'>                    </td>
+                     <img src=/resources/img/question/prev.gif class='prev'><ul><li class='on'>1</li></ul><img src=/resources/img/question/next.gif class='next'>                    </td>
                 </tr>
             </table>
             

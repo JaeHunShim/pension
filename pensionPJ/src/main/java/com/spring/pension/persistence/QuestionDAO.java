@@ -12,4 +12,10 @@ public interface QuestionDAO {
 	public List<QuestionVO>listAll() throws Exception;
 	//게시글 상세 페이지 보여주는 부분 
 	public QuestionVO read(Integer qno, String password) throws Exception;
+	//조회수 증가 시키기 
+	public void updateViewCnt(Integer qno) throws Exception;
+	//게시물 삭제 하기
+	public void delete(Integer qno) throws Exception;
+	//게시물 수정하기 
+	public void modify(QuestionVO questionVO) throws Exception;
 }

@@ -12,4 +12,8 @@ public interface QuestionService {
 	public List<QuestionVO> listAll() throws Exception;
 	// 상세페이지 가지고오기
 	public QuestionVO read(Integer qno, String password) throws Exception;
+	// 게시물 삭제하기 
+	public void remove(Integer qno) throws Exception;
+	// 게시물 수정
+	public void modify(QuestionVO questionVO) throws Exception;
 }

@@ -48,5 +48,26 @@ public class QuestionDAOImpl implements QuestionDAO {
 		
 		return sqlSession.selectOne(namespace+".read",map);
 	}
+	//조회수 증가 시키기 
+	@Override
+	public void updateViewCnt(Integer qno) throws Exception {
+		
+		logger.info("받아오는 qno" +qno);
+		
+		sqlSession.update(namespace+".updateViewCnt" ,qno);
+		
+	}
+	//게시물 삭제
+	@Override
+	public void delete(Integer qno) throws Exception {
+		
+		sqlSession.delete(namespace+".delete",qno);
+	}
+	//게시물 수정 
+	@Override
+	public void modify(QuestionVO questionVO) throws Exception {
+		
+		sqlSession.update(namespace+".modify", questionVO);
+	}
 
 }

@@ -1,3 +1,4 @@
+// 예약할때 주민번호와  실명인증 해주는 JQuery 부분 
 var imsiText = '';
 var imsiContent = '';
 var modData = 0;
