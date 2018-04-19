@@ -1,5 +1,7 @@
 package com.spring.pension.controller;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -7,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -88,9 +91,11 @@ public class QuestionController {
 	}
 	// 게시물 수정하기 위해서 read 페이지에서 qno,password 받아오기 model에 넝어서 modify 페이지에 뿌리기
 	@RequestMapping(value="/modify",method=RequestMethod.GET)
-	public void modifyGET(int qno, String password,Model model) throws Exception{
+	public String modifyGET(int qno,Model model) throws Exception{
 		
-		model.addAttribute(questionServcie.read(qno, password));
+		model.addAttribute(questionServcie.getQno(qno));
+		
+		return "/question/modify";
 	}
 	@RequestMapping(value="/modify",method=RequestMethod.POST)
 	public String modifyPOST(QuestionVO questionVO,RedirectAttributes rttr) throws Exception{

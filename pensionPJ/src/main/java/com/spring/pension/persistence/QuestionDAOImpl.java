@@ -69,5 +69,11 @@ public class QuestionDAOImpl implements QuestionDAO {
 		
 		sqlSession.update(namespace+".modify", questionVO);
 	}
+	//qno와 일치하는 데이터 가지고 오기
+	@Override
+	public QuestionVO getQno(Integer qno) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".getQno", qno);
+	}
 
 }

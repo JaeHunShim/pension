@@ -205,8 +205,6 @@
 .zz_new_delete input.Ddelete:hover{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/question/Ddelete_on.gif);}
 .zz_new_delete input.auth_ok{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/question/ok_off.gif);}
 .zz_new_delete input.auth_ok:hover{display:block; width:122px; height:30px; overflow:hidden; background:url(/resources/img/question/ok_on.gif);}
-
-
 .zz_new_delete_inp{margin:0 auto; padding:2%; width:50%; clear:both;}
 .zz_new_delete_inp li{float:none; margin:0; padding:0; line-height:25px; text-align:center;}
 .zz_new_delete_inp li input[type='password']{ width:100%; border:1px solid #ccc; overflow:hidden; height:25px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}

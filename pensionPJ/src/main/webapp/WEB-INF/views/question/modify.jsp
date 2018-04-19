@@ -45,7 +45,7 @@
     	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zz_write_table">
 													 <tr>
             <th scope="row">제목</th>
-            <td><input type='text' name='title' id='title' value="${questionVO.title}" in_ttl='제목'  in_mode='y' in_type='01' class='iptborder' style='width:300px'></td>
+            <td><input type='text'value="${questionVO.title}" style='width:300px'></td>
           </tr>
 									 <tr>
             <th scope="row">비밀글</th>
@@ -53,16 +53,16 @@
           </tr>
 									 <tr>
             <th scope="row">성명</th>
-            <td><input type='text' name='name' id='name' value="${questionVO.name}  readonly" in_ttl='성명'  in_mode='y' in_type='01' class='iptborder'></td>
+            <td><input type='text' value="${questionVO.writer}" readonly ></td>
           </tr>
 									 <tr>
             <th scope="row">비밀번호</th>
-            <td><input type='password' name='password' id='password' value="${questionVO.password}" in_ttl='비밀번호'  in_mode='y' in_type='10' class='iptborder' ></td>
+            <td><input type='password' value="${questionVO.password}" ></td>
           </tr>
 				          <tr>
             <th scope="row">내용</th>
             <td>
-		<textarea name='content' id='content' style='width:500px;; height:470px;;dispaly:none;'><p>${questionVO.content}</p></textarea>
+		<textarea name='content' id='content' style='width:500px;; height:470px;;dispaly:none;'>${questionVO.content}</textarea>
 		<script type='text/javascript'>
 			if(oEditors == undefined){
 				var oEditors = [];

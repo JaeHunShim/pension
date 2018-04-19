@@ -53,5 +53,11 @@ public class QuestionServiceImpl implements QuestionService {
 		
 		questionDAO.modify(questionVO);
 	}
+	//qno와 일치하는 데이터 가지고 오기
+	@Override
+	public QuestionVO getQno(Integer qno) throws Exception {
+		
+		return questionDAO.getQno(qno);
+	}
 
 }

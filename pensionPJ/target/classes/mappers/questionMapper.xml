@@ -39,4 +39,12 @@
 	<update id="modify">
 		update question set title=#{title},content=#{content} where qno=#{qno} 
 	</update>
+	<!-- qno 와 일치하는 것들 가지고 오기 -->
+	<select id="getQno" resultType="QuestionVO">
+			select qno,title,content,regdate,viewcnt,writer 
+		from 
+			question 
+		where 
+			qno=#{qno}
+	</select>
 </mapper>

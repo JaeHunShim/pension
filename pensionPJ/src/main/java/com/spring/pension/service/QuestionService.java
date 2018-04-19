@@ -16,4 +16,6 @@ public interface QuestionService {
 	public void remove(Integer qno) throws Exception;
 	// 게시물 수정
 	public void modify(QuestionVO questionVO) throws Exception;
+	// qno와 일치하는 내용들 가지고 오기
+	public QuestionVO getQno(Integer qno) throws Exception;
 }

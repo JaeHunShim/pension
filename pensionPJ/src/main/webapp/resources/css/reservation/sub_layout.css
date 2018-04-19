@@ -81,7 +81,7 @@ a, img { outline:none; temp:expression(this.hideFocus=true);}
 #slides .slidesjs-play,
 #slides .slidesjs-stop {display:block; position:absolute; top:450px; font-size:0; z-index:20; margin:0; padding:0;  font-size:0px; text-indent:-9999px}
 
-#slides .slidesjs-play {left:50%; margin-left:570px; width:665px; text-align:left; background:url(/resources/img/main/main/btn_play.png) 0 0 no-repeat; 
+#slides .slidesjs-play {left:50%; margin-left:570px; width:665px; text-align:left; background:url(/resources/img/main/btn_play.png) 0 0 no-repeat; 
 width:20px; height:20px;}
 #slides .slidesjs-stop {left:50%; margin-left:600px; width:635px; text-align:left; background:url(/resources/img/main/btn_stop.png) 0 0 no-repeat; 
 width:20px; height:20px;}
@@ -277,7 +277,7 @@ ul.list li b{color:#FF3300; font-size:14px;}
 /************************************************************************
                                    슬라이드 css
 ************************************************************************/
-.ban_box{margin:160px auto 0 auto; padding:87px 0 107px 0; width:100%; clear:both; overflow:hidden; background-image:linear-gradient(-90deg,#f5f5f5,#e4e5e7); background:url(/resources/img/ban_bg.gif) repeat-y;}
+.ban_box{margin:160px auto 0 auto; padding:87px 0 107px 0; width:100%; clear:both; overflow:hidden; background-image:linear-gradient(-90deg,#f5f5f5,#e4e5e7); background:url(/resources/img/main/ban_bg.gif) repeat-y;}
 .ban_con{margin:0 auto; padding:0; width:1252px; clear:both; overflow:hidden;}
 .ban_con h2{margin:0 auto; padding:0; clear:both; overflow:hidden; text-align:center; font-size:42px; font-weight:100; text-transform:uppercase; color:#272629; line-height:62px;}
 .ban_con h3{margin:0 auto; padding:28px 0 0 0; clear:both; overflow:hidden; text-align:center; font-size:16px; font-weight:300; color:#272629;}

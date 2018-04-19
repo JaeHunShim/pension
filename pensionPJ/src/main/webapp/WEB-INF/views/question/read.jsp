@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../include/header.jsp" %>
-
 <section class="sub_con sub02" id="scene1">
 <div class="title">
         <h2>community</h2>
@@ -17,9 +16,10 @@
 		<script src='/resources/js/module/board.js'></script>
 		<script src='/resources/js/module/ajax.js'></script>
 		<link rel='stylesheet' href='/resources/css/question/default.css'/>
+		
 		<div class="zz_new_view">
     <ul class="date">
-    	<li><input type="hidden" name="qno" value="${questionVO.qno}"></li>
+    	
     	<li>작성자:${questionVO.writer}</li>
     	<li><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></li>
         <li>조회수 :${questionVO.viewcnt}</li>
@@ -39,7 +39,6 @@
            	</div>
         </div>
     </div>   
-
 
 
     <div class="zz_new_view comment">
@@ -105,10 +104,6 @@
         </form>
         </ul> 
     </div>
-
-   
-    
-    
     <div class="zz_new_view bottom">
     	<ul>
         	<li>
@@ -119,7 +114,7 @@
             </li>
         </ul>
     </div>
-    <div class="zz_new_view but">
+   <div class="zz_new_view but">
     	<a href="/question/listAll" class="list">리스트</a>
         <ul>
         	<li>
