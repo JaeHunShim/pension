@@ -43,21 +43,23 @@
 <div class="zz_new_write">  
     <div class="zz_new_write contenter">
     	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zz_write_table">
-													 <tr>
+			
+			<input type='hidden' name = "qno" value="${questionVO.qno}" style='width:300px'>
+		<tr>
             <th scope="row">제목</th>
-            <td><input type='text'value="${questionVO.title}" style='width:300px'></td>
-          </tr>
+            <td><input type='text' name="title" value="${questionVO.title}" style='width:300px'></td>
+		</tr>
 									 <tr>
             <th scope="row">비밀글</th>
             <td><input type='radio' name='privacy' id='privacy' value='y'  in_lng='1' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> y<input type='radio' name='privacy' id='privacy' value='n' checked in_lng='2' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> n</td>
           </tr>
 									 <tr>
             <th scope="row">성명</th>
-            <td><input type='text' value="${questionVO.writer}" readonly ></td>
+            <td><input type='text' name="writer" value="${questionVO.writer}" readonly ></td>
           </tr>
 									 <tr>
             <th scope="row">비밀번호</th>
-            <td><input type='password' value="${questionVO.password}" ></td>
+            <td><input type='password' name="password" value="${questionVO.password}"></td>
           </tr>
 				          <tr>
             <th scope="row">내용</th>
@@ -77,6 +79,16 @@
 			fCreator: 'createSEditor2'
 		});
 		</script>
+		<script>
+			$(document).ready(function(){
+				$("#insertBoard").click(function(){
+		            //id가 smarteditor인 textarea에 에디터에서 대입
+		            oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+		            //폼 submit
+		            $("#writeF").submit();
+		        });
+			});
+		</script>
 		</td>
           </tr>
                   <tr>
@@ -88,10 +100,12 @@
     </div>
     <div class="zz_new_write but">
 		
-    	<button type="button" id="insertBoard" class="ok">확인</button>  
+    	<button type="button" id="insertBoard" class="ok">확인</button> 
     	<a href="/question/listAll" class="list">리스트</a>
     </div>
-</div></form>
+</div>
+
+</form>
  
 
     </div>	

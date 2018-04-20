@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.PageMaker;
 import com.spring.pension.domain.QuestionVO;
 import com.spring.pension.persistence.QuestionDAO;
 import com.spring.pension.service.QuestionService;
@@ -24,14 +27,34 @@ import com.spring.pension.service.QuestionService;
 public class QuestionController {
 	
 	@Inject
-	private QuestionService questionServcie;
+	private QuestionService questionService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(QuestionController.class);
-	//글 몰록보기
+	//글 몰록보기1
 	@RequestMapping(value="/listAll",method=RequestMethod.GET)
 	public  void listAll(Model model) throws Exception {
 		logger.info("글목록 불러오기------------------");
-		model.addAttribute("list",questionServcie.listAll());
+		model.addAttribute("list",questionService.listAll());
+	}
+	//글 목록 보기2: 페이징 처리한후 (Cirteria 사용해서 )
+	@RequestMapping(value="/listCriteria", method=RequestMethod.GET)
+	public void listCriteria(Criteria cri,Model model) throws Exception{
+		
+		model.addAttribute("list",questionService.listCriteria(cri));
+		
+	}
+	//글 목록  보기3:하단 페이징 처리까지 (Criteria 와 pageMaker사용) 총 게시물수를 가지고 오기 위해서 @ModelAttribute 사용해서 view 페이지에서 데이터 가지고옴
+	@RequestMapping(value="/listPage",method=RequestMethod.GET)
+	public void listPage(@ModelAttribute("cri") Criteria cri,Model model) throws Exception{
+		
+		model.addAttribute("list",questionService.listCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		  //totalPageCount 안가지고 올때 써먹었던것 
+		//pageMaker.setTotalCount(131);
+		pageMaker.setTotalCount(questionService.listCountCriteria(cri));
+		model.addAttribute("pageMaker",pageMaker);
 	}
 	//글작성 페이지 이동 
 	@RequestMapping(value="/register", method=RequestMethod.GET)
@@ -45,7 +68,7 @@ public class QuestionController {
 		logger.info("글쓰기 처리--------------------");
 		logger.info("QuestionVO 에 있는 값" + qVO.toString());
 		
-		questionServcie.regist(qVO);
+		questionService.regist(qVO);
 		rttr.addFlashAttribute("msg","success");
 		logger.info("rttr 메세지........................"+rttr.getFlashAttributes());
 		
@@ -67,25 +90,37 @@ public class QuestionController {
 	@RequestMapping(value="/password" ,method=RequestMethod.GET)
 	public String password(@RequestParam("qno") int qno ,Model model) {
 		logger.info("패스워드 입력창 출력-------------");
-		logger.info("받아온 qno-------" + qno);
+		logger.info("받아온 qno-------" + qno);	
 		model.addAttribute("qno", qno);
+		return "/question/password";
+	}
+	// 패스워드 체크란에서 페이징 정보 받아오기 
+	@RequestMapping(value="/passwordCheck",method=RequestMethod.GET)
+	public String passwordCheck(@RequestParam("qno") int qno, @ModelAttribute("cri") Criteria cri, Model model) {
+		
+		model.addAttribute("qno",qno);
 		return "/question/password";
 	}
 	//조건에 맞는 상세페이지 불러오기 
 	@RequestMapping(value="/read",method=RequestMethod.POST)
-	public void passwordCheck(int qno ,String password,Model model) throws Exception{
+	public void read(int qno ,String password, Model model) throws Exception{
 		
 		logger.info("passwrod에서 받아온  qno: "+qno + " 받오는 password: " +password );
 		
-		model.addAttribute(questionServcie.read(qno,password));
-	
+		model.addAttribute(questionService.read(qno,password));
+	}
+	//조건에 맞는 상세 페이지 불러오기:페이징 정보를 받아와서 페이지 정보 유지
+	@RequestMapping(value="/readPage",method=RequestMethod.POST)
+	public void readPage(int qno, String password, Criteria cri,Model model) throws Exception{
+		
+		model.addAttribute(questionService.read(qno,password));
 	}
 	// 게시글 삭제 하기
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
 	public String remove(int qno,RedirectAttributes rttr) throws Exception{
 			
 		logger.info("삭제페이지에서 받아오는 qno:" + qno);
-		questionServcie.remove(qno);
+		questionService.remove(qno);
 		rttr.addFlashAttribute("msg","success");
 		return "redirect:/question/listAll";
 	}
@@ -93,14 +128,15 @@ public class QuestionController {
 	@RequestMapping(value="/modify",method=RequestMethod.GET)
 	public String modifyGET(int qno,Model model) throws Exception{
 		
-		model.addAttribute(questionServcie.getQno(qno));
+		model.addAttribute(questionService.getQno(qno));
 		
 		return "/question/modify";
 	}
 	@RequestMapping(value="/modify",method=RequestMethod.POST)
 	public String modifyPOST(QuestionVO questionVO,RedirectAttributes rttr) throws Exception{
+		logger.info("vo객체 데이터들 " + questionVO.toString());
 		
-		questionServcie.modify(questionVO);
+		questionService.modify(questionVO);
 		return "redirect:/question/listAll";
 	}
 }

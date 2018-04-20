@@ -6,7 +6,7 @@
 	<insert id="create">
 		insert into question(title,content,writer,password)values(#{title},#{content},#{writer},#{password})
 	</insert>
-	<!-- 질문 목록 보여주는 부분 -->
+	<!-- 질문 목록 보여주는 부분: 페이징 처리 안했을때 페이지 보여주는 부분  -->
 	<select id="listAll" resultType="QuestionVO">
 		<![CDATA[
 		select
@@ -15,6 +15,27 @@
 			question
 		where qno>0
 		order by qno desc,regdate desc
+		]]>
+	</select>
+	<!--  질문 목록 :페이징 처리한 후의  mapper 게시물을 10개 단위로 보여주게 하기 -->
+	<select id="listCriteria" resultType="QuestionVO">
+		<![CDATA[
+		select
+			qno,title,content,writer,regdate,viewcnt
+		from
+			question
+		where qno>0
+		order by qno desc,regdate desc
+		limit #{pageStart},#{perPageNum}
+		]]>	
+	
+	</select>
+	<!-- 총 게시물 갯수 가지고 오기  -->
+	<select id="countPaging" resultType="int">
+		<![CDATA[
+		select count(qno)
+			from question
+		where qno>0
 		]]>
 	</select>
 	<!-- 상세페이지 받아오는 부분 -->
@@ -37,7 +58,7 @@
 	</delete>
 	<!-- 자신의 게시물 수정 -->
 	<update id="modify">
-		update question set title=#{title},content=#{content} where qno=#{qno} 
+		update question set title=#{title},content=#{content},password=#{password} where qno=#{qno} 
 	</update>
 	<!-- qno 와 일치하는 것들 가지고 오기 -->
 	<select id="getQno" resultType="QuestionVO">

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.QuestionVO;
 import com.spring.pension.persistence.QuestionDAO;
 
@@ -31,6 +32,18 @@ public class QuestionServiceImpl implements QuestionService {
 	public List<QuestionVO> listAll() throws Exception {
 		
 		return questionDAO.listAll();
+	}
+	// 게시글 목록 가져오기 :페이징 처리 한 후 (Criteria 클래스 사용)
+	@Override
+	public List<QuestionVO> listCriteria(Criteria cri) throws Exception {
+		
+		return questionDAO.listCriteria(cri);
+	}
+	//총 게시물수 가지고 오기
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		
+		return questionDAO.countPaging(cri);
 	}
 	// 상세글 가지고오기 
 	@Override

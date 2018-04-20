@@ -115,7 +115,7 @@
         </ul>
     </div>
    <div class="zz_new_view but">
-    	<a href="/question/listPage" class="list">리스트</a>
+    	<a href="/question/readPage" class="list">리스트</a>
         <ul>
         	<li>
         		<a href="/question/modify?qno=${questionVO.qno}" class='modify'>수정</a>

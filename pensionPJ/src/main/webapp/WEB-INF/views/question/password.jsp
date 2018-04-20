@@ -20,8 +20,9 @@
 		<link rel='stylesheet' href='/resources/css/question/default.css'/>
 		
 	<!-- <form name="del_f" method="post" action="/question/password" onSubmit="return chkBoardDeleteForm(this);"> -->
-	<form action="/question/read" method="post">
-		 <input type='hidden' name='board_id' id='board_id' value="bbs2">
+	<!-- <form action="/question/read" method="post"> -->
+		<form action="/question/readPage" method="post">	
+		 <!-- <input type='hidden' name='board_id' id='board_id' value="bbs2">
 		 <input type='hidden' name='bnum' id='bnum' value="7">
 		 <input type='hidden' name='bmode' id='bmode' value="auth">
 		 <input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121">
@@ -29,7 +30,7 @@
 		 <input type='hidden' name='set' id='set' value="">
 		 <input type='hidden' name='rurl' id='rurl' value="/HOME/index.php?_zidx=1464662100^1^1464662121&bmode=view&skey=&sword=&page=&set=&viewMode=&ul=&bnum=7&">
 		 <input type='hidden' name='ttest' id='ttest' value=""><input type='hidden' name='user_id' id='user_id' value="">
-		 <input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,board_id,page,set,ttest">
+		 <input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,board_id,page,set,ttest"> -->
 
 
 <div class="zz_new_delete">
@@ -39,6 +40,9 @@
                     </li>
         <li><input type="password" name="password"></li>
         <li><input name="qno" type="hidden" value="${qno}"></li>
+        <li><input type="hidden" name="page" value="${cri.page}"></li>
+        <li><input type="hidden" name="perPageNum" value="${cri.perPageNum}"></li>
+    
     </ul>
     
     <ul class="zz_new_delete_but">

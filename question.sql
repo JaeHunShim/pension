@@ -51,9 +51,20 @@ alter table question drop viewcnt;
 alter table question add viewcnt int default 0;
 
 -- 게시물 삭제 
-delete from question where qno=1;
+delete from question where qno=4;
 
 -- 게시물 수정 
-update question set title='수정했습니다.',content='수정한 게시물 입니다.'; 
+update question set title='수정했습니다.',content='수정한 게시물 입니다.' where qno =1;
+
+-- 총 게시물 수 가지고 오기 (페이징 처리 하기 위해서)
+select count(qno) from question where qno>0;
+
+-- 페이징 처리 하기 
+select qno,title,content,writer,regdate,viewcnt
+		from
+			question
+		where qno>0
+		order by qno desc,regdate desc
+		limit 1,10;
 
  

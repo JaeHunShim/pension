@@ -1,5 +1,7 @@
 package com.spring.pension;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -9,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.QuestionVO;
 import com.spring.pension.persistence.QuestionDAO;
 
@@ -21,17 +24,34 @@ public class QuestionDAOTest {
 	
 	private static final Logger logger = LoggerFactory.getLogger(QuestionDAOTest.class);
 	
-	@Test
+	//더미 데이터 넣기 
+	/*@Test
 	public void testInsertQuestion() throws Exception{
 		
 		QuestionVO qVO = new QuestionVO();
-		
-		qVO.setTitle("두번째 글입니다");
-		qVO.setContent("두번째 글이 등록되는지 봅시다");
+		for(int i=0; i<100; i++) {
+		qVO.setTitle(i+"번째 데이터 입니다.");
+		qVO.setContent(i+"번째 글 등록했습니다. 제대로 되야해");
 		qVO.setPassword("1");
-		qVO.setWriter("심재훈");
+		qVO.setWriter("심재훈"+i);
 		
 		dao.creat(qVO);
+		}
+	}*/
+	//페이징 처리 테스트 
+	@Test
+	public void testCriteria() throws Exception{
+		
+		Criteria cri = new Criteria();
+		cri.setPage(2);
+		cri.setPerPageNum(10);
+		
+		List<QuestionVO> list = dao.listCriteria(cri);
+		
+		for(QuestionVO vo:list) {
+			
+			logger.info(vo.getQno() + ":" + vo.getTitle());
+		}
 	}
 
 }
