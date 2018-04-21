@@ -115,7 +115,7 @@ public class QuestionController {
 		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
 		model.addAttribute(questionService.read(qno,password));
 	}
-	// 게시글 삭제 하기
+	// 게시글 삭제 하기: 정보유지 안했을때 
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
 	public String remove(int qno,RedirectAttributes rttr) throws Exception{
 			
@@ -124,19 +124,53 @@ public class QuestionController {
 		rttr.addFlashAttribute("msg","success");
 		return "redirect:/question/listAll";
 	}
-	// 게시물 수정하기 위해서 read 페이지에서 qno,password 받아오기 model에 넝어서 modify 페이지에 뿌리기
-	@RequestMapping(value="/modify",method=RequestMethod.GET)
-	public String modifyGET(int qno,Model model) throws Exception{
+	//게시글 삭제하기 :정보 유지 
+	@RequestMapping(value="/deletePage",method=RequestMethod.GET)
+	public String remove(@RequestParam("qno")int qno, @ModelAttribute("cri")Criteria cri,RedirectAttributes rttr) throws Exception{
 		
+		logger.info("가지고오는 qno :" + qno +"--" +"가지고오는 page" + cri.getPage() +"--" + "가지고오는 perPage" + cri.getPerPageNum());
+		
+		questionService.remove(qno);
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum",cri.getPerPageNum());
+		rttr.addFlashAttribute("msg","success");
+		
+		return "redirect:/question/listPage";
+	}
+	// 게시물 수정페이지로 이동: 수정위해서 read 페이지에서 qno 받아오기 model에 넝어서 modify 페이지에 뿌리기
+	@RequestMapping(value="/modify",method=RequestMethod.GET)
+	public String modifyGET(@RequestParam("qno")int qno,Model model) throws Exception{
+		logger.info("수정페이지로 가는 부분 -------------------------------------");
 		model.addAttribute(questionService.getQno(qno));
 		
 		return "/question/modify";
 	}
+	//게시물 수정 페이지로 이동: 게시물 수정한 후에 페이지 유지
+	@RequestMapping(value="/modifyPage",method=RequestMethod.GET)
+	public void modifyPageGet(@RequestParam("qno")int qno,@ModelAttribute("cri")Criteria cri ,Model model) throws Exception{
+		logger.info("수정페이지로 가는 부분 -------------------------------------");
+		logger.info("가지고오는 qno :" + qno +"--" +"가지고오는 page" + cri.getPage() +"--" + "가지고오는 perPage" + cri.getPerPageNum());
+		
+		model.addAttribute(questionService.getQno(qno));
+	}
+	//게시물 수정처리:정보유지 안했을때
 	@RequestMapping(value="/modify",method=RequestMethod.POST)
 	public String modifyPOST(QuestionVO questionVO,RedirectAttributes rttr) throws Exception{
 		logger.info("vo객체 데이터들 " + questionVO.toString());
 		
 		questionService.modify(questionVO);
 		return "redirect:/question/listAll";
+	}
+	//게시물 수정 처리 : 처리한후에 정보유지 
+	@RequestMapping(value="/modifyPage",method=RequestMethod.POST)
+	public String modifyPagePOST(QuestionVO questionVO, Criteria cri,RedirectAttributes rttr) throws Exception{
+		logger.info("수정페이지로 처리 부분 -------------------------------------");
+		
+		questionService.modify(questionVO);
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addFlashAttribute("msg", "success");
+		
+		return "redirect:/question/listPage";
 	}
 }

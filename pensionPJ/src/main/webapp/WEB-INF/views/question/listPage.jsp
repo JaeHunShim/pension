@@ -42,8 +42,8 @@
         </ul>
     </div>
 </form>
-	<input type="text" name= "page" id="page" value="${pageMaker.cri.page}">
-	<input type="text" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
+	<input type="hidden" name= "page" id="page" value="${pageMaker.cri.page}">
+	<input type="hidden" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
     
     <div class="zz_new_list contenter">
     	<table border="0" cellspacing="0" cellpadding="0" width="100%" class="zz_new_d table">

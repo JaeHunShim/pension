@@ -19,8 +19,11 @@
 		
 		<div class="zz_new_view">
     <ul class="date">
-    	<li><input type="text" name="page" value="${cri.page}"></li>
-    	<li><input type="text" name="perPageNum" value="${cri.perPageNum}"></li>
+    	<!-- 삭제와 수정 처리 완료후 페이지 유지하기 위해서 사용 qno, cri 정보 유지   -->
+    	<li><input type="hidden" name="qno" value="${questionVO.qno}"></li>
+    	<li><input type="hidden" name="page" value="${cri.page}"></li>
+    	<li><input type="hidden" name="perPageNum" value="${cri.perPageNum}"></li>
+    	
     	<li>작성자:${questionVO.writer}</li>
     	<li><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></li>
         <li>조회수 :${questionVO.viewcnt}</li>
@@ -119,10 +122,10 @@
     	<a href="/question/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}" class="list">리스트</a>
         <ul>
         	<li>
-        		<a href="/question/modify?qno=${questionVO.qno}" class='modify'>수정</a>
+        		<a href="/question/modifyPage?qno=${questionVO.qno}&page=${cri.page}&perPageNum=${cri.perPageNum}" class='modify'>수정</a>
         	</li>
         	<li>
-        		<a href="/question/delete?qno=${questionVO.qno}" class='delete'>삭제</a>
+        		<a href="/question/deletePage?qno=${questionVO.qno}&page=${cri.page}&perPageNum=${cri.perPageNum}" class='delete'>삭제</a>
         	</li>
        </ul>
     </div>
