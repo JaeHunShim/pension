@@ -9,8 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.PageMaker;
 import com.spring.pension.domain.QuestionVO;
-import com.spring.pension.persistence.QuestionDAO;
 import com.spring.pension.service.QuestionService;
 
 @Controller
@@ -96,10 +93,12 @@ public class QuestionController {
 	}
 	// 패스워드 체크란에서 페이징 정보 받아오기 
 	@RequestMapping(value="/passwordCheck",method=RequestMethod.GET)
-	public String passwordCheck(@RequestParam("qno") int qno, @ModelAttribute("cri") Criteria cri, Model model) {
+	public void passwordCheck(@RequestParam("qno") int qno, @ModelAttribute("cri")Criteria cri, Model model) {
 		
+		logger.info("passwordCheck cri 정보" + cri.getPage());
+		logger.info("passwordCheck cri 정보" + cri.getPerPageNum());
+		logger.info("받아오는 qno" + qno);
 		model.addAttribute("qno",qno);
-		return "/question/password";
 	}
 	//조건에 맞는 상세페이지 불러오기 
 	@RequestMapping(value="/read",method=RequestMethod.POST)
@@ -110,9 +109,10 @@ public class QuestionController {
 		model.addAttribute(questionService.read(qno,password));
 	}
 	//조건에 맞는 상세 페이지 불러오기:페이징 정보를 받아와서 페이지 정보 유지
-	@RequestMapping(value="/readPage",method=RequestMethod.POST)
-	public void readPage(int qno, String password, Criteria cri,Model model) throws Exception{
+	@RequestMapping(value="/readPage",method=RequestMethod.GET)
+	public void readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") Criteria cri,Model model) throws Exception{
 		
+		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
 		model.addAttribute(questionService.read(qno,password));
 	}
 	// 게시글 삭제 하기

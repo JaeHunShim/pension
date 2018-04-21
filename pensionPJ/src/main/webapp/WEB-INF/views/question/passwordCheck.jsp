@@ -39,9 +39,9 @@
         	            비밀번호
                     </li>
         <li><input type="password" name="password"></li>
-        <li><input type="text" name="qno"value="${qno}"></li>
-        <li><input type="text" name="page" value="${cri.page}"></li>
-        <li><input type="text" name="perPageNum" value="${cri.perPageNum}"></li>
+        <li><input type="hidden" name="qno"value="${qno}"></li>
+        <li><input type="hidden" name="page" value="${cri.page}"></li>
+        <li><input type="hidden" name="perPageNum" value="${cri.perPageNum}"></li>
     
     </ul>
     

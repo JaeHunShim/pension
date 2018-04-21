@@ -19,7 +19,8 @@
 		
 		<div class="zz_new_view">
     <ul class="date">
-    	
+    	<li><input type="text" name="page" value="${cri.page}"></li>
+    	<li><input type="text" name="perPageNum" value="${cri.perPageNum}"></li>
     	<li>작성자:${questionVO.writer}</li>
     	<li><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></li>
         <li>조회수 :${questionVO.viewcnt}</li>
@@ -115,7 +116,7 @@
         </ul>
     </div>
    <div class="zz_new_view but">
-    	<a href="/question/readPage" class="list">리스트</a>
+    	<a href="/question/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}" class="list">리스트</a>
         <ul>
         	<li>
         		<a href="/question/modify?qno=${questionVO.qno}" class='modify'>수정</a>

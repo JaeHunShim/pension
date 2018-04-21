@@ -12,7 +12,7 @@ public class PageMaker {
 	private boolean prev; //이전페이지  
 	private boolean next;	// 다음페이지 
 	
-	private int displayPageNum=10; //페이지 번호를 10개씩 보이게함 이건  숫자만바꾸면 수정딤.
+	private int displayPageNum=5; //페이지 번호를 10개씩 보이게함 이건  숫자만바꾸면 수정딤.
 	
 	private Criteria cri;	//하단 페이징 처리 하기 위해서  cirteria 클래스에서 get해오고 set해주기 휘해서 사용
 	

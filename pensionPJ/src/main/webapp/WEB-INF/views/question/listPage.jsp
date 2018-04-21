@@ -42,7 +42,8 @@
         </ul>
     </div>
 </form>
-    
+	<input type="text" name= "page" id="page" value="${pageMaker.cri.page}">
+	<input type="text" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
     
     <div class="zz_new_list contenter">
     	<table border="0" cellspacing="0" cellpadding="0" width="100%" class="zz_new_d table">
@@ -54,12 +55,11 @@
             <th scope="col" width="100">작성일</th>
             <th scope="col" width="100">조회수</th>
           </tr>
-           		
           <c:forEach items="${list}" var="questionVO">
           <tr>
             <td>${questionVO.qno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/question/passwordCheck?qno=${questionVO.qno}&${pageMaker.makeQuery(pageMaker.cri.page)}">
+            <td><a href="/question/passwordCheck${pageMaker.makeQuery(pageMaker.cri.page) }&qno=${questionVO.qno}">							
             ${questionVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
             <td><p class='flag_but'>대기중</p></td>
             <td>${questionVO.writer}</td>
