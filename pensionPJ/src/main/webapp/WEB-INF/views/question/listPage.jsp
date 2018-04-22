@@ -59,7 +59,7 @@
           <tr>
             <td>${questionVO.qno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/question/passwordCheck${pageMaker.makeQuery(pageMaker.cri.page) }&qno=${questionVO.qno}">							
+            <td><a href="/question/passwordCheck${pageMaker.makeQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">							
             ${questionVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
             <td><p class='flag_but'>대기중</p></td>
             <td>${questionVO.writer}</td>

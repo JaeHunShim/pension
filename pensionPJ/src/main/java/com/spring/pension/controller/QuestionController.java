@@ -42,7 +42,7 @@ public class QuestionController {
 	}
 	//글 목록  보기3:하단 페이징 처리까지 (Criteria 와 pageMaker사용) 총 게시물수를 가지고 오기 위해서 @ModelAttribute 사용해서 view 페이지에서 데이터 가지고옴
 	@RequestMapping(value="/listPage",method=RequestMethod.GET)
-	public void listPage(@ModelAttribute("cri") Criteria cri,Model model) throws Exception{
+	public void listPage(@ModelAttribute("cri")Criteria cri,Model model) throws Exception{
 		
 		model.addAttribute("list",questionService.listCriteria(cri));
 		
@@ -163,13 +163,14 @@ public class QuestionController {
 	}
 	//게시물 수정 처리 : 처리한후에 정보유지 
 	@RequestMapping(value="/modifyPage",method=RequestMethod.POST)
-	public String modifyPagePOST(QuestionVO questionVO, Criteria cri,RedirectAttributes rttr) throws Exception{
+	public String modifyPagePOST(QuestionVO questionVO,Criteria cri,RedirectAttributes rttr) throws Exception{
 		logger.info("수정페이지로 처리 부분 -------------------------------------");
+		logger.info("가지고온 cir정보: " + cri.getPage()+"----" + cri.getPerPageNum());
 		
 		questionService.modify(questionVO);
 		rttr.addAttribute("page", cri.getPage());
-		rttr.addAttribute("perPageNum", cri.getPerPageNum());
-		rttr.addFlashAttribute("msg", "success");
+		rttr.addAttribute("perPageNum",cri.getPerPageNum());
+		rttr.addFlashAttribute("msg","success");
 		
 		return "redirect:/question/listPage";
 	}

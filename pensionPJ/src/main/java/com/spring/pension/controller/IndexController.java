@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/main/*")
 public class IndexController {
 	
-	@Inject
-	
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
 	@RequestMapping(value="/index" ,method=RequestMethod.GET)

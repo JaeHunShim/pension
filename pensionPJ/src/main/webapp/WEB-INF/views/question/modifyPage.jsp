@@ -24,7 +24,7 @@
 		<input type='hidden' name='bmode' id='bmode' value="write">
 		<input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121">
 		<input type='hidden' name='fid' id='fid' value="">
-		<input type='hidden' name='page' id='page' value="">
+		<!-- <input type='hidden' name='page' id='page' value=""> -->
 		<input type='hidden' name='set' id='set' value="">
 		<input type='hidden' name='thread' id='thread' value="">
 		<input type='hidden' name='viewMode' id='viewMode' value="">
@@ -37,8 +37,6 @@
 		<input type='hidden' name='_zct2' id='_zct2' value="">
 		<input type='hidden' name='sidx' id='sidx' value="">
 		<input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,viewMode,_menu,page,set,ttest">
-		<input type="hidden" name="page" value="${cri.page}">
-		<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
 		<style type="text/css">
 			.zz_new_write{margin:0 auto; position:relative; padding-bottom:90px; width:100%}
 		</style>
@@ -46,12 +44,15 @@
     <div class="zz_new_write contenter">
     	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zz_write_table">
 			
-			<input type='hidden' name = "qno" value="${questionVO.qno}" style='width:300px'>
 		<tr>
+			<input type='text' name = "qno" value="${questionVO.qno}" style='width:300px'>
+			<input type="text" name="page" value="${cri.page}">
+			<input type="text" name="perPageNum" value="${cri.perPageNum}">
+            
             <th scope="row">제목</th>
             <td><input type='text' name="title" value="${questionVO.title}" style='width:300px'></td>
-		</tr>
-									 <tr>
+         </tr>
+		  <tr>
             <th scope="row">비밀글</th>
             <td><input type='radio' name='privacy' id='privacy' value='y'  in_lng='1' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> y<input type='radio' name='privacy' id='privacy' value='n' checked in_lng='2' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> n</td>
           </tr>
@@ -102,8 +103,8 @@
     </div>
     <div class="zz_new_write but">
 		
-    	<button type="button" id="insertBoard" class="ok">확인</button> 
-    	<a href="/question/listPage?page="${cri.page}&perPageNum="${cri.perPageNum}" class="list">리스트</a>
+    	<button type="submit" id="insertBoard" class="ok">확인</button> 
+    	<a href="/question/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}" class="list">리스트</a>
     </div>
 </div>
 
