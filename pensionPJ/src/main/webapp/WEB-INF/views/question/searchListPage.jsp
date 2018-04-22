@@ -23,22 +23,41 @@
 <script src="/resources/js/module/board.js"></script>
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
 <div class="zz_new_list">
-<form name="bSchForm" method="get" action="">
-	<input type="hidden" name="_zidx" value="1464662100^1^1464662121">
-	<input type="hidden" name="viewMode" value="">
-	<input type="hidden" name="bflag" value="">
-	<input type="hidden" name="code" value="">
+<form name="search" method="get" action="/question/searchListPage">
+	<input type="hidden" name="page" value="${cri.page}">
+	<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
+	<input type="hidden" name="searchType" value="${cri.searchType}">
+	<input type="hidden" name="keyword" value="${cri.keyword}">
 	<div class="zz_new_list_header">
     	<ul class="zz_search_box">
         	<li>
-            	<select name="skey" id="skey">
-                    <option value="1" selected>제목</option>
-                    <option value="2">내용</option>
-                    <option value="3">작성자 </option>
+            	<select name="searchType">
+                    <option value="n"
+                    	<c:out value ="${cri.searchType == null?'selected':''}"/>>---
+                    </option>
+                    <option value="t"
+                    	<c:out value ="${cri.searchType eq 't'?'selected':''}"/>>제목
+                    </option>
+                    <option value="c"
+                    	<c:out value ="${cri.searchType eq 'c'?'selected':''}"/>>내용
+                     </option>
+                    <option value="w"
+                    	<c:out value ="${cri.searchType eq 'w'?'selected':''}"/>>작성자
+                    </option>
+                    <option value="tc"
+                    	<c:out value ="${cri.searchType eq 'tc'?'selected':''}"/>>제목 또는 내용
+                     </option>
+                    <option value="cw"
+                    	<c:out value ="${cri.searchType eq 'cw'?'selected':''}"/>>내용 또는 작성자
+                    </option>
+                    <option value="tcw"
+                    	<c:out value ="${cri.searchType eq 'tcw'?'selected':''}"/>>모든조건
+                    </option>
                 </select>
             </li>
-            <li><input type="text" name="sword" id="textfield"></li>
-            <li><img src="/resources/img/question/search.gif" onClick="/sQuestion/list"  style="cursor:pointer"></li>
+            <!-- <li><input type="text" name="sword" id="textfield"></li> -->
+            <li><input type="text" name="keyword" id="keywordInput" value="${cri.keyword}"></li>
+            <li><img src="/resources/img/question/search.gif" onClick="javascript:search.submit();"  style="cursor:pointer"></li>
         </ul>
     </div>
 </form>
@@ -59,7 +78,7 @@
           <tr>
             <td>${questionVO.qno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/question/passwordCheck${pageMaker.makeQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">							
+            <td><a href="/question/passwordCheck${pageMaker.makeSearchQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">							
             ${questionVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
             <td><p class='flag_but'>대기중</p></td>
             <td>${questionVO.writer}</td>
@@ -77,19 +96,19 @@
                 <tr>
                     <td>
                     	<c:if test="${pageMaker.prev}">
-                    		<a href ="listPage${pageMaker.makeQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
+                    		<a href ="listPage${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
                     	</c:if>
                     	<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage }" var="idx">
                      		<ul>
                      			<li 
                      				<c:out value="${pageMaker.cri.page == idx?'class=on':''}"/>>
-                     				<a href="listPage${pageMaker.makeQuery(idx)}">${idx}</a>
+                     				<a href="listPage${pageMaker.makeSearchQuery(idx)}">${idx}</a>
                      			</li>
                      		</ul>
                      		</c:forEach>
                      		
-                     	<c:if test="${pageMaker.next}">
-                     		<a href="listPage${pageMaker.makeQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
+                     	<c:if test="${pageMaker.next && pageMaker.endPage >0}">
+                     		<a href="searchListPage${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
                      	</c:if>	
                      	
               		</td>

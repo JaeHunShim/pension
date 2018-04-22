@@ -1,5 +1,7 @@
 package com.spring.pension.domain;
 
+import java.net.URLEncoder;
+
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -87,7 +89,7 @@ public class PageMaker {
 	public void setCri(Criteria cri) {
 		this.cri = cri;
 	}
-	//보여지는 페이지수를 유동적으로 하기 위해서 uri 뽑아오기 
+	//보여지는 페이지수를 유동적으로 하기 위해서 uri 뽑아오기
 	public String makeQuery(int page) {
 		
 		UriComponents uriComponents = UriComponentsBuilder.newInstance()
@@ -96,5 +98,31 @@ public class PageMaker {
 				.build();
 		
 		return uriComponents.toUriString();
+	}
+	//uri에 추가로 searchType, keyword 추가해서 뽑아오기
+	//파라미터로 검색조건과 검색어를 추가해서 같이 보내서 일치하는 내용을 뽑아오기 위해서 
+	public String makeSearchQuery(int page) {
+		
+		UriComponents uriComponents = UriComponentsBuilder.newInstance()
+				.queryParam("page", page)
+				.queryParam("perPageNum", cri.getPerPageNum())
+				.queryParam("searchType", ((SearchCriteria)cri).getSearchType())
+				.queryParam("keyowrd", encoding(((SearchCriteria)cri).getKeyword()))
+				.build();
+		
+		return uriComponents.toUriString();
+	}
+	// 입력되는 글에 대한 encoding처리 
+	private String encoding(String keyword) {
+		//검색어에 아무것도 안들어왔을때 
+		if(keyword ==null || keyword.trim().length() ==0) {
+			return "";
+		}
+		try {
+			return URLEncoder.encode(keyword,"UTF-8");
+		}catch(Exception e) {
+			
+			return "";
+		}
 	}
 }

@@ -80,7 +80,7 @@
                                     <div class="sub_menu">
                                         <ul class="depth2">
                                             <li class="first"><a href="#">공지사항</a></li>
-                                            <li><a href="/question/listPage">질문과답변</a></li>
+                                            <li><a href="/question/searchListPage">질문과답변</a></li>
                                             <li><a href="#">포토갤러리</a></li>
                                         </ul>
                                     </div>

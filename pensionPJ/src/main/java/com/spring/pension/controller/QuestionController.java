@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.PageMaker;
 import com.spring.pension.domain.QuestionVO;
+import com.spring.pension.domain.SearchCriteria;
 import com.spring.pension.service.QuestionService;
 
 @Controller
@@ -43,15 +44,28 @@ public class QuestionController {
 	//글 목록  보기3:하단 페이징 처리까지 (Criteria 와 pageMaker사용) 총 게시물수를 가지고 오기 위해서 @ModelAttribute 사용해서 view 페이지에서 데이터 가지고옴
 	@RequestMapping(value="/listPage",method=RequestMethod.GET)
 	public void listPage(@ModelAttribute("cri")Criteria cri,Model model) throws Exception{
-		
+		logger.info("-----------------------글 목록 보는 페이지 -----------------------------------------");
 		model.addAttribute("list",questionService.listCriteria(cri));
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		  //totalPageCount 안가지고 올때 써먹었던것 
+		 //totalPageCount 안가지고 올때 써먹었던것 
 		//pageMaker.setTotalCount(131);
 		pageMaker.setTotalCount(questionService.listCountCriteria(cri));
 		model.addAttribute("pageMaker",pageMaker);
+	}
+	//글 목록 보기4: 검색까지 가능하게 하기 
+	@RequestMapping(value="/searchListPage",method=RequestMethod.GET)
+	public void listSearchPage(@ModelAttribute("cri") SearchCriteria cri,Model model) throws Exception {
+		
+		logger.info(cri.toString());
+		model.addAttribute("list", questionService.listCriteria(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(questionService.listCountCriteria(cri));
+		
+		model.addAttribute("pageMaker", pageMaker);
 	}
 	//글작성 페이지 이동 
 	@RequestMapping(value="/register", method=RequestMethod.GET)
@@ -62,9 +76,10 @@ public class QuestionController {
 	//글작성 처리
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String registerPost(QuestionVO qVO, RedirectAttributes rttr) throws Exception {
-		logger.info("글쓰기 처리--------------------");
-		logger.info("QuestionVO 에 있는 값" + qVO.toString());
 		
+		logger.info("-------------------------글쓰기 처리------------------------------");
+		logger.info("QuestionVO 에 있는 값" + qVO.toString());
+		logger.info("--------------------------------------------------------------");
 		questionService.regist(qVO);
 		rttr.addFlashAttribute("msg","success");
 		logger.info("rttr 메세지........................"+rttr.getFlashAttributes());
@@ -94,10 +109,11 @@ public class QuestionController {
 	// 패스워드 체크란에서 페이징 정보 받아오기 
 	@RequestMapping(value="/passwordCheck",method=RequestMethod.GET)
 	public void passwordCheck(@RequestParam("qno") int qno, @ModelAttribute("cri")Criteria cri, Model model) {
-		
+		logger.info("------------------passwordCheck 부분----------------------------");
 		logger.info("passwordCheck cri 정보" + cri.getPage());
 		logger.info("passwordCheck cri 정보" + cri.getPerPageNum());
 		logger.info("받아오는 qno" + qno);
+		logger.info("--------------------------------------------------------------");
 		model.addAttribute("qno",qno);
 	}
 	//조건에 맞는 상세페이지 불러오기 
@@ -111,8 +127,9 @@ public class QuestionController {
 	//조건에 맞는 상세 페이지 불러오기:페이징 정보를 받아와서 페이지 정보 유지
 	@RequestMapping(value="/readPage",method=RequestMethod.GET)
 	public void readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") Criteria cri,Model model) throws Exception{
-		
+		logger.info("-------------------readPage로 이동하기--------------------------------");
 		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
+		logger.info("------------------------------------------------------------------");
 		model.addAttribute(questionService.read(qno,password));
 	}
 	// 게시글 삭제 하기: 정보유지 안했을때 
@@ -127,9 +144,9 @@ public class QuestionController {
 	//게시글 삭제하기 :정보 유지 
 	@RequestMapping(value="/deletePage",method=RequestMethod.GET)
 	public String remove(@RequestParam("qno")int qno, @ModelAttribute("cri")Criteria cri,RedirectAttributes rttr) throws Exception{
-		
+		logger.info("----------------------------질문 삭제 부분 --------------------------------------");
 		logger.info("가지고오는 qno :" + qno +"--" +"가지고오는 page" + cri.getPage() +"--" + "가지고오는 perPage" + cri.getPerPageNum());
-		
+		logger.info("-------------------------------------------------------------------");
 		questionService.remove(qno);
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
@@ -148,9 +165,9 @@ public class QuestionController {
 	//게시물 수정 페이지로 이동: 게시물 수정한 후에 페이지 유지
 	@RequestMapping(value="/modifyPage",method=RequestMethod.GET)
 	public void modifyPageGet(@RequestParam("qno")int qno,@ModelAttribute("cri")Criteria cri ,Model model) throws Exception{
-		logger.info("수정페이지로 가는 부분 -------------------------------------");
+		logger.info("--------------------수정페이지 불러오기 -------------------------------------");
 		logger.info("가지고오는 qno :" + qno +"--" +"가지고오는 page" + cri.getPage() +"--" + "가지고오는 perPage" + cri.getPerPageNum());
-		
+		logger.info("----------------------------------------------------------------------");
 		model.addAttribute(questionService.getQno(qno));
 	}
 	//게시물 수정처리:정보유지 안했을때
@@ -164,9 +181,9 @@ public class QuestionController {
 	//게시물 수정 처리 : 처리한후에 정보유지 
 	@RequestMapping(value="/modifyPage",method=RequestMethod.POST)
 	public String modifyPagePOST(QuestionVO questionVO,Criteria cri,RedirectAttributes rttr) throws Exception{
-		logger.info("수정페이지로 처리 부분 -------------------------------------");
+		logger.info("-----------------------------수정 처리 부분 -------------------------------------");
 		logger.info("가지고온 cir정보: " + cri.getPage()+"----" + cri.getPerPageNum());
-		
+		logger.info("---------------------------------------------------------------------------");
 		questionService.modify(questionVO);
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
