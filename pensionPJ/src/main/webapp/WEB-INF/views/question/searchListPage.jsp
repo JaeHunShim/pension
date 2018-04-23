@@ -10,6 +10,17 @@
 		alert('입력이 정사적으로 처리 되었습니다.');
 	}
 </script>
+<script>
+	$(document).ready(function(){
+		$('img').on('click',function(event){
+			self.loaction="/question/searchListPage"
+			+'${pageMaker.makeQuery(1)}'
+			+"&searchType="
+			+$("select option:selected").val()
+			+"&keyword="+encodeURIComponent($('#keywordInput').val());
+		});
+	});
+</script>
 <section class="sub_con sub02" id="scene1">
 
 <div class="title">
@@ -24,10 +35,12 @@
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
 <div class="zz_new_list">
 <form name="search" method="get" action="/question/searchListPage">
-	<input type="hidden" name="page" value="${cri.page}">
+<%-- 	<input type="hidden" name="page" value="${cri.page}">
 	<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
 	<input type="hidden" name="searchType" value="${cri.searchType}">
-	<input type="hidden" name="keyword" value="${cri.keyword}">
+	<input type="hidden" name="keyword" value="${cri.keyword}"> --%>
+	<input type="hidden" name= "page" id="page" value="${pageMaker.cri.page}">
+	<input type="hidden" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
 	<div class="zz_new_list_header">
     	<ul class="zz_search_box">
         	<li>
@@ -57,7 +70,7 @@
             </li>
             <!-- <li><input type="text" name="sword" id="textfield"></li> -->
             <li><input type="text" name="keyword" id="keywordInput" value="${cri.keyword}"></li>
-            <li><img src="/resources/img/question/search.gif" onClick="javascript:search.submit();"  style="cursor:pointer"></li>
+            <li><img src="/resources/img/question/search.gif" onClick="javascript:search.submit()" style="cursor:pointer"></li>
         </ul>
     </div>
 </form>
