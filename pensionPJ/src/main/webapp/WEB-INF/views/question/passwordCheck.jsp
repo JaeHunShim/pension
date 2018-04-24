@@ -42,6 +42,9 @@
         <li><input type="hidden" name="qno"value="${qno}"></li>
         <li><input type="hidden" name="page" value="${cri.page}"></li>
         <li><input type="hidden" name="perPageNum" value="${cri.perPageNum}"></li>
+        <li><input type="hidden" name="searchType" value="${cri.searchType}"></li>
+        <li><input type="hidden" name="keyword" value="${cri.keyword}"></li>
+        	
     
     </ul>
     

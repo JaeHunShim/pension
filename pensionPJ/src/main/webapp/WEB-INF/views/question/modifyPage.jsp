@@ -37,6 +37,11 @@
 		<input type='hidden' name='_zct2' id='_zct2' value="">
 		<input type='hidden' name='sidx' id='sidx' value="">
 		<input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,viewMode,_menu,page,set,ttest">
+		<input type='hidden' name = "qno" value="${questionVO.qno}" style='width:300px'>
+		<input type="hidden" name="page" value="${cri.page}">
+		<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
+		<input type="hidden" name="searchType" value="${cri.searchType}">
+		<input type="hidden" name="keyword" value="${cri.keyword}">
 		<style type="text/css">
 			.zz_new_write{margin:0 auto; position:relative; padding-bottom:90px; width:100%}
 		</style>
@@ -45,10 +50,6 @@
     	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zz_write_table">
 			
 		<tr>
-			<input type='text' name = "qno" value="${questionVO.qno}" style='width:300px'>
-			<input type="text" name="page" value="${cri.page}">
-			<input type="text" name="perPageNum" value="${cri.perPageNum}">
-            
             <th scope="row">제목</th>
             <td><input type='text' name="title" value="${questionVO.title}" style='width:300px'></td>
          </tr>

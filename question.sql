@@ -67,4 +67,39 @@ select qno,title,content,writer,regdate,viewcnt
 		order by qno desc,regdate desc
 		limit 1,10;
 
- 
+-- 검색결과에 맞는 게시물 가지고 오기 
+
+		select
+			qno,title,content,writer,regdate,viewcnt
+		from
+			question
+		where qno>0
+		
+	/*<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and title like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and content like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and writer like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and (title like CONCAT('%',#{keyword},'%') 
+				or content like CONCAT('%',#{keyword},'%'))
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and (content like CONCAT('%',#{keyword},'%') 
+				or writer like CONCAT('%',#{keyword},'%'))
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and (title like CONCAT('%',#{keyword},'%') 
+				or content like CONCAT('%',#{keyword},'%')
+				or writer like CONCAT('%',#{keyword},'%'))
+			</if>
+		</if> */
+ 		
+		order by qno desc,regdate desc
+		limit 1,10;
+		

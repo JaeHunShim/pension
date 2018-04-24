@@ -11,13 +11,14 @@
 	}
 </script>
 <script>
+	//검색했을때 page를 다시 1로 돌려여 하기때문에 makeQuery의 page에 1을 대입시켜놓음  
 	$(document).ready(function(){
-		$('img').on('click',function(event){
-			self.loaction="/question/searchListPage"
-			+'${pageMaker.makeQuery(1)}'
-			+"&searchType="
-			+$("select option:selected").val()
-			+"&keyword="+encodeURIComponent($('#keywordInput').val());
+		$('#shim').on('click',function(){
+			self.location="/question/searchListPage"
+			+ '${pageMaker.makeQuery(1)}'
+			+ "&searchType="
+			+ $('select option:selected').val()
+			+ "&keyword=" +encodeURIComponent($('#keywordInput').val());
 		});
 	});
 </script>
@@ -34,8 +35,8 @@
 <script src="/resources/js/module/board.js"></script>
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
 <div class="zz_new_list">
-<form name="search" method="get" action="/question/searchListPage">
-<%-- 	<input type="hidden" name="page" value="${cri.page}">
+<!-- <form name="search" method="get" action="/question/searchListPage"> -->
+<%-- <input type="hidden" name="page" value="${cri.page}">
 	<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
 	<input type="hidden" name="searchType" value="${cri.searchType}">
 	<input type="hidden" name="keyword" value="${cri.keyword}"> --%>
@@ -70,13 +71,10 @@
             </li>
             <!-- <li><input type="text" name="sword" id="textfield"></li> -->
             <li><input type="text" name="keyword" id="keywordInput" value="${cri.keyword}"></li>
-            <li><img src="/resources/img/question/search.gif" onClick="javascript:search.submit()" style="cursor:pointer"></li>
+            <li><img src="/resources/img/question/search.gif" id="shim" style="cursor:pointer"></a></li>
         </ul>
     </div>
-</form>
-	<input type="hidden" name= "page" id="page" value="${pageMaker.cri.page}">
-	<input type="hidden" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
-    
+<!-- </form> -->
     <div class="zz_new_list contenter">
     	<table border="0" cellspacing="0" cellpadding="0" width="100%" class="zz_new_d table">
           <tr>
@@ -109,19 +107,20 @@
                 <tr>
                     <td>
                     	<c:if test="${pageMaker.prev}">
-                    		<a href ="listPage${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
+                    		<a href ="/question/searchListPage${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
                     	</c:if>
                     	<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage }" var="idx">
                      		<ul>
-                     			<li 
+                     			<!-- href 매핑을 listPage에서 searchListPage로 바꿈  -->
+                     			<li
                      				<c:out value="${pageMaker.cri.page == idx?'class=on':''}"/>>
-                     				<a href="listPage${pageMaker.makeSearchQuery(idx)}">${idx}</a>
+                     				<a href="/question/searchListPage${pageMaker.makeSearchQuery(idx)}">${idx}</a>
                      			</li>
                      		</ul>
                      		</c:forEach>
                      		
                      	<c:if test="${pageMaker.next && pageMaker.endPage >0}">
-                     		<a href="searchListPage${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
+                     		<a href="/question/searchListPage${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
                      	</c:if>	
                      	
               		</td>

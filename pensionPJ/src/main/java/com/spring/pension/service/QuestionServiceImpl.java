@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.QuestionVO;
+import com.spring.pension.domain.SearchCriteria;
 import com.spring.pension.persistence.QuestionDAO;
 
 @Service
@@ -27,23 +28,35 @@ public class QuestionServiceImpl implements QuestionService {
 		
 		questionDAO.creat(questionVO);
 	}
-	// 게시글 목록 가져오기
+	// 1. 게시글 목록 가져오기
 	@Override
 	public List<QuestionVO> listAll() throws Exception {
 		
 		return questionDAO.listAll();
 	}
-	// 게시글 목록 가져오기 :페이징 처리 한 후 (Criteria 클래스 사용)
+	// 2. 게시글 목록 가져오기 :페이징 처리 한 후 (Criteria 클래스 사용)
 	@Override
 	public List<QuestionVO> listCriteria(Criteria cri) throws Exception {
 		
 		return questionDAO.listCriteria(cri);
 	}
-	//총 게시물수 가지고 오기
+	// 3. 게시글 목록 가져오기 : 페이징 처리 + 검색결결과 
+	@Override
+	public List<QuestionVO> listSearchCriteria(SearchCriteria cri) throws Exception {
+		
+		return questionDAO.listSearch(cri);
+	}
+	// 1) 총 게시물수 가지고 오기
 	@Override
 	public int listCountCriteria(Criteria cri) throws Exception {
 		
 		return questionDAO.countPaging(cri);
+	}
+	// 2) 총 게시물수 가지고 오기 
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		
+		return questionDAO.listSearchConunt(cri);
 	}
 	// 상세글 가지고오기 
 	@Override

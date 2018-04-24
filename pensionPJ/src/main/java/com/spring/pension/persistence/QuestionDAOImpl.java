@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.QuestionVO;
+import com.spring.pension.domain.SearchCriteria;
 
 @Repository
 public class QuestionDAOImpl implements QuestionDAO {
@@ -30,13 +31,13 @@ public class QuestionDAOImpl implements QuestionDAO {
 		
 		sqlSession.insert(namespace+".create", questionVO);
 	}
-	// 등록된 글목록 불러오기 
+	// 1.등록된 글목록 불러오기 
 	@Override
 	public List<QuestionVO> listAll() throws Exception {
 		
 		return sqlSession.selectList(namespace+".listAll");
 	}
-	// 등록된 글 목록 불러오기 : 페이징 처리연습 한 부분 
+	// 2.등록된 글 목록 불러오기 : 페이징 처리연습 한 부분 
 	@Override
 	public List<QuestionVO> listPage(int page) throws Exception {
 		
@@ -47,18 +48,30 @@ public class QuestionDAOImpl implements QuestionDAO {
 		
 		return sqlSession.selectList(namespace+"listPage", page);
 	}
-	// 등록된 글 목록 불러오기 : criteria class 를 이용해서 페이징 처리 하기
+	// 3.등록된 글 목록 불러오기 : criteria class 를 이용해서 페이징 처리 하기
 	@Override
 	public List<QuestionVO> listCriteria(Criteria cri) throws Exception {
 
 		return sqlSession.selectList(namespace+".listCriteria", cri);
 	}
-	// 게시물 총 갯수 가지고 오기 
+	// 4. 등록된 글 목록 불러오기: 검색결과에 따른 게시물 목록
+	@Override
+	public List<QuestionVO> listSearch(SearchCriteria cri) throws Exception {
+			
+		return sqlSession.selectList(namespace+".listSearch", cri);
+	}
+	// 1) 게시물 총 갯수 가지고 오기 
 	@Override
 	public int countPaging(Criteria cri) throws Exception {
 		
 		return sqlSession.selectOne(namespace+".countPaging", cri);
 	}
+	// 2) 게시물 총 갯수 가지고 오기(검색조건에 맞는 게시물 가지고오기  )
+	@Override
+	public int listSearchConunt(SearchCriteria cri) throws Exception {
+				
+		return sqlSession.selectOne(namespace+".listSearchCount", cri);
+	}	
 	// 게시물 상세 보여주는 부분
 	@Override
 	public QuestionVO read(Integer qno, String password) throws Exception {
@@ -99,5 +112,4 @@ public class QuestionDAOImpl implements QuestionDAO {
 		
 		return sqlSession.selectOne(namespace+".getQno", qno);
 	}
-
 }

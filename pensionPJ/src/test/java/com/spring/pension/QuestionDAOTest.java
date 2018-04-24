@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.QuestionVO;
+import com.spring.pension.domain.SearchCriteria;
 import com.spring.pension.persistence.QuestionDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,7 +26,7 @@ public class QuestionDAOTest {
 	private static final Logger logger = LoggerFactory.getLogger(QuestionDAOTest.class);
 	
 	//더미 데이터 넣기 
-	/*@Test
+	@Test
 	public void testInsertQuestion() throws Exception{
 		
 		QuestionVO qVO = new QuestionVO();
@@ -37,7 +38,8 @@ public class QuestionDAOTest {
 		
 		dao.creat(qVO);
 		}
-	}*/
+	}
+
 	//페이징 처리 테스트 
 	@Test
 	public void testCriteria() throws Exception{
@@ -53,5 +55,22 @@ public class QuestionDAOTest {
 			logger.info(vo.getQno() + ":" + vo.getTitle());
 		}
 	}
-
+	@Test
+	public void testSearch() throws Exception{
+		
+		SearchCriteria cri = new SearchCriteria();
+		cri.setPage(1);
+		cri.setKeyword("1");
+		cri.setSearchType("c");
+		
+		logger.info("==============================================================");
+		
+		List<QuestionVO> list = dao.listSearch(cri);
+		for(QuestionVO vo:list) {
+			logger.info(vo.getQno()+ ":" +vo.getTitle());
+		}
+		
+		logger.info("==============================================================");
+		logger.info("갯수: " + dao.listSearchConunt(cri));
+	}
 }

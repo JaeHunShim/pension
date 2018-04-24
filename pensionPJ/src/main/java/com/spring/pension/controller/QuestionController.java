@@ -59,11 +59,12 @@ public class QuestionController {
 	public void listSearchPage(@ModelAttribute("cri") SearchCriteria cri,Model model) throws Exception {
 		
 		logger.info(cri.toString());
-		model.addAttribute("list", questionService.listCriteria(cri));
-		
+		//model.addAttribute("list", questionService.listCriteria(cri));
+		model.addAttribute("list", questionService.listSearchCriteria(cri));
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(questionService.listCountCriteria(cri));
+		//pageMaker.setTotalCount(questionService.listCountCriteria(cri));
+		pageMaker.setTotalCount(questionService.listSearchCount(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);
 	}
@@ -74,6 +75,7 @@ public class QuestionController {
 		logger.info("글쓰기 페이지로 이동------------------");
 	}
 	//글작성 처리
+	// 글작성 처리후 매핑을 searchListPage로 이동
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String registerPost(QuestionVO qVO, RedirectAttributes rttr) throws Exception {
 		
@@ -84,7 +86,7 @@ public class QuestionController {
 		rttr.addFlashAttribute("msg","success");
 		logger.info("rttr 메세지........................"+rttr.getFlashAttributes());
 		
-		return "redirect:/question/listAll";
+		return "redirect:/question/searchListPage";
 	}
 	//smartSkin 으로 텍스트 에어리어 불러오기
 	@RequestMapping(value="/SmartEditor2Skin",method=RequestMethod.GET)
@@ -100,15 +102,14 @@ public class QuestionController {
 	}
 	//글조회 할때 password 입력창 불러오기
 	@RequestMapping(value="/password" ,method=RequestMethod.GET)
-	public String password(@RequestParam("qno") int qno ,Model model) {
+	public void password(@RequestParam("qno") int qno ,Model model) {
 		logger.info("패스워드 입력창 출력-------------");
 		logger.info("받아온 qno-------" + qno);	
 		model.addAttribute("qno", qno);
-		return "/question/password";
 	}
-	// 패스워드 체크란에서 페이징 정보 받아오기 
+	// 패스워드 체크란에서 페이징 정보 받아오기 (검색기능 추가후 Criteria 에서 SearchCriteria 로 수정)
 	@RequestMapping(value="/passwordCheck",method=RequestMethod.GET)
-	public void passwordCheck(@RequestParam("qno") int qno, @ModelAttribute("cri")Criteria cri, Model model) {
+	public void passwordCheck(@RequestParam("qno") int qno, @ModelAttribute("cri")SearchCriteria cri, Model model) {
 		logger.info("------------------passwordCheck 부분----------------------------");
 		logger.info("passwordCheck cri 정보" + cri.getPage());
 		logger.info("passwordCheck cri 정보" + cri.getPerPageNum());
@@ -126,7 +127,7 @@ public class QuestionController {
 	}
 	//조건에 맞는 상세 페이지 불러오기:페이징 정보를 받아와서 페이지 정보 유지
 	@RequestMapping(value="/readPage",method=RequestMethod.GET)
-	public void readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") Criteria cri,Model model) throws Exception{
+	public void readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") SearchCriteria cri,Model model) throws Exception{
 		logger.info("-------------------readPage로 이동하기--------------------------------");
 		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
 		logger.info("------------------------------------------------------------------");
@@ -142,29 +143,32 @@ public class QuestionController {
 		return "redirect:/question/listAll";
 	}
 	//게시글 삭제하기 :정보 유지 
+	//게시글 삭제하기: cirteria를 searchCriteria 로 바꾸고 keyword ,searchType 추가
 	@RequestMapping(value="/deletePage",method=RequestMethod.GET)
-	public String remove(@RequestParam("qno")int qno, @ModelAttribute("cri")Criteria cri,RedirectAttributes rttr) throws Exception{
+	public String remove(@RequestParam("qno")int qno, @ModelAttribute("cri")SearchCriteria cri,RedirectAttributes rttr) throws Exception{
 		logger.info("----------------------------질문 삭제 부분 --------------------------------------");
 		logger.info("가지고오는 qno :" + qno +"--" +"가지고오는 page" + cri.getPage() +"--" + "가지고오는 perPage" + cri.getPerPageNum());
 		logger.info("-------------------------------------------------------------------");
 		questionService.remove(qno);
+		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		rttr.addFlashAttribute("msg","success");
 		
-		return "redirect:/question/listPage";
+		return "redirect:/question/searchListPage";
 	}
 	// 게시물 수정페이지로 이동: 수정위해서 read 페이지에서 qno 받아오기 model에 넝어서 modify 페이지에 뿌리기
 	@RequestMapping(value="/modify",method=RequestMethod.GET)
-	public String modifyGET(@RequestParam("qno")int qno,Model model) throws Exception{
+	public void modifyGET(@RequestParam("qno")int qno,Model model) throws Exception{
 		logger.info("수정페이지로 가는 부분 -------------------------------------");
 		model.addAttribute(questionService.getQno(qno));
 		
-		return "/question/modify";
 	}
 	//게시물 수정 페이지로 이동: 게시물 수정한 후에 페이지 유지
 	@RequestMapping(value="/modifyPage",method=RequestMethod.GET)
-	public void modifyPageGet(@RequestParam("qno")int qno,@ModelAttribute("cri")Criteria cri ,Model model) throws Exception{
+	public void modifyPageGet(@RequestParam("qno")int qno,@ModelAttribute("cri")SearchCriteria cri ,Model model) throws Exception{
 		logger.info("--------------------수정페이지 불러오기 -------------------------------------");
 		logger.info("가지고오는 qno :" + qno +"--" +"가지고오는 page" + cri.getPage() +"--" + "가지고오는 perPage" + cri.getPerPageNum());
 		logger.info("----------------------------------------------------------------------");
@@ -179,16 +183,21 @@ public class QuestionController {
 		return "redirect:/question/listAll";
 	}
 	//게시물 수정 처리 : 처리한후에 정보유지 
+	//Criteria를 SearchCriteria 로 수정해서 검색후 페이지 유지하게 하고 searchType과 keyword추가
 	@RequestMapping(value="/modifyPage",method=RequestMethod.POST)
-	public String modifyPagePOST(QuestionVO questionVO,Criteria cri,RedirectAttributes rttr) throws Exception{
+	public String modifyPagePOST(QuestionVO questionVO,SearchCriteria cri,RedirectAttributes rttr) throws Exception{
 		logger.info("-----------------------------수정 처리 부분 -------------------------------------");
 		logger.info("가지고온 cir정보: " + cri.getPage()+"----" + cri.getPerPageNum());
 		logger.info("---------------------------------------------------------------------------");
 		questionService.modify(questionVO);
+		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum",cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
 		rttr.addFlashAttribute("msg","success");
 		
-		return "redirect:/question/listPage";
+		return "redirect:/question/searchListPage";
 	}
 }
