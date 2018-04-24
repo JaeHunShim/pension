@@ -81,13 +81,14 @@
 		where qno>0
 		]]>
 	</select>
-	<!-- 2. 총 게시물수 가지고 오기 : 검색때문에 추가  -->
+	<!-- 2. 총 게시물수 가지고 오기 : 검색때문에 추가(include포함)  -->
 	<select id="listSearchCount" resultType="int">
 		<![CDATA[
 		select count(qno)
 			from question
 		where qno>0
 		]]>
+		<include refid="search"></include>
 	</select>
 	<!-- 상세페이지 받아오는 부분 -->
 	<select id="read" resultType="QuestionVO">

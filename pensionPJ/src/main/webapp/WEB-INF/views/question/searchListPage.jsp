@@ -109,7 +109,7 @@
                     	<c:if test="${pageMaker.prev}">
                     		<a href ="/question/searchListPage${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
                     	</c:if>
-                    	<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage }" var="idx">
+                    	<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
                      		<ul>
                      			<!-- href 매핑을 listPage에서 searchListPage로 바꿈  -->
                      			<li
