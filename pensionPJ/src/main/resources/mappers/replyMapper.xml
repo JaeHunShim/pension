@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.mapper.ReplyMapper">
+<!-- 질문에 대한 댓글 작성 -->
+<insert id="create">
+	insert into reply(qno, replytext,replyer) values(#{qno},#{replytext},#{replyer})
+</insert>
+<!-- 1. 댓글 목록 보기 -->
+<select id="list" resultType="ReplyVO">
+	select * from reply where qno=#{qno} order by rno desc
+</select>
+<!-- 2. 댓글목록 보기 (페이징 처리후) -->
+<select id="listPage" resultType="ReplyVO">
+	select * from reply
+	where qno=#{qno}
+	order by rno desc
+	limit #{cri.startPage},#{cri.perPageNum} 
+</select>
+<!-- 총 게시물 수 가지고오기 (페이징 처리 하기 위해서) 근데 굳이 qno갯수 말고 rno갯수를 가지고 와도 될듯 하다. -->
+<select id="count" resultType="int">
+	select count(qno) from reply where qno=#{qno}
+</select>
+<!-- 댓글 수정 -->
+<update id="update">
+	update reply set replytext =#{replytext},updatedate = now()
+</update>
+<!-- 댓글 삭제 -->
+<delete id="delete">
+	delete from reply where rno=#{rno}
+</delete>
+</mapper>

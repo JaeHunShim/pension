@@ -42,5 +42,14 @@
 		<filter-name>encoding</filter-name> <!-- 매핑될 필터와 이름이 같아야 매핑처리 됨  -->
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	<!--  ajax로 데이터를 보낼때 method부분을 추가할수 있도록 해주는 부분  -->
+	<filter>
+		<filter-name>hiddenHttpMethodFilter</filter-name>
+		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hiddenHttpMethodFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 </web-app>
