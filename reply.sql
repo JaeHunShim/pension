@@ -4,13 +4,13 @@ use pension;
 
 create table reply(
 	rno int not null auto_increment,
-    bno int not null default 0,
+    qno int not null default 0,
     replytext varchar(1000) not null,
     replyer varchar(50) not null,
     regdate timestamp not null default now(),
     updatedate timestamp not null default now(),
     primary key(rno),
-    constraint fk_question foreign key(rno) references question(qno)
+    constraint fk_question foreign key(qno) references question(qno)
 );
 -- 댓글 삽입
 insert into reply(qno, replytext,replyer) values(#{qno},#{replytext},#{replyer});
@@ -27,3 +27,11 @@ update reply set replytext =#{replytext},updatedate = now();
 delete from reply where rno=#{rno};
 -- 댓글 게시물 수 가지고 오기
 select count(qno) from reply where qno=#{qno}
+
+select * from reply;
+
+ALTER TABLE reply CHANGE bno qno int not null default 0;
+
+drop table reply;
+
+ALTER TABLE reply AUTO_INCREMENT=1;

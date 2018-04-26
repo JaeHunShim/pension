@@ -10,17 +10,18 @@ public class ReplyVO {
 		private String replyer;
 		private Date regdate;
 		private Date updatedate;
+		
 		public Integer getRno() {
 			return rno;
 		}
 		public void setRno(Integer rno) {
 			this.rno = rno;
 		}
-		public Integer getBno() {
+		public Integer getQno() {
 			return qno;
 		}
-		public void setBno(Integer bno) {
-			this.qno = bno;
+		public void setQno(Integer qno) {
+			this.qno = qno;
 		}
 		public String getReplytext() {
 			return replytext;
@@ -46,15 +47,15 @@ public class ReplyVO {
 		public void setUpdatedate(Date updatedate) {
 			this.updatedate = updatedate;
 		}
+		
 		@Override
 		public String toString() {
 			return "ReplyVO [rno=" + rno + ", qno=" + qno + ", replytext=" + replytext + ", replyer=" + replyer
-					+ ", regdate=" + regdate + ", updatedate=" + updatedate + ", getRno()=" + getRno() + ", getBno()="
-					+ getBno() + ", getReplytext()=" + getReplytext() + ", getReplyer()=" + getReplyer()
+					+ ", regdate=" + regdate + ", updatedate=" + updatedate + ", getRno()=" + getRno() + ", getQno()="
+					+ getQno() + ", getReplytext()=" + getReplytext() + ", getReplyer()=" + getReplyer()
 					+ ", getRegdate()=" + getRegdate() + ", getUpdatedate()=" + getUpdatedate() + ", getClass()="
 					+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 		}
-		
 		
 		
 }

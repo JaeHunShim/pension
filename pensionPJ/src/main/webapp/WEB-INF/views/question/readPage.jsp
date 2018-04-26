@@ -3,6 +3,39 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../include/header.jsp" %>
+<!-- 댓글 입력처리 ajax -->
+<script>
+	$(document).ready(function(){
+		$("#replyAddBtn").on('click',function(){
+			var qno =$('#qno').val();
+			var replyer = $('#newReplyWriter').val();
+			var replytext= $('#newReplyText').val();
+			console.log("게시판번호: " + qno);
+			console.log("작성자: " + replyer);
+			console.log("작성 글: " + replytext);
+			// $.post가 아니라  $.ajax로 보낸이유는 컨트롤러에서 @RequestBody 데이터를 받는데  $post로 하면 제대로 처리가 되질 못하기 때문이다. 
+			$.ajax({
+				type:'post',
+				url:'/reply/',
+				headers:{
+					"Content-Type":"application/json"
+					
+				},
+				dataType:'text',
+				data:JSON.stringify({
+					qno:qno,
+					replyer:replyer,
+					replytext:replytext
+				}),
+				success:function(result){
+					if(result=='success'){
+						alert('댓글이 등록되었습니다.');
+					}
+				}
+			});
+		});
+	});
+</script>
 <section class="sub_con sub02" id="scene1">
 <div class="title">
         <h2>community</h2>
@@ -20,7 +53,7 @@
 		<div class="zz_new_view">
     <ul class="date">
     	<!-- 삭제와 수정 처리 완료후 페이지 유지하기 위해서 사용 qno, cri 정보 유지   -->
-    	<li><input type="hidden" name="qno" value="${questionVO.qno}"></li>
+    	<li><input type="hidden" name="qno" id="qno" value="${questionVO.qno}"></li>
     	<li><input type="hidden" name="page" value="${cri.page}"></li>
     	<li><input type="hidden" name="perPageNum" value="${cri.perPageNum}"></li>
     	<li><input type="hidden" name="searchType" value="${cri.searchType}"></li>
@@ -81,6 +114,19 @@
 				</form>
 				</div>
 		</div>
+		<ul class="com_tt">
+		      <li>
+        		<p class="left">성명</p>
+        		<p class="right">
+        			<input type='text' name='replyer' id='newReplyWriter'/>
+        		</p>
+        	</li>
+		<div class="comment_box">
+        	<textarea name='replytext' id='newReplyText' class="comment_txt"></textarea>
+            <!-- <a href="javascript:chkBoardCommentForm(this._commentF);" class="comment_ok">댓글입력</a> -->
+			<button id="replyAddBtn" style="width:100px; height:100px; background-color:pink">댓글 입력</button>		
+        </div>
+        </ul>
     	<ul class="com_tt">
 		<form method="post" name="_commentF">
 			<input type='hidden' name='ref_board' id='ref_board' value="bbs2">			
@@ -89,24 +135,24 @@
 			<input type='hidden' name='pmode' id='pmode' value="">			
 			<input type='hidden' name='accessFlag' id='accessFlag' value="login">			
 			<input type='hidden' name='act' id='act' value="/zzAppModule/process/board_comment_ok.php">			
-        	<li>
+        	<!-- <li>
         		<p class="left">성명</p>
         		<p class="right">
-        			<input type='text' name='name' id='name' value=""/>
+        			<input type='text' name='replyer' id='newReplyWriter'/>
         		</p>
-        	</li>
-			<li><p class="left"></p>
+        	</li> -->
+			<!-- <li><p class="left"></p>
 				<p class="right">
 					<input type='hidden' name='pwd' id='pwd' value="1523788929"/>
 				</p>
-			</li>
+			</li> -->
 
 		
-        <div class="comment_box">
-        	<textarea name='com_content' id='com_content' class="comment_txt"></textarea>
+        <!-- <div class="comment_box">
+        	<textarea name='replytext' id='newReplyText' class="comment_txt"></textarea>
             <a href="javascript:chkBoardCommentForm(this._commentF);" class="comment_ok">댓글입력</a>
-						
-        </div>
+			<button id="replyAddBtn" style="width:100px; height:100px; background-color:pink">댓글 입력</button>		
+        </div> -->
         </form>
         </ul> 
     </div>
