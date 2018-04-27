@@ -11,6 +11,9 @@
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/sub_layout.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/top/layout.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/font-awesome.min.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/style.css"/> -->
 <!--<![endif]-->
 <script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
 <script src="/resources/js/basic/gnb1.js"></script>
@@ -21,6 +24,9 @@
 <script src="/resources/js/rolling/jquery.slides.min.js"></script>
 <script src="/resources/js/rolling/TweenMax.min.js"></script>
 <script src="/resources/js/rolling/main.js"></script>
+<!-- bootstrap -->
+<script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+<script src="/resources/js/bootstrap/npm.js"></script>
 </head>
 <body>
 	<div class="header">

@@ -35,3 +35,5 @@ ALTER TABLE reply CHANGE bno qno int not null default 0;
 drop table reply;
 
 ALTER TABLE reply AUTO_INCREMENT=1;
+
+delete from reply where rno=5;

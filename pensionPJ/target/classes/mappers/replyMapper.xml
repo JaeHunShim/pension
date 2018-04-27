@@ -11,10 +11,7 @@
 </select>
 <!-- 2. 댓글목록 보기 (페이징 처리후) -->
 <select id="listPage" resultType="ReplyVO">
-	select * from reply
-	where qno=#{qno}
-	order by rno desc
-	limit #{cri.startPage},#{cri.perPageNum} 
+select * from reply where qno=#{qno} order by rno desc limit #{cri.pageStart},#{cri.perPageNum}
 </select>
 <!-- 총 게시물 수 가지고오기 (페이징 처리 하기 위해서) 근데 굳이 qno갯수 말고 rno갯수를 가지고 와도 될듯 하다. -->
 <select id="count" resultType="int">

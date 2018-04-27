@@ -22,7 +22,7 @@ import com.spring.pension.domain.ReplyVO;
 import com.spring.pension.service.ReplyService;
 
 @RestController
-@RequestMapping("/reply/*")
+@RequestMapping("/reply")
 public class ReplyController {
 
 	@Inject
@@ -67,6 +67,7 @@ public class ReplyController {
 		
 		try {
 			// 1) uri에서 받아온 page를 set해줌
+			logger.info("받아오는 page번호: " + page.toString());
 			Criteria cri = new Criteria();
 			cri.setPage(page);
 			// 2) set해준 page를 포함한 cri정보를 pageMaker에 set

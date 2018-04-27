@@ -3,13 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../include/header.jsp" %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js" type="text/javascript"></script>
 <!-- 댓글 입력처리 ajax -->
 <script>
 	$(document).ready(function(){
 		$("#replyAddBtn").on('click',function(){
 			var qno =$('#qno').val();
-			var replyer = $('#newReplyWriter').val();
-			var replytext= $('#newReplyText').val();
+			var replyerObj = $("#newReplyWriter");
+			var replytextObj = $("#newReplyText");
+			var replyer = replyerObj.val();
+			var replytext =replytextObj.val();
+			
 			console.log("게시판번호: " + qno);
 			console.log("작성자: " + replyer);
 			console.log("작성 글: " + replytext);
@@ -18,8 +22,8 @@
 				type:'post',
 				url:'/reply/',
 				headers:{
-					"Content-Type":"application/json"
-					
+					"Content-Type":"application/json",
+			
 				},
 				dataType:'text',
 				data:JSON.stringify({
@@ -28,13 +32,91 @@
 					replytext:replytext
 				}),
 				success:function(result){
+					console.log("result:" + result);
 					if(result=='success'){
 						alert('댓글이 등록되었습니다.');
+						replyPage=1;
+						getPage("/reply/"+qno+"/"+replyPage);
+						replyerObj.val("");
+						replytextObj.val("");
 					}
 				}
 			});
 		});
+		Handlebars.registerHelper("prettifyDate", function(timeValue) {
+			var dateObj = new Date(timeValue);
+			var year = dateObj.getFullYear();
+			var month = dateObj.getMonth() + 1;
+			var date = dateObj.getDate();
+			return year + "/" + month + "/" + date;
+		});
+
+		var printData = function(replyArr, target, templateObject) {
+			var template = Handlebars.compile(templateObject.html());
+			var html = template(replyArr);
+			$(".replyLi").remove();
+			target.after(html);
+
+		}
+
+		var qno = ${questionVO.qno};
+		var replyPage = 1;
+		//페이징 처리 (게시물 목록 #modifyModal 부분을 클릭하면 댓글이 보이게 처리 )
+		function getPage(pageInfo) {
+			$.getJSON(pageInfo, function(data) {
+				printData(data.list, $("#repliesDiv"), $('#template'));
+				printPaging(data.pageMaker, $(".pagination"));
+
+				$("#modifyModal").modal('hide');
+				//댓글이 보여지는것은 board에서 가지고 오지만 댓글을 삭제 했을때는 ajax를 통한 처리를 했기때문에 totalCount에 대한 정보를 가지고 와야한다
+				/* $("#replycntStrong").html("["+data.pageMaker.totalCount+"]"); */
+
+			});
+		}
+		// 페이징처리 (하단 버튼 부분처리)
+		var printPaging = function(pageMaker, target) {
+
+			var str = "";
+			if (pageMaker.prev) {
+				str += "<li><a href='" + (pageMaker.startPage - 1)
+						+ "'> << </a></li>";
+			}
+			for (var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++) {
+				var strClass = pageMaker.cri.page == i ? 'class=active' : '';
+				str += "<li "+strClass+"><a href='"+i+"'>" + i + "</a></li>";
+			}
+
+			if (pageMaker.next) {
+				str += "<li><a href='" + (pageMaker.endPage + 1)
+						+ "'> >> </a></li>";
+			}
+			target.html(str);
+		};
+		//페이징 처리 글 번호에 맞는 댓글 가지고 오는 부분 
+		$("#repliesDiv").on("click", function() {
+
+		if ($(".timeline li").size() > 1) {
+			return;
+		}
+		getPage("/reply/" + qno + "/1");
+
+		});
+
+		//페이징 처리(하단부)
+		$(".pagination").on("click", "li a", function(event){
+
+		event.preventDefault();
+
+		replyPage = $(this).attr("href");	
+
+		getPage("/reply/"+qno+"/"+replyPage);
+
+		});
 	});
+</script>
+<!-- handlebars 를 이용해서 날짜 포맷하는 부분  -->
+<script>
+
 </script>
 <section class="sub_con sub02" id="scene1">
 <div class="title">
@@ -44,10 +126,10 @@
         <p class="tit_line"></p>
 </div>
     <div class="sub_txt box">
-		<script src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8'></script>
-		<script src='/resources/js/module/common2.js'></script>
-		<script src='/resources/js/module/board.js'></script>
-		<script src='/resources/js/module/ajax.js'></script>
+		<script src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8' type="text/javascript"></script>
+<!-- 		<script src='/resources/js/module/common2.js' type="text/javascript"></script>
+		<script src='/resources/js/module/board.js' type="text/javascript"></script>
+		<script src='/resources/js/module/ajax.js' type="text/javascript"></script> -->
 		<link rel='stylesheet' href='/resources/css/question/default.css'/>
 		
 		<div class="zz_new_view">
@@ -78,110 +160,89 @@
            	</div>
         </div>
     </div>   
-
-
-    <div class="zz_new_view comment">
-    	<div class="comment con">
-            <div class="comment_but">
-						        </div>
-				<div id="writeFrm" style="display:none">
-				<form method="post" name="_commentModF" id="_commentModF" >
-					<input type='hidden' name='ref_board' id='ref_board' value="bbs2">					<input type='hidden' name='ref_no' id='ref_no' value="8">					<input type='hidden' name='wMode' id='wMode' value="9">					<input type='hidden' name='accessFlag' id='accessFlag' value="login">					<input type='hidden' name='act' id='act' value="/zzAppModule/process/board_comment_ok.php">					<input type='hidden' name='pmode' id='pmode' value="">					<input type='hidden' name='pno' id='pno' value="">
-							<div class="Cmodify_box" >
-								<input type="hidden" name="name" id="name" value="">
-								<p class="right"></p><p class="left"><input type='password' name='pwd' id='pwd' value=""/></p><p class="left">비밀번호</p>
-								<div class="comment_box">
-										<textarea name='com_content' id='com_content' class="comment_txt"></textarea>
-										<a href="javascript:chkBoardCommentForm(this._commentModF)" class="comment_ok" id="Cmodify_ok">댓글입력</a>
-								</div>
-							</div>
-
-				</form>
-					</div>
-				<div id="deleteFrm" style="display:none">
-				<form method="post" name="_commentDelF" id="_commentDelF" >
-					<input type='hidden' name='ref_board' id='ref_board' value="bbs2">	
-					<input type='hidden' name='ref_no' id='ref_no' value="8">				
-					<input type='hidden' name='wMode' id='wMode' value="9">					
-					<input type='hidden' name='accessFlag' id='accessFlag' value="login">					
-					<input type='hidden' name='act' id='act' value="/zzAppModule/process/board_comment_ok.php">					
-					<input type='hidden' name='pmode' id='pmode' value="">					
-					<input type='hidden' name='pno' id='pno' value="">				
-					<div class="Cdelete_box">
-						<p class="right"><a href="javascript:chkBoardCommentForm(this._commentDelF);" class="Cdelete_ok">확인</a></p>
-						<p class="left"><input type='password' name='pwd' id='pwd' /></p><p class="left">비밀번호</p>
-					</div>
-				</form>
-				</div>
+	<!-- 댓글 들어오는 부분 -->
+	<ul	class="timeline">
+			<li class="time-label" id="repliesDiv"><span class="bg-green">댓글 목록
+			<!-- 댓글 갯수 가지고 오는 부분 -->
+			<strong id="replycntStrong">[${replyVO.replycnt}]</strong></span></li>
+	</ul>
+		<!-- 댓글 하단부분(버튼)-->
+		<div class="text-center">
+			<ul id="pagination" class="pagination pagination-sm no-margin">
+			
+			</ul>
 		</div>
-		<ul class="com_tt">
-		      <li>
-        		<p class="left">성명</p>
-        		<p class="right">
-        			<input type='text' name='replyer' id='newReplyWriter'/>
-        		</p>
-        	</li>
-		<div class="comment_box">
-        	<textarea name='replytext' id='newReplyText' class="comment_txt"></textarea>
-            <!-- <a href="javascript:chkBoardCommentForm(this._commentF);" class="comment_ok">댓글입력</a> -->
-			<button id="replyAddBtn" style="width:100px; height:100px; background-color:pink">댓글 입력</button>		
-        </div>
-        </ul>
-    	<ul class="com_tt">
-		<form method="post" name="_commentF">
-			<input type='hidden' name='ref_board' id='ref_board' value="bbs2">			
-			<input type='hidden' name='ref_no' id='ref_no' value="8">			
-			<input type='hidden' name='wMode' id='wMode' value="9">			
-			<input type='hidden' name='pmode' id='pmode' value="">			
-			<input type='hidden' name='accessFlag' id='accessFlag' value="login">			
-			<input type='hidden' name='act' id='act' value="/zzAppModule/process/board_comment_ok.php">			
-        	<!-- <li>
-        		<p class="left">성명</p>
-        		<p class="right">
-        			<input type='text' name='replyer' id='newReplyWriter'/>
-        		</p>
-        	</li> -->
-			<!-- <li><p class="left"></p>
-				<p class="right">
-					<input type='hidden' name='pwd' id='pwd' value="1523788929"/>
-				</p>
-			</li> -->
-
-		
-        <!-- <div class="comment_box">
-        	<textarea name='replytext' id='newReplyText' class="comment_txt"></textarea>
-            <a href="javascript:chkBoardCommentForm(this._commentF);" class="comment_ok">댓글입력</a>
-			<button id="replyAddBtn" style="width:100px; height:100px; background-color:pink">댓글 입력</button>		
-        </div> -->
-        </form>
-        </ul> 
-    </div>
-    <div class="zz_new_view bottom">
-    	<ul>
-        	<li>
-            	<p class="left">이전글</p><p class="right"><a href='/HOME/index.php?_zidx=1464662100^1^1464662121&bmode=view&bnum=7&skey=&sword=&page=&set=&viewMode='>질문</a></p>
-            </li>
-            <li>
-            	<p class="left">다음글</p><p class="right">다음 데이터가 없습니다</p>
-            </li>
-        </ul>
-    </div>
-   <div class="zz_new_view but">
-    	<a href="/question/searchListPage?page=${cri.page}&perPageNum=${cri.perPageNum}&searchType=${cri.searchType}&keyword=${cri.keyword}" class="list">리스트</a>
-        <ul>
-        	<li>
-        		<a href="/question/modifyPage?qno=${questionVO.qno}&page=${cri.page}&perPageNum=${cri.perPageNum}&searchType=${cri.searchType}&keyword=${cri.keyword}" class='modify'>수정</a>
-        	</li>
-        	<li>
-        		<a href="/question/deletePage?qno=${questionVO.qno}&page=${cri.page}&perPageNum=${cri.perPageNum}&searchType=${cri.searchType}&keyword=${cri.keyword}" class='delete'>삭제</a>
-        	</li>
-       </ul>
-    </div>
-</div>
+	<div class="zz_new_view comment">
+					<!--  댓글 작성 부분 -->
+					<ul class="com_tt">
+						<li>
+							<p class="left">성명</p>
+							<p class="right">
+								<input type='text' id='newReplyWriter' />
+							</p>
+						</li>
+						<div class="comment_box">
+							<textarea id='newReplyText' class="comment_txt"
+								cols="" rows=""></textarea>
+							<button type="submit" id="replyAddBtn"
+								style="width: 100px; height: 102px; background-color: pink">댓글
+								입력</button>
+						</div>
+					</ul>
+				</div>
+				<div class="zz_new_view bottom">
+					<ul>
+						<li>
+							<p class="left">이전글</p>
+							<p class="right">
+								<a
+									href='/HOME/index.php?_zidx=1464662100^1^1464662121&amp;bmode=view&amp;bnum=7&amp;skey=&amp;sword=&amp;page=&amp;set=&amp;viewMode='>질문</a>
+							</p>
+						</li>
+						<li>
+							<p class="left">다음글</p>
+							<p class="right">다음 데이터가 없습니다</p>
+						</li>
+					</ul>
+				</div>
+				<div class="zz_new_view but">
+					<a
+						href="/question/searchListPage?page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
+						class="list">리스트</a>
+					<ul>
+						<li><a
+							href="/question/modifyPage?qno=${questionVO.qno}&amp;page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
+							class='modify'>수정</a></li>
+						<li><a
+							href="/question/deletePage?qno=${questionVO.qno}&amp;page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
+							class='delete'>삭제</a></li>
+					</ul>
+				</div>
+			</ul>
+		</div>
  
 
     </div>	
 
-</section>    
+</section>   
+<script id="template" type="text/x-handlebars-template">
+{{#each .}}
+<li class="replyLi" data-rno={{rno}}>
+<i class="fa fa-comments bg-blue"></i>
+ <div class="timeline-item" >
+  <span class="time">
+    <i class="fa fa-clock-o"></i>{{prettifyDate regdate}}</span>
+  <h3 class="timeline-header"><strong>{{rno}}</strong> -{{replyer}}</h3>
+  <div class="timeline-body">{{replytext}} </div>
+    <div class="timeline-footer">
+		
+     	<a class="btn btn-primary btn-xs" 
+	    	data-toggle="modal" data-target="#modifyModal">Modify</a>
 
+    </div>
+  </div>			
+</li>
+{{/each}}
+
+</script>	
  <%@ include file="../include/footer.jsp" %>

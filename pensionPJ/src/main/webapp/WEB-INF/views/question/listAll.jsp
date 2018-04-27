@@ -59,7 +59,7 @@
           <tr>
             <td>${questionVO.qno}</td>
             <td><a href="/question/password?qno=${questionVO.qno}">${questionVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
-            <td><p class='flag_but'>대기중</p></td>
+            <td><p class='flag_but1'>답변완료</p></td>
             <td>${questionVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></td>
             <td>${questionVO.viewcnt}</td>
