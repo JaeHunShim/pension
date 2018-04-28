@@ -19,7 +19,7 @@ select * from reply where qno=#{qno} order by rno desc limit #{cri.pageStart},#{
 </select>
 <!-- 댓글 수정 -->
 <update id="update">
-	update reply set replytext =#{replytext},updatedate = now()
+	update reply set replytext =#{replytext},updatedate = now() where rno=#{rno}
 </update>
 <!-- 댓글 삭제 -->
 <delete id="delete">
