@@ -18,10 +18,11 @@
 		]]>
 	</select>
 	<!--  2. 질문 목록 :페이징 처리한 후의  mapper 게시물을 10개 단위로 보여주게 하기 -->
+	<!--  댓글 갯수 구하는 부분  추가함  -->
 	<select id="listCriteria" resultType="QuestionVO">
 		<![CDATA[
 		select
-			qno,title,content,writer,regdate,viewcnt
+			qno,title,content,writer,regdate,viewcnt,replycnt
 		from
 			question
 		where qno>0
@@ -30,6 +31,10 @@
 		]]>	
 	
 	</select>
+	<!-- 댓글 갯수  업데이트 하는 부분 -->
+	<update id="updateReplyCnt">
+		update question set replycnt = replycnt+#{amount} where qno =#{qno}
+	</update>
 	<!-- 게시물 검색 부분 따로 빼서 사용 include 사용해서 쓸예정( 너무 길어서 꼴보기 싫어서 따로빼서씀) -->
 	<sql id="search">
 		<if test="searchType != null">
@@ -61,7 +66,7 @@
 	<select id ="listSearch" resultType ="QuestionVO">
 		<![CDATA[
 		select
-			qno,title,content,writer,regdate,viewcnt
+			qno,title,content,writer,regdate,viewcnt,replycnt
 		from
 			question
 		where qno>0

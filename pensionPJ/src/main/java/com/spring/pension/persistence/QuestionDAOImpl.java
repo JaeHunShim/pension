@@ -112,4 +112,15 @@ public class QuestionDAOImpl implements QuestionDAO {
 		
 		return sqlSession.selectOne(namespace+".getQno", qno);
 	}
+	// 댓글 갯수 가지고 오는 부분
+	@Override
+	public void updateReplyCnt(Integer qno, int amount) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String,Object>();
+		
+		map.put("qno", qno);
+		map.put("amount", amount);
+		
+		sqlSession.update(namespace + ".updateReplyCnt", map);
+	}
 }

@@ -18,4 +18,6 @@ public interface ReplyDAO {
 	public void modifyReply(ReplyVO replyVO) throws Exception;
 	// 질문 게시판의 댓글 삭제 
 	public void removeReply(Integer rno) throws Exception;
+	// 질문 게시판의 댓글에  해당하는 qno 받아오는 부분 
+	public int getQno(Integer rno) throws Exception;
 }

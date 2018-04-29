@@ -32,4 +32,7 @@ public interface QuestionDAO {
 	public void modify(QuestionVO questionVO) throws Exception;
 	//qno와 일치하는 Vo가지고 오기
 	public QuestionVO getQno(Integer qno) throws Exception;
+	// 댓글 갯수 업데이트 하는  부분
+	public void updateReplyCnt(Integer qno,int amount) throws Exception;
+	
 }

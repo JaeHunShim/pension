@@ -17,6 +17,10 @@ select * from reply where qno=#{qno} order by rno desc limit #{cri.pageStart},#{
 <select id="count" resultType="int">
 	select count(qno) from reply where qno=#{qno}
 </select>
+<!-- 해당 댓글의 qno 를 가지고오는 부분 (댓글을 삭제할때 해당 게시물의 번호를 알아내야 하기 때문에) -->
+<select id="getQno" resultType="int">
+	select qno from reply where rno=#{rno};
+</select>
 <!-- 댓글 수정 -->
 <update id="update">
 	update reply set replytext =#{replytext},updatedate = now() where rno=#{rno}

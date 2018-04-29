@@ -64,4 +64,10 @@ public class ReplyDAOImpl implements ReplyDAO {
 		
 		sqlSession.delete(namespace+".delete", rno);
 	}
+	//질문 게시판의 댓글에  해당하는 qno 받아오는 부분 
+	@Override
+	public int getQno(Integer rno) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".getQno", rno);
+	}
 }

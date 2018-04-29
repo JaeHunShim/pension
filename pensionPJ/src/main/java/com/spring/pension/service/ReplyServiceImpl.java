@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.ReplyVO;
+import com.spring.pension.persistence.QuestionDAO;
 import com.spring.pension.persistence.ReplyDAO;
 
 @Service
@@ -18,12 +19,18 @@ public class ReplyServiceImpl implements ReplyService {
 	@Inject
 	private ReplyDAO replyDAO;
 	
+	@Inject
+	private QuestionDAO questionDAO;
+	
 	private static final Logger logger = LoggerFactory.getLogger(ReplyServiceImpl.class);
 	// 질문게시판의 댓글 삽입
+	// 삽입한 후에 댓글수 update
 	@Override
 	public void addReply(ReplyVO replyVO) throws Exception {
 		
 		replyDAO.addReply(replyVO);
+		
+		questionDAO.updateReplyCnt(replyVO.getQno(), 1);
 	}
 	// 1.질문 게시판의 댓글 목록
 	@Override
@@ -50,10 +57,13 @@ public class ReplyServiceImpl implements ReplyService {
 		replyDAO.modifyReply(replyVO);
 	}
 	// 질문 게시판의 댓글 삭제 
+	// 댓글이 삭제 되면 댓글수 -1 해주는것 추가 
 	@Override
 	public void removeReply(Integer rno) throws Exception {
 		
+		int qno = replyDAO.getQno(rno);
 		replyDAO.removeReply(rno);
+		questionDAO.updateReplyCnt(qno, -1);
 	}
 
 }

@@ -102,4 +102,22 @@ select qno,title,content,writer,regdate,viewcnt
  		
 		order by qno desc,regdate desc
 		limit 1,10;
-		
+	
+-- 댓글 컬럼 추가
+alter table question add column replycnt int default 0;
+
+-- question 테이블의 reply갯수와 reply테이블의 rno갯수가 같아지게 수정
+
+update question set replycnt=(
+	select count(rno) from reply
+    where qno = question.qno
+)
+where qno>0;
+
+-- 댓글 작성추가 후에 글 목록에서 댓글 갯수까지 가지고오게 바꾸기
+
+select qno,title,content,writer,regdate,viewcnt,replycnt
+from quesiton
+where qno>0
+order by qno desc,regdate desc
+limit #{pageStart},#{perPageNum};

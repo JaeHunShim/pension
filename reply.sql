@@ -28,7 +28,7 @@ delete from reply where rno=#{rno};
 -- 댓글 게시물 수 가지고 오기
 select count(qno) from reply where qno=#{qno}
 
-select * from reply;
+	
 
 ALTER TABLE reply CHANGE bno qno int not null default 0;
 

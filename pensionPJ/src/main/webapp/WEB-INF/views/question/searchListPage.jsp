@@ -40,6 +40,7 @@
 	<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
 	<input type="hidden" name="searchType" value="${cri.searchType}">
 	<input type="hidden" name="keyword" value="${cri.keyword}"> --%>
+	<input type="hidden" name ="replycnt" id= 'replycnt' value="${questionVO.replycnt }">
 	<input type="hidden" name= "page" id="page" value="${pageMaker.cri.page}">
 	<input type="hidden" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
 	<div class="zz_new_list_header">
@@ -90,8 +91,18 @@
             <td>${questionVO.qno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
             <td><a href="/question/passwordCheck${pageMaker.makeSearchQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">							
-            ${questionVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
-            <td><p class='flag_but'>대기중</p></td>
+            ${questionVO.title}</a><strong>[${questionVO.replycnt}]</strong><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
+          	<!-- 댓글이 달리면 답변완료 활성화 시킴 -->
+					<td>
+						<c:if test="${questionVO.replycnt ne 0 }">
+							<p class='flag_but1'>답변완료</p>
+						</c:if>
+						<c:if test ="${questionVO.replycnt eq 0 }">
+							<p class='flag_but'>대기중</p>
+						</c:if>			
+					</td>
+		
+          	            		
             <td>${questionVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></td>
             <td>${questionVO.viewcnt}</td>
