@@ -101,8 +101,6 @@
 							<p class='flag_but'>대기중</p>
 						</c:if>			
 					</td>
-		
-          	            		
             <td>${questionVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></td>
             <td>${questionVO.viewcnt}</td>
@@ -133,7 +131,6 @@
                      	<c:if test="${pageMaker.next && pageMaker.endPage >0}">
                      		<a href="/question/searchListPage${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
                      	</c:if>	
-                     	
               		</td>
                 </tr>
             </table>

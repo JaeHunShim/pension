@@ -12,36 +12,13 @@
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
-		<script src='/resources/js/writeJs/HuskyEZCreator.js' charset='utf-8'></script>
-		<script src='/resources/js/module/common2.js'></script>
+		<script src='/resources/smartEditor/js/HuskyEZCreator.js' charset='utf-8'></script>
+		<!-- <script src='/resources/js/module/common2.js'></script>
 		<script src='/resources/js/module/board.js'></script>
-		<script src='/resources/js/module/ajax.js'></script>
+		<script src='/resources/js/module/ajax.js'></script> -->
 		<link rel='stylesheet' href='/resources/css/question/default.css'/>
 		
 	<form method='post' name='writeF'id="writeF" action="/question/modifyPage">
-		<input type='hidden' name='board_id' id='board_id' value="bbs2">
-		<input type='hidden' name='bnum' id='bnum' value="">
-		<input type='hidden' name='bmode' id='bmode' value="write">
-		<input type='hidden' name='_zidx' id='_zidx' value="1464662100^1^1464662121">
-		<input type='hidden' name='fid' id='fid' value="">
-		<!-- <input type='hidden' name='page' id='page' value=""> -->
-		<input type='hidden' name='set' id='set' value="">
-		<input type='hidden' name='thread' id='thread' value="">
-		<input type='hidden' name='viewMode' id='viewMode' value="">
-		<input type='hidden' name='user_id' id='user_id' value="">
-		<input type='hidden' name='rImURL' id='rImURL' value="">
-		<input type='hidden' name='ttest' id='ttest' value="">
-		<input type='hidden' name='smode' id='smode' value="">
-		<input type='hidden' name='scode' id='scode' value="">
-		<input type='hidden' name='_zct1' id='_zct1' value="">
-		<input type='hidden' name='_zct2' id='_zct2' value="">
-		<input type='hidden' name='sidx' id='sidx' value="">
-		<input type='hidden' name='QUERY_STR' id='QUERY_STR' value="_zidx,viewMode,_menu,page,set,ttest">
-		<input type='hidden' name = "qno" value="${questionVO.qno}" style='width:300px'>
-		<input type="hidden" name="page" value="${cri.page}">
-		<input type="hidden" name="perPageNum" value="${cri.perPageNum}">
-		<input type="hidden" name="searchType" value="${cri.searchType}">
-		<input type="hidden" name="keyword" value="${cri.keyword}">
 		<style type="text/css">
 			.zz_new_write{margin:0 auto; position:relative; padding-bottom:90px; width:100%}
 		</style>
@@ -68,7 +45,7 @@
 				          <tr>
             <th scope="row">내용</th>
             <td>
-		<textarea name='content' id='content' style='width:500px;; height:470px;;dispaly:none;'>${questionVO.content}</textarea>
+		<textarea name='content' id='content' style='width:800px;; height:470px;;dispaly:none;'>${questionVO.content}</textarea>
 		<script type='text/javascript'>
 			if(oEditors == undefined){
 				var oEditors = [];

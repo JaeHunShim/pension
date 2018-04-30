@@ -92,14 +92,21 @@ public class QuestionController {
 	@RequestMapping(value="/SmartEditor2Skin",method=RequestMethod.GET)
 	public String SmartEditor2Skin() {
 		logger.info("SmartEditor2Skin 불러오기---------");
-		return "/question/SmartEditor2Skin";
+		return "/smartEditor/SmartEditor2Skin";
 	}
-	//inputArea 불러오기
+	//파일 업로드 하는 페이지  불러오기
 	@RequestMapping(value="/smart_editor2_inputarea",method=RequestMethod.GET)
 	public String inputArea() {
 		logger.info("inputArea 불러오기-------------");
-		return "/question/smart_editor2_inputarea";
+		return "/smartEditor/smart_editor2_inputarea";
 	}
+	//smart_editor2_inputarea_ie8 불러오기
+	@RequestMapping(value="/smart_editor2_inputarea_ie8", method=RequestMethod.GET)
+	public String smart_editor2_inputarea_ie() {
+		
+		return "/smartEditor/smart_editor2_inputarea_ie";
+	}
+	
 	//글조회 할때 password 입력창 불러오기
 	@RequestMapping(value="/password" ,method=RequestMethod.GET)
 	public void password(@RequestParam("qno") int qno ,Model model) {
