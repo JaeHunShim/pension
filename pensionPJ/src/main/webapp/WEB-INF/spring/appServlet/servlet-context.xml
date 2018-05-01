@@ -23,4 +23,15 @@
 	
 	<context:component-scan base-package="com.spring.pension" />
 	<context:component-scan base-package="com.spring.pension.controller" />
+	<!-- 파일 업로드 처리 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="20971520"></beans:property>
+		<beans:property name="maxInMemorySize" value="1048576"></beans:property>
+	</beans:bean>
+		<!-- 실제 파일 업로드 경로 -->
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="D:\\image\\upload">
+		</beans:constructor-arg>
+	</beans:bean>
 </beans:beans>

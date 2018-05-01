@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="/upload/*")
 public class FileUploadController {
 	
-	@RequestMapping(value="/photo_uploader" ,method=RequestMethod.POST)
-	public void fileUploadPage() throws Exception{
+	@RequestMapping(value="/photo_uploader" ,method=RequestMethod.GET)
+	public void fileUploadPage() throws Exception {
+		
+	}
+	@RequestMapping(value="/photo_uploader", method=RequestMethod.POST)
+	public void fileUploadPOST() throws Exception {
 		
 	}
 }

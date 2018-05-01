@@ -87,7 +87,8 @@
           </tr>
                   <tr>
             <th scope="row">첨부파일</th>
-            <td><input type='file' name='upfile1' id='upfile1' class='iptboarder'>            <br /><p class="stxt">* 파일크기는 2MB 이하, JPG, PNG 또는 GIF 형식의 파일만 가능합니다.</p>
+            <td><input type='file' name='upfile1' id='upfile1' class='iptboarder'>          
+             <br /><p class="stxt">* 파일크기는 2MB 이하, JPG, PNG 또는 GIF 형식의 파일만 가능합니다.</p>
             </td>
           </tr>
 				        </table>
