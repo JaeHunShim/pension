@@ -31,7 +31,7 @@
 	</beans:bean>
 		<!-- 실제 파일 업로드 경로 -->
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="D:\\image\\upload">
+		<beans:constructor-arg value="D:\image\upload\">
 		</beans:constructor-arg>
 	</beans:bean>
 </beans:beans>
