@@ -121,3 +121,10 @@ from quesiton
 where qno>0
 order by qno desc,regdate desc
 limit #{pageStart},#{perPageNum};
+
+-- 다음글  이전글 불러오는 부분 
+
+select * from question where qno=100
+union all(select * from question where qno<100 order by qno desc limit 1)
+union all(select * from question where qno>100 order by qno asc limit 1)
+order by qno desc;

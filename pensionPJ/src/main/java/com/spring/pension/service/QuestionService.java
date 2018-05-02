@@ -28,4 +28,6 @@ public interface QuestionService {
 	public void modify(QuestionVO questionVO) throws Exception;
 	// qno와 일치하는 내용들 가지고 오기
 	public QuestionVO getQno(Integer qno) throws Exception;
+	// 이전글과 다음글 불러오는 부분 
+	public List<QuestionVO> preNePage(Integer qno) throws Exception;
 }

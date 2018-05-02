@@ -125,4 +125,13 @@
 		where 
 			qno=#{qno}
 	</select>
+	<!-- 이전게시물과 다음게시물 정보 가지고오는 부분 -->
+	<select id="preNePage" resultType="QuestionVO">
+		<![CDATA[
+		select * from question where qno=#{qno}
+		union all(select * from question where qno<#{qno} order by qno desc limit 1)
+		union all(select * from question where qno>#{qno} order by qno asc limit 1)
+		order by qno desc;
+		]]>
+	</select>
 </mapper>

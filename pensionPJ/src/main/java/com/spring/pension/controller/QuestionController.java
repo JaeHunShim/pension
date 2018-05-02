@@ -120,6 +120,7 @@ public class QuestionController {
 		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
 		logger.info("------------------------------------------------------------------");
 		model.addAttribute(questionService.read(qno,password));
+		model.addAttribute("list", questionService.preNePage(qno));
 	}
 	// 게시글 삭제 하기: 정보유지 안했을때 
 	@RequestMapping(value="/delete",method=RequestMethod.GET)

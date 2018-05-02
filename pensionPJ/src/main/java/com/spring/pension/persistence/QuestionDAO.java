@@ -34,5 +34,6 @@ public interface QuestionDAO {
 	public QuestionVO getQno(Integer qno) throws Exception;
 	// 댓글 갯수 업데이트 하는  부분
 	public void updateReplyCnt(Integer qno,int amount) throws Exception;
-	
+	//이전 게시물과 다음 게시물에 대한 정보
+	public List<QuestionVO> preNePage(Integer qno) throws Exception;
 }

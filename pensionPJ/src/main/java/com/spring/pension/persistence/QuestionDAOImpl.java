@@ -123,4 +123,11 @@ public class QuestionDAOImpl implements QuestionDAO {
 		
 		sqlSession.update(namespace + ".updateReplyCnt", map);
 	}
+	//이전게시물과 다음 게시물에 대한 정보 받아오는 부분 
+	@Override
+	public List<QuestionVO> preNePage(Integer qno) throws Exception {
+		
+		return sqlSession.selectList(namespace+".preNePage", qno);
+	}
+	
 }

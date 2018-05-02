@@ -85,5 +85,11 @@ public class QuestionServiceImpl implements QuestionService {
 		
 		return questionDAO.getQno(qno);
 	}
+	//이전글과 다음글에 대한 정보 가지고오는 부분 
+	@Override
+	public List<QuestionVO> preNePage(Integer qno) throws Exception {
+		
+		return questionDAO.preNePage(qno);
+	}
 
 }
