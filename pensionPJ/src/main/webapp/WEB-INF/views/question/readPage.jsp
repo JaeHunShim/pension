@@ -12,7 +12,7 @@
         <p class="tit_line"></p>
 </div>
     <div class="sub_txt box">
-		<script src='/resources/smartEditor/js/HuskyEZCreator.js' charset='utf-8' type="text/javascript"></script>
+		<script src='/resources/editor/js/HuskyEZCreator.js' charset='utf-8' type="text/javascript"></script>
 <!-- 		<script src='/resources/js/module/common2.js' type="text/javascript"></script>
 		<script src='/resources/js/module/board.js' type="text/javascript"></script>
 		<script src='/resources/js/module/ajax.js' type="text/javascript"></script> -->

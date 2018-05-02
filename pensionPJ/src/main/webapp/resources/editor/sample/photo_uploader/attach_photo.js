@@ -58,7 +58,7 @@
      function goStartMode(){
     	 var sSrc = welBtnConfirm.attr("src")|| "";
     	 if(sSrc.indexOf("btn_confirm2.png") < 0 ){
-    		 welBtnConfirm.attr("src","/resources/smartEditor/sample/photo_uploader/img/btn_confirm2.png");
+    		 welBtnConfirm.attr("src","./img/btn_confirm2.png");
     		 fnUploadImage.attach(welBtnConfirm.$value(), "click");
     	 }
      } 
@@ -70,7 +70,7 @@
     	 var sSrc = welBtnConfirm.attr("src")|| "";
     	 if(sSrc.indexOf("btn_confirm2.png") >= 0 ){
     		 fnUploadImage.detach(welBtnConfirm.$value(), "click");
-	    	 welBtnConfirm.attr("src","/resources/smartEditor/sample/photo_uploader/img/btn_confirm.png");
+	    	 welBtnConfirm.attr("src","./img/btn_confirm.png");
     	 }
      }   
 	
@@ -317,7 +317,7 @@
     		//List 마크업 생성하기
 			aFileList.push('	<li id="img'+nImageInfoCnt+'" class="imgLi"><span>'+ sFileName +'</span>');
 			aFileList.push('	<em>'+ sFileSize +'</em>');
-	        aFileList.push('	<a onclick="delImage(\'img'+nImageInfoCnt+'\')"><img class="del_button" src="/resources/smartEditor/sample/photo_uploader/img/btn_del.png"  width="14" height="13" alt="첨부 사진 삭제"></a>');
+	        aFileList.push('	<a onclick="delImage(\'img'+nImageInfoCnt+'\')"><img class="del_button" src="./img/btn_del.png"  width="14" height="13" alt="첨부 사진 삭제"></a>');
 			aFileList.push('	</li> ');   
 			
 			sLiTag = aFileList.join(" ");
@@ -328,13 +328,13 @@
     
     /**
      * HTML5 DragAndDrop으로 사진을 추가하고, 확인버튼을 누른 경우에 동작한다.
-     * @return
+     * @return 다중파일 업로드
      */
     function html5Upload() {	
     	var tempFile,
     		sUploadURL;
     	
-    	sUploadURL= '/upload/photo_uploader'; 	//upload URL
+    	sUploadURL= '/upload/multipleUpload'; 	//upload URL
     	
     	//파일을 하나씩 보내고, 결과를 받음.
     	for(var j=0, k=0; j < nImageInfoCnt; j++) {
@@ -478,9 +478,8 @@
  	 */
  	function callFileUploader (){
  		oFileUploader = new jindo.FileUploader(jindo.$("uploadInputBox"),{
- 			sUrl  :'/upload/photo_uploader',	//샘플 URL입니다.
- 	        /*sCallback : '/resources/smartEditor/sample/photo_uploader/callback.jsp',*/	//업로드 이후에 iframe이 redirect될 콜백페이지의 주소
- 			sCallback : '/upload/callback.jsp',
+ 			sUrl  : '/upload/multipleUpload',	//샘플 URL입니다.
+ 	        sCallback :'/resources/editor/sample/photo_uploader/callback.html',	//업로드 이후에 iframe이 redirect될 콜백페이지의 주소
  	    	sFiletype : "*.jpg;*.png;*.bmp;*.gif",						//허용할 파일의 형식. ex) "*", "*.*", "*.jpg", 구분자(;)	
  	    	sMsgNotAllowedExt : 'JPG, GIF, PNG, BMP 확장자만 가능합니다',	//허용할 파일의 형식이 아닌경우에 띄워주는 경고창의 문구
  	    	bAutoUpload : false,									 	//파일이 선택됨과 동시에 자동으로 업로드를 수행할지 여부 (upload 메소드 수행)

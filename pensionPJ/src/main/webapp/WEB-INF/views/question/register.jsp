@@ -11,7 +11,7 @@
         nhn.husky.EZCreator.createInIFrame({
             oAppRef: obj,
             elPlaceHolder: "content",
-            sSkinURI: "/question/SmartEditor2Skin",
+            sSkinURI: "/resources/editor/SmartEditor2Skin.html",
             htParams : {
                 // 툴바 사용 여부
                 bUseToolbar : true,            
@@ -40,8 +40,8 @@
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
-		<script src='/resources/smartEditor/js/HuskyEZCreator.js' charset='utf-8'></script>
-<!-- 		<script src='/resources/js/module/common2.js'></script>
+		<script src='/resources/editor/js/HuskyEZCreator.js' charset='utf-8'></script>
+<!-- 	<script src='/resources/js/module/common2.js'></script>
 		<script src='/resources/js/module/board.js'></script>
 		<script src='/resources/js/module/ajax.js'></script> -->
 		<link rel='stylesheet' href='/resources/css/question/default.css'/>
