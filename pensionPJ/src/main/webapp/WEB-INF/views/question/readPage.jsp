@@ -65,12 +65,12 @@
 			</ul>
 		</div>
 	</form>
-	<!-- 댓글 보여지는 부분 -->
 	<div class="container">
         <div class="commentList">
         
         </div>
     </div>
+    			<!-- 이전글과 이후글에 대한 처리부분  -->
 				<div class="zz_new_view bottom">
 					<ul>
 						<c:choose>
@@ -81,14 +81,14 @@
 								<li>
 									<p class="left">다음글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[1].qno}">${list[1].title}</a></p>
+									<a href="/question/readPage?qno=${list[1].qno}&password=1">${list[1].title}</a></p>
 								</li>	
 							</c:when>
 							<c:when test="${fn:length(list) == 2 and questionVO.qno < list[0].qno }">
 								<li>
 									<p class="left">이전글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[0].qno}">${list[0].title}</a></p>
+									<a href="/question/readPage?qno=${list[0].qno}&password=1">${list[0].title}</a></p>
 								</li>
 								<li>
 									<p class="left">다음글</p><p class="right">다음글이 없습니다.</p>
@@ -98,12 +98,12 @@
 								<li>
 									<p class="left">이전글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[0].qno}">${list[0].title}</a></p>
+									<a href="/question/readPage?qno=${list[0].qno}&password=1">${list[0].title}</a></p>
 								</li>
 								<li>
 									<p class="left">다음글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[2].qno}">${list[2].title}</a></p>
+									<a href="/question/readPage?qno=${list[2].qno}&password=1">${list[2].title}</a></p>
 								</li>	
 							</c:when>
 						</c:choose>
@@ -120,6 +120,7 @@
 						</li> --%>
 					</ul>
 				</div>
+				<!--  댓글에 대한 처리 부분  -->
 				<div class="zz_new_view but">
 					<a
 						href="/question/searchListPage?	page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"

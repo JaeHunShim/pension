@@ -114,6 +114,7 @@ public class QuestionController {
 		model.addAttribute(questionService.read(qno,password));
 	}
 	//조건에 맞는 상세 페이지 불러오기:페이징 정보를 받아와서 페이지 정보 유지
+	//이전과 다음글에 대한 처리 추가 .
 	@RequestMapping(value="/readPage",method=RequestMethod.GET)
 	public void readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") SearchCriteria cri,Model model) throws Exception{
 		logger.info("-------------------readPage로 이동하기--------------------------------");
