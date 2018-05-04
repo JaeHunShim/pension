@@ -5,8 +5,10 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.pension.domain.NoticeVO;
@@ -39,8 +41,39 @@ public class NoticeController {
 		logger.info("-------------------------------------------------------------------");
 		return "redirect:/notice/list";
 	}
+	//글 목록 
 	@RequestMapping(value="/list",method=RequestMethod.GET)
-	public void list() throws Exception {
+	public void list(Model model) throws Exception {
 		
+		model.addAttribute("list", noticeService.list());
+	}
+	// 글 세부사항
+	@RequestMapping(value="/read",method=RequestMethod.GET)
+	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
+		
+		model.addAttribute(noticeService.read(bno));
+	}
+	//글 삭제
+	@RequestMapping(value="/delete",method=RequestMethod.GET)
+	public String remove(@RequestParam("bno") int bno,RedirectAttributes rttr) throws Exception {
+		
+		noticeService.remove(bno);
+		rttr.addFlashAttribute("msg", "success");
+		
+		return "redirect:/notice/list";
+	}
+	// 글수정 페이지로 이동
+	@RequestMapping(value="/modify",method=RequestMethod.GET)
+	public void updateGET(@RequestParam("bno") int bno,Model model) throws Exception {
+		
+		model.addAttribute(noticeService.read(bno));
+	}
+	@RequestMapping(value="/modify",method=RequestMethod.POST)
+	public String updatePOST(NoticeVO noticeVO, RedirectAttributes rttr) throws Exception {
+		
+		noticeService.update(noticeVO);
+		rttr.addFlashAttribute("msg", "success");
+		
+		return "redirect:/notice/list";
 	}
 }

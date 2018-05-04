@@ -13,11 +13,15 @@ CREATE TABLE notice (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
--- 목록 보기
+-- 테이블 전체 보기
 select * from notice;
 
 -- autoincreament 초기화
 ALTER TABLE notice AUTO_INCREMENT=1;
 
--- 
+-- 목록 보기
+select bno,title,regdate,viewcnt from notice where bno>0 order by bno desc, regdate desc;
+
+-- 상세보기
+select bno,title,regdate,content,viewcnt from notice where bno=#{bno} 
 

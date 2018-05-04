@@ -1,5 +1,7 @@
 package com.spring.pension.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -22,6 +24,29 @@ public class NoticeServiceImpl implements NoticeService {
 	public void insertBoard(NoticeVO noticeVO) throws Exception {
 		
 		noticeDAO.create(noticeVO);
+	}
+	//게시글 목록
+	@Override
+	public List<NoticeVO> list() throws Exception {
+		
+		return noticeDAO.list();
+	}
+	//게시물 상세조회
+	@Override
+	public NoticeVO read(Integer bno) throws Exception {
+		
+		return noticeDAO.read(bno);
+	}
+	//게시물 삭제
+	@Override
+	public void remove(Integer bno) throws Exception {
+		
+		noticeDAO.remove(bno);
+	}
+	//게시물 수정
+	public void update(NoticeVO noticeVO) throws Exception {
+		
+		noticeDAO.update(noticeVO);
 	}
 	
 }

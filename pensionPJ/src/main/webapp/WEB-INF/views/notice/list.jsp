@@ -82,10 +82,10 @@
           </tr>
           <c:forEach items="${list}" var="noticeVO">
           <tr>
-            <td>${questionVO.qno}</td>
+            <td>${noticeVO.bno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/question/passwordCheck${pageMaker.makeSearchQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">							
-            ${noticeVO.title}<font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
+            <td><a href="/notice/read?bno=${noticeVO.bno}">
+            ${noticeVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
             <td>${noticeVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${noticeVO.regdate}"/></td>
             <td>${noticeVO.viewcnt}</td>

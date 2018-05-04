@@ -1,6 +1,7 @@
 package com.spring.pension.domain;
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class NoticeVO {
 
@@ -9,6 +10,7 @@ public class NoticeVO {
 	private String title; //제목
 	private String content; //내용
 	private int viewcnt; //조회수
+	private Date regdate; //날짜
 	private String file[]; //파일 업로드 (smartEditor사용해서 필요없긴함)
 	
 	public Integer getBno() {
@@ -41,6 +43,12 @@ public class NoticeVO {
 	public void setViewcnt(int viewcnt) {
 		this.viewcnt = viewcnt;
 	}
+	public Date getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
 	public String[] getFile() {
 		return file;
 	}
@@ -50,10 +58,11 @@ public class NoticeVO {
 	@Override
 	public String toString() {
 		return "NoticeVO [bno=" + bno + ", writer=" + writer + ", title=" + title + ", content=" + content
-				+ ", viewcnt=" + viewcnt + ", file=" + Arrays.toString(file) + ", getBno()=" + getBno()
-				+ ", getWriter()=" + getWriter() + ", getTitle()=" + getTitle() + ", getContent()=" + getContent()
-				+ ", getViewcnt()=" + getViewcnt() + ", getFile()=" + Arrays.toString(getFile()) + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", viewcnt=" + viewcnt + ", regdate=" + regdate + ", file=" + Arrays.toString(file) + ", getBno()="
+				+ getBno() + ", getWriter()=" + getWriter() + ", getTitle()=" + getTitle() + ", getContent()="
+				+ getContent() + ", getViewcnt()=" + getViewcnt() + ", getRegdate()=" + getRegdate() + ", getFile()="
+				+ Arrays.toString(getFile()) + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 	
 	
