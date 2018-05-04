@@ -25,3 +25,9 @@ select bno,title,regdate,viewcnt from notice where bno>0 order by bno desc, regd
 -- 상세보기
 select bno,title,regdate,content,viewcnt from notice where bno=#{bno} 
 
+-- 글 삭제
+delete from notice where bno=#{bno}
+
+-- 글 수정
+update notice set title=#{title},content=#{content},regdate=now() where bno=#{bno}
+

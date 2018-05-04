@@ -79,7 +79,7 @@
 		</div>
     </div>
     <div class="zz_new_view but">
-		<a href="#" class="list">리스트</a>
+		<a href="/notice/list" class="list">리스트</a>
 			<ul>
 				<li><a href="/notice/modify?bno=${noticeVO.bno}" class='modify'>수정</a></li>
 				<li><a href="/notice/delete?bno=${noticeVO.bno}" class='delete'>삭제</a></li>

@@ -31,10 +31,10 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return noticeDAO.list();
 	}
-	//게시물 상세조회
+	//게시물 상세조회(조회할때 조횟수 증가시키기);
 	@Override
 	public NoticeVO read(Integer bno) throws Exception {
-		
+		noticeDAO.viewcount(bno);
 		return noticeDAO.read(bno);
 	}
 	//게시물 삭제

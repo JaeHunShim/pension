@@ -15,4 +15,6 @@ public interface NoticeDAO {
 	public void remove(Integer bno) throws Exception;
 	// 글 수정
 	public void update(NoticeVO noticeVO) throws Exception;
+	// 조횟수 증가 시키기
+	public void viewcount(Integer bno) throws Exception;
 }
