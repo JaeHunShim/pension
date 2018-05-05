@@ -30,7 +30,7 @@
         <h4>무창포 이루펜션의 바다의 향기를 느껴보세요. </h4>
         <p class="tit_line"></p>
     </div>
-    <div class="sub_txt box"><script language="javascript" src="/resources/js/module/ajax.js"></script>
+    <!-- <div class="sub_txt box"><script language="javascript" src="/resources/js/module/ajax.js"></script> -->
 <script src="/resources/js/module/common2.js"></script>
 <script src="/resources/js/module/board.js"></script>
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
@@ -84,8 +84,7 @@
           <tr>
             <td>${noticeVO.bno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/notice/read?bno=${noticeVO.bno}">
-            ${noticeVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
+            <td><a href="/notice/read?bno=${noticeVO.bno}">${noticeVO.title}</a><!-- <font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font> --></td>
             <td>${noticeVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${noticeVO.regdate}"/></td>
             <td>${noticeVO.viewcnt}</td>
@@ -123,8 +122,7 @@
                         
         </div>
         <div class="zz_new_list but"><a href='/notice/register' class='write'>글쓰기</a></div>
-    </div>
-    
+    </div> 
 </div>
 </div>	
 

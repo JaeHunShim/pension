@@ -51,6 +51,7 @@ public class NoticeController {
 	@RequestMapping(value="/read",method=RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		
+		logger.info("서비스에서 가지고온 정보들:" + noticeService.read(bno));
 		model.addAttribute(noticeService.read(bno));
 	}
 	//글 삭제
@@ -68,6 +69,7 @@ public class NoticeController {
 		
 		model.addAttribute(noticeService.read(bno));
 	}
+	// 수정처리 
 	@RequestMapping(value="/modify",method=RequestMethod.POST)
 	public String updatePOST(NoticeVO noticeVO, RedirectAttributes rttr) throws Exception {
 		

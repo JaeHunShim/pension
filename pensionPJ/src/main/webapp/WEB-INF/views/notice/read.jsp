@@ -38,7 +38,7 @@
         		<div class="commentList"></div>
     		</div>
     		<!-- 이전글과 이후글에 대한 처리부분  -->
-			<div class="zz_new_view bottom">
+<%-- 			<div class="zz_new_view bottom">
 				<ul>
 				<c:choose>
 					<c:when test="${fn:length(list)==2 and questionVO.qno == list[0].qno }">
@@ -75,7 +75,7 @@
 					</c:when>
 				</c:choose>
 				</ul>
-			</div>
+			</div> --%>
 		</div>
     </div>
     <div class="zz_new_view but">

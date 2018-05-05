@@ -58,10 +58,11 @@ public class NoticeDAOImpl implements NoticeDAO {
 	}
 	// 댓글 갯수 증가 시키기
 	@Override
-	public void viewcount(Integer bno) throws Exception {
-		
+	public void updateViewCnt(Integer bno) throws Exception {
+
 		logger.info("댓글 갯수증가 DAO--------------------------");
-		sqlSession.update(namespace+".viewcount",bno);
+		logger.info("가지고오는 bno:" + bno);
+		sqlSession.update(namespace+".updateViewCnt",bno);
 	}
 
 }

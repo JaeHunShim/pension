@@ -7,11 +7,15 @@
 		insert into notice(writer,title,content) values(#{writer},#{title},#{content})
 	</insert>
 <!-- 공지사항 목록 보기 -->
-	<select id= "list" resultType="NoticeVO">
-		select bno,title,writer,regdate,viewcnt
-		from notice
+	<select id="list" resultType="NoticeVO">
+		<![CDATA[
+		select
+			bno,title,content,writer,regdate,viewcnt
+		from
+			notice
 		where bno>0
 		order by bno desc,regdate desc
+		]]>
 	</select>
 <!-- 세부내용 -->
 	<select id="read" resultType="NoticeVO">
@@ -28,7 +32,9 @@
 		update notice set title=#{title},content=#{content},regdate=now() where bno=#{bno}
 	</update>
 <!-- 조회수 증가 -->
-	<update id="viewcount">
-		update notice set viewcnt=viewcnt+1 where bno=#{bno}
+	<update id="updateViewCnt">
+		update notice set viewcnt=viewcnt+1
+		where
+			bno=#{bno}
 	</update>
 </mapper>

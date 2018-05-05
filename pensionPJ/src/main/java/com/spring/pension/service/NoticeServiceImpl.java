@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.pension.domain.NoticeVO;
 import com.spring.pension.persistence.NoticeDAO;
@@ -32,9 +33,12 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeDAO.list();
 	}
 	//게시물 상세조회(조회할때 조횟수 증가시키기);
+	@Transactional
 	@Override
 	public NoticeVO read(Integer bno) throws Exception {
-		noticeDAO.viewcount(bno);
+		
+		noticeDAO.updateViewCnt(bno);
+	
 		return noticeDAO.read(bno);
 	}
 	//게시물 삭제
