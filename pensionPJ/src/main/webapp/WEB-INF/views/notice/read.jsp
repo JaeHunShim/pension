@@ -20,7 +20,7 @@
     		<ul class="date">
     			<li>작성자:${noticeVO.writer}</li>
     			<li><fmt:formatDate pattern="yyyy-MM-dd" value="${noticeVO.regdate}"/></li>
-        		<li>조회수 :${noticeVO.viewcnt}</li>
+        		<li>조회수:${noticeVO.viewcnt}</li>
     		</ul>
 			<div class="zz_new_view_header">
        			 <h3 class="zz_view_title">${noticeVO.title}</h3>

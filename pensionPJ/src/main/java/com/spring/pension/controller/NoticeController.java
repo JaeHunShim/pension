@@ -31,7 +31,7 @@ public class NoticeController {
 	}
 	// 글삽입후 처리
 	@RequestMapping(value="/register",method=RequestMethod.POST)
-	public String registerPOST(NoticeVO noticeVO,RedirectAttributes rttr) throws Exception {
+	public String noticeRegister(NoticeVO noticeVO,RedirectAttributes rttr) throws Exception {
 		logger.info("글쓰기 처리 -----------------------------------------------------------");
 		
 		noticeService.insertBoard(noticeVO);
@@ -51,7 +51,6 @@ public class NoticeController {
 	@RequestMapping(value="/read",method=RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		
-		logger.info("서비스에서 가지고온 정보들:" + noticeService.read(bno));
 		model.addAttribute(noticeService.read(bno));
 	}
 	//글 삭제

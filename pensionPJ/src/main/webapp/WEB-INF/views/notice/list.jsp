@@ -35,9 +35,9 @@
 <script src="/resources/js/module/board.js"></script>
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
 <div class="zz_new_list">
-<%-- 	<input type="hidden" name ="replycnt" id= 'replycnt' value="${questionVO.replycnt }">
+	<input type="hidden" name ="replycnt" id= 'replycnt' value="${questionVO.replycnt }">
 	<input type="hidden" name= "page" id="page" value="${pageMaker.cri.page}">
-	<input type="hidden" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}"> --%>
+	<input type="hidden" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
 	<div class="zz_new_list_header">
     	<ul class="zz_search_box">
         	<li>
@@ -90,16 +90,15 @@
             <td>${noticeVO.viewcnt}</td>
            </tr>
          </c:forEach>
-        
     </table>
     </div>
     <div class="zz_new_list bottom">
         <div class="zz_new_list pageing">
 
-				 <table cellpadding="0" cellspacing="0" border="0" align="center">
+				 <%-- <table cellpadding="0" cellspacing="0" border="0" align="center">
                 <tr>
                     <td>
-                    	<%-- <c:if test="${pageMaker.prev}">
+                    	<c:if test="${pageMaker.prev}">
                     		<a href ="/question/searchListPage${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
                     	</c:if>
                     	<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
@@ -114,10 +113,10 @@
                      		
                      	<c:if test="${pageMaker.next && pageMaker.endPage >0}">
                      		<a href="/question/searchListPage${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
-                     	</c:if>	 --%>
+                     	</c:if>	
               		</td>
                 </tr>
-            </table>
+            </table> --%>
             
                         
         </div>
