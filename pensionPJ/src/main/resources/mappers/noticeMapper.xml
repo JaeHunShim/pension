@@ -2,11 +2,38 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.mapper.NoticeMapper">
+<!-- 게시물 검색 부분 따로 빼서 사용 include 사용해서 쓸예정( 너무 길어서 꼴보기 싫어서 따로빼서씀) -->
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and title like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and content like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and writer like CONCAT('%',#{keyword},'%')
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and (title like CONCAT('%',#{keyword},'%') 
+				or content like CONCAT('%',#{keyword},'%'))
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and (content like CONCAT('%',#{keyword},'%') 
+				or writer like CONCAT('%',#{keyword},'%'))
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and (title like CONCAT('%',#{keyword},'%') 
+				or content like CONCAT('%',#{keyword},'%')
+				or writer like CONCAT('%',#{keyword},'%'))
+			</if>
+		</if>
+	</sql>
 <!-- 공지사항 입력 -->
 	<insert id ="create">
 		insert into notice(writer,title,content) values(#{writer},#{title},#{content})
 	</insert>
-<!-- 공지사항 목록 보기 -->
+<!-- 1. 공지사항 목록 보기 -->
 	<select id="list" resultType="NoticeVO">
 		<![CDATA[
 		select
@@ -16,6 +43,30 @@
 		where bno>0
 		order by bno desc,regdate desc
 		]]>
+	</select>
+<!-- 2. 공지사항 목록보기 (검색과 페이징 처리 둘다)  -->
+	<select id ="listSearch" resultType ="noticeVO">
+		<![CDATA[
+		select
+			bno,title,content,writer,regdate,viewcnt
+		from
+			notice
+		where bno>0
+		]]>
+		<include refid="search"></include>
+		<![CDATA[
+		order by bno desc,regdate desc
+		limit #{pageStart},#{perPageNum}
+		]]>	
+	</select>
+<!-- 총 게시물 수 가지고 오기 -->
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[
+		select count(bno)
+			from notice
+		where bno>0
+		]]>
+		<include refid="search"></include>
 	</select>
 <!-- 세부내용 -->
 	<select id="read" resultType="NoticeVO">

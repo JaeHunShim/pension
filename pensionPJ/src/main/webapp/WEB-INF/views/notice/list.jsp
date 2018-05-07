@@ -10,10 +10,10 @@
 		alert('정사적으로 처리 되었습니다.');
 	}
 </script>
-<!-- <script>
+<script>
 	//검색했을때 page를 다시 1로 돌려여 하기때문에 makeQuery의 page에 1을 대입시켜놓음  
 	$(document).ready(function(){
-		$('#shim').on('click',function(){
+		$('#noticeSearch').on('click',function(){
 			self.location="/question/searchListPage"
 			+ '${pageMaker.makeQuery(1)}'
 			+ "&searchType="
@@ -21,7 +21,7 @@
 			+ "&keyword=" +encodeURIComponent($('#keywordInput').val());
 		});
 	});
-</script> -->
+</script>
 <section class="sub_con sub02" id="scene1">
 
 <div class="title">
@@ -30,7 +30,7 @@
         <h4>무창포 이루펜션의 바다의 향기를 느껴보세요. </h4>
         <p class="tit_line"></p>
     </div>
-    <!-- <div class="sub_txt box"><script language="javascript" src="/resources/js/module/ajax.js"></script> -->
+
 <script src="/resources/js/module/common2.js"></script>
 <script src="/resources/js/module/board.js"></script>
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
@@ -67,7 +67,7 @@
             </li>
             <!-- <li><input type="text" name="sword" id="textfield"></li> -->
             <li><input type="text" name="keyword" id="keywordInput" value="${cri.keyword}"></li>
-            <li><img src="/resources/img/question/search.gif" id="shim" style="cursor:pointer"></a></li>
+            <li><img src="/resources/img/question/search.gif" id="noticeSearch" style="cursor:pointer"></a></li>
         </ul>
     </div>
 <!-- </form> -->
@@ -84,46 +84,41 @@
           <tr>
             <td>${noticeVO.bno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/notice/read?bno=${noticeVO.bno}">${noticeVO.title}</a><!-- <font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font> --></td>
+            <td><a href="/notice/read?bno=${noticeVO.bno}">${noticeVO.title}</a></td>
             <td>${noticeVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${noticeVO.regdate}"/></td>
             <td>${noticeVO.viewcnt}</td>
            </tr>
          </c:forEach>
-    </table>
+    	</table>
     </div>
     <div class="zz_new_list bottom">
         <div class="zz_new_list pageing">
-
-				 <%-- <table cellpadding="0" cellspacing="0" border="0" align="center">
+			<table cellpadding="0" cellspacing="0" border="0" align="center">
                 <tr>
                     <td>
-                    	<c:if test="${pageMaker.prev}">
-                    		<a href ="/question/searchListPage${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
-                    	</c:if>
-                    	<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-                     		<ul>
-                     			<!-- href 매핑을 listPage에서 searchListPage로 바꿈  -->
-                     			<li
-                     				<c:out value="${pageMaker.cri.page == idx?'class=on':''}"/>>
-                     				<a href="/question/searchListPage${pageMaker.makeSearchQuery(idx)}">${idx}</a>
-                     			</li>
-                     		</ul>
-                     		</c:forEach>
-                     		
-                     	<c:if test="${pageMaker.next && pageMaker.endPage >0}">
-                     		<a href="/question/searchListPage${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
+                    <c:if test="${pageMaker.prev}">
+                    	<a href ="/notice/searchListPage${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
+                    </c:if>
+                    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+                     	<ul>
+                     	<!-- href 매핑을 listPage에서 searchListPage로 바꿈  -->
+                     		<li
+                     		<c:out value="${pageMaker.cri.page == idx?'class=on':''}"/>>
+                     			<a href="/notice/searchListPage${pageMaker.makeSearchQuery(idx)}">${idx}</a>
+                     		</li>
+                     	</ul>
+					</c:forEach>
+						<c:if test="${pageMaker.next && pageMaker.endPage >0}">
+                     	<a href="/notice/searchListPage${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
                      	</c:if>	
               		</td>
                 </tr>
-            </table> --%>
-            
-                        
-        </div>
+            </table>
+		</div>
         <div class="zz_new_list but"><a href='/notice/register' class='write'>글쓰기</a></div>
     </div> 
 </div>
-</div>	
 
 </section>
 <%@ include file="../include/footer.jsp" %>

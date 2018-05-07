@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.spring.pension.domain.NoticeVO;
+import com.spring.pension.domain.SearchCriteria;
 @Repository
 public class NoticeDAOImpl implements NoticeDAO {
 	
@@ -27,13 +28,26 @@ public class NoticeDAOImpl implements NoticeDAO {
 		sqlSession.insert(namespace+".create", noticeVO);
 		logger.info("-----------------------------------");
 	}
-	//게시물 목록 가지고 오기
+	//1. 질문 list들 가지고 오기
 	@Override
 	public List<NoticeVO> list() throws Exception {
 		logger.info("게시물 목록 DAO------------------------");
 		
 		return sqlSession.selectList(namespace+".list");
 	}
+	//2. 질문 list가지고 오기
+	@Override
+	public List<NoticeVO> listSearch(SearchCriteria cri) throws Exception {
+		
+		return sqlSession.selectList(namespace+".listSearch", cri);
+	}
+	// 총게시물 갯수 가지고 오기 (페이징 처리때문에)
+	@Override
+	public int listSearchConunt(SearchCriteria cri) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".listSearchCount", cri);
+	}
+
 	//세부내용 가지고 오기
 	@Override
 	public NoticeVO read(Integer bno) throws Exception {
@@ -64,5 +78,4 @@ public class NoticeDAOImpl implements NoticeDAO {
 		logger.info("가지고오는 bno:" + bno);
 		sqlSession.update(namespace+".updateViewCnt",bno);
 	}
-
 }
