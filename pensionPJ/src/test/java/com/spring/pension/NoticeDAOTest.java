@@ -24,11 +24,12 @@ public class NoticeDAOTest {
 	public void insertNotice() throws Exception{
 		
 		NoticeVO vo = new NoticeVO();
-		
-		vo.setWriter("재훈");
-		vo.setTitle("두번째글");
-		vo.setContent("두번째 글 태스트 해봅니다.");
-		
-		noticeDAO.create(vo);
+			for(int i=0; i<100; i++) {
+			vo.setWriter("재훈"+i);
+			vo.setTitle(i+1 +"번째 글입니다.");
+			vo.setContent(i+1 +"번째 글 태스트 해봅니다.");
+			
+			noticeDAO.create(vo);
+		}
 	}
 }

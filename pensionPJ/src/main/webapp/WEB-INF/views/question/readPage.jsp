@@ -107,17 +107,6 @@
 								</li>	
 							</c:when>
 						</c:choose>
-						<%-- <li>
-							<p class="left">이전글</p>
-							<p class="right">
-								<a href='/question/prevPage?qno=${questionVO.qno}&amp;page=${cri.page}&amp;perPageNum=${cri.perPageNum}'>우라라라</a>
-							</p>
-						</li>
-						<li>
-							<p class="left">다음글</p>
-							<p class="right">
-							<a href="/question/nextPage?qno=${questionVO.qno}&amp;page=${cri.page}&amp;perPageNum=${cri.perPageNum}">아자차차차</a></p>
-						</li> --%>
 					</ul>
 				</div>
 				<!--  댓글에 대한 처리 부분  -->

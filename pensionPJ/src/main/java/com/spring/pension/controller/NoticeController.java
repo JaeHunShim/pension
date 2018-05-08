@@ -6,12 +6,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.NoticeVO;
+import com.spring.pension.domain.PageMaker;
+import com.spring.pension.domain.SearchCriteria;
 import com.spring.pension.service.NoticeService;
 
 @Controller
@@ -41,11 +45,24 @@ public class NoticeController {
 		logger.info("-------------------------------------------------------------------");
 		return "redirect:/notice/list";
 	}
-	//글 목록 
+	//1. 글 목록 
 	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public void list(Model model) throws Exception {
 		
 		model.addAttribute("list", noticeService.list());
+	}
+	//2. 글 목록(페이징 + 검색처리)
+	@RequestMapping(value="/searchList",method=RequestMethod.GET)
+	public void listPage(@ModelAttribute("cri") SearchCriteria cri,Model model) throws Exception{
+		//페이징 처리한 결과물 model에 실어서 보냄
+		model.addAttribute("list", noticeService.listSearch(cri));
+		//검색한후에  그전페이지에 대한 내용 저장
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(noticeService.listCount(cri));
+		model.addAttribute("pageMaker", pageMaker);
+		logger.info(cri.toString());
+		
 	}
 	// 글 세부사항
 	@RequestMapping(value="/read",method=RequestMethod.GET)

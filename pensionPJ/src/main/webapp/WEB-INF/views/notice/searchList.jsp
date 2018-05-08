@@ -84,7 +84,7 @@
           <tr>
             <td>${noticeVO.bno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/notice/read?bno=${noticeVO.bno}">${noticeVO.title}</a></td>
+            <td><a href="/notice/read?${pageMaker.makeSearchQuery(pageMaker.cri.page)}&bno=${noticeVO.bno}">${noticeVO.title}</a></td>
             <td>${noticeVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${noticeVO.regdate}"/></td>
             <td>${noticeVO.viewcnt}</td>
@@ -98,19 +98,19 @@
                 <tr>
                     <td>
                     <c:if test="${pageMaker.prev}">
-                    	<a href ="/notice/searchListPage${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
+                    	<a href ="/notice/searchList${pageMaker.makeSearchQuery(pageMaker.startPage-1)}"><img src=/resources/img/question/prev.gif class='prev'></a>
                     </c:if>
                     <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
                      	<ul>
-                     	<!-- href 매핑을 listPage에서 searchListPage로 바꿈  -->
+                     	<!-- href 매핑을 listPage에서 searchList로 바꿈  -->
                      		<li
                      		<c:out value="${pageMaker.cri.page == idx?'class=on':''}"/>>
-                     			<a href="/notice/searchListPage${pageMaker.makeSearchQuery(idx)}">${idx}</a>
+                     			<a href="/notice/searchList${pageMaker.makeSearchQuery(idx)}">${idx}</a>
                      		</li>
                      	</ul>
 					</c:forEach>
 						<c:if test="${pageMaker.next && pageMaker.endPage >0}">
-                     	<a href="/notice/searchListPage${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
+                     	<a href="/notice/searchList${pageMaker.makeSearchQuery(pageMaker.endPage+1)}"><img src=/resources/img/question/next.gif class='next'></a>
                      	</c:if>	
               		</td>
                 </tr>
