@@ -14,6 +14,7 @@
 	//검색했을때 page를 다시 1로 돌려여 하기때문에 makeQuery의 page에 1을 대입시켜놓음  
 	$(document).ready(function(){
 		$('#noticeSearch').on('click',function(){
+			console.log(paging);
 			self.location="/notice/searchList"
 			+ '${pageMaker.makeQuery(1)}'
 			+ "&searchType="
@@ -30,14 +31,10 @@
         <h4>무창포 이루펜션의 바다의 향기를 느껴보세요. </h4>
         <p class="tit_line"></p>
     </div>
-
 <script src="/resources/js/module/common2.js"></script>
 <script src="/resources/js/module/board.js"></script>
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
 <div class="zz_new_list">
-	<input type="hidden" name ="replycnt" id= 'replycnt' value="${questionVO.replycnt }">
-	<input type="hidden" name= "page" id="page" value="${pageMaker.cri.page}">
-	<input type="hidden" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
 	<div class="zz_new_list_header">
     	<ul class="zz_search_box">
         	<li>
@@ -65,11 +62,11 @@
                     </option>
                 </select>
             </li>
-            <!-- <li><input type="text" name="sword" id="textfield"></li> -->
             <li><input type="text" name="keyword" id="keywordInput" value="${cri.keyword}"></li>
             <li><img src="/resources/img/question/search.gif" id="noticeSearch" style="cursor:pointer"></a></li>
         </ul>
     </div>
+
 <!-- </form> -->
     <div class="zz_new_list contenter">
     	<table border="0" cellspacing="0" cellpadding="0" width="100%" class="zz_new_d table">
@@ -84,7 +81,7 @@
           <tr>
             <td>${noticeVO.bno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/notice/read?${pageMaker.makeSearchQuery(pageMaker.cri.page)}&bno=${noticeVO.bno}">${noticeVO.title}</a></td>
+            <td><a href="/notice/readPage${pageMaker.makeSearchQuery(pageMaker.cri.page)}&bno=${noticeVO.bno}">${noticeVO.title}</a></td>
             <td>${noticeVO.writer}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${noticeVO.regdate}"/></td>
             <td>${noticeVO.viewcnt}</td>

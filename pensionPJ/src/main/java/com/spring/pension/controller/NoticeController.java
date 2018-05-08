@@ -59,16 +59,26 @@ public class NoticeController {
 		//검색한후에  그전페이지에 대한 내용 저장
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
+		logger.info("list페이지에서 가지고오는 정보" + cri.toString());
 		pageMaker.setTotalCount(noticeService.listCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
 		logger.info(cri.toString());
 		
 	}
-	// 글 세부사항
+	//1. 글 세부사항
 	@RequestMapping(value="/read",method=RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno, Model model) throws Exception {
 		
 		model.addAttribute(noticeService.read(bno));
+	}
+	//2. 글 세부사항(검색결과 유지하기 위해 cri정보 를 가지고옴 )
+	@RequestMapping(value="/readPage",method=RequestMethod.GET)
+	public void searchReadPage(@RequestParam("bno") int bno, @ModelAttribute("cri")SearchCriteria cri , Model model) throws Exception {
+		
+		model.addAttribute(noticeService.read(bno));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		model.addAttribute("pageMaker", pageMaker);
 	}
 	//글 삭제
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
