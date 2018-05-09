@@ -32,10 +32,45 @@
 	<div class="header">
 	<div class="top_box">
         <ul>
+        	<!-- Join Start-->
+        	<li>
+        		<a data-toggle="modal" href="/user/join" data-target="#join" role="button" data-backdrop="static">
+ 					<span class="btn btn-xs btn-success">Join</span>
+				</a>
+ 				<div id="join" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"">
+    				<div class="modal-dialog modal-sm" style="width:1200px;height:700px">
+        				<div class="modal-content">
+        				<!-- modal 내용 들어오는 부분  -->
+        				</div>
+    				</div>
+				</div>
+			</li>
+			<!-- Join End -->
+			<!-- Login Start -->
+        	<li>
+        		<a data-toggle="modal" href="/user/login" data-target="#login" role="button" data-backdrop="static">
+ 					<span class="btn btn-xs btn-success">login</span>
+				</a>
+ 				<div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="테스트정보 등록" aria-describedby="테스트 모달">
+    				<div class="modal-dialog" style="width:1200px;height:700px">
+        				<div class="modal-content">
+        				<!-- modal내용 -->
+        				</div>
+    				</div>
+				</div>
+			</li>
+			<!-- Login Out -->
             <li><a href="/main/intro">contact us</a></li>
             <li><a href="/main/index">HOME</a></li>
         </ul>
     </div>
+    <div class="modal fade">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+
+    		</div>
+		</div>
+	</div>
 	<div class="Web navi">
         <div class="navi_box">
             <h1><a href="/main/index"><img src="/resources/img/main/logo.png" alt="이루펜션" /></a></h1>  

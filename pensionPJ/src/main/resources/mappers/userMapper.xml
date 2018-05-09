@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mapper.UserMapper">
+	<!-- 회원 가입 -->
+	<insert id="create">
+		insert into user(user_id,user_password,user-name,user_address,user_eamil,user_phone) 
+		values (#{user_id},#{user_password},#{user_name},#{user_address},#{user_email},#{user_phone})
+	</insert>
+</mapper>
