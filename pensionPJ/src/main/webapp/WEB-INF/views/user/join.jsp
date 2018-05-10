@@ -5,8 +5,28 @@
 		//회원 중복 검사
 		$('#idCheck').on('click',function(){
 			var user_id = $('#user_id').val();
-			userIdCheck(user_id);
-			console.log(user_id);
+			$.ajax({
+				url:'/user/idCheck',
+				type:'post',
+				data:user_id,
+				headers:{
+					'Content-Type':'application/json'
+				},
+				success:function(data){
+					if(data.cnt>0){
+						console.log(data.cnt);
+						 alert('사용불가');
+						 $('font[name=usercheck]').text('');
+						 $('font[name=usercheck]').html('사용할수 없습니다.');
+						 $('#user_id').focus();
+
+					}else{
+						 alert('사용가능');
+						 $('font[name=usercheck]').text('');
+						 $('font[name=usercheck]').html('사용할수 있습니다.');
+					}
+				}
+			});
 		});
 		//비밀번호 일치판명
 		$('#user_password').keyup(function(){
@@ -59,21 +79,7 @@
 		});
 	}
 	//중복 아이디 체크
-	function userIdCheck(user_id){
-		$.ajax({
-			url:'/user/idCheck',
-			type:'post',
-			data:{user_id:user_id},
-			success:function(data){
-				if($.trim(data)==0){
-					 $('#checkMsg').html('<p style="color:blue">사용가능</p>');
 
-				}else{
-					 $('#checkMsg').html('<p style="color:blue">사용가능</p>');
-				}
-			}
-		});
-	}
 </script>
  <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">×</button>
@@ -90,9 +96,10 @@
                   	<input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디를 입력해주세요" />
                   	<span class="input-group-btn">
                     	<button class="btn btn-success" id="idCheck">회원중복검사<i class="fa fa-mail-forward spaceLeft"></i></button>
-                  </span>
-                  <sapn id = 'chkMsg'></sapn>
-                </div>
+                  	</span>
+                  <span id ='chkMsg'></sapn>
+                 	</div>
+                 	<font name='usercheck' size='3' color='red'></font>
         	</div>
             <div class="form-group">
               <label for="InputPassword1">비밀번호</label>

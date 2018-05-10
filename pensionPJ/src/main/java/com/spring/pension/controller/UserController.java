@@ -1,5 +1,9 @@
 package com.spring.pension.controller;
 
+
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.pension.domain.UserVO;
 import com.spring.pension.service.UserService;
+
 
 @RequestMapping("/user/*")
 @Controller
@@ -50,11 +55,14 @@ public class UserController {
 		return entity;
 	}
 	//아이디 중복 체크 
+	@ResponseBody
 	@RequestMapping(value="/idCheck",method=RequestMethod.POST)
-	public @ResponseBody String idCheck(@RequestBody UserVO userVO,Model model) throws Exception {
-		
-		int result = userService.userIdCheck(userVO.getUser_id());
-		return 	String.valueOf(result);
+	public  Map<Object,Object> idCheck(@RequestBody String user_id) throws Exception {
+		int count =0;
+		Map<Object, Object> map = new HashMap<Object,Object>();
+		count = userService.userIdCheck(user_id);
+		map.put("cnt",count);
+		return 	map;
 		
 	}
 }

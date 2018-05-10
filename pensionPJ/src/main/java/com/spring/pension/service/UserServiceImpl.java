@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	//회원 아이디 체크
 	@Override
 	public int userIdCheck(String user_id) throws Exception {
-		
+		logger.info("count갯수:" + userDAO.getId(user_id));
 		return userDAO.getId(user_id);
 	}
 
