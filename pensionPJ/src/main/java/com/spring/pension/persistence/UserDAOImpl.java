@@ -24,5 +24,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		sqlSession.insert(namespace +".create", userVO);
 	}
+	// 아이디 중복 체크 하기 위해서 userid 가지고오기
+	@Override
+	public int getId(String user_id) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".idCheck", user_id);
+	}
 
 }

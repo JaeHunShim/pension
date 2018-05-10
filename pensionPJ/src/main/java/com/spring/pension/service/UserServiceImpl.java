@@ -22,5 +22,11 @@ public class UserServiceImpl implements UserService {
 		
 		userDAO.join(userVO);
 	}
+	//회원 아이디 체크
+	@Override
+	public int userIdCheck(String user_id) throws Exception {
+		
+		return userDAO.getId(user_id);
+	}
 
 }
