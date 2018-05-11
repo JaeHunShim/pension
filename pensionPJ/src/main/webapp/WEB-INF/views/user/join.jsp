@@ -217,7 +217,7 @@
             </div>
             <div class="form-group">
               <label for="InputPassword2">전화번호</label>
-              <input type="text" class="form-control" id="user_phone" id="user_phone" placeholder="- 제외하고 넣어주세요 ex)010-3333-4444">
+              <input type="text" class="form-control" id="user_phone" id="user_phone" placeholder="- 포함해서 넣어주세요 ex)010-3333-4444">
             </div>
 		</div>
        </article>
