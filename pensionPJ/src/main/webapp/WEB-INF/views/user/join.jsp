@@ -183,14 +183,13 @@
           <h1>회원가입</h1>
          </div>
         <div class="col-md-6 col-md-offset-3">
-            <div class="form-group" id="id">
+            <div class="form-group">
             	<label class="InputPassword" for="user_id">아이디</label>
                 	<div class="input-group">
                   	<input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디를 입력해주세요" />
                   	<span class="input-group-btn">
-                    	<button class="btn btn-info" id="idCheck">회원중복검사<i class="fa fa-mail-forward spaceLeft"></i></button>
+                    	<button class="btn btn-info" id="idCheck">아이디중복검사<i class="fa fa-mail-forward spaceLeft"></i></button>
                   	</span>
-                  <span id ='chkMsg'></sapn>
                  	</div>
                  	<font name='usercheck' size='3' color='red'></font>
         	</div>
@@ -213,7 +212,23 @@
             </div>
             <div class="form-group">
               <label for="InputEmail">E-Mail</label>
-              <input type="email" class="form-control" name="user_email" id="user_email" placeholder="이메일을 입력해주세요">
+              	<div class="input-group">
+              		<input type="email" class="form-control" name="user_email" id="user_email" placeholder="이메일을 입력해주세요">
+              			<span class="input-group-btn">
+							<button class="btn btn-success" id="emailCheck">인증메일 전송<i class="fa fa-mail-forward spaceLeft"></i></button>
+              			</span>
+                </div>
+                <font name='emailCheck' size='3' color='red'></font>
+            </div>
+            <div class="form-group">
+              <label for="InputEmail">E-Mail Certification</label>
+              	<div class="input-group">
+              		<input type="email" class="form-control" name="user_cer" id="user_cer" placeholder="인증번호를 입력하세요">
+              			<span class="input-group-btn">
+							<button class="btn btn-success" id="emailCheckInput">인증번호 입력<i class="fa fa-mail-forward spaceLeft"></i></button>
+              			</span>
+                </div>
+                <font name='emailInputCheck' size='3' color='red'></font>
             </div>
             <div class="form-group">
               <label for="InputPassword2">전화번호</label>
