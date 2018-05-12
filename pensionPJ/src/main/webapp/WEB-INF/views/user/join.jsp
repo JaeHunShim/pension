@@ -19,6 +19,7 @@
 		//아이디 중복 유효성 검사
 		$('#idCheck').on('click',function(){
 			var user_id = $('#user_id').val();
+			console.log(key);
 			$.ajax({
 				url:'/user/idCheck',
 				type:'post',
@@ -73,6 +74,9 @@
 			if(idcheck == 0){
 				alert('아이디 중복체크를 해주세요');
 				$('#user_id').focus();
+			}else if($.trim(user_id).length == 0){
+				alert('아이디를 입력해주세요.');
+				$('#user_id').focus();
 			}else if(checkSpecial(user_id)){
 				alert('아이디에는 특수문자가 들어올수 없습니다.');
 				$('#user_id').focus();
@@ -99,6 +103,30 @@
 				resetData(user_id,user_password,user_password1,user_address,user_name,user_phone,user_email,idcheck,passwordcheck);
 				/* self.location="/main/index"; */
 			}
+		});
+		//이메일 인증하기 
+		$('#emailCheck').on('click',function(){
+			var user_email = $('#user_email').val();
+			$.ajax({
+				url:'/user/emailCertification',
+				type:'post',
+				data:user_email,
+				headers:{
+					'Content-Type':'application/json'
+				},
+				success:function(data){
+					if(data==true){
+						alert('인증번호를 발송했습니다.');
+					}
+				}
+			});
+		});
+		$('#emailCheckInput').on('click',function(){
+			var key = $('#key').val();
+			var user_cer=$('#user_cer').val();
+			console.log(user_cer);
+			console.log(key);
+			emailAutorization(key,user_cer);
 		});
 	});
 	//회원가입 함수 
@@ -173,7 +201,22 @@
 		var passwordcheck=$('font[name=usercheck]').text('');
 
 	}
+	//이메일 인증 번호확인
+	function emailAutorization(key,user_cer){
+		var key = $('#key').val();
+		var user_cer = $('#user_cer').val();
+		
+		if(key != user_cer){
+			alert('인증번호가 일치하지 않습니다.');
+			return false;
+		}else{
+			alert('인증되었습니다.');
+			return true;
+		}
+	}
 </script>
+<!-- session 값 (회원가입할때 인증코드 검사하기 위해서 사용 -->
+<input type ="hidden" id="key" value='${sessionScope.key}'>
  <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">×</button>
 </div>

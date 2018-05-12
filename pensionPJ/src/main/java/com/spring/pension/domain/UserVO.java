@@ -2,14 +2,21 @@ package com.spring.pension.domain;
 
 public class UserVO {
 	
-	private String user_id; 
-    private String user_password; 
-    private String user_name; 
-    private String user_address; 
-    private String user_email; 
-    private String user_phone;
-	
-    public String getUser_id() {
+	private String user_id; //아이디
+    private String user_password; //패스워드
+    private String user_name; //이름
+    private String user_address; //주소
+    private String user_email; //이메일
+    private String user_authorization; //인증번호
+    private String user_phone; //폰번호
+    
+	public String getUser_authorization() {
+		return user_authorization;
+	}
+	public void setUser_authorization(String user_authorization) {
+		this.user_authorization = user_authorization;
+	}
+	public String getUser_id() {
 		return user_id;
 	}
 	public void setUser_id(String user_id) {
@@ -45,14 +52,16 @@ public class UserVO {
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
-	
 	@Override
 	public String toString() {
 		return "UserVO [user_id=" + user_id + ", user_password=" + user_password + ", user_name=" + user_name
-				+ ", user_address=" + user_address + ", user_email=" + user_email + ", user_phone=" + user_phone
-				+ ", getUser_id()=" + getUser_id() + ", getUser_password()=" + getUser_password() + ", getUser_name()="
-				+ getUser_name() + ", getUser_address()=" + getUser_address() + ", getUser_email()=" + getUser_email()
-				+ ", getUser_phone()=" + getUser_phone() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", user_address=" + user_address + ", user_email=" + user_email + ", user_authorization="
+				+ user_authorization + ", user_phone=" + user_phone + ", getUser_authorization()="
+				+ getUser_authorization() + ", getUser_id()=" + getUser_id() + ", getUser_password()="
+				+ getUser_password() + ", getUser_name()=" + getUser_name() + ", getUser_address()=" + getUser_address()
+				+ ", getUser_email()=" + getUser_email() + ", getUser_phone()=" + getUser_phone() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
+	
+	
 }

@@ -27,6 +27,7 @@
 <!-- bootstrap -->
 <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
 <script src="/resources/js/bootstrap/npm.js"></script>
+
 </head>
 <body>
 	<div class="header">
@@ -48,13 +49,13 @@
 			<!-- Join End -->
 			<!-- Login Start -->
         	<li>
-        		<a data-toggle="modal" href="/user/login" data-target="#login" role="button" data-backdrop="static">
+        		<a href="/user/login" data-toggle="modal" data-target="#login-modal">
  					<span class="btn btn-xs btn-success">login</span>
 				</a>
- 				<div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="테스트정보 등록" aria-describedby="테스트 모달">
-    				<div class="modal-dialog" style="width:1200px;height:700px">
+ 				<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    				<div class="modal-dialog">
         				<div class="modal-content">
-        				<!-- modal내용 -->
+        				<!-- modal내용 들어오는 부분 -->
         				</div>
     				</div>
 				</div>

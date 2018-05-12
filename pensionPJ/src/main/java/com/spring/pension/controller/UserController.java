@@ -5,11 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,6 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.pension.domain.UserVO;
 import com.spring.pension.service.UserService;
+import com.spring.pension.util.MailHandler;
+import com.spring.pension.util.TempKey;
 
 
 @RequestMapping("/user/*")
@@ -33,11 +37,15 @@ public class UserController {
 	private UserService userService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-	//회원가입 폼 불러오는 부분 
+	//회원가입 폼 불러오는 부분 (modal처리)
 	@RequestMapping(value="/join",method=RequestMethod.GET)
-	public String join() {
+	public void join() {
 		
-		return "/user/join";
+	}
+	//로그인 폼 불러오는 부분(moadal 처리)
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public void login() {
+		
 	}
 	//회원 가입
 	@RequestMapping(value="/join",method=RequestMethod.POST)
@@ -71,5 +79,18 @@ public class UserController {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
+	}
+	//이메일 인증번호 발송 
+	@ResponseBody
+	@RequestMapping(value="/emailCertification",method=RequestMethod.POST)
+	public boolean emailAutorization(@RequestBody String user_email,HttpSession session) throws Exception {
+		
+			String key = new TempKey().getKey(50,false); //키 생성 
+			session.setAttribute("key", key); //생성한 키를 session에 저장(view단에서 session값과 입력한 값이 동일한지 검사할거임)
+			String subject ="회원가입 승인번호입니다.";
+			StringBuilder sb = new StringBuilder();
+			sb.append("회원가입 승인번호는").append(key).append("입니다.");
+			
+			return userService.send(subject, sb.toString(),"jaehuniya@gmail.com", user_email);
 	}
 }
