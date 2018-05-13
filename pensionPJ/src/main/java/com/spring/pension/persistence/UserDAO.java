@@ -8,5 +8,5 @@ public interface UserDAO {
 	//아이디 중복체크
 	public int getId(String user_id) throws Exception;
 	//로그인  체크
-	public UserVO loginCheck(String user_id, String user_password ) throws Exception;
+	public UserVO loginCheck(UserVO userVO) throws Exception;
 }

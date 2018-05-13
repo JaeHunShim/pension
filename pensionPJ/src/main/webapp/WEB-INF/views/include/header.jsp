@@ -30,6 +30,7 @@
 
 </head>
 <body>
+	<input type="text" name="user_name" value ="${sessionScope.userVO}">
 	<div class="header">
 	<div class="top_box">
         <ul>

@@ -35,13 +35,12 @@ public class UserDAOImpl implements UserDAO {
 	}
 	//로그인 정보 가지고 오기 
 	@Override
-	public UserVO loginCheck(String user_id, String user_password) throws Exception {
+	public UserVO loginCheck(UserVO userVO) throws Exception {
 		
-		Map<String, Object> map = new HashMap<String ,Object>();
-		map.put("user_id", user_id);
-		map.put("user_password", user_password);
+/*		userVO.setUser_id(userVO.getUser_id());
+		userVO.setUser_password(userVO.getUser_password());*/
 		
-		return sqlSession.selectOne(namespace+".loginCheck",map);
+		return sqlSession.selectOne(namespace+".loginCheck",userVO);
 	}
 
 }

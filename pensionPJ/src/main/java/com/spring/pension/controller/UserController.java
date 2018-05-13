@@ -97,19 +97,12 @@ public class UserController {
 	//로그인 체크 처리
 	@ResponseBody
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public int loginCheck(@RequestBody String user_id,@RequestBody String user_password) throws Exception {
-		logger.info("파라미터로 받아오는 user_id" + user_id);
-		
-		int count = 0;
-		UserVO vo = userService.loginCheck(user_id, user_password);
-		if(vo != null) {
-			count=0;
-			
-		}else {
-			count=1;
-			
-		}
-		return count; 
+	public Map<String,Object> loginCheck(@RequestBody UserVO userVO,Model model,HttpSession session) throws Exception {
+		logger.info("받아오는 vo 정보:" + userService.loginCheck(userVO));
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("vo",userService.loginCheck(userVO));
+		session.setAttribute("userVO",userService.loginCheck(userVO));
+		return map;
 	}
 		
 }

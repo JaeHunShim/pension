@@ -6,24 +6,24 @@
 		$('input[name="login"]').on('click',function(){
 			var user_id= $('#user_id').val();
 			var user_password=$('#user_password').val();
-			
+
 			$.ajax({
 				url:'/user/login',
 				type:'post',
 				headers:{
 					'Content-Type':'application/json'	
 				},
-				data:{
+				data:JSON.stringify({
 					user_id:user_id,
-					user_password:user_password
-				},
-
+					user_password:user_password,
+				}),
 				success:function(data){
 					console.log(data);
-					if(data==0){
+					if(data.vo ==null){
 						alert('비밀번호나 아이디가잘못되었습니다.');
 					}else{
-						alert('로그인되었습니다.')
+						alert('로그인되었습니다.');
+						self.location="/main/index";
 					}
 				}
 			});
