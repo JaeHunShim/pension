@@ -14,6 +14,7 @@
 			var user_email=$('#user_email').val();
 			var idcheck=$('font[name=usercheck]').text();
 			var passwordcheck=$('font[name=check]').text();
+			
 			resetData(user_id,user_password,user_password1,user_address,user_name,user_phone,user_email,idcheck,passwordcheck);
 		});
 		//아이디 중복 유효성 검사
@@ -68,7 +69,7 @@
 			var user_name=$('#user_name').val();
 			var user_phone=$('#user_phone').val();
 			var user_email=$('#user_email').val();
-			var idchek=$('font[name=usercheck]').text();
+			var idcheck=$('font[name=usercheck]').text();
 			var passwordcheck=$('font[name=check]').text();
 			
 			if(idcheck == 0){
@@ -190,6 +191,7 @@
 	}
 	//내용 리셋
 	function resetData(user_id,user_password,user_password1,user_address,user_name,user_phone,user_email,idcheck,passwordcheck){
+		
 		var user_id = $('#user_id').val('');
 		var user_password=$('#user_password').val('');
 		var user_password1 =$('#user_password1').val('');

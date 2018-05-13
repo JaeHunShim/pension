@@ -21,7 +21,7 @@ public class UserDAOTest {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserDAOTest.class);
 	
-	@Test
+/*	@Test
 	public void insert() throws Exception {
 		
 		UserVO vo = new UserVO();
@@ -36,5 +36,14 @@ public class UserDAOTest {
 		logger.info("회원정보:" + vo.toString());
 		userDAO.join(vo);
 		
+	}*/
+	@Test
+	public void select() throws Exception{
+		String user_id = "jaehuniya";
+		String user_password="1";
+		
+		userDAO.loginCheck(user_id, user_password);
+		logger.info("로그인 정보" + userDAO.loginCheck(user_id, user_password).toString());
+
 	}
 }

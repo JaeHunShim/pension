@@ -7,4 +7,6 @@ public interface UserDAO {
 	public void join(UserVO userVO) throws Exception;
 	//아이디 중복체크
 	public int getId(String user_id) throws Exception;
+	//로그인  체크
+	public UserVO loginCheck(String user_id, String user_password ) throws Exception;
 }

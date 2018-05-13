@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.pension.domain.UserVO;
 import com.spring.pension.service.UserService;
@@ -93,4 +94,22 @@ public class UserController {
 			
 			return userService.send(subject, sb.toString(),"jaehuniya@gmail.com", user_email);
 	}
+	//로그인 체크 처리
+	@ResponseBody
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public int loginCheck(@RequestBody String user_id,@RequestBody String user_password) throws Exception {
+		logger.info("파라미터로 받아오는 user_id" + user_id);
+		
+		int count = 0;
+		UserVO vo = userService.loginCheck(user_id, user_password);
+		if(vo != null) {
+			count=0;
+			
+		}else {
+			count=1;
+			
+		}
+		return count; 
+	}
+		
 }

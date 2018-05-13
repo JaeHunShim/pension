@@ -1,5 +1,8 @@
 package com.spring.pension.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -29,6 +32,16 @@ public class UserDAOImpl implements UserDAO {
 	public int getId(String user_id) throws Exception {
 		
 		return sqlSession.selectOne(namespace+".idCheck", user_id);
+	}
+	//로그인 정보 가지고 오기 
+	@Override
+	public UserVO loginCheck(String user_id, String user_password) throws Exception {
+		
+		Map<String, Object> map = new HashMap<String ,Object>();
+		map.put("user_id", user_id);
+		map.put("user_password", user_password);
+		
+		return sqlSession.selectOne(namespace+".loginCheck",map);
 	}
 
 }

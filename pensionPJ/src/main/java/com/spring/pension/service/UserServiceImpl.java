@@ -55,5 +55,11 @@ public class UserServiceImpl implements UserService {
 		
 		return false;
 	}
+	//로그인  체크
+	@Override
+	public UserVO loginCheck(String user_id, String user_password) throws Exception {
+		
+		return userDAO.loginCheck(user_id, user_password);
+	}
 
 }
