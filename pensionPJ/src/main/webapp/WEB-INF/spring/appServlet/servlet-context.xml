@@ -33,4 +33,12 @@
 		<beans:constructor-arg value="D:\image\upload\">
 		</beans:constructor-arg>
 	</beans:bean>
+	<!-- interceptor -->
+	<beans:bean id="loginInterceptor" class="com.spring.pension.interceptor.LoginInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/user/loginPost"/> <!-- loginPost경로를 호출할때 동작하도록 설정  -->
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+	</interceptors>
 </beans:beans>

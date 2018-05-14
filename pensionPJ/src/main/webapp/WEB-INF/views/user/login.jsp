@@ -8,7 +8,7 @@
 			var user_password=$('#user_password').val();
 
 			$.ajax({
-				url:'/user/login',
+				url:'/user/loginPost',
 				type:'post',
 				headers:{
 					'Content-Type':'application/json'	
@@ -42,7 +42,7 @@
 				  <form id ="login">
 					<input type="text" name="user_id" id ="user_id" placeholder="User_ID">
 					<input type="password" name="user_password" id ="user_password" placeholder="Password">
-					<input type="button" name="login" class="login loginmodal-submit" value="Login">
+					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				  </form>
 				  <div class="login-help">
 					<a href="#" style="color:red;">Register</a>

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.ReplyVO;
@@ -25,6 +26,7 @@ public class ReplyServiceImpl implements ReplyService {
 	private static final Logger logger = LoggerFactory.getLogger(ReplyServiceImpl.class);
 	// 질문게시판의 댓글 삽입
 	// 삽입한 후에 댓글수 update
+	@Transactional
 	@Override
 	public void addReply(ReplyVO replyVO) throws Exception {
 		
@@ -58,6 +60,7 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 	// 질문 게시판의 댓글 삭제 
 	// 댓글이 삭제 되면 댓글수 -1 해주는것 추가 
+	@Transactional
 	@Override
 	public void removeReply(Integer rno) throws Exception {
 		

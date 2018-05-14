@@ -96,7 +96,7 @@ public class UserController {
 	}
 	//로그인 체크 처리
 	@ResponseBody
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
 	public Map<String,Object> loginCheck(@RequestBody UserVO userVO,Model model,HttpSession session) throws Exception {
 		logger.info("받아오는 vo 정보:" + userService.loginCheck(userVO));
 		Map<String,Object> map = new HashMap<String,Object>();

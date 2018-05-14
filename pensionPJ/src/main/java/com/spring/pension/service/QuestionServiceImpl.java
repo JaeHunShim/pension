@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.QuestionVO;
@@ -59,6 +60,7 @@ public class QuestionServiceImpl implements QuestionService {
 		return questionDAO.listSearchConunt(cri);
 	}
 	// 상세글 가지고오기 
+	@Transactional
 	@Override
 	public QuestionVO read(Integer qno, String password) throws Exception {
 		logger.info("가져오는 데이터 " + questionDAO.read(qno, password));
