@@ -30,9 +30,10 @@
 		});
 		
 	}); */
+
 </script>
 	<div class="modal-header">
-    	<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">×</button> -->
+    	<button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">×</button>
 	</div>
 	<div class="modal-body">
     	  <div class="modal-dialog">
@@ -44,8 +45,8 @@
 					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				  </form>
 				  <div class="login-help">
-					<a href="#" style="color:red;">Register</a>
-					<a href="#" style="color:red;">Forgot Password</a>
+					<a href="/user/join" style="color:red;">회원가입</a>
+					<a href="/user/find_password" onclick = "window.open(this.href,'','width=400,height=300'); return false;" style="color:red;"target="_blank">아이디 또는 비밀번호 찾기 </a>
 				  </div>
 				</div>
 			</div>

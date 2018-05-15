@@ -116,4 +116,28 @@ public class UserController {
 		model.addAttribute("vo",vo);
 		
 	}
+	//아이디 패스워드 찾기 페이지 열기
+	@RequestMapping(value="/find_password",method=RequestMethod.GET)
+	public void forgetPassword() throws Exception{
+		
+	}
+	@ResponseBody
+	@RequestMapping(value="/find_password",method=RequestMethod.POST)
+	public ResponseEntity<Map<String,Object>> findPassword(@RequestBody UserVO userVO) throws Exception {
+		System.out.println("user_id의 데이터 타입" + userVO instanceof String); //String 타입으로 넘어옴 
+		logger.info("받아오는 user_id" + userVO.toString());
+		logger.info("받아오는 정보   :" + userService.findPassword(userVO));
+		ResponseEntity<Map<String,Object>> entity = null;
+		try {
+				Map<String,Object> map = new HashMap<String,Object>();
+				
+				boolean result = userService.findPassword(userVO);
+				map.put("result", result);
+				entity = new ResponseEntity<Map<String,Object>>(map,HttpStatus.OK);
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
 }

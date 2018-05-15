@@ -9,4 +9,6 @@ public interface UserDAO {
 	public int getId(String user_id) throws Exception;
 	//로그인  체크
 	public UserVO loginCheck(UserVO userVO) throws Exception;
+	//email받아오기
+	public UserVO findPassword(UserVO userVO) throws Exception;
 }

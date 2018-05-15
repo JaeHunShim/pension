@@ -42,5 +42,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		return sqlSession.selectOne(namespace+".loginCheck",userVO);
 	}
+	//email받아오기
+	@Override
+	public UserVO findPassword(UserVO userVO) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".getpassword", userVO);
+	}
 
 }

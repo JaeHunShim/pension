@@ -11,4 +11,6 @@ public interface UserService {
 	public boolean send(String subject,String text, String from, String to);
 	// 로그인 체크
 	public UserVO loginCheck(UserVO userVO) throws Exception;
+	// 아이디로 email가지고 오기
+	public boolean findPassword(UserVO userVO) throws Exception;
 }

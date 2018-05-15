@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.pension.domain.UserVO;
 import com.spring.pension.persistence.UserDAO;
+import com.spring.pension.util.MailHandler;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -60,6 +61,27 @@ public class UserServiceImpl implements UserService {
 	public UserVO loginCheck(UserVO userVO) throws Exception {
 		
 		return userDAO.loginCheck(userVO);
+	}
+	// 이메일 뽑아와서 이메일 보내기(패스워드 찾기 위해서 )
+	@Override
+	public boolean findPassword(UserVO userVO) throws Exception {
+		
+		logger.info("파라미터로 가지고온 user_id값: " + userVO.getUser_id());
+		UserVO vo = userDAO.findPassword(userVO);
+		if(vo == null) {
+			return false;
+		}else {
+			MailHandler sendMail = new MailHandler(mailSender);
+			sendMail.setSubject("[비밀번호 찾기 ]");
+			sendMail.setText(new StringBuffer().append("<h1>비밀번호 찾기</h1>").append("비밀번호는 <br>")
+					.append(vo.getUser_password()).toString());
+			sendMail.setFrom("jaehuniya@gmail.com", "관리자");
+			sendMail.setTo(vo.getUser_email());
+			sendMail.send();
+			
+			return true;
+		}
+		
 	}
 
 }
