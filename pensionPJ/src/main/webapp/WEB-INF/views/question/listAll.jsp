@@ -6,7 +6,7 @@
 <script>
 	var result='${msg}';
 	
-	if(result='success'){
+	if(result='${false}'){
 		alert('입력이 정사적으로 처리 되었습니다.');
 	}
 </script>

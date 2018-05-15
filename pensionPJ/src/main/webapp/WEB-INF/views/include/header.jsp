@@ -30,10 +30,12 @@
 
 </head>
 <body>
-	<input type="text" name="user_name" value ="${sessionScope.userVO}">
 	<div class="header">
 	<div class="top_box">
         <ul>
+        <li>
+        <span style="color:pink">${login.user_name}</span>
+        </li>
         	<!-- Join Start-->
         	<li>
         		<a data-toggle="modal" href="/user/join" data-target="#joinForm" role="button" data-backdrop="static">

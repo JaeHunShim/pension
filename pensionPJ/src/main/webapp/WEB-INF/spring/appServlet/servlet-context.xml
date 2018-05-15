@@ -35,10 +35,15 @@
 	</beans:bean>
 	<!-- interceptor -->
 	<beans:bean id="loginInterceptor" class="com.spring.pension.interceptor.LoginInterceptor"></beans:bean>
+	<beans:bean id="authIntercpetor" class="com.spring.pension.interceptor.AuthInterceptor"></beans:bean>
 	<interceptors>
 		<interceptor>
 			<mapping path="/user/loginPost"/> <!-- loginPost경로를 호출할때 동작하도록 설정  -->
 			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/question/register"/> <!-- session 정보없으면 접근 못하게함  -->
+			<beans:ref bean="authIntercpetor"/>
 		</interceptor>
 	</interceptors>
 </beans:beans>

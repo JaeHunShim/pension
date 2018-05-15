@@ -44,7 +44,7 @@ public class UserController {
 		
 	}
 	//로그인 폼 불러오는 부분(moadal 처리)
-	@RequestMapping(value="/login",method=RequestMethod.GET)
+	@RequestMapping(value="/login",method=RequestMethod.GET)	
 	public void login() {
 		
 	}
@@ -95,14 +95,25 @@ public class UserController {
 			return userService.send(subject, sb.toString(),"jaehuniya@gmail.com", user_email);
 	}
 	//로그인 체크 처리
-	@ResponseBody
-	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
+	/*@ResponseBody
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public Map<String,Object> loginCheck(@RequestBody UserVO userVO,Model model,HttpSession session) throws Exception {
 		logger.info("받아오는 vo 정보:" + userService.loginCheck(userVO));
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("vo",userService.loginCheck(userVO));
-		session.setAttribute("userVO",userService.loginCheck(userVO));
+		model.addAttribute(map);
+
 		return map;
-	}
+	}*/
+	//로그인처리
+	@RequestMapping(value="/loginPost",method=RequestMethod.POST)
+	public void loginPost(UserVO userVO, Model model,HttpSession session) throws Exception {
+		logger.info("userVO정보:" + userService.loginCheck(userVO));
+		UserVO vo = userService.loginCheck(userVO);
+		if(vo==null) {
+			return;
+		}
+		model.addAttribute("vo",vo);
 		
+	}
 }
