@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>	
@@ -7,7 +10,6 @@
 <meta name="description" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta name="keywords" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/sub_layout.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/top/layout.css" />
@@ -33,36 +35,47 @@
 	<div class="header">
 	<div class="top_box">
         <ul>
-        <li>
-        <span style="color:pink">${login.user_name}</span>
-        </li>
         	<!-- Join Start-->
-        	<li>
-        		<a data-toggle="modal" href="/user/join" data-target="#joinForm" role="button" data-backdrop="static">
- 					<span class="btn btn-xs btn-success">Join</span>
-				</a>
- 				<div id="joinForm" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"">
-    				<div class="modal-dialog modal-sm" style="width:1200px;height:700px">
-        				<div class="modal-content">
+        <c:set var="user_name" value="${login.user_name}"/>
+        	<c:choose>
+        		<c:when test="${empty user_name}">
+        		<li>
+        			<a data-toggle="modal" href="/user/join" data-target="#joinForm" role="button" data-backdrop="static">
+ 						<span class="btn btn-xs btn-success">Join</span>
+					</a>
+ 					<div id="joinForm" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"">
+    					<div class="modal-dialog modal-sm" style="width:1200px;height:700px">
+        					<div class="modal-content">
         				<!-- modal 내용 들어오는 부분  -->
-        				</div>
-    				</div>
-				</div>
-			</li>
+        					</div>
+    					</div>
+					</div>
+				</li>
+			
 			<!-- Join End -->
 			<!-- Login Start -->
-        	<li>
-        		<a href="/user/login" data-toggle="modal" data-target="#login-modal">
- 					<span class="btn btn-xs btn-success">login</span>
-				</a>
- 				<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    				<div class="modal-dialog">
-        				<div class="modal-content">
-        				<!-- modal내용 들어오는 부분 -->
-        				</div>
-    				</div>
-				</div>
-			</li>
+        		<li>
+        			<a href="/user/login" data-toggle="modal" data-target="#login-modal">
+ 						<span class="btn btn-xs btn-success">login</span>
+					</a>
+ 					<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    					<div class="modal-dialog">
+        					<div class="modal-content">
+        					<!-- modal내용 들어오는 부분 -->
+        					</div>
+    					</div>
+					</div>
+				</li>
+        		</c:when>
+        		<c:otherwise>
+				<li>
+        			<a href="/user/logout"><span class="btn btn-xs btn-success">sign out</span></a>
+        		</li>
+        		<li>
+        			<span style="color:pink">${login.user_name}</span>
+        		</li>
+				</c:otherwise>
+			</c:choose>
 			<!-- Login Out -->
             <li><a href="/main/intro">contact us</a></li>
             <li><a href="/main/index">HOME</a></li>

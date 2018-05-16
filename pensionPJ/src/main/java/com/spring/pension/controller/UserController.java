@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -121,6 +123,7 @@ public class UserController {
 	public void forgetPassword() throws Exception{
 		
 	}
+	//패스워드 찾는 로직 (email로 해당 아이디의 비밀번호를 보내서 처리)
 	@ResponseBody
 	@RequestMapping(value="/find_password",method=RequestMethod.POST)
 	public ResponseEntity<Map<String,Object>> findPassword(@RequestBody UserVO userVO) throws Exception {
@@ -139,5 +142,18 @@ public class UserController {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return entity;
+	}
+	//로그아웃
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String signOut(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
+		
+		Object obj = session.getAttribute("login");
+		
+		if(obj != null) {
+			response.setHeader("Cache-Control","no-store");
+			session.removeAttribute("login");
+			session.invalidate();
+		}
+		return "redirect:/main/index";
 	}
 }
