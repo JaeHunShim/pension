@@ -12,20 +12,20 @@ public class ReservationController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
-	@RequestMapping(value="/guide",method=RequestMethod.GET)
-	public String resGuide() {
-		logger.info("예약안내 페이지이동");
-		 
-		return "/reservation/resGuide";
+	@RequestMapping(value="/listskin",method=RequestMethod.GET)
+	public void listSkin() throws Exception {
+		
 	}
-	@RequestMapping(value="/realRes",method=RequestMethod.GET)
-	public String realRes() {
-		logger.info("실시간 예약현황 보기");
-		return "/reservation/real_reservation";
+	@RequestMapping(value="/calendar_skin",method=RequestMethod.GET)
+	public void calendarSkin() throws Exception {
+		
 	}
-	@RequestMapping(value="/reservation",method=RequestMethod.GET)
-	public String reservation() {
-		logger.info("예약현황 보기 2");
-		return "/reservation/reservation";
+	@RequestMapping(value="/view_skin" ,method=RequestMethod.GET)
+	public void view_skin() throws Exception {
+		
+	}
+	@RequestMapping(value="/write_skin",method=RequestMethod.GET)
+	public void writeSkin() throws Exception {
+		
 	}
 }
