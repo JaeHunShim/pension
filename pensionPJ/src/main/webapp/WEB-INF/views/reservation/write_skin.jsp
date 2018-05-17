@@ -5,13 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/style.css" />
-<title>Insert title here</title>
+<script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
+<title>예약하기 </title>
 </head>
 <body>
-<script type="text/javascript">
-var g4_bbs_skin_path = "";
-</script>
-<form id="write" name="fwrite" method="post" action="<?php echo $g4['bbs_path']; ?>/write_update.php" enctype="multipart/form-data" onsubmit="return checkWrite(this);" style="width: <?php echo $width; ?>;">
+	<button type="button" id="ex" >연습</button>
+<%-- <form id="write" name="fwrite" method="post" action="<?php echo $g4['bbs_path']; ?>/write_update.php" enctype="multipart/form-data" onsubmit="return checkWrite(this);" style="width: <?php echo $width; ?>;">
 	<p>
 		<input type="hidden" name="w" value="<?php echo $w; ?>" />
 		<input type="hidden" name="bo_table" value="<?php echo $bo_table; ?>" />
@@ -106,6 +105,6 @@ var g4_bbs_skin_path = "";
 		<a href="<?php echo $g4['bbs_path']; ?>/board.php?bo_table=<?php echo $bo_table; ?>&select=<?php echo $select; ?>" onfocus="this.blur();"><?php echo $BUTTON; ?></a>
 	</p>
 </form>
-<script type="text/javascript" src="<?php echo $g4['bbs_path']; ?>/js/board.js"></script>
+<script type="text/javascript" src="<?php echo $g4['bbs_path']; ?>/js/board.js"></script> --%>
 </body>
 </html>
