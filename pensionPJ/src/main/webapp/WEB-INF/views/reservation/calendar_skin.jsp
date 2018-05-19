@@ -45,16 +45,17 @@ for(var i =1; i<=row; i++){ // 행만들기
 			calendar +="<td class>"
 				+"<stong class ='date'>" +dNum+"</strong>"
 				+"<ul class='schedule RW'>"
-				+"<li class='close'><a href='#' class='modal'>우앙</a></li>"
-				+"<li class='open'><a href='#' class='modal'>우앙</a></li>"
-				+"<li class='close'><a href='#' class='modal'>우앙</a></li>"
+				+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
+				+"<li class='open'><a href='#' class='modal'>+우앙+</a></li>"
+				+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
 				+"</ul>"
 				+"</td>";
-		}	dNum++;	
+			dNum++;
+		
+		}		
 			
 	}
 		calendar +="</tr>";
-	
 }
 
 $(document).ready(function(){
@@ -65,8 +66,8 @@ $(document).ready(function(){
 		console.log(currentDate,theWeek,lastDate); //현재 월의 날짜
 		console.log(row);
 
-});
 
+});
  
 
 </script>
@@ -76,9 +77,9 @@ $(document).ready(function(){
 
 <div id="calendar" style="width: <?php echo $width; ?>;">
 	<p class="title">
-		<a href="prev" onclick="movePage('<?php echo $prev; ?>');"><img src="/resources/img/reservation/b_prev.gif" alt="이전" /></a>
+		<a href="prev" ><img src="/resources/img/reservation/b_prev.gif" alt="이전" /></a>
 		<!-- &nbsp;<span id="y">y년</span> <span id="m">d월</span>&nbsp; -->
-		<a href="#none" onclick="movePage('<?php echo $next; ?>');"><img src="/resources/img/reservation/b_next.gif" alt="다음" /></a>
+		<a href="next"><img src="/resources/img/reservation/b_next.gif" alt="다음" /></a>
 	</p>
 	<table>
 		<col class="col01"></col>
