@@ -14,25 +14,32 @@
 
 	
 	var date = new Date();
-	var y = date.getFullYear(); //현재 년도 가져오기
-	var m= date.getMonth(); //현재 달가지고오기
-	var d = date.getDate(); //현재 날짜 가지고오기 	
-	var currentDate = new Date(y,m,1); // 현재 년, 현재 달의  1일의 요일을 구함
-	var theWeek = currentDate.getDay(); // 월화수목금토일 구하기 (1,2,3,4,5,6,7로 출력됨)
+	var toY = date.getFullYear(); //현재 년도 가져오기
+	var toM = date.getMonth(); //현재 달가지고오기
+	var toD = date.getDate(); //현재 날짜 가지고오기 	
 	var lastArr =[31,28,31,30,31,30,31,31,30,31,30,31]; // 월마다 마지막 일자
+	
+	var y;
+	var m;
+	var d;
+
+/* 이제 달력 만드는 곳*/
+function getCalendar(m,y,x){
+	
+	var currentDate = new Date(y,m,x); // 현재 년, 현재 달의  1일의 요일을 구함
+	console.log("y와 m을 받아와서 현재 시간뽑기"+ currentDate);
+	console.log('m과 y의 값:' + m,y);
+	var theWeek = currentDate.getDay(); // 월화수목금토일 구하기 (1,2,3,4,5,6,7로 출력됨)
 	
 	if(y%4 && y%100 !=0 || y%400 ==0){ //윤년계산
 		var lastDate =lastArr[1]=29;
 	}else{
-		var lastDate = laatArr[1]=28;
+		var lastDate = lastArr[1]=28;
 	}
 	var lastDate= lastArr[m]; //현재 월의 마지막 일
 	    
 	var row = Math.ceil((theWeek+lastDate)/7); //달력에 필요한 행의 갯수 
 	
-
-/* 이제 달력 만드는 곳*/
-function getCalendar(m){
 	var calendar ="";
 
 	var dNum =1; //달력에 표기되는 일 초기값 
@@ -43,7 +50,7 @@ function getCalendar(m){
 			if(i===1 && k <= theWeek || dNum>lastDate){
 				calendar += "<td>&nbsp;</td>";
 			}else{
-				calendar +="<td class>"
+				calendar +="<td class='schedule'>"
 					+"<stong class ='date'>" +dNum+"</strong>"
 					+"<ul class='schedule RW'>"
 					+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
@@ -62,37 +69,34 @@ function getCalendar(m){
 }
 $(document).ready(function(){
 	/* $("#calendarBody").append(calendar); */
-		getCalendar(m);
-		
+		var m = toM;
+		var y = toY;
+		var x= 1;
+		getCalendar(m,y,x);
 		var da = "<span id='y'>&nbsp;"+y+"</span><span>년</span><span id='m'>"+(m+1)+"</span><span>월</span>&nbsp;";
 	$('#prev').append(da);
-		console.log(currentDate,theWeek,lastDate); //현재 월의 날짜
-		console.log(row);
-		console.log(m);
-});
- // 전 개월로 가는 함수 
-$(document).ready(function(event){
+	
+	//전 개월로 가는 부분 
 	$('#prev').on('click',function(){
+		$("#calendarBody").empty();
+		var cm =$('#m').text();
+		var cy =$('#y').text();
 		
-		
-		var mleft =$('#m').text();
-		var yleft =$('#y').text();
-		
- 		var prev = mleft-1; 
- 		
- 		m = prev;
- 		
- 		$('#m').text(prev);
- 		
-
+		m= cm-2;
+		y = cy;
+		x=1;
+		$('#m').text(m+1);
+		$('#y').text(y);
+		getCalendar(m,y,x);
 	});
-})
+});
+
 </script>
 <title>예약현황</title>
 </head>
 <body>
 
-<div id="calendar" style="width: <?php echo $width; ?>;">
+<div id="calendar">
 	<p class="title">
 		<a id="prev" style="cursor:pointer;"><img src="/resources/img/reservation/b_prev.gif" alt="이전" /></a>
 		<!-- &nbsp;<span id="y">y년</span> <span id="m">d월</span>&nbsp; -->
