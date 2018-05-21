@@ -42,7 +42,8 @@ function getCalendar(m,y,x){
 	
 	var calendar ="";
 
-	var dNum =1; //달력에 표기되는 일 초기값 
+	dNum =1; //달력에 표기되는 일 초기값
+	var array = new Array(dNum);
 	for(var i =1; i<=row; i++){ // 행만들기
 		calendar +="<tr>";
 		for(var k=1;k<=7; k++){ //열만들기
@@ -50,18 +51,41 @@ function getCalendar(m,y,x){
 			if(i===1 && k <= theWeek || dNum>lastDate){
 				calendar += "<td>&nbsp;</td>";
 			}else{
-				calendar +="<td class='schedule'>"
-					+"<stong class ='date'>" +dNum+"</strong>"
-					+"<ul class='schedule RW'>"
+				/*calendar +="<td class='schedule'>"
+					+"<strong class ='date'>" +dNum+"</strong>"
+					+"<ul class='scheduleRW'>"
 					+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
 					+"<li class='open'><a href='#' class='modal'>+우앙+</a></li>"
 					+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
 					+"</ul>"
-					+"</td>";
-				dNum++;
-			
-			}		
+					+"</td>" */
+	 				
+					for(var j=0; j<array.length; j++){
+						array[j] = dNum;
+						console.log(array[j]);
+						if(array[j] == toD){
+							calendar+="<td class='schedule'>"
+								+"<strong class ='date'>" +dNum+"</strong><img src='/resources/img/reservation/ico_2day.gif' alt='To Day' align='absmiddle'>"
+								+"<ul class='scheduleRW'>"
+								+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
+								+"<li class='open'><a href='#' class='modal'>+우앙+</a></li>"
+								+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
+								+"</ul>"
+								+"</td>"
+						}else{
+							calendar+="<td class='schedule'>"
+								+"<strong class ='date'>" +dNum+"</strong>"
+								+"<ul class='scheduleRW'>"
+								+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
+								+"<li class='open'><a href='#' class='modal'>+우앙+</a></li>"
+								+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
+								+"</ul>"
+								+"</td>"
+						}
+					}
+					dNum++;
 				
+			}
 		}
 			calendar +="</tr>";
 	}
@@ -71,6 +95,7 @@ $(document).ready(function(){
 	/* $("#calendarBody").append(calendar); */
 		var m = toM;
 		var y = toY;
+		var d = toD;
 		var x= 1;
 		getCalendar(m,y,x);
 		var da = "<span id='y'>&nbsp;"+y+"</span><span>년</span><span id='m'>"+(m+1)+"</span><span>월</span>&nbsp;";
@@ -89,6 +114,18 @@ $(document).ready(function(){
 		$('#y').text(y);
 		getCalendar(m,y,x);
 	});
+	//다음 개월로 가는 부분 
+	$('#next').on('click',function(){
+		$('#calendarBody').empty();
+		var cm =$('#m').text();
+		var cy =$('#y').text();
+		m =Number(cm);
+		console.log("다음 눌렸을때 m"+ m)
+		y= cy;
+		$('#m').text(m+1);
+		$('#y').text(y);
+		getCalendar(m,y,x);
+	});
 });
 
 </script>
@@ -102,6 +139,10 @@ $(document).ready(function(){
 		<!-- &nbsp;<span id="y">y년</span> <span id="m">d월</span>&nbsp; -->
 		<a id="next" style="cursor:pointer;"><img src="/resources/img/reservation/b_next.gif" alt="다음" /></a>
 	</p>
+	 <p align="center"><span><img src="/resources/img/reservation/ico_2day.gif" alt="To Day" align="absmiddle"> 오늘</span> 
+	 	<span><img src="/resources/img/reservation/ico_ye.gif" alt="예" align="absmiddle"> 예약가능</span>
+	 	<span><img src="/resources/img/reservation/ico_end.gif" alt="완" align="absmiddle"> 예약완료</span><br>
+    * 원하시는 날짜의 객실명을 선택하시면 실시간 예약이 가능합니다.</p>
 	<table>
 		<col class="col01"></col>
 		<col class="col02"></col>
