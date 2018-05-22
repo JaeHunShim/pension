@@ -12,7 +12,6 @@
 <!-- <script src="/resources/js/reservation/script.js"></script> -->
 <script type="text/javascript">
 
-	
 	var date = new Date();
 	var toY = date.getFullYear(); //현재 년도 가져오기
 	var toM = date.getMonth(); //현재 달가지고오기
@@ -41,7 +40,7 @@ function getCalendar(m,y,x){
 	var row = Math.ceil((theWeek+lastDate)/7); //달력에 필요한 행의 갯수 
 	
 	var calendar ="";
-
+	
 	dNum =1; //달력에 표기되는 일 초기값
 	var array = new Array(dNum); //sNum증가할때 마다 그값을 배열에 넣어서 값을 비교해서 현재 날짜와 비교해서 출력함 배열에 안하고 그냥 sNum이랑 비교해도 됨
 	for(var i =1; i<=row; i++){ // 행만들기
@@ -51,20 +50,8 @@ function getCalendar(m,y,x){
 			if(i===1 && k <= theWeek || dNum>lastDate){
 				calendar += "<td>&nbsp;</td>";
 			}else {
-				if(dNum == toD){
-					calendar += "<td class='schedule'>"
-						+ "<strong class ='date'>" + dNum + "</strong>"
-						+ "<img src='/resources/img/reservation/ico_2day.gif' alt='To Day' align='absmiddle'>";
-						+ "<ul class='scheduleRW'>"
-						+ "<li class='open'><a href='#'></a></li>"
-						+ "<li class='open'><a href='#'></a></li>"
-						+ "<li class='open'><a href='#'></a></li>"
-						+ "<li class='open'><a href='#'></a></li>"
-						+ "</ul>"
-						+ "</td>"
-				}
 				calendar += "<td class='schedule'>"
-							+ "<strong class ='date'>" + dNum + "</strong>"
+							+ "<strong class ='date"+dNum+"'>" + dNum + "</strong>"
 							+ "<ul class='scheduleRW'>"
 							+ "<li class='open'><a href='#'></a></li>"
 							+ "<li class='open'><a href='#'></a></li>"
@@ -89,10 +76,20 @@ $(document).ready(function(){
 		var m = toM;
 		var y = toY;
 		var d = toD;
+		
 		var x= 1;
 		getCalendar(m,y,x);
 		var da = "<span id='y'>&nbsp;"+y+"</span><span>년</span><span id='m'>"+(m+1)+"</span><span>월</span>&nbsp;";
 	$('#prev').append(da);
+		//오늘 날짜 출력
+		var today="<img src='/resources/img/reservation/ico_2day.gif' alt='To Day' align='absmiddle'>"
+		var find =$('.date'+toD+'').text();
+		if(find == toD){
+			$('.date'+toD+'').append(today);
+		}
+		
+
+		
 
 	//전 개월로 가는 부분 
 	$('#prev').on('click',function(){
