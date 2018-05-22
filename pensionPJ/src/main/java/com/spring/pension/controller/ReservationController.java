@@ -12,6 +12,11 @@ public class ReservationController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
+	@RequestMapping(value="/reservation_guide", method=RequestMethod.GET)
+	public void guide() {
+		
+	}
+	
 	@RequestMapping(value="/listskin",method=RequestMethod.GET)
 	public void listSkin() throws Exception {
 		
@@ -28,4 +33,5 @@ public class ReservationController {
 	public void writeSkin() throws Exception {
 		
 	}
+	
 }

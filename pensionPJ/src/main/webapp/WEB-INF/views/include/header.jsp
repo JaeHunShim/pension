@@ -116,7 +116,7 @@
                                 <li class="gnb_3"><a href="/reservation/guide">예약안내</a>
                                     <div class="sub_menu">
                                         <ul class="depth2">
-                                            <li class="first"><a href="/reservation/guide">예약종합안내</a></li>
+                                            <li class="first"><a href="/reservation/reservation_guide">예약종합안내</a></li>
                                             <li><a href="/reservation/realRes">실시간예약</a></li>
                                         </ul>
                                     </div>

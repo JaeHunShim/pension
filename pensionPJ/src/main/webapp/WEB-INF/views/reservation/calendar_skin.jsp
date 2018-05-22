@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/style.css" />
 <!-- <script src="/resources/js/reservation/script.js"></script> -->
-<script>
+<script type="text/javascript">
 
 	
 	var date = new Date();
@@ -43,49 +43,42 @@ function getCalendar(m,y,x){
 	var calendar ="";
 
 	dNum =1; //달력에 표기되는 일 초기값
-	var array = new Array(dNum);
+	var array = new Array(dNum); //sNum증가할때 마다 그값을 배열에 넣어서 값을 비교해서 현재 날짜와 비교해서 출력함 배열에 안하고 그냥 sNum이랑 비교해도 됨
 	for(var i =1; i<=row; i++){ // 행만들기
 		calendar +="<tr>";
 		for(var k=1;k<=7; k++){ //열만들기
 			//월 1일 이전과 월 마지막일 이휴는 모두 빈칸처리 
 			if(i===1 && k <= theWeek || dNum>lastDate){
 				calendar += "<td>&nbsp;</td>";
-			}else{
-				/*calendar +="<td class='schedule'>"
-					+"<strong class ='date'>" +dNum+"</strong>"
-					+"<ul class='scheduleRW'>"
-					+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
-					+"<li class='open'><a href='#' class='modal'>+우앙+</a></li>"
-					+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
-					+"</ul>"
-					+"</td>" */
-	 				
-					for(var j=0; j<array.length; j++){
-						array[j] = dNum;
-						console.log(array[j]);
-						if(array[j] == toD){
-							calendar+="<td class='schedule'>"
-								+"<strong class ='date'>" +dNum+"</strong><img src='/resources/img/reservation/ico_2day.gif' alt='To Day' align='absmiddle'>"
-								+"<ul class='scheduleRW'>"
-								+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
-								+"<li class='open'><a href='#' class='modal'>+우앙+</a></li>"
-								+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
-								+"</ul>"
-								+"</td>"
-						}else{
-							calendar+="<td class='schedule'>"
-								+"<strong class ='date'>" +dNum+"</strong>"
-								+"<ul class='scheduleRW'>"
-								+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
-								+"<li class='open'><a href='#' class='modal'>+우앙+</a></li>"
-								+"<li class='close'><a href='#' class='modal'>+우앙+</a></li>"
-								+"</ul>"
-								+"</td>"
-						}
-					}
-					dNum++;
-				
+			}else {
+				if(dNum == toD){
+					calendar += "<td class='schedule'>"
+						+ "<strong class ='date'>" + dNum + "</strong>"
+						+ "<img src='/resources/img/reservation/ico_2day.gif' alt='To Day' align='absmiddle'>";
+						+ "<ul class='scheduleRW'>"
+						+ "<li class='open'><a href='#'></a></li>"
+						+ "<li class='open'><a href='#'></a></li>"
+						+ "<li class='open'><a href='#'></a></li>"
+						+ "<li class='open'><a href='#'></a></li>"
+						+ "</ul>"
+						+ "</td>"
+				}
+				calendar += "<td class='schedule'>"
+							+ "<strong class ='date'>" + dNum + "</strong>"
+							+ "<ul class='scheduleRW'>"
+							+ "<li class='open'><a href='#'></a></li>"
+							+ "<li class='open'><a href='#'></a></li>"
+							+ "<li class='open'><a href='#'></a></li>"
+							+ "<li class='open'><a href='#'></a></li>"
+							+ "</ul>"
+							+ "</td>"
+							dNum++;
+								
 			}
+							
+							
+	
+					
 		}
 			calendar +="</tr>";
 	}
@@ -100,7 +93,7 @@ $(document).ready(function(){
 		getCalendar(m,y,x);
 		var da = "<span id='y'>&nbsp;"+y+"</span><span>년</span><span id='m'>"+(m+1)+"</span><span>월</span>&nbsp;";
 	$('#prev').append(da);
-	
+
 	//전 개월로 가는 부분 
 	$('#prev').on('click',function(){
 		$("#calendarBody").empty();
@@ -120,8 +113,8 @@ $(document).ready(function(){
 		var cm =$('#m').text();
 		var cy =$('#y').text();
 		m =Number(cm);
-		console.log("다음 눌렸을때 m"+ m)
 		y= cy;
+		console.log("다음 눌렸을때 m"+ m)
 		$('#m').text(m+1);
 		$('#y').text(y);
 		getCalendar(m,y,x);
@@ -135,9 +128,9 @@ $(document).ready(function(){
 
 <div id="calendar">
 	<p class="title">
-		<a id="prev" style="cursor:pointer;"><img src="/resources/img/reservation/b_prev.gif" alt="이전" /></a>
+		<a id="prev" style="cursor: pointer;"><img src="/resources/img/reservation/b_prev.gif" alt="이전" /></a>
 		<!-- &nbsp;<span id="y">y년</span> <span id="m">d월</span>&nbsp; -->
-		<a id="next" style="cursor:pointer;"><img src="/resources/img/reservation/b_next.gif" alt="다음" /></a>
+		<a id="next" style="cursor: pointer;"><img src="/resources/img/reservation/b_next.gif" alt="다음" /></a>
 	</p>
 	 <p align="center"><span><img src="/resources/img/reservation/ico_2day.gif" alt="To Day" align="absmiddle"> 오늘</span> 
 	 	<span><img src="/resources/img/reservation/ico_ye.gif" alt="예" align="absmiddle"> 예약가능</span>
@@ -167,7 +160,7 @@ $(document).ready(function(){
 	<p class="explain">달력에서 원하는 일자를 클릭한 후 예약접수 및 예약확인/취소를 할 수 있습니다</p>
 	<?php if($is_admin){ ?>
 	<p class="button">
-		<a href="<?php echo $g4['bbs_path']; ?>/board.php?bo_table=<?php echo $bo_table; ?>&type=true" onfocus="this.blur();"><img src="/resources/img/reservation/b_list.gif" alt="목록보기" /></a>
+		<a href="<?php echo $g4['bbs_path']; ?>/board.php?bo_table=<?php echo $bo_table; ?>&amp;type=true" onfocus="this.blur();"><img src="/resources/img/reservation/b_list.gif" alt="목록보기" /></a>
 	</p>
 	<?php } ?>
 </div>
