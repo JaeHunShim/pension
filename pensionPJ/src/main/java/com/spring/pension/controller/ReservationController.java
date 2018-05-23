@@ -16,22 +16,14 @@ public class ReservationController {
 	public void guide() {
 		
 	}
-	
-	@RequestMapping(value="/listskin",method=RequestMethod.GET)
-	public void listSkin() throws Exception {
+	//에약 메인 페이지 불러오기
+	@RequestMapping(value="/reservation_main",method =RequestMethod.GET)
+	public void reservation_main() throws Exception {
 		
 	}
-	@RequestMapping(value="/calendar_skin",method=RequestMethod.GET)
-	public void calendarSkin() throws Exception {
+	//예약 메인 페이지안에  iframe 달력 불러옴
+	@RequestMapping(value="/calendar", method=RequestMethod.GET)
+	public void calendar() throws Exception {
 		
 	}
-	@RequestMapping(value="/view_skin" ,method=RequestMethod.GET)
-	public void view_skin() throws Exception {
-		
-	}
-	@RequestMapping(value="/write_skin",method=RequestMethod.GET)
-	public void writeSkin() throws Exception {
-		
-	}
-	
 }
