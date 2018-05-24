@@ -62,10 +62,10 @@
 							if(toD > dNum || toY > y || toM > m){
 								calendar+= "예약완료";	
 							}else{
-								calendar+= "<li><a href='#'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span style='color:#6a6a6a'>데이지(복층)</span></a></li>"
-									+ "<li><a href='#'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span style='color:#6a6a6a'>릴리(복층)</span></a></li>"
-									+ "<li><a href='#'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span style='color:#6a6a6a'>아이비</span></a></li>"
-									+ "<li><a href='#'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span style='color:#6a6a6a'>마가렛</span></a></li>"
+								calendar+= "<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='daisy' style='color:#6a6a6a'>데이지(복층)</span></a></li>"
+									+ "<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='lily' style='color:#6a6a6a'>릴리(복층)</span></a></li>"
+									+ "<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'ivy'style='color:#6a6a6a'>아이비</span></a></li>"
+									+ "<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>"
 							}
 							
 							calendar+= "</ul>"
@@ -118,12 +118,14 @@ $(document).ready(function(){
 			$('#month').text(m+1);
 			$('#year').text(y);
 			getCalendar(m,y,x);
-		});	
+		});
+		//방이름,년도,월, 일자를  변수에 담아놓음 (다음 페이지로 갈때 정보 유지하기 위해서 )
+		var cyear = $('#year').text();
+		var cmonth =$('#month').text();
+		var cdate =$('.date'+toD+'').text();
+		console.log(cyear,cmonth,cdate);
 });
-
-
 </script>
-
 <div class="sTitle wRap">
    <div class="Left">
       <em>Reservation</em>
@@ -144,7 +146,7 @@ $(document).ready(function(){
 <div class="conT carnSet">
     <!-- Year & Month -->
     	<div class="yms wRap">
-			<a class="prev" id="prev" style="cursor: pointer;">이전 </a>
+			<a class="prev" id="prev"style="cursor: pointer;">이전 </a>
  				<p><b id ="year"></b>년<b id ="month"></b>월</p>
        		<a class="next" id="next" style="cursor: pointer;">다음</a>
     	</div>

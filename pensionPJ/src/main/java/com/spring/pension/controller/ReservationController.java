@@ -26,4 +26,8 @@ public class ReservationController {
 	public void calendar() throws Exception {
 		
 	}
+	@RequestMapping(value="/select",method=RequestMethod.GET)
+	public void select() throws Exception {
+		
+	}
 }
