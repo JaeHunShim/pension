@@ -1,11 +1,15 @@
 package com.spring.pension.controller;
 
+import java.util.Calendar;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.spring.pension.util.CalendarUtile;
 
 
 @Controller
@@ -24,12 +28,25 @@ public class ReservationController {
 		
 	}
 	//예약 메인 페이지안에  iframe 달력 불러옴
-	@RequestMapping(value="/calendar", method=RequestMethod.GET)
+	/*@RequestMapping(value="/calendar", method=RequestMethod.GET)
 	public void calendar() throws Exception {
 		
-	}
+	}*/
 	@RequestMapping(value="/select",method=RequestMethod.GET)
 	public void select() throws Exception {
+		
+	}
+	@RequestMapping(value ="/calendar",method=RequestMethod.GET)
+	public void calendar(CalendarUtile calender, Model model) throws Exception {
+		if(calender.getYear() == 0) {
+			calender.setYear(Calendar.YEAR);
+			calender.setDate(Calendar.MONTH);
+			calender.setDate(Calendar.DAY_OF_MONTH);
+			
+			model.addAttribute("calendar",calender);
+		}
+		
+		model.addAttribute("calender",calender);
 		
 	}
 }

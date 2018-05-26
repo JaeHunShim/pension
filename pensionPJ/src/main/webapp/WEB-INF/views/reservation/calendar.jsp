@@ -126,6 +126,7 @@ $(document).ready(function(){
 		console.log(cyear,cmonth,cdate);
 });
 </script>
+
 <div class="sTitle wRap">
    <div class="Left">
       <em>Reservation</em>
@@ -182,3 +183,8 @@ $(document).ready(function(){
 </body>
 </html>
 <div class="footer">본 실시간 예약프로그램은 <a href="http://www.ebom.co.kr" target="_blank">DesignBom</a>에서 제공합니다.</div>
+<input type='text' value="${calender.year}">
+<input type='text' value="${calender.month+1}">
+<input type='text' value="${calender.date}">
+
+
