@@ -40,8 +40,10 @@ public class ReservationController {
 	public void calendar(CalendarUtile calender, Model model) throws Exception {
 		if(calender.getYear() == 0) {
 			calender.setYear(Calendar.YEAR);
-			calender.setDate(Calendar.MONTH);
+			calender.setMonth(Calendar.MONTH);
 			calender.setDate(Calendar.DAY_OF_MONTH);
+			calender.setWeek(Calendar.WEEK_OF_MONTH);
+			calender.setLastDate(Calendar.YEAR);
 			
 			model.addAttribute("calendar",calender);
 		}

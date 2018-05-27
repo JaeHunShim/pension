@@ -34,7 +34,7 @@
 		var currentDate = new Date(y,m,x); // 현재 년, 현재 달의  1일의 요일을 구함
 			console.log("y와 m을 받아와서 현재 시간뽑기"+ currentDate);
 			console.log('m과 y의 값:' + m,y);
-		var theWeek = currentDate.getDay(); // 월화수목금토일 구하기 (1,2,3,4,5,6,7로 출력됨)
+		var theWeek = currentDate.getDay(); // 일월화수목금토 구하기 (1,2,3,4,5,6,7로 출력됨)
 
 		if(y%4 && y%100 !=0 || y%400 ==0){ //윤년계산
 			var lastDate =lastArr[1]=29;
@@ -48,7 +48,6 @@
 		var calendar ="";
 
 		dNum =1; //달력에 표기되는 일 초기값
-		var array = new Array(dNum); //sNum증가할때 마다 그값을 배열에 넣어서 값을 비교해서 현재 날짜와 비교해서 출력함 배열에 안하고 그냥 sNum이랑 비교해도 됨
 		for(var i =1; i<=row; i++){ // 행만들기
 			calendar +="<tr>";
 			for(var k=1;k<=7; k++){ //열만들기
@@ -186,5 +185,6 @@ $(document).ready(function(){
 <input type='text' value="${calender.year}">
 <input type='text' value="${calender.month+1}">
 <input type='text' value="${calender.date}">
-
+<input type='text' value="${calender.week }">
+<input type ='text' value="${calender.lastDate}">
 
