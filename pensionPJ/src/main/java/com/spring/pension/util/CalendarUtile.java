@@ -7,13 +7,10 @@ public class CalendarUtile {
 	
 	private int year; //년도
 	private int month; //달력
-	private int date; //날짜
+	private int date; //현재 날짜
 	private int week;	//주
 	private int lastDate; //이달에 마지막 일자 
-	
-	private Calendar calender = Calendar.getInstance();
-	
-	
+	private int row; //행의 갯수 
 	
 	public int getYear() {
 		return year;
@@ -21,7 +18,7 @@ public class CalendarUtile {
 
 	public void setYear(int year) {
 
-		this.year = calender.get(Calendar.YEAR);
+		this.year = year;
 	}
 
 	public int getMonth() {
@@ -30,7 +27,7 @@ public class CalendarUtile {
 
 	public void setMonth(int month) {
 
-		this.month = calender.get(Calendar.MONTH);
+		this.month = month;
 	}
 
 	public int getDate() {
@@ -39,15 +36,19 @@ public class CalendarUtile {
 
 	public void setDate(int date) {
 
-		this.date = calender.get(Calendar.DAY_OF_MONTH);
+		this.date = date;
 	}
 
 	public int getWeek() {
 		return week;
 	}
 
-	public void setWeek(int week) {
-		this.week = calender.get(Calendar.DAY_OF_WEEK);
+	public void setWeek(int year, int month) {
+		Calendar cal = Calendar.getInstance();
+		
+		cal.set(year,month,1);
+		
+		this.week = cal.get(Calendar.DAY_OF_WEEK);
 	}
 
 	//마지막 날짜 구하는 함수 
@@ -68,5 +69,24 @@ public class CalendarUtile {
 		
 		return lastDate;
 	}
+	//필요한 행 구하기 
+	public void setRow(int week,int lastDate) {
+
+		this.row =(int)Math.ceil(((double)week+(double)lastDate)/7);
+	}
+	public int getRow() {
+		
+		return row;
+	}
+
+	@Override
+	public String toString() {
+		return "CalendarUtile [year=" + year + ", month=" + month + ", date=" + date + ", week=" + week + ", lastDate="
+				+ lastDate + ", row=" + row + ", getYear()=" + getYear() + ", getMonth()=" + getMonth() + ", getDate()="
+				+ getDate() + ", getWeek()=" + getWeek() + ", getLastDate()=" + getLastDate() + ", getRow()=" + getRow()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+	
 	
 }

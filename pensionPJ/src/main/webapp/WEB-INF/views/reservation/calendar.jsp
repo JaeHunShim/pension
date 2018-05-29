@@ -8,6 +8,42 @@
 <head>
 <script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/style.css" />
+<script>
+
+$(document).ready(function(){
+	var date = new Date();
+	var toM =date.getMonth();
+	console.log(toM);
+	// 전개월 
+	$('.prev').on('click',function(){
+		var prm = document.prm;
+		var currentYear = '${calender.year}';
+		var currentMonth = '${calender.month}';
+		
+		$('input[name="year"]').val(currentYear);
+		$('input[name="month"]').val(currentMonth-1);
+		
+		$('#prm').attr('action','/reservation/calender');
+		
+		prm.submit();
+		
+	});
+	// 다음개월
+	$('.next').on('click',function(){
+		
+		var prm = document.prm;
+		var cYear = '${calender.year}';
+		var cMonth = '${calender.month}';
+		
+		$('input[name="year"]').val(cYear);
+		$('input[name="month"]').val(Number(cMonth)+1);
+		
+		$('#prm').attr('action','/reservation/calender');
+		prm.submit();
+	});
+});
+
+</script>
 </head>
 <body>
 <div class="header wRap">
@@ -18,114 +54,6 @@
      <a href="/reservation/confirm"><img src="/resources/img/reservation/top3.gif" alt="예약확인"></a> <!-- /pen/img/top3on.gif -->
    </div>
 </div>
-<script>
-	var date = new Date();
-	var toY = date.getFullYear(); //현재 년도 가져오기
-	var toM = date.getMonth(); //현재 달가지고오기
-	var toD = date.getDate(); //현재 날짜 가지고오기 	
-	var lastArr =[31,28,31,30,31,30,31,31,30,31,30,31]; // 월마다 마지막 일자
-	
-	var y; 
-	var m;
-	var d ;
-	/* 이제 달력 만드는 곳*/
-	function getCalendar(m,y,x){
-
-		var currentDate = new Date(y,m,x); // 현재 년, 현재 달의  1일의 요일을 구함
-			console.log("y와 m을 받아와서 현재 시간뽑기"+ currentDate);
-			console.log('m과 y의 값:' + m,y);
-		var theWeek = currentDate.getDay(); // 일월화수목금토 구하기 (1,2,3,4,5,6,7로 출력됨)
-
-		if(y%4 && y%100 !=0 || y%400 ==0){ //윤년계산
-			var lastDate =lastArr[1]=29;
-		}else{
-			var lastDate = lastArr[1]=28;
-		}
-		var lastDate= lastArr[m]; //현재 월의 마지막 일
-	    
-		var row = Math.ceil((theWeek+lastDate)/7); //달력에 필요한 행의 갯수 
-
-		var calendar ="";
-
-		dNum =1; //달력에 표기되는 일 초기값
-		for(var i =1; i<=row; i++){ // 행만들기
-			calendar +="<tr>";
-			for(var k=1;k<=7; k++){ //열만들기
-				//월 1일 이전과 월 마지막일 이휴는 모두 빈칸처리 
-				if(i===1 && k <= theWeek || dNum>lastDate){
-				calendar += "<td class='red b4_day'>&nbsp;</td>";
-				}else {
-				calendar += "<td class='b4_day'>"
-							+ "<strong class ='date"+dNum+"'>" + dNum + "</strong>"
-							+ "<ul class='reList'>"
-							if(toD > dNum || toY > y || toM > m){
-								calendar+= "예약완료";	
-							}else{
-								calendar+= "<li><a href='/reservation/select><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='daisy' style='color:#6a6a6a'>데이지(복층)</span></a></li>"
-									+ "<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='lily' style='color:#6a6a6a'>릴리(복층)</span></a></li>"
-									+ "<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'ivy'style='color:#6a6a6a'>아이비</span></a></li>"
-									+ "<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>"
-							}
-							
-							calendar+= "</ul>"
-							+ "</td>"
-							dNum++;
-								
-				}	
-					
-			}
-			calendar +="</tr>";
-		}
-	$("tbody").append(calendar);
-	}
-$(document).ready(function(){
-		var m = toM;
-		var y = toY;
-		var d = toD;
-		var month = $('#year').text(y);
-		var year =$('#month').text(m+1);
-		var x= 1;
-		getCalendar(m,y,x);
-		//오늘 날짜 출력
-		var today="<img src='/resources/img/reservation/ico_2day.gif' alt='To Day' align='absmiddle'>"
-		var find =$('.date'+toD+'').text();
-		if(find == toD){
-			$('.date'+toD+'').append(today);
-		}
-
-	//전 개월로 가는 부분 
-		$('#prev').on('click',function(){
-			$("tbody").empty();
-			var cm =$('#month').text();
-			var cy =$('#year').text();
-		
-			m= cm-2;
-			y = cy;
-			x=1;
-			$('#month').text(m+1);
-			$('#year').text(y);
-			getCalendar(m,y,x);
-		});
-	//다음 개월로 가는 부분 
-		$('#next').on('click',function(){
-			$('tbody').empty();
-			var cm =$('#month').text();
-			var cy =$('#year').text();
-			m =Number(cm);
-			y= cy;
-			console.log("다음 눌렸을때 m"+ m)
-			$('#month').text(m+1);
-			$('#year').text(y);
-			getCalendar(m,y,x);
-		});
-		//방이름,년도,월, 일자를  변수에 담아놓음 (다음 페이지로 갈때 정보 유지하기 위해서 )
-		var cyear = $('#year').text();
-		var cmonth =$('#month').text();
-		var cdate =$('.date'+toD+'').text();
-		console.log(cyear,cmonth,cdate);
-});
-</script>
-
 <div class="sTitle wRap">
    <div class="Left">
       <em>Reservation</em>
@@ -145,11 +73,19 @@ $(document).ready(function(){
 <!-- calendar start -->	
 <div class="conT carnSet">
     <!-- Year & Month -->
+    <form name='prm' method='post'>
+    	<input type='text' name ='year' value='${calender.year}'>
+		<input type='text' name ='month' value='${calender.month}'>
+		<input type='text' name ='week' value='${calender.week}'>
+		<input type='text' name ='lastDate' value='${calender.lastDate}'>
+		<input type='text' name ='date' value='${calender.date}'>
+    	
     	<div class="yms wRap">
-			<a class="prev" id="prev"style="cursor: pointer;">이전 </a>
- 				<p><b id ="year"></b>년<b id ="month"></b>월</p>
-       		<a class="next" id="next" style="cursor: pointer;">다음</a>
+			<a style="cursor:pointer" class='prev'>이전 </a>
+ 				<p><b id ="year">${calender.year}</b>년<b>${calender.month+1}</b>월</p>
+       		<a style="cursor:pointer" class='next'>다음</a>
     	</div>
+    </form>
     <!-- //Year & Month -->
     
     <p><span><img src="/resources/img/reservation/ico_2day.gif" alt="To Day" align="absmiddle"> 오늘</span> 
@@ -160,7 +96,7 @@ $(document).ready(function(){
       
 
 	<table border='0' cellspacing='1' cellpadding='0' class='wideT caren'>
-       <caption>실시간예약 - 2018년 5월 일자별 예약현황</caption>
+       <caption>실시간예약 -${calender.year}년 {calender.month}월 일자별 예약현황</caption>
 		<thead>
 			<tr>
 				<th class='red' scope='col'>일</th>
@@ -173,18 +109,42 @@ $(document).ready(function(){
 			</tr>
 		</thead>
 		<tbody>
-			
+			<c:forEach var ='i' begin='1' end ="${calender.row}" step='1'>
+				<tr>
+				<c:forEach var='k' begin='1' end ='7' step ='1'>
+					<c:choose>
+						<c:when test="${i eq 1 && k < calender.week ||dNum >= calender.lastDate}">
+							<td class='red b4_day'>&nbsp;</td>
+						</c:when>
+						<c:otherwise>
+							<c:set var='dNum' value='${dNum+1}'/>
+							<td class='b4_day'>
+								<strong>${dNum}</strong>
+								<ul class='reList'>
+									<c:choose>
+										<c:when test="${calender.date > dNum}">
+											예약완료
+										</c:when>
+										<c:otherwise>
+											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='daisy' style='color:#6a6a6a'>데이지(복층)</span></a></li>
+											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='lily' style='color:#6a6a6a'>릴리(복층)</span></a></li>
+											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'ivy'style='color:#6a6a6a'>아이비</span></a></li>
+											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>
+										</c:otherwise>
+									</c:choose>
+								</ul>
+							</td>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</c:forEach>
 		</tbody>
-	</table>
-			
+	</table>	
 </div>
-
 </body>
 </html>
 <div class="footer">본 실시간 예약프로그램은 <a href="http://www.ebom.co.kr" target="_blank">DesignBom</a>에서 제공합니다.</div>
-<input type='text' value="${calender.year}">
-<input type='text' value="${calender.month+1}">
-<input type='text' value="${calender.date}">
-<input type='text' value="${calender.week }">
-<input type ='text' value="${calender.lastDate}">
+
+
+
 
