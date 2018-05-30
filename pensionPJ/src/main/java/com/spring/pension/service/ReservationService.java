@@ -8,5 +8,7 @@ public interface ReservationService {
 	public CalendarUtile calenders(CalendarUtile calender) throws Exception;
 	//달력 이동
 	public CalendarUtile moveCalenders(CalendarUtile calender) throws Exception;
+	// dNum 가지고 오기 
+	public CalendarUtile getdNum(int dNum) throws Exception;
 
 }

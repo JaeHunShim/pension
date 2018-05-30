@@ -48,7 +48,7 @@
 
     <!-- 숙박 기간 선택 -->
 	<div class="yms dayS wRap">
-		<p><b>2018</b>년 <b>05</b>월 <b>30</b>일</p>
+		<p><b>${calender.year}</b>년 <b>${calender.month+1}</b>월 <b>${date.dNum}</b>일</p>
 		<select name="chk_day" onchange="period();">
 			<option value="1" >1박 2일 </option>
 			<option value="2" >2박 3일 </option>
@@ -100,14 +100,21 @@
      	 <tbody>
 			<tr>
            <td><input type='checkbox' name='chk[]'  id='check[]' value='1464661788'   class='bnone' >
-					 <input type='hidden' name='room_price_1464661788' value='120000'>
-					 <input type='hidden' name='basic_price_1464661788' value=''>
-					 </td>
-					 <td><span class='bgBlu'>예약가능</span></td>
+				<input type='hidden' name='room_price_1464661788' value='120000'>
+				<input type='hidden' name='basic_price_1464661788' value=''>
+			</td>
+			<td><span class='bgBlu'>예약가능</span></td>
            <td class='txt'>마가렛</td>
            <td>25평형</td>
            <td>4/8</td>
-           <td><select name='inwon_1464661788'><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option></select></td>    
+           <td>
+           <select name='inwon_1464661788'>
+           	<option value='4'>4</option>
+           	<option value='5'>5</option>
+           	<option value='6'>6</option>
+           	<option value='7'>7</option>
+           	<option value='8'>8</option>
+           	</select></td>    
            <td><b>￦120,000</b></td>
         </tr>
 			
@@ -154,7 +161,7 @@
     </table>
 	 
 
-    <p class="btn"><input type="image" src="/pension/img/btn.png" alt="예약하기"></p>
+    <p class="btn"><input type="image" src="/resources/img/reservation/btn.png" alt="예약하기"></p>
     <!-- //객실예약 -->
     </form>
     <p class="line">&nbsp;</p> <!-- 구분선 -->

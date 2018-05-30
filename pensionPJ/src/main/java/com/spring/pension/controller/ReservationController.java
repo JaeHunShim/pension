@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.pension.service.ReservationService;
 import com.spring.pension.util.CalendarUtile;
@@ -41,8 +42,10 @@ public class ReservationController {
 		
 	}*/
 	@RequestMapping(value="/select",method=RequestMethod.GET)
-	public void select() throws Exception {
+	public void select(@ModelAttribute("calender") CalendarUtile calender ,@RequestParam("dNum")int dNum,Model model) throws Exception {
 		
+		model.addAttribute("calender",reserService.moveCalenders(calender));
+		model.addAttribute("date",reserService.getdNum(dNum));
 	}
 	//현재 켈린더 가지고 오는 부분 
 	@RequestMapping(value ="/calendar",method=RequestMethod.GET)

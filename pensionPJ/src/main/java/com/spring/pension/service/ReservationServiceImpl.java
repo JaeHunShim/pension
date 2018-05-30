@@ -38,9 +38,18 @@ public class ReservationServiceImpl implements ReservationService {
 			calender.setWeek(calender.getYear(),calender.getMonth());
 			calender.setRow(calender.getWeek(),calender.getLastDate());
 			calender.setLastDate(calender.getYear());
-			calender.setDate(cal.get(cal.DAY_OF_MONTH));
+			calender.setDate(calender.getDate());
 			System.out.println(calender.toString());
 			
+		return calender;
+	}
+	@Override
+	public CalendarUtile getdNum(int dNum) throws Exception {
+		
+		CalendarUtile calender = new CalendarUtile();
+		
+		calender.setdNum(dNum);
+		
 		return calender;
 	}
 }

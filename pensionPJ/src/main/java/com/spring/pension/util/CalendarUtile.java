@@ -11,7 +11,18 @@ public class CalendarUtile {
 	private int week;	//주
 	private int lastDate; //이달에 마지막 일자 
 	private int row; //행의 갯수 
+	private int dNum;
 	
+	
+	
+	public int getdNum() {
+		return dNum;
+	}
+
+	public void setdNum(int dNum) {
+		this.dNum = dNum;
+	}
+
 	public int getYear() {
 		return year;
 	}
