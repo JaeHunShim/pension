@@ -11,7 +11,6 @@
 <script>
 
 $(document).ready(function(){
-	
 	// 전개월 
 	$('.prev').on('click',function(){
 		var prm = document.prm;
