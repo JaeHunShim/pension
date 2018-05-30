@@ -3,6 +3,7 @@ package com.spring.pension.controller;
 import java.util.Calendar;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,10 +46,12 @@ public class ReservationController {
 	}
 	//현재 켈린더 가지고 오는 부분 
 	@RequestMapping(value ="/calendar",method=RequestMethod.GET)
-	public void calendar(CalendarUtile calender, Model model) throws Exception {
+	public void calendar(CalendarUtile calender, Model model, HttpSession session) throws Exception {
 		
-		model.addAttribute("calender",reserService.calenders(calender));		
+		model.addAttribute("calender",reserService.calenders(calender));
+		session.setAttribute("current", reserService.calenders(calender));
 	}
+	//캘린더 움직이는 부분 
 	@RequestMapping(value="/calendar",method=RequestMethod.POST)
 	public void moveCalendar(CalendarUtile calender, Model model) throws Exception {
 		

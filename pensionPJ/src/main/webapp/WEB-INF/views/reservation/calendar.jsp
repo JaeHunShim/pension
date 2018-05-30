@@ -11,9 +11,7 @@
 <script>
 
 $(document).ready(function(){
-	var date = new Date();
-	var toM =date.getMonth();
-	console.log(toM);
+	
 	// 전개월 
 	$('.prev').on('click',function(){
 		var prm = document.prm;
@@ -24,7 +22,7 @@ $(document).ready(function(){
 		$('input[name="month"]').val(currentMonth-1);
 		
 		$('#prm').attr('action','/reservation/calender');
-		
+
 		prm.submit();
 		
 	});
@@ -74,12 +72,11 @@ $(document).ready(function(){
 <div class="conT carnSet">
     <!-- Year & Month -->
     <form name='prm' method='post'>
-    	<input type='text' name ='year' value='${calender.year}'>
-		<input type='text' name ='month' value='${calender.month}'>
-		<input type='text' name ='week' value='${calender.week}'>
-		<input type='text' name ='lastDate' value='${calender.lastDate}'>
-		<input type='text' name ='date' value='${calender.date}'>
-    	
+    	<input type='hidden' name ='year' value='${calender.year}'>
+		<input type='hidden' name ='month' value='${calender.month}'>
+		<input type='hidden' name ='week' value='${calender.week}'>
+		<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
+		<input type='hidden' name ='date' value='${calender.date}'>
     	<div class="yms wRap">
 			<a style="cursor:pointer" class='prev'>이전 </a>
  				<p><b id ="year">${calender.year}</b>년<b>${calender.month+1}</b>월</p>
@@ -119,18 +116,24 @@ $(document).ready(function(){
 						<c:otherwise>
 							<c:set var='dNum' value='${dNum+1}'/>
 							<td class='b4_day'>
-								<strong>${dNum}</strong>
+								<strong>${dNum}
+									<c:choose>
+										<c:when test='${current.month eq calender.month && current.date eq dNum}'>
+											<img src='/resources/img/reservation/ico_2day.gif' alt='To Day' align='absmiddle'>
+										</c:when>
+									</c:choose>
+								</strong>
 								<ul class='reList'>
 									<c:choose>
-										<c:when test="${calender.date > dNum}">
+										<c:when test="${current.month>calender.month ||current.month eq calender.month && current.date > dNum}">
 											예약완료
 										</c:when>
-										<c:otherwise>
+										<c:when test="${current.month eq calender.month && current.date <= dNum || current.month <calender.month}">
 											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='daisy' style='color:#6a6a6a'>데이지(복층)</span></a></li>
 											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='lily' style='color:#6a6a6a'>릴리(복층)</span></a></li>
 											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'ivy'style='color:#6a6a6a'>아이비</span></a></li>
-											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>
-										</c:otherwise>
+											<li><a href='/reservation/select'><img src='/resources/img/reservat	ion/ico_ye.gif' alt='예' align='absmiddle'><span name= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>
+										</c:when>
 									</c:choose>
 								</ul>
 							</td>
