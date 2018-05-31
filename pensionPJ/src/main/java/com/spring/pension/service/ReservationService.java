@@ -10,5 +10,7 @@ public interface ReservationService {
 	public CalendarUtile moveCalenders(CalendarUtile calender) throws Exception;
 	// dNum 가지고 오기 
 	public CalendarUtile getdNum(int dNum) throws Exception;
+	// check 가지고 오는 부분 (라디오 버튼 체크 하기위해서 ...)
+	public CalendarUtile getCheck(int room_check) throws Exception;
 
 }

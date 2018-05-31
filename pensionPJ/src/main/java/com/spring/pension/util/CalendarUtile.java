@@ -11,10 +11,17 @@ public class CalendarUtile {
 	private int week;	//주
 	private int lastDate; //이달에 마지막 일자 
 	private int row; //행의 갯수 
-	private int dNum;
+	private int dNum; // 선택한 달력의 날짜
+	private int room_check; // 선택한 룸
 	
-	
-	
+	public int getRoom_check() {
+		return room_check;
+	}
+
+	public void setRoom_check(int room_check) {
+		this.room_check = room_check;
+	}
+
 	public int getdNum() {
 		return dNum;
 	}

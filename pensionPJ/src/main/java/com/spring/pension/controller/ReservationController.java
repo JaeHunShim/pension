@@ -1,6 +1,8 @@
 package com.spring.pension.controller;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -42,10 +44,11 @@ public class ReservationController {
 		
 	}*/
 	@RequestMapping(value="/select",method=RequestMethod.GET)
-	public void select(@ModelAttribute("calender") CalendarUtile calender ,@RequestParam("dNum")int dNum,Model model) throws Exception {
+	public void select(@ModelAttribute("calender") CalendarUtile calender ,@RequestParam("dNum")int dNum,@RequestParam("room_check") int room_check, Model model) throws Exception {
 		
 		model.addAttribute("calender",reserService.moveCalenders(calender));
 		model.addAttribute("date",reserService.getdNum(dNum));
+		model.addAttribute("room_check",reserService.getCheck(room_check));
 	}
 	//현재 켈린더 가지고 오는 부분 
 	@RequestMapping(value ="/calendar",method=RequestMethod.GET)

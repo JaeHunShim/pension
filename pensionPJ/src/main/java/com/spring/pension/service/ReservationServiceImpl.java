@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.spring.pension.util.CalendarUtile;
 @Service
 public class ReservationServiceImpl implements ReservationService {
-	
+		
 	private static final  Logger logger = LoggerFactory.getLogger(ReservationServiceImpl.class);
 	// 금일 달력 출력
 	@Override
@@ -43,12 +43,20 @@ public class ReservationServiceImpl implements ReservationService {
 			
 		return calender;
 	}
+	// 선택한 일자 가지고 오기 
 	@Override
 	public CalendarUtile getdNum(int dNum) throws Exception {
+		CalendarUtile calender = new CalendarUtile();
+		calender.setdNum(dNum);
 		
+		return calender;
+	}
+	//check 번호 받아오기
+	@Override
+	public CalendarUtile getCheck(int room_check) throws Exception {
 		CalendarUtile calender = new CalendarUtile();
 		
-		calender.setdNum(dNum);
+		calender.setRoom_check(room_check);
 		
 		return calender;
 	}

@@ -11,6 +11,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script>
+function check(room_check){
+	var room_check = $("input[name='room_check']").val();
+	if(room_check == 1){
+		$('input[name="daisy"]').prop('checked',true);
+	}else if(room_check==2){
+		$('input[name="lily"]').prop('checked',true);
+	}else if(room_check==3){
+		$('input[name="ivy"]').prop('checked',true);
+	}else{
+		$('input[name="magaret"]').prop('checked',true);
+	}
+}
+$(document).ready(function(){
+	var room_check = $("input[name='room_check']").val();
+	check(room_check);
+});
+</script>
 <body>
 <!--  sub title -->
 <div class="header wRap">
@@ -38,12 +56,13 @@
 </div>
 <!--  subTitle end -->
 <div class="conT carnSet">
-<form name='prm' method='post'>
+<form name='prm' method='post' action='/reservation/insert'>
 	<input type='hidden' name ='year' value='${calender.year}'>
 	<input type='hidden' name ='month' value='${calender.month}'>
 	<input type='hidden' name ='week' value='${calender.week}'>
 	<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
 	<input type='hidden' name ='date' value='${calender.date}'>
+	<input type='hidden' name='room_check' value='${calender.room_check}'>
 	<!-- content -->
 
     <!-- 숙박 기간 선택 -->
@@ -97,68 +116,88 @@
 				<th width='22%' scope='col'>객실요금</th>
 			</tr>
 		</thead> 
-     	 <tbody>
+		<tbody>
 			<tr>
-           <td><input type='checkbox' name='chk[]'  id='check[]' value='1464661788'   class='bnone' >
-				<input type='hidden' name='room_price_1464661788' value='120000'>
-				<input type='hidden' name='basic_price_1464661788' value=''>
-			</td>
-			<td><span class='bgBlu'>예약가능</span></td>
-           <td class='txt'>마가렛</td>
-           <td>25평형</td>
-           <td>4/8</td>
-           <td>
-           <select name='inwon_1464661788'>
-           	<option value='4'>4</option>
-           	<option value='5'>5</option>
-           	<option value='6'>6</option>
-           	<option value='7'>7</option>
-           	<option value='8'>8</option>
-           	</select></td>    
-           <td><b>￦120,000</b></td>
-        </tr>
+				<td>
+					<input type='checkbox' name='magaret' value='${room_check}' class='bnone' >
+					<input type='hidden' name='room_price_1464661788' value='120000'>
+					<input type='hidden' name='basic_price_1464661788' value=''>
+				</td>
+				<td><span class='bgBlu'>예약가능</span></td>
+				<td class='txt'>마가렛</td>
+				<td>25평형</td>
+				<td>4/8</td>
+				<td>
+					<select name='inwon_1464661788'>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>							
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+					</select>
+				</td>
+				<td><b>￦120,000</b></td>    
+			</tr>
 			
-				  <tr>
-           <td><input type='checkbox' name='chk[]'  id='check[]' value='1471309372'   class='bnone' >
-					 <input type='hidden' name='room_price_1471309372' value='100000'>
-					 <input type='hidden' name='basic_price_1471309372' value=''>
-					 </td>
-					 <td><span class='bgBlu'>예약가능</span></td>
-           <td class='txt'>아이비</td>
-           <td>20평형</td>
-           <td>4/6</td>
-           <td><select name='inwon_1471309372'><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option></select></td>    
-           <td><b>￦100,000</b></td>
-        </tr>
-			
-				  <tr>
-           <td><input type='checkbox' name='chk[]'  id='check[]' value='1471309564'   class='bnone' >
-					 <input type='hidden' name='room_price_1471309564' value='120000'>
-					 <input type='hidden' name='basic_price_1471309564' value=''>
-					 </td>
-					 <td><span class='bgBlu'>예약가능</span></td>
-           <td class='txt'>릴리(복층)</td>
-           <td>25평형</td>
-           <td>4/8</td>
-           <td><select name='inwon_1471309564'><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option></select></td>    
-           <td><b>￦120,000</b></td>
-        </tr>
-			
-				  <tr>
-           <td><input type='checkbox' name='chk[]'  id='check[]' value='1471309602' checked  class='bnone' >
-					 <input type='hidden' name='room_price_1471309602' value='120000'>
-					 <input type='hidden' name='basic_price_1471309602' value=''>
-					 </td>
-					 <td><span class='bgBlu'>예약가능</span></td>
-           <td class='txt'>데이지(복층)</td>
-           <td>25평형</td>
-           <td>4/8</td>
-           <td><select name='inwon_1471309602'><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option></select></td>    
-           <td><b>￦120,000</b></td>
-        </tr>
-			
-      </tbody>
-    </table>
+			<tr>
+				<td><input type='checkbox' name ='ivy' value='${room_check}' class='bnone' ></td>
+				<td><span class='bgBlu'>예약가능</span></td>
+				<td class='txt'>아이비</td>
+				<td>20평형</td>
+				<td>4/6</td>
+				<td>
+					<select name='inwon_1471309372'>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+					</select>
+				</td>    
+				<td><b>￦100,000</b></td>
+			</tr>
+			<tr>
+				<td>
+					<input type='checkbox' name='lily' value='${room_check}' class='bnone' >
+					<input type='hidden' name='room_price_1471309564' value='120000'>
+					<input type='hidden' name='basic_price_1471309564' value=''>
+				</td>
+				<td><span class='bgBlu'>예약가능</span></td>
+				<td class='txt'>릴리(복층)</td>
+				<td>25평형</td>
+				<td>4/8</td>
+				<td>
+					<select name='inwon_1471309564'>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+					</select>
+				</td>    
+				<td><b>￦120,000</b></td>
+			</tr>		
+			<tr>
+				<td>
+					<input type='checkbox' name='daisy' value='${room_check}' class='bnone' >
+					<input type='hidden' name='room_price_1471309602' value='120000'>
+					<input type='hidden' name='basic_price_1471309602' value=''>
+				</td>
+				<td><span class='bgBlu'>예약가능</span></td>
+				<td class='txt'>데이지(복층)</td>
+				<td>25평형</td>
+				<td>4/8</td>
+				<td>
+					<select name='inwon_1471309602'>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+					</select>
+				</td>    
+				<td><b>￦120,000</b></td>
+			</tr>
+		</tbody>
+	</table>
 	 
 
     <p class="btn"><input type="image" src="/resources/img/reservation/btn.png" alt="예약하기"></p>
@@ -207,13 +246,13 @@
 								<ul class='reList'>
 									<c:choose>
 										<c:when test="${current.month>calender.month ||current.month eq calender.month && current.date > dNum}">
-											예약완료
+											<li>예약완료</li>
 										</c:when>
 										<c:when test="${current.month eq calender.month && current.date <= dNum || current.month <calender.month}">
-											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='daisy' style='color:#6a6a6a'>데이지(복층)</span></a></li>
-											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='lily' style='color:#6a6a6a'>릴리(복층)</span></a></li>
-											<li><a href='/reservation/select'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'ivy'style='color:#6a6a6a'>아이비</span></a></li>
-											<li><a href='/reservation/select'><img src='/resources/img/reservat	ion/ico_ye.gif' alt='예' align='absmiddle'><span name= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=1'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='daisy' style='color:#6a6a6a'>데이지(복층)</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=2'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='lily' style='color:#6a6a6a'>릴리(복층)</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=3'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'ivy'style='color:#6a6a6a'>아이비</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=4'><img src='/resources/img/reservat	ion/ico_ye.gif' alt='예' align='absmiddle'><span name= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>
 										</c:when>
 									</c:choose>
 								</ul>
