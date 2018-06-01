@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <script>
+// 룸체크 버튼 
 function check(room_check){
 	var room_check = $("input[name='room_check']").val();
 	if(room_check == 1){
@@ -27,6 +28,18 @@ function check(room_check){
 $(document).ready(function(){
 	var room_check = $("input[name='room_check']").val();
 	check(room_check);
+	
+	//선택 한날짜의  css바꿈 
+	var select_date = $("input[name='select_date']").val();
+	console.log(select_date);
+	$('.b4_day').find('strong').eq(select_date-1).css('background-color','orange');
+	
+	//이건 안됨...흠...
+ 	/* $('strong:contains(\"'+select_date+'\")').each(function(){
+		if($('strong').text()==select_date){
+   			$('.b4_day').css('background-color', 'red');
+   			return;
+	}});  */
 });
 </script>
 <body>
@@ -63,6 +76,7 @@ $(document).ready(function(){
 	<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
 	<input type='hidden' name ='date' value='${calender.date}'>
 	<input type='hidden' name='room_check' value='${calender.room_check}'>
+	<input type='hidden' name ='select_date' value='${date.dNum}'>
 	<!-- content -->
 
     <!-- 숙박 기간 선택 -->
