@@ -68,6 +68,6 @@ public class ReservationController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void infoInsert(CalendarUtile calender,ReservationVO reVO ,Model model) throws Exception {
 		
-		System.out.println(reVO.getChk_day());
+		model.addAttribute("calender",reserService.moveCalenders(calender));
 	}
 }

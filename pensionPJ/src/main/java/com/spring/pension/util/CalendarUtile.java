@@ -1,11 +1,13 @@
 package com.spring.pension.util;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class CalendarUtile {
 	
-	private Date fullDate;
+	private Date fullDate; //년도 full(문자열을 Date로 합침)
 	private int year; //년도
 	private int month; //달력
 	private int date; //현재 날짜
@@ -19,9 +21,13 @@ public class CalendarUtile {
 	public Date getFullDate() {
 		return fullDate;
 	}
-
-	public void setFullDate(Date fullDate) {
-		this.fullDate = fullDate;
+	// 파라미터로 년도,월,일을 문자열로 합친후 date형식으로 바꿈 
+	public void setFullDate(int year, int month,int dNum) throws ParseException {
+		
+		String strd = year+"-"+month+"-"+dNum;
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strd);
+		
+		this.fullDate = date;
 	}
 
 	public int getRoom_check() {
@@ -109,12 +115,14 @@ public class CalendarUtile {
 
 	@Override
 	public String toString() {
-		return "CalendarUtile [year=" + year + ", month=" + month + ", date=" + date + ", week=" + week + ", lastDate="
-				+ lastDate + ", row=" + row + ", getYear()=" + getYear() + ", getMonth()=" + getMonth() + ", getDate()="
-				+ getDate() + ", getWeek()=" + getWeek() + ", getLastDate()=" + getLastDate() + ", getRow()=" + getRow()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+		return "CalendarUtile [fullDate=" + fullDate + ", year=" + year + ", month=" + month + ", date=" + date
+				+ ", week=" + week + ", lastDate=" + lastDate + ", row=" + row + ", dNum=" + dNum + ", room_check="
+				+ room_check + ", getFullDate()=" + getFullDate() + ", getRoom_check()=" + getRoom_check()
+				+ ", getdNum()=" + getdNum() + ", getYear()=" + getYear() + ", getMonth()=" + getMonth()
+				+ ", getDate()=" + getDate() + ", getWeek()=" + getWeek() + ", getLastDate()=" + getLastDate()
+				+ ", getRow()=" + getRow() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
-	
+
 	
 }

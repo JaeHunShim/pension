@@ -2,7 +2,7 @@ package com.spring.pension.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 
 import javax.inject.Inject;
 
@@ -41,11 +41,15 @@ public class ReservationServiceImpl implements ReservationService {
 			calender.setRow(calender.getWeek(),calender.getLastDate());
 			calender.setLastDate(calender.getYear());
 			calender.setDate(calender.getDate());
+			calender.setFullDate(calender.getYear(), calender.getMonth(), calender.getdNum());
+
+			
+		
 			
 			
-			String strDate = calender.getYear()+"-"+ calender.getMonth()+"-"+calender.getdNum();
-			System.out.println(strDate);
 			
+			
+
 		return calender;
 	}
 	// 선택한 일자 가지고 오기 

@@ -76,7 +76,7 @@
 				<th width="20%" scope="row">숙박기간</th>
 				<td>
 						<input type="hidden" name="rDay_txt" value="2018-06-07 ~ 2018-06-08 (1박 2일)">
-							2018-06-07 ~ 2018-06-08 (1박 2일)
+							<fmt:formatDate pattern="yyyy-MM-dd" value="${calender.fullDate}"/> ~ 2018-06-08 (1박 2일)
 				</td>
 			</tr>
 			<tr>

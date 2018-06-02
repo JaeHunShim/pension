@@ -91,6 +91,7 @@ $(document).ready(function(){
 	<input type='hidden' name='room_check' value='${calender.room_check}'>
 	<input type='hidden' name ='select_date' value='${date.dNum}'>
 	<input type ='hidden' name='check_day' value='${reVO.chk_day}'>
+	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'>
 	<!-- content -->
 
     <!-- 숙박 기간 선택 -->
