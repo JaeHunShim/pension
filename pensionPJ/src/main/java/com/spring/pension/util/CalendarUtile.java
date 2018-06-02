@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class CalendarUtile {
 	
+	private Date fullDate;
 	private int year; //년도
 	private int month; //달력
 	private int date; //현재 날짜
@@ -14,6 +15,15 @@ public class CalendarUtile {
 	private int dNum; // 선택한 달력의 날짜
 	private int room_check; // 선택한 룸
 	
+	
+	public Date getFullDate() {
+		return fullDate;
+	}
+
+	public void setFullDate(Date fullDate) {
+		this.fullDate = fullDate;
+	}
+
 	public int getRoom_check() {
 		return room_check;
 	}

@@ -1,6 +1,8 @@
 package com.spring.pension.service;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.inject.Inject;
 
@@ -39,7 +41,10 @@ public class ReservationServiceImpl implements ReservationService {
 			calender.setRow(calender.getWeek(),calender.getLastDate());
 			calender.setLastDate(calender.getYear());
 			calender.setDate(calender.getDate());
-			System.out.println(calender.toString());
+			
+			
+			String strDate = calender.getYear()+"-"+ calender.getMonth()+"-"+calender.getdNum();
+			System.out.println(strDate);
 			
 		return calender;
 	}
