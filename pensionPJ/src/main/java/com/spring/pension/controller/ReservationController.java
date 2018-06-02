@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring.pension.domain.ReservationVO;
 import com.spring.pension.service.ReservationService;
 import com.spring.pension.util.CalendarUtile;
 
@@ -62,5 +63,11 @@ public class ReservationController {
 	public void moveCalendar(CalendarUtile calender, Model model) throws Exception {
 		
 		model.addAttribute("calender", reserService.moveCalenders(calender));
+	}
+	//정보입력하는 부분
+	@RequestMapping(value="/insert",method=RequestMethod.POST)
+	public void infoInsert(CalendarUtile calender,ReservationVO reVO ,Model model) throws Exception {
+		
+		System.out.println(reVO.getChk_day());
 	}
 }

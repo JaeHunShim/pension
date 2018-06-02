@@ -25,6 +25,12 @@ function check(room_check){
 		$('input[name="magaret"]').prop('checked',true);
 	}
 }
+// 숙박체크 함수
+function chk_day(){
+	var select_day = $('input[name="check_day"]').val();
+	
+	
+}
 $(document).ready(function(){
 	var room_check = $("input[name='room_check']").val();
 	check(room_check);
@@ -32,14 +38,21 @@ $(document).ready(function(){
 	//선택 한날짜의  css바꿈 
 	var select_date = $("input[name='select_date']").val();
 	console.log(select_date);
-	$('.b4_day').find('strong').eq(select_date-1).css('background-color','orange');
+	/* $('.b4_day').find('strong').eq(select_date-1).css('background-color','orange'); */
 	
-	//이건 안됨...흠...
- 	/* $('strong:contains(\"'+select_date+'\")').each(function(){
-		if($('strong').text()==select_date){
-   			$('.b4_day').css('background-color', 'red');
+ 	$('strong:contains('+select_date+')').each(function(){
+ 		
+ 		console.log($(this).text().trim()== select_date.trim());
+		if($(this).text().trim()== select_date.trim()){
+
+   			$(this).parent().css('background-color', 'orange');
+   			
    			return;
-	}});  */
+	}});
+	//select 전송하기위해서 
+	var a = $('select[name="chk_day"]').val();
+	$("input[name='check_day']").val(a);
+
 });
 </script>
 <body>
@@ -60,8 +73,8 @@ $(document).ready(function(){
 
    <div class="tab1 Right">
       <ol>
-          <li><img src="/resources/img/reservation/proc1_01.gif" alt="일자선택"></li>
-          <li>객실선택</li>
+          <li>일자선택</li>
+          <li><img src="/resources/img/reservation/proc1_02.gif" alt="객실선택"></li>
           <li>정보입력</li>
           <li>예약완료</li>
       </ol>
@@ -77,42 +90,43 @@ $(document).ready(function(){
 	<input type='hidden' name ='date' value='${calender.date}'>
 	<input type='hidden' name='room_check' value='${calender.room_check}'>
 	<input type='hidden' name ='select_date' value='${date.dNum}'>
+	<input type ='hidden' name='check_day' value='${reVO.chk_day}'>
 	<!-- content -->
 
     <!-- 숙박 기간 선택 -->
 	<div class="yms dayS wRap">
 		<p><b>${calender.year}</b>년 <b>${calender.month+1}</b>월 <b>${date.dNum}</b>일</p>
-		<select name="chk_day" onchange="period();">
-			<option value="1" >1박 2일 </option>
-			<option value="2" >2박 3일 </option>
-			<option value="3" >3박 4일 </option>
-			<option value="4" >4박 5일 </option>
-			<option value="5" >5박 6일 </option>
-			<option value="6" >6박 7일 </option>
-			<option value="7" >7박 8일 </option>
-			<option value="8" >8박 9일 </option>
-			<option value="9" >9박 10일 </option>
-			<option value="10" >10박 11일 </option>
-			<option value="11" >11박 12일 </option>
-			<option value="12" >12박 13일 </option>
-			<option value="13" >13박 14일 </option>
-			<option value="14" >14박 15일 </option>
-			<option value="15" >15박 16일 </option>
-			<option value="16" >16박 17일 </option>
-			<option value="17" >17박 18일 </option>
-			<option value="18" >18박 19일 </option>
-			<option value="19" >19박 20일 </option>
-			<option value="20" >20박 21일 </option>
-			<option value="21" >21박 22일 </option>
-			<option value="22" >22박 23일 </option>
-			<option value="23" >23박 24일 </option>
-			<option value="24" >24박 25일 </option>
-			<option value="25" >25박 26일 </option>
-			<option value="26" >26박 27일 </option>
-			<option value="27" >27박 28일 </option>
-			<option value="29" >29박 30일 </option>
-			<option value="30" >30박 31일 </option>
-			<option value="31" >31박 32일 </option>
+		<select name="chk_day">
+			<option value="1">1박 2일 </option>
+			<option value="2">2박 3일 </option>
+			<option value="3">3박 4일 </option>
+			<option value="4">4박 5일 </option>
+			<option value="5">5박 6일 </option>
+			<option value="6">6박 7일 </option>
+			<option value="7">7박 8일 </option>
+			<option value="8">8박 9일 </option>
+			<option value="9">9박 10일 </option>
+			<option value="10">10박 11일 </option>
+			<option value="11">11박 12일 </option>
+			<option value="12">12박 13일 </option>
+			<option value="13">13박 14일 </option>
+			<option value="14">14박 15일 </option>
+			<option value="15">15박 16일 </option>
+			<option value="16">16박 17일 </option>
+			<option value="17">17박 18일 </option>
+			<option value="18">18박 19일 </option>
+			<option value="19">19박 20일 </option>
+			<option value="20">20박 21일 </option>
+			<option value="21">21박 22일 </option>
+			<option value="22">22박 23일 </option>
+			<option value="23">23박 24일 </option>
+			<option value="24">24박 25일 </option>
+			<option value="25">25박 26일 </option>
+			<option value="26">26박 27일 </option>
+			<option value="27">27박 28일 </option>
+			<option value="29">29박 30일 </option>
+			<option value="30">30박 31일 </option>
+			<option value="31">31박 32일 </option>
 		</select>
 	</div>	
     <!-- //선택일/숙박기간 -->
@@ -215,8 +229,9 @@ $(document).ready(function(){
 	 
 
     <p class="btn"><input type="image" src="/resources/img/reservation/btn.png" alt="예약하기"></p>
-    <!-- //객실예약 -->
     </form>
+   <!-- //객실예약 --> 
+    
     <p class="line">&nbsp;</p> <!-- 구분선 -->
     
         <p><span><img src="/resources/img/reservation/ico_2day.gif" alt="To Day" align="absmiddle"> 오늘</span> 
