@@ -25,12 +25,7 @@ function check(room_check){
 		$('input[name="magaret"]').prop('checked',true);
 	}
 }
-// 숙박체크 함수
-function chk_day(){
-	var select_day = $('input[name="check_day"]').val();
-	
-	
-}
+
 $(document).ready(function(){
 	var room_check = $("input[name='room_check']").val();
 	check(room_check);
@@ -50,8 +45,12 @@ $(document).ready(function(){
    			return;
 	}});
 	//select 전송하기위해서 
-	var a = $('select[name="chk_day"]').val();
-	$("input[name='check_day']").val(a);
+	var chkvalue = $('select[name="chk_day"]').val();
+	//var chktext = $('select[name="chk_day"] option:selected').text();
+	$("input[name='check_day']").val(chkvalue);
+	//$("input[name='check_text']").val(chktext);
+	
+	
 
 });
 </script>
@@ -83,15 +82,15 @@ $(document).ready(function(){
 <!--  subTitle end -->
 <div class="conT carnSet">
 <form name='prm' method='post' action='/reservation/insert'>
-	<input type='hidden' name ='year' value='${calender.year}'>
-	<input type='hidden' name ='month' value='${calender.month}'>
-	<input type='hidden' name ='week' value='${calender.week}'>
-	<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
-	<input type='hidden' name ='date' value='${calender.date}'>
-	<input type='hidden' name='room_check' value='${calender.room_check}'>
-	<input type='hidden' name ='select_date' value='${date.dNum}'>
-	<input type ='hidden' name='check_day' value='${reVO.chk_day}'>
-	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'>
+	<input type='hidden' name ='year' value='${calender.year}'>	<!--  해당년도  -->
+	<input type='hidden' name ='month' value='${calender.month}'>	<!-- 해당월 -->
+	<input type='hidden' name ='week' value='${calender.week}'>	<!-- 해당주 -->
+	<input type='hidden' name ='lastDate' value='${calender.lastDate}'><!--  금일 마지막 날 -->
+	<input type='hidden' name ='date' value='${calender.date}'>	<!-- 금일 -->
+	<input type='hidden' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
+	<input type='hidden' name ='select_date' value='${date.dNum}'>	<!-- 예약일 -->
+	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
+	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
 	<!-- content -->
 
     <!-- 숙박 기간 선택 -->
@@ -149,8 +148,6 @@ $(document).ready(function(){
 			<tr>
 				<td>
 					<input type='checkbox' name='magaret' value='${room_check}' class='bnone' >
-					<input type='hidden' name='room_price_1464661788' value='120000'>
-					<input type='hidden' name='basic_price_1464661788' value=''>
 				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
 				<td class='txt'>마가렛</td>
