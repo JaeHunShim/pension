@@ -25,7 +25,6 @@ function check(room_check){
 		$('input[name="magaret"]').prop('checked',true);
 	}
 }
-
 $(document).ready(function(){
 	var room_check = $("input[name='room_check']").val();
 	check(room_check);
@@ -50,7 +49,7 @@ $(document).ready(function(){
 	$("input[name='check_day']").val(chkvalue);
 	//$("input[name='check_text']").val(chktext);
 	
-	
+	$('')
 
 });
 </script>

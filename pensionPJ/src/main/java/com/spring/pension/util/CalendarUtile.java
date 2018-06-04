@@ -16,8 +16,15 @@ public class CalendarUtile {
 	private int row; //행의 갯수 
 	private int dNum; // 선택한 달력의 날짜
 	private int room_check; // 선택한 룸
+	private String room_name; //선택한 룸 이름
 	
 	
+	public String getRoom_name() {
+		return room_name;
+	}
+	public void setRoom_name(String room_name) {
+		this.room_name = room_name;
+	}
 	public Date getFullDate() {
 		return fullDate;
 	}
@@ -112,17 +119,18 @@ public class CalendarUtile {
 		
 		return row;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "CalendarUtile [fullDate=" + fullDate + ", year=" + year + ", month=" + month + ", date=" + date
 				+ ", week=" + week + ", lastDate=" + lastDate + ", row=" + row + ", dNum=" + dNum + ", room_check="
-				+ room_check + ", getFullDate()=" + getFullDate() + ", getRoom_check()=" + getRoom_check()
-				+ ", getdNum()=" + getdNum() + ", getYear()=" + getYear() + ", getMonth()=" + getMonth()
-				+ ", getDate()=" + getDate() + ", getWeek()=" + getWeek() + ", getLastDate()=" + getLastDate()
-				+ ", getRow()=" + getRow() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ room_check + ", room_name=" + room_name + ", getRoom_name()=" + getRoom_name() + ", getFullDate()="
+				+ getFullDate() + ", getRoom_check()=" + getRoom_check() + ", getdNum()=" + getdNum() + ", getYear()="
+				+ getYear() + ", getMonth()=" + getMonth() + ", getDate()=" + getDate() + ", getWeek()=" + getWeek()
+				+ ", getLastDate()=" + getLastDate() + ", getRow()=" + getRow() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-
+	
+	
 	
 }

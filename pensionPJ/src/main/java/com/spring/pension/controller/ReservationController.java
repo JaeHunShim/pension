@@ -50,6 +50,8 @@ public class ReservationController {
 		model.addAttribute("calender",reserService.moveCalenders(calender));
 		model.addAttribute("date",reserService.getdNum(dNum));
 		model.addAttribute("room_check",reserService.getCheck(room_check));
+		System.out.println(calender.getRoom_name());
+	
 	}
 	//현재 켈린더 가지고 오는 부분 
 	@RequestMapping(value ="/calendar",method=RequestMethod.GET)
