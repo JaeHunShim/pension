@@ -17,12 +17,16 @@ function check(room_check){
 	var room_check = $("input[name='room_check']").val();
 	if(room_check == 1){
 		$('input[name="daisy"]').prop('checked',true);
+		$('input[name="room_name"]').val("데이지(복층)");
 	}else if(room_check==2){
 		$('input[name="lily"]').prop('checked',true);
+		$('input[name="room_name"]').val("릴리(복층)");
 	}else if(room_check==3){
 		$('input[name="ivy"]').prop('checked',true);
+		$('input[name="room_name"]').val("아이비");
 	}else{
 		$('input[name="magaret"]').prop('checked',true);
+		$('input[name="room_name"]').val("마가렛");
 	}
 }
 $(document).ready(function(){
@@ -45,11 +49,11 @@ $(document).ready(function(){
 	}});
 	//select 전송하기위해서 
 	var chkvalue = $('select[name="chk_day"]').val();
-	//var chktext = $('select[name="chk_day"] option:selected').text();
 	$("input[name='check_day']").val(chkvalue);
-	//$("input[name='check_text']").val(chktext);
+	//text값 전송
 	
-	$('')
+	
+	
 
 });
 </script>
@@ -90,6 +94,7 @@ $(document).ready(function(){
 	<input type='hidden' name ='select_date' value='${date.dNum}'>	<!-- 예약일 -->
 	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
 	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
+	<input type ="text" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
 	<!-- content -->
 
     <!-- 숙박 기간 선택 -->

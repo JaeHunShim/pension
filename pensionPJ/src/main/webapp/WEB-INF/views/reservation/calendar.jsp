@@ -37,12 +37,7 @@ $(document).ready(function(){
 		$('#prm').attr('action','/reservation/calender');
 		prm.submit();
 	});
-	//방이름을 조건에 맞게 바꿔서 form에 전송하기
-	$('span[name="daisy"]').on('click',function(){
-		var text = $('span[name="dasiy"]').text();
-		/* $('input[name="room_name"]').val(text); */	
-		console.log(text);
-	});
+
 });
 
 </script>
@@ -81,7 +76,6 @@ $(document).ready(function(){
 		<input type='hidden' name ='week' value='${calender.week}'>
 		<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
 		<input type='hidden' name ='date' value='${calender.date}'>
-		<input type='hidden' name='room_name' value='${calender.room_name}'>
     	<div class="yms wRap">
 			<a style="cursor:pointer" class='prev'>이전 </a>
  				<p><b>${calender.year}</b>년<b>${calender.month+1}</b>월</p>
