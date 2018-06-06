@@ -47,13 +47,13 @@ $(document).ready(function(){
    			
    			return;
 	}});
-	//select 전송하기위해서 
+	//select 전송하기위해서 (숙박기간)
 	var chkvalue = $('select[name="chk_day"]').val();
 	$("input[name='check_day']").val(chkvalue);
-	//text값 전송
-	
-	
-	
+	//select 인원석택에 대한 value값 전송
+	var inwon =$('select[name="inwon_select"]').val();
+	$("input[name='inwon_check']").val(inwon);
+
 
 });
 </script>
@@ -94,7 +94,9 @@ $(document).ready(function(){
 	<input type='hidden' name ='select_date' value='${date.dNum}'>	<!-- 예약일 -->
 	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
 	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
-	<input type ="text" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
+	<input type ="hidden" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
+	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 --> 
+	<input type="hidden" name="pay" value ="${calender.pay}"> <!-- 숙박비 -->
 	<!-- content -->
 
     <!-- 숙박 기간 선택 -->
@@ -158,7 +160,7 @@ $(document).ready(function(){
 				<td>25평형</td>
 				<td>4/8</td>
 				<td>
-					<select name='inwon_1464661788'>
+					<select name='inwon_select'>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 						<option value='6'>6</option>							

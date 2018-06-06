@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class CalendarUtile {
 	
+	private Integer inwon_check; //선택한 인원
+	private Integer pay; //지불할 돈 
 	private Date fullDate; //년도 full(문자열을 Date로 합침)
 	private int year; //년도
 	private int month; //달력
@@ -18,6 +20,29 @@ public class CalendarUtile {
 	private int room_check; // 선택한 룸
 	private String room_name; //선택한 룸 이름
 	
+	public Integer getInwon_check() {
+		return inwon_check;
+	}
+	public void setInwon_check(Integer inwon_check) {
+		this.inwon_check = inwon_check;
+	}
+	public Integer getPay() {
+		return pay;
+	}
+	//인원에 따라서 가격증가 시킴 
+	public void setPay(Integer pay,Integer inwon_check) {
+		if(inwon_check == 4) {
+			this.pay = pay;
+		}else if(inwon_check == 5) {
+			this.pay = pay +20000;
+		}else if(inwon_check == 6) {
+			this.pay = pay +40000;
+		}else if(inwon_check == 7) {
+			this.pay = pay +60000;
+		}else if(inwon_check == 8) {
+			this.pay = pay +80000;
+		}
+	}
 	
 	public String getRoom_name() {
 		return room_name;

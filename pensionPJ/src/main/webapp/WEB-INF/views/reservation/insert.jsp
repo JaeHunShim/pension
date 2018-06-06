@@ -11,16 +11,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<body>
 <div class="header wRap">
    <h1>이루펜션</h1>
    <div class="Right">
-     <a href="/reservation/reservation_main"><img src="/resources/img/reservation/top1on.gif" alt="예약하기"></a>c..on.gif -->
+     <a href="/reservation/reservation_main"><img src="/resources/img/reservation/top1on.gif" alt="예약하기"></a> <!-- //이미지파일이름...on.gif -->
      <a href="/reservation/reservation_guide"><img src="/resources/img/reservation/top2.gif" alt="예약안내"></a> <!-- /pen/img/top2on.gif -->
      <a href="/reservation/confirm"><img src="/resources/img/reservation/top3.gif" alt="예약확인"></a> <!-- /pen/img/top3on.gif -->
    </div>
 </div>
-<body>
-
 <!-- Sub Title -->
 <div class="sTitle wRap">
 	<div class="Left">
@@ -38,7 +37,12 @@
 </div>
 <!-- //Sub Title -->
 <form name="frm" method="post" action="" onsubmit="return reser_send()">
-		
+	
+	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
+	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
+	<input type ="hidden" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
+	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 --> 
+	<input type="hidden" name="pay" value ="${calender.pay}"> <!-- 숙박비 -->
 <!-- Contents -->   
 	<div class="conT">
     
@@ -59,7 +63,7 @@
        
 			<tbody>
 				<tr>
-					<td class="txt">데이지(복층)</td>
+					<td class="txt">${calender.room_name}</td>
 					<td>25평형</td>
 					<td>4/8</td>
 					<td>4명</td>
