@@ -76,10 +76,13 @@ public class ReservationController {
 	}
 	//숙박에 따라서 가격바꾸는 부분 
 	@RequestMapping(value="/pay",method=RequestMethod.POST)
-	public String payModify(CalendarUtile calender,ReservationVO reVO,Model model) throws Exception {
-		System.out.println(calender.getSelect());
-		calender.setPay(calender.getSelect());
-		System.out.println(calender.getPay());
-		return "/main/index";
+	public ModelAndView payModify(CalendarUtile calender,ReservationVO reVO,Model model) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("reservation/select");
+		mav.addObject("calender", reserService.changePay(calender));
+		
+	
+		return mav;
 	}
 }

@@ -65,7 +65,6 @@ public class ReservationServiceImpl implements ReservationService {
 	public CalendarUtile changePay(CalendarUtile calender) throws Exception {
 		
 		calender.setPay(calender.getSelect());
-		System.out.println(calender.getPay());
 		
 		return calender;
 	}

@@ -12,7 +12,10 @@
 <title>Insert title here</title>
 </head>
 <script>
-function insert(){	
+function insert(){
+	//숙박 선택에 대한 값
+	var chkvalue = $('select[name="chk_day"]').val();
+	$("input[name='select']").val(chkvalue);
 	var prm = document.prm;
 	$('#prm').attr('action','/reservation/pay');
 	prm.submit();
@@ -52,13 +55,11 @@ $(document).ready(function(){
    			
    			return;
 	}});
-	//select 전송하기위해서 (숙박기간)
-	var chkvalue = $('select[name="chk_day"]').val();
-	$("input[name='check_day']").val(chkvalue);
+
 	//select 인원석택에 대한 value값 전송
 	var inwon =$('select[name="inwon_select"]').val();
 	$("input[name='inwon_check']").val(inwon);
-	
+
 });
 </script>
 <body>
@@ -96,7 +97,7 @@ $(document).ready(function(){
 	<input type='hidden' name ='date' value='${calender.date}'>	<!-- 금일 -->
 	<input type='hidden' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
 	<input type='hidden' name ='select_date' value='${date.dNum}'><!-- 예약일 -->
-	<input type ='hidden' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
+	<input type ='text' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
 	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
 	<input type ="hidden" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
 	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 --> 
