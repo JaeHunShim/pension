@@ -42,14 +42,6 @@ public class ReservationServiceImpl implements ReservationService {
 			calender.setLastDate(calender.getYear());
 			calender.setDate(calender.getDate());
 			calender.setFullDate(calender.getYear(), calender.getMonth(), calender.getdNum());
-
-			
-		
-			
-			
-			
-			
-
 		return calender;
 	}
 	// 선택한 일자 가지고 오기 
@@ -66,6 +58,14 @@ public class ReservationServiceImpl implements ReservationService {
 		CalendarUtile calender = new CalendarUtile();
 		
 		calender.setRoom_check(room_check);
+		
+		return calender;
+	}
+	//숙반에 따른 값 변동
+	public CalendarUtile changePay(CalendarUtile calender) throws Exception {
+		
+		calender.setPay(calender.getSelect());
+		System.out.println(calender.getPay());
 		
 		return calender;
 	}

@@ -12,9 +12,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.pension.domain.ReservationVO;
 import com.spring.pension.service.ReservationService;
@@ -51,7 +54,6 @@ public class ReservationController {
 		model.addAttribute("date",reserService.getdNum(dNum));
 		model.addAttribute("room_check",reserService.getCheck(room_check));
 		
-	
 	}
 	//현재 켈린더 가지고 오는 부분 
 	@RequestMapping(value ="/calendar",method=RequestMethod.GET)
@@ -71,5 +73,13 @@ public class ReservationController {
 	public void infoInsert(CalendarUtile calender,ReservationVO reVO ,Model model) throws Exception {
 		
 		model.addAttribute("calender",reserService.moveCalenders(calender));
+	}
+	//숙박에 따라서 가격바꾸는 부분 
+	@RequestMapping(value="/pay",method=RequestMethod.POST)
+	public String payModify(CalendarUtile calender,ReservationVO reVO,Model model) throws Exception {
+		System.out.println(calender.getSelect());
+		calender.setPay(calender.getSelect());
+		System.out.println(calender.getPay());
+		return "/main/index";
 	}
 }

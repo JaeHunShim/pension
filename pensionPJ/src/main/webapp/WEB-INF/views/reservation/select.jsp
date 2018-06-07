@@ -12,6 +12,11 @@
 <title>Insert title here</title>
 </head>
 <script>
+function insert(){	
+	var prm = document.prm;
+	$('#prm').attr('action','/reservation/pay');
+	prm.submit();
+}
 // 룸체크 버튼 
 function check(room_check){
 	var room_check = $("input[name='room_check']").val();
@@ -53,8 +58,7 @@ $(document).ready(function(){
 	//select 인원석택에 대한 value값 전송
 	var inwon =$('select[name="inwon_select"]').val();
 	$("input[name='inwon_check']").val(inwon);
-
-
+	
 });
 </script>
 <body>
@@ -84,25 +88,23 @@ $(document).ready(function(){
 </div>
 <!--  subTitle end -->
 <div class="conT carnSet">
-<form name='prm' method='post' action='/reservation/insert'>
+<form name ="prm" id='prm' method='post'>
 	<input type='hidden' name ='year' value='${calender.year}'>	<!--  해당년도  -->
 	<input type='hidden' name ='month' value='${calender.month}'>	<!-- 해당월 -->
 	<input type='hidden' name ='week' value='${calender.week}'>	<!-- 해당주 -->
 	<input type='hidden' name ='lastDate' value='${calender.lastDate}'><!--  금일 마지막 날 -->
 	<input type='hidden' name ='date' value='${calender.date}'>	<!-- 금일 -->
 	<input type='hidden' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
-	<input type='hidden' name ='select_date' value='${date.dNum}'>	<!-- 예약일 -->
-	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
+	<input type='hidden' name ='select_date' value='${date.dNum}'><!-- 예약일 -->
+	<input type ='hidden' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
 	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
 	<input type ="hidden" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
 	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 --> 
-	<input type="hidden" name="pay" value ="${calender.pay}"> <!-- 숙박비 -->
 	<!-- content -->
-
     <!-- 숙박 기간 선택 -->
 	<div class="yms dayS wRap">
 		<p><b>${calender.year}</b>년 <b>${calender.month+1}</b>월 <b>${date.dNum}</b>일</p>
-		<select name="chk_day">
+		<select name="chk_day" onchange="insert();">
 			<option value="1">1박 2일 </option>
 			<option value="2">2박 3일 </option>
 			<option value="3">3박 4일 </option>
@@ -172,7 +174,9 @@ $(document).ready(function(){
 			</tr>
 			
 			<tr>
-				<td><input type='checkbox' name ='ivy' value='${room_check}' class='bnone' ></td>
+				<td><input type='checkbox' name ='ivy' value='${room_check}' class='bnone' >
+					
+				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
 				<td class='txt'>아이비</td>
 				<td>20평형</td>
@@ -189,11 +193,11 @@ $(document).ready(function(){
 			<tr>
 				<td>
 					<input type='checkbox' name='lily' value='${room_check}' class='bnone' >
-					<input type='hidden' name='room_price_1471309564' value='120000'>
-					<input type='hidden' name='basic_price_1471309564' value=''>
+				
 				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
 				<td class='txt'>릴리(복층)</td>
+				
 				<td>25평형</td>
 				<td>4/8</td>
 				<td>
@@ -210,8 +214,7 @@ $(document).ready(function(){
 			<tr>
 				<td>
 					<input type='checkbox' name='daisy' value='${room_check}' class='bnone' >
-					<input type='hidden' name='room_price_1471309602' value='120000'>
-					<input type='hidden' name='basic_price_1471309602' value=''>
+				
 				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
 				<td class='txt'>데이지(복층)</td>
@@ -230,8 +233,6 @@ $(document).ready(function(){
 			</tr>
 		</tbody>
 	</table>
-	 
-
     <p class="btn"><input type="image" src="/resources/img/reservation/btn.png" alt="예약하기"></p>
     </form>
    <!-- //객실예약 --> 

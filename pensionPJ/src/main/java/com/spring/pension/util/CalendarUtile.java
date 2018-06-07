@@ -8,7 +8,7 @@ import java.util.Date;
 public class CalendarUtile {
 	
 	private Integer inwon_check; //선택한 인원
-	private Integer pay; //지불할 돈 
+	private int pay; //지불할 돈 
 	private Date fullDate; //년도 full(문자열을 Date로 합침)
 	private int year; //년도
 	private int month; //달력
@@ -19,18 +19,27 @@ public class CalendarUtile {
 	private int dNum; // 선택한 달력의 날짜
 	private int room_check; // 선택한 룸
 	private String room_name; //선택한 룸 이름
+	private Integer select; //숙박날짜 (1~31)
 	
+	
+	
+	public Integer getSelect() {
+		return select;
+	}
+	public void setSelect(Integer select) {
+		this.select = select;
+	}
 	public Integer getInwon_check() {
 		return inwon_check;
 	}
 	public void setInwon_check(Integer inwon_check) {
 		this.inwon_check = inwon_check;
 	}
-	public Integer getPay() {
+	public int getPay() {
 		return pay;
 	}
 	//인원에 따라서 가격증가 시킴 
-	public void setPay(Integer pay,Integer inwon_check) {
+	public void setPay(int pay,Integer inwon_check) {
 		if(inwon_check == 4) {
 			this.pay = pay;
 		}else if(inwon_check == 5) {
@@ -43,7 +52,9 @@ public class CalendarUtile {
 			this.pay = pay +80000;
 		}
 	}
-	
+	public void setPay(Integer select) {
+		this.pay = 120000*select;
+	}
 	public String getRoom_name() {
 		return room_name;
 	}
@@ -144,18 +155,18 @@ public class CalendarUtile {
 		
 		return row;
 	}
-	
 	@Override
 	public String toString() {
-		return "CalendarUtile [fullDate=" + fullDate + ", year=" + year + ", month=" + month + ", date=" + date
-				+ ", week=" + week + ", lastDate=" + lastDate + ", row=" + row + ", dNum=" + dNum + ", room_check="
-				+ room_check + ", room_name=" + room_name + ", getRoom_name()=" + getRoom_name() + ", getFullDate()="
-				+ getFullDate() + ", getRoom_check()=" + getRoom_check() + ", getdNum()=" + getdNum() + ", getYear()="
-				+ getYear() + ", getMonth()=" + getMonth() + ", getDate()=" + getDate() + ", getWeek()=" + getWeek()
+		return "CalendarUtile [inwon_check=" + inwon_check + ", pay=" + pay + ", fullDate=" + fullDate + ", year="
+				+ year + ", month=" + month + ", date=" + date + ", week=" + week + ", lastDate=" + lastDate + ", row="
+				+ row + ", dNum=" + dNum + ", room_check=" + room_check + ", room_name=" + room_name + ", select="
+				+ select + ", getSelect()=" + getSelect() + ", getInwon_check()=" + getInwon_check() + ", getPay()="
+				+ getPay() + ", getRoom_name()=" + getRoom_name() + ", getFullDate()=" + getFullDate()
+				+ ", getRoom_check()=" + getRoom_check() + ", getdNum()=" + getdNum() + ", getYear()=" + getYear()
+				+ ", getMonth()=" + getMonth() + ", getDate()=" + getDate() + ", getWeek()=" + getWeek()
 				+ ", getLastDate()=" + getLastDate() + ", getRow()=" + getRow() + ", getClass()=" + getClass()
 				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
 	
 	
 }
