@@ -81,7 +81,9 @@ public class ReservationController {
 		
 		mav.setViewName("reservation/select");
 		mav.addObject("calender", reserService.changePay(calender));
-		
+		mav.addObject("calender",reserService.moveCalenders(calender));
+		mav.addObject("date",reserService.getdNum(calender.getdNum()));
+		model.addAttribute("room_check",reserService.getCheck(calender.getRoom_check()));
 	
 		return mav;
 	}

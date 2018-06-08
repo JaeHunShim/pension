@@ -12,6 +12,17 @@
 <title>Insert title here</title>
 </head>
 <script>
+//가격에 콤마찍는 부분
+function numberWithCommas(x) {
+	$('td b').each(function(){
+		var x = $(this).text();
+		var y = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		console.log(y);
+		$(this).text(y);
+	});
+	
+}
+
 function insert(){
 	//숙박 선택에 대한 값
 	var chkvalue = $('select[name="chk_day"]').val();
@@ -42,24 +53,41 @@ $(document).ready(function(){
 	check(room_check);
 	
 	//선택 한날짜의  css바꿈 
-	var select_date = $("input[name='select_date']").val();
+	var select_date = $("input[name='dNum']").val();
 	console.log(select_date);
 	/* $('.b4_day').find('strong').eq(select_date-1).css('background-color','orange'); */
 	
  	$('strong:contains('+select_date+')').each(function(){
  		
- 		console.log($(this).text().trim()== select_date.trim());
+ 		/* console.log($(this).text().trim()== select_date.trim()); */
 		if($(this).text().trim()== select_date.trim()){
 
    			$(this).parent().css('background-color', 'orange');
    			
    			return;
 	}});
-
 	//select 인원석택에 대한 value값 전송
 	var inwon =$('select[name="inwon_select"]').val();
 	$("input[name='inwon_check']").val(inwon);
-
+	
+	//숙박 option에 대한 정보유지
+	var select_name =$("input[name='select']").val()
+	$('#chk_day option').each(function(){
+		/* console.log($(this).val()); */
+		if($(this).val() == select_name){
+			$(this).attr('selected',true);
+		}
+	});
+	$('input[type="image"]').on('click',function(){
+		var prm = document.prm;
+		$('#prm').attr('action','/reservation/insert');
+		prm.submit();
+	});
+	//숫자 string으로 바꿔서 ,찍기 
+	$('td b').each(function(){
+		var x = $(this).text();
+		numberWithCommas(x);
+	});
 });
 </script>
 <body>
@@ -96,16 +124,17 @@ $(document).ready(function(){
 	<input type='hidden' name ='lastDate' value='${calender.lastDate}'><!--  금일 마지막 날 -->
 	<input type='hidden' name ='date' value='${calender.date}'>	<!-- 금일 -->
 	<input type='hidden' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
-	<input type='hidden' name ='select_date' value='${date.dNum}'><!-- 예약일 -->
-	<input type ='text' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
+	<input type='hidden' name ='dNum' value='${date.dNum}'><!-- 예약일 -->
+	<input type ='hidden' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
 	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
 	<input type ="hidden" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
-	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 --> 
+	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 -->
+	<input type="text" name="pay" value="${calender.pay}"><!--  가격 -->
 	<!-- content -->
     <!-- 숙박 기간 선택 -->
 	<div class="yms dayS wRap">
 		<p><b>${calender.year}</b>년 <b>${calender.month+1}</b>월 <b>${date.dNum}</b>일</p>
-		<select name="chk_day" onchange="insert();">
+		<select name="chk_day" id="chk_day" onchange="insert();">
 			<option value="1">1박 2일 </option>
 			<option value="2">2박 3일 </option>
 			<option value="3">3박 4일 </option>
@@ -171,7 +200,7 @@ $(document).ready(function(){
 						<option value='8'>8</option>
 					</select>
 				</td>
-				<td><b>￦120,000</b></td>    
+				<td><b>${calender.pay}</b></td>    
 			</tr>
 			
 			<tr>
@@ -189,7 +218,7 @@ $(document).ready(function(){
 						<option value='6'>6</option>
 					</select>
 				</td>    
-				<td><b>￦100,000</b></td>
+				<td><b>${calender.pay-20000}</b></td>
 			</tr>
 			<tr>
 				<td>
@@ -210,7 +239,7 @@ $(document).ready(function(){
 						<option value='8'>8</option>
 					</select>
 				</td>    
-				<td><b>￦120,000</b></td>
+				<td><b>${calender.pay}</b></td>
 			</tr>		
 			<tr>
 				<td>
@@ -230,7 +259,7 @@ $(document).ready(function(){
 						<option value='8'>8</option>
 					</select>
 				</td>    
-				<td><b>￦120,000</b></td>
+				<td><b>${calender.pay}</b></td>
 			</tr>
 		</tbody>
 	</table>

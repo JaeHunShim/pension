@@ -42,6 +42,7 @@ public class ReservationServiceImpl implements ReservationService {
 			calender.setLastDate(calender.getYear());
 			calender.setDate(calender.getDate());
 			calender.setFullDate(calender.getYear(), calender.getMonth(), calender.getdNum());
+			calender.setPay(1);//처음 1박2일에 대한 가격 처리 
 		return calender;
 	}
 	// 선택한 일자 가지고 오기 
@@ -49,7 +50,6 @@ public class ReservationServiceImpl implements ReservationService {
 	public CalendarUtile getdNum(int dNum) throws Exception {
 		CalendarUtile calender = new CalendarUtile();
 		calender.setdNum(dNum);
-		
 		return calender;
 	}
 	//check 번호 받아오기
@@ -58,7 +58,6 @@ public class ReservationServiceImpl implements ReservationService {
 		CalendarUtile calender = new CalendarUtile();
 		
 		calender.setRoom_check(room_check);
-		
 		return calender;
 	}
 	//숙반에 따른 값 변동
