@@ -22,7 +22,7 @@ function numberWithCommas(x) {
 	});
 	
 }
-
+//controller pay가는 부분  
 function insert(){
 	//숙박 선택에 대한 값
 	var chkvalue = $('select[name="chk_day"]').val();
@@ -31,27 +31,47 @@ function insert(){
 	$('#prm').attr('action','/reservation/pay');
 	prm.submit();
 }
+
+//insertController로 form 전송할 값을 라디오 버튼으로 클릭한 값으로 변동해서 전송함 
+function changeInsertValue(){
+	$('#chkBox:checked').each(function(){
+		if(this.value ==1){
+			$('input[name="room_name"]').val("데이지(복층)");
+			return true;
+		}else if(this.value==2){
+			$('input[name="room_name"]').val("릴리(복층)");
+			return true;
+		}else if(this.value==3){
+			$('input[name="room_name"]').val("아이비");
+			return true;
+		}else{
+			$('input[name="room_name"]').val("마가렛");
+			return true;
+		}
+	});
+}
 // 룸체크 버튼 
 function check(room_check){
 	var room_check = $("input[name='room_check']").val();
 	if(room_check == 1){
-		$('input[name="daisy"]').prop('checked',true);
+		$('input:checkbox[name="daisy"]').prop('checked',true);
 		$('input[name="room_name"]').val("데이지(복층)");
 	}else if(room_check==2){
-		$('input[name="lily"]').prop('checked',true);
+		$('input:checkbox[name="lily"]').prop('checked',true);
 		$('input[name="room_name"]').val("릴리(복층)");
 	}else if(room_check==3){
-		$('input[name="ivy"]').prop('checked',true);
+		$('input:checkbox[name="ivy"]').prop('checked',true);
 		$('input[name="room_name"]').val("아이비");
 	}else{
-		$('input[name="magaret"]').prop('checked',true);
+		$('input:checkbox[name="magaret"]').prop('checked',true);
 		$('input[name="room_name"]').val("마가렛");
 	}
+	return;
 }
 $(document).ready(function(){
+	//check박스 선택
 	var room_check = $("input[name='room_check']").val();
 	check(room_check);
-	
 	//선택 한날짜의  css바꿈 
 	var select_date = $("input[name='dNum']").val();
 	console.log(select_date);
@@ -63,7 +83,7 @@ $(document).ready(function(){
 		if($(this).text().trim()== select_date.trim()){
 
    			$(this).parent().css('background-color', 'orange');
-   			
+   				
    			return;
 	}});
 	//select 인원석택에 대한 value값 전송
@@ -78,6 +98,7 @@ $(document).ready(function(){
 			$(this).attr('selected',true);
 		}
 	});
+	//contoller insert로 가는 부분 
 	$('input[type="image"]').on('click',function(){
 		var prm = document.prm;
 		$('#prm').attr('action','/reservation/insert');
@@ -125,11 +146,11 @@ $(document).ready(function(){
 	<input type='hidden' name ='date' value='${calender.date}'>	<!-- 금일 -->
 	<input type='hidden' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
 	<input type='hidden' name ='dNum' value='${date.dNum}'><!-- 예약일 -->
-	<input type ='hidden' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
-	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
-	<input type ="hidden" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
+	<input type='hidden' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
+	<input type="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
+	<input type="hidden" name='room_name' value ='${calender.room_name}'><!--  방이름 -->
 	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 -->
-	<input type="text" name="pay" value="${calender.pay}"><!--  가격 -->
+	<input type="hidden" name="pay" value="${calender.pay}"><!--  가격 -->
 	<!-- content -->
     <!-- 숙박 기간 선택 -->
 	<div class="yms dayS wRap">
@@ -185,7 +206,7 @@ $(document).ready(function(){
 		<tbody>
 			<tr>
 				<td>
-					<input type='checkbox' name='magaret' value='${room_check}' class='bnone' >
+					<input type='checkbox' id = 'hkBox' name='magaret' value='4'>
 				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
 				<td class='txt'>마가렛</td>
@@ -200,11 +221,11 @@ $(document).ready(function(){
 						<option value='8'>8</option>
 					</select>
 				</td>
-				<td><b>${calender.pay}</b></td>    
+				<td><b>￦${calender.pay}</b></td>    
 			</tr>
 			
 			<tr>
-				<td><input type='checkbox' name ='ivy' value='${room_check}' class='bnone' >
+				<td><input type='checkbox' id='hkBox' name ='ivy' value='3'>
 					
 				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
@@ -218,11 +239,11 @@ $(document).ready(function(){
 						<option value='6'>6</option>
 					</select>
 				</td>    
-				<td><b>${calender.pay-20000}</b></td>
+				<td><b>￦${calender.pay-20000}</b></td>
 			</tr>
 			<tr>
 				<td>
-					<input type='checkbox' name='lily' value='${room_check}' class='bnone' >
+					<input type='checkbox' id='hkBox' name='lily' value='2'>
 				
 				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
@@ -239,11 +260,11 @@ $(document).ready(function(){
 						<option value='8'>8</option>
 					</select>
 				</td>    
-				<td><b>${calender.pay}</b></td>
+				<td><b>￦${calender.pay}</b></td>
 			</tr>		
 			<tr>
 				<td>
-					<input type='checkbox' name='daisy' value='${room_check}' class='bnone' >
+					<input type='checkbox' id='hkBox' name='daisy' value='1'>
 				
 				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
@@ -259,7 +280,7 @@ $(document).ready(function(){
 						<option value='8'>8</option>
 					</select>
 				</td>    
-				<td><b>${calender.pay}</b></td>
+				<td><b>￦${calender.pay}</b></td>
 			</tr>
 		</tbody>
 	</table>

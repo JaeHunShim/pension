@@ -22,6 +22,7 @@
 	
 	<context:component-scan base-package="com.spring.pension" />
 	<context:component-scan base-package="com.spring.pension.controller" />
+
 	<!-- 파일 업로드 처리 -->
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

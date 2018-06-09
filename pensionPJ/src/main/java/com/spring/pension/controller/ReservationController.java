@@ -72,16 +72,16 @@ public class ReservationController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void infoInsert(CalendarUtile calender,ReservationVO reVO ,Model model) throws Exception {
 		
-		model.addAttribute("calender",reserService.moveCalenders(calender));
+		System.out.println(calender.getRoom_name());
 	}
-	//숙박에 따라서 가격바꾸는 부분 
+	//숙박에 따라서 가격바꾸는 부분 (ModelAndView 사용 )
 	@RequestMapping(value="/pay",method=RequestMethod.POST)
 	public ModelAndView payModify(CalendarUtile calender,ReservationVO reVO,Model model) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("reservation/select");
-		mav.addObject("calender", reserService.changePay(calender));
 		mav.addObject("calender",reserService.moveCalenders(calender));
+		mav.addObject("calender", reserService.changePay(calender));
 		mav.addObject("date",reserService.getdNum(calender.getdNum()));
 		model.addAttribute("room_check",reserService.getCheck(calender.getRoom_check()));
 	

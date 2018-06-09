@@ -1,19 +1,14 @@
 package com.spring.pension.service;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.sql.Date;
-
-import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import com.spring.pension.util.CalendarUtile;
 @Service
 public class ReservationServiceImpl implements ReservationService {
-		
+	
 	private static final  Logger logger = LoggerFactory.getLogger(ReservationServiceImpl.class);
 	// 금일 달력 출력
 	@Override
@@ -56,7 +51,6 @@ public class ReservationServiceImpl implements ReservationService {
 	@Override
 	public CalendarUtile getCheck(int room_check) throws Exception {
 		CalendarUtile calender = new CalendarUtile();
-		
 		calender.setRoom_check(room_check);
 		return calender;
 	}
@@ -65,6 +59,14 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		calender.setPay(calender.getSelect());
 		
+		return calender;
+	}
+	//숙박에 관한 세부정보 입력
+	@Override
+	public CalendarUtile insert(CalendarUtile calender) throws Exception {
+		
+		calender.setRoom_name(calender.getRoom_name());
+		System.out.println(calender.getRoom_name());
 		return calender;
 	}
 }
