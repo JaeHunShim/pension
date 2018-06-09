@@ -72,7 +72,7 @@ public class ReservationController {
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
 	public void infoInsert(CalendarUtile calender,ReservationVO reVO ,Model model) throws Exception {
 		
-		System.out.println(calender.getRoom_name());
+		model.addAttribute("calender",reserService.insert(calender));
 	}
 	//숙박에 따라서 가격바꾸는 부분 (ModelAndView 사용 )
 	@RequestMapping(value="/pay",method=RequestMethod.POST)
