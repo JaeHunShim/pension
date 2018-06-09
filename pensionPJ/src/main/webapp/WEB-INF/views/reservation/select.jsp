@@ -98,13 +98,19 @@ $(document).ready(function(){
 			$(this).attr('selected',true);
 		}
 	});
-	//contoller insert로 가는 부분 
-	$('input[type="image"]').on('click',function(){
-		changeInsertValue();
-		var prm = document.prm;
-		$('#prm').attr('action','/reservation/insert');
-		prm.submit();
-	});
+	//contoller insert로 가는 부분 (하나라도 체크를 안하면 submit안되게함 )
+	$('input[type="image"]').on('click',function(event){
+		var checkvalue= $('#hkBox:checked').length; 
+		if(checkvalue==0){
+			alert('객실을 하나라도 선택 하셔야 합니다.');
+			event.preventDefault();
+		}else{
+			changeInsertValue();
+			var prm = document.prm;
+			$('#prm').attr('action','/reservation/insert');
+			prm.submit();	
+		}
+	});	
 	//숫자 string으로 바꿔서 ,찍기 
 	$('td b').each(function(){
 		var x = $(this).text();
