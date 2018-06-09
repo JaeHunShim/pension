@@ -34,7 +34,7 @@ function insert(){
 
 //insertController로 form 전송할 값을 라디오 버튼으로 클릭한 값으로 변동해서 전송함 
 function changeInsertValue(){
-	$('#chkBox:checked').each(function(){
+	$('#hkBox:checked').each(function(){
 		if(this.value ==1){
 			$('input[name="room_name"]').val("데이지(복층)");
 			return true;
@@ -100,6 +100,7 @@ $(document).ready(function(){
 	});
 	//contoller insert로 가는 부분 
 	$('input[type="image"]').on('click',function(){
+		changeInsertValue();
 		var prm = document.prm;
 		$('#prm').attr('action','/reservation/insert');
 		prm.submit();
@@ -206,7 +207,7 @@ $(document).ready(function(){
 		<tbody>
 			<tr>
 				<td>
-					<input type='checkbox' id = 'hkBox' name='magaret' value='4'>
+					<input type='checkbox' id ='hkBox' name='magaret' value='4'>
 				</td>
 				<td><span class='bgBlu'>예약가능</span></td>
 				<td class='txt'>마가렛</td>
