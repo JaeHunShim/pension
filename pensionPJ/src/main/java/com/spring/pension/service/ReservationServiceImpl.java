@@ -54,7 +54,7 @@ public class ReservationServiceImpl implements ReservationService {
 		calender.setRoom_check(room_check);
 		return calender;
 	}
-	//숙반에 따른 값 변동
+	//숙박에 따른 값 변동
 	public CalendarUtile changePay(CalendarUtile calender) throws Exception {
 		
 		calender.setPay(calender.getSelect());
@@ -66,7 +66,15 @@ public class ReservationServiceImpl implements ReservationService {
 	public CalendarUtile insert(CalendarUtile calender) throws Exception {
 		
 		calender.setRoom_name(calender.getRoom_name());
-		System.out.println(calender.getRoom_name());
+		calender.setRoom_width(calender.getRoom_width());
+		calender.setInwon_check(calender.getInwon_check());
+		calender.setMiddle_pay(calender.getMiddle_pay());
+		calender.setAdd_pay(calender.getInwon_check());
+		calender.setTotal_pay(calender.getMiddle_pay(), calender.getAdd_pay());
+		//System.out.println("추가되는 돈:" + calender.getAdd_pay());
+		//System.out.println("총돈 "+calender.getTotal_pay());
+		/*calender.setTotal_pay(calender.getMiddle_pay(),calender.getAdd_pay());*/
+		
 		return calender;
 	}
 }

@@ -7,8 +7,8 @@ import java.util.Date;
 
 public class CalendarUtile {
 	
-	private Integer inwon_check; //선택한 인원
-	private int pay; //지불할 돈 
+	private int inwon_check=4; //선택한 인원
+	private int pay; //숙박에 따라서 바뀌는 돈 
 	private Date fullDate; //년도 full(문자열을 Date로 합침)
 	private int year; //년도
 	private int month; //달력
@@ -19,40 +19,55 @@ public class CalendarUtile {
 	private int dNum; // 선택한 달력의 날짜(일)
 	private int room_check; // 선택한 룸
 	private String room_name; //선택한 룸 이름
-	private Integer select; //숙박날짜 (1~31)
+	private int select =1; //숙박날짜 (1~31) 초기값을 1박으로 잡아줌 
+	private String room_width; //방크기에 대한 정보
+	private int middle_pay;//숙박기간에 따른 지불할 금액 중간 집계가격
+	private int add_pay; // 인원에 따른 추가 금액 
+	private int total_pay;// 숙박기간 + 인원에 대한 금액
 	
 	
-	
-	public Integer getSelect() {
+	public int getTotal_pay() {
+		return total_pay;
+	}
+	public void setTotal_pay(int middle_pay,int add_pay) {
+
+		this.total_pay = middle_pay+add_pay;
+	}
+	public int getAdd_pay() {
+		return add_pay;
+	}
+	public void setAdd_pay(int inwon_check) {
+		this.add_pay = (inwon_check-4)*20000;
+	}
+	public int getMiddle_pay() {
+		return middle_pay;
+	}
+	public void setMiddle_pay(int middle_pay) {
+		this.middle_pay = middle_pay;
+	}
+	public String getRoom_width() {
+		return room_width;
+	}
+	public void setRoom_width(String room_width) {
+		this.room_width = room_width;
+	}
+	public int getSelect() {
 		return select;
 	}
-	public void setSelect(Integer select) {
+	public void setSelect(int select) {
 		this.select = select;
 	}
-	public Integer getInwon_check() {
+	public int getInwon_check() {
 		return inwon_check;
 	}
-	public void setInwon_check(Integer inwon_check) {
+	public void setInwon_check(int inwon_check) {
 		this.inwon_check = inwon_check;
 	}
 	public int getPay() {
 		return pay;
 	}
-	//인원에 따라서 가격증가 시킴 
-	public void setPay(int pay,Integer inwon_check) {
-		if(inwon_check == 4) {
-			this.pay = pay;
-		}else if(inwon_check == 5) {
-			this.pay = pay +20000;
-		}else if(inwon_check == 6) {
-			this.pay = pay +40000;
-		}else if(inwon_check == 7) {
-			this.pay = pay +60000;
-		}else if(inwon_check == 8) {
-			this.pay = pay +80000;
-		}
-	}
-	public void setPay(Integer select) {
+	//숙박에 따른 페이계산 
+	public void setPay(int select) {
 		this.pay = 120000*select;
 	}
 	public String getRoom_name() {
@@ -155,18 +170,20 @@ public class CalendarUtile {
 		
 		return row;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "CalendarUtile [inwon_check=" + inwon_check + ", pay=" + pay + ", fullDate=" + fullDate + ", year="
 				+ year + ", month=" + month + ", date=" + date + ", week=" + week + ", lastDate=" + lastDate + ", row="
 				+ row + ", dNum=" + dNum + ", room_check=" + room_check + ", room_name=" + room_name + ", select="
-				+ select + ", getSelect()=" + getSelect() + ", getInwon_check()=" + getInwon_check() + ", getPay()="
-				+ getPay() + ", getRoom_name()=" + getRoom_name() + ", getFullDate()=" + getFullDate()
-				+ ", getRoom_check()=" + getRoom_check() + ", getdNum()=" + getdNum() + ", getYear()=" + getYear()
-				+ ", getMonth()=" + getMonth() + ", getDate()=" + getDate() + ", getWeek()=" + getWeek()
-				+ ", getLastDate()=" + getLastDate() + ", getRow()=" + getRow() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
-	}
-	
+				+ select + ", room_width=" + room_width + ", middle_pay=" + middle_pay + ", add_pay=" + add_pay
+				+ ", total_pay=" + total_pay + ", getTotal_pay()=" + getTotal_pay() + ", getAdd_pay()=" + getAdd_pay()
+				+ ", getMiddle_pay()=" + getMiddle_pay() + ", getRoom_width()=" + getRoom_width() + ", getSelect()="
+				+ getSelect() + ", getInwon_check()=" + getInwon_check() + ", getPay()=" + getPay()
+				+ ", getRoom_name()=" + getRoom_name() + ", getFullDate()=" + getFullDate() + ", getRoom_check()="
+				+ getRoom_check() + ", getdNum()=" + getdNum() + ", getYear()=" + getYear() + ", getMonth()="
+				+ getMonth() + ", getDate()=" + getDate() + ", getWeek()=" + getWeek() + ", getLastDate()="
+				+ getLastDate() + ", getRow()=" + getRow() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}*/
 	
 }

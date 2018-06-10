@@ -10,6 +10,23 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+//숫자에 콤마찍는 함수
+function numberWithCommas(x) {
+	$('tr td').each(function(){
+		var x = $(this).text();
+		var y = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$(this).text(y);
+	});	
+}
+$(document).ready(function(){
+	//숫자에 콤마 직는 부분
+	$('tr td').each(function(){
+		var x = $(this).text();
+		numberWithCommas(x);
+	});
+});
+</script>
 </head>
 <body>
 <div class="header wRap">
@@ -64,12 +81,12 @@
 			<tbody>
 				<tr>
 					<td class="txt">${calender.room_name}</td>
-					<td>25평형</td>
+					<td>${calender.room_width}</td>
 					<td>4/8</td>
-					<td>4명</td>
-					<td>￦120,000</td>
-					<td>￦0</td>
-					<td>￦120,000</td>
+					<td>${calender.inwon_check}명</td>
+					<td>￦${calender.middle_pay}</td>
+					<td>￦${calender.add_pay}</td>
+					<td>￦${calender.total_pay}</td>
 				</tr>
 			</tbody>
 		</table>
@@ -85,7 +102,7 @@
 			</tr>
 			<tr>
 				<th scope="row">결제금액</th>
-				<td class="red"><strong><em id="totalM">￦120,000</em></strong></td>
+				<td class="red"><strong><em id="totalM">￦${calender.total_pay}</em></strong></td>
 			</tr>
 			<tr>
 				<th scope="row">성 명</th>

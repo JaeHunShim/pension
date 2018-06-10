@@ -12,12 +12,12 @@
 <title>Insert title here</title>
 </head>
 <script>
+
 //가격에 콤마찍는 부분
 function numberWithCommas(x) {
 	$('td b').each(function(){
 		var x = $(this).text();
 		var y = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		console.log(y);
 		$(this).text(y);
 	});
 	
@@ -26,28 +26,43 @@ function numberWithCommas(x) {
 function insert(){
 	//숙박 선택에 대한 값
 	var chkvalue = $('select[name="chk_day"]').val();
-	$("input[name='select']").val(chkvalue);
-	var prm = document.prm;
-	$('#prm').attr('action','/reservation/pay');
-	prm.submit();
+		$("input[name='select']").val(chkvalue);
+		var prm = document.prm;
+		$('#prm').attr('action','/reservation/pay');
+		prm.submit();	
 }
 
 //insertController로 form 전송할 값을 라디오 버튼으로 클릭한 값으로 변동해서 전송함 
 function changeInsertValue(){
+	var first_value = $('input[name="pay"]').val();
+	var select = $('input[name="select"]').val();
+	var m =$("select[name='inwon_select_m']").val();
+	var i =$("select[name='inwon_select_i']").val();
+	var l =$("select[name='inwon_select_l']").val();
+	var d =$("select[name='inwon_select_d']").val();
 	$('#hkBox:checked').each(function(){
 		if(this.value ==1){
 			$('input[name="room_name"]').val("데이지(복층)");
-			return true;
+			$('input[name="room_width"]').val("25평형");
+			$('input[name="inwon_check"]').val(d);
+			$('input[name="middle_pay"]').val(first_value);
 		}else if(this.value==2){
 			$('input[name="room_name"]').val("릴리(복층)");
-			return true;
+			$('input[name="room_width"]').val("25평형");
+			$('input[name="inwon_check"]').val(l);
+			$('input[name="middle_pay"]').val(first_value);
 		}else if(this.value==3){
 			$('input[name="room_name"]').val("아이비");
-			return true;
+			$('input[name="room_width"]').val("20평형");
+			$('input[name="inwon_check"]').val(i);
+			$('input[name="middle_pay"]').val(first_value-select*20000);
 		}else{
 			$('input[name="room_name"]').val("마가렛");
-			return true;
+			$('input[name="room_width"]').val("25평형");
+			$('input[name="inwon_check"]').val(m);
+			$('input[name="middle_pay"]').val(first_value);
 		}
+		return true;
 	});
 }
 // 룸체크 버튼 
@@ -86,9 +101,6 @@ $(document).ready(function(){
    				
    			return;
 	}});
-	//select 인원석택에 대한 value값 전송
-	var inwon =$('select[name="inwon_select"]').val();
-	$("input[name='inwon_check']").val(inwon);
 	
 	//숙박 option에 대한 정보유지
 	var select_name =$("input[name='select']").val()
@@ -108,7 +120,7 @@ $(document).ready(function(){
 			changeInsertValue();
 			var prm = document.prm;
 			$('#prm').attr('action','/reservation/insert');
-			prm.submit();	
+			prm.submit();
 		}
 	});	
 	//숫자 string으로 바꿔서 ,찍기 
@@ -116,6 +128,7 @@ $(document).ready(function(){
 		var x = $(this).text();
 		numberWithCommas(x);
 	});
+	
 });
 </script>
 <body>
@@ -158,6 +171,8 @@ $(document).ready(function(){
 	<input type="hidden" name='room_name' value ='${calender.room_name}'><!--  방이름 -->
 	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 -->
 	<input type="hidden" name="pay" value="${calender.pay}"><!--  가격 -->
+	<input type="hidden" name="room_width" value="${calender.room_width}"><!--방마다 방크기 -->
+	<input type="hidden" name="middle_pay" value="${calender.middle_pay}"><!--숙박기간에 다른 가격에 대해 지불할값  -->
 	<!-- content -->
     <!-- 숙박 기간 선택 -->
 	<div class="yms dayS wRap">
@@ -220,7 +235,7 @@ $(document).ready(function(){
 				<td>25평형</td>
 				<td>4/8</td>
 				<td>
-					<select name='inwon_select'>
+					<select name='inwon_select_m'>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 						<option value='6'>6</option>							
@@ -240,13 +255,13 @@ $(document).ready(function(){
 				<td>20평형</td>
 				<td>4/6</td>
 				<td>
-					<select name='inwon_1471309372'>
+					<select name='inwon_select_i'>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 						<option value='6'>6</option>
 					</select>
 				</td>    
-				<td><b>￦${calender.pay-20000}</b></td>
+				<td><b>￦${calender.pay-(calender.select*20000)}</b></td>
 			</tr>
 			<tr>
 				<td>
@@ -259,7 +274,7 @@ $(document).ready(function(){
 				<td>25평형</td>
 				<td>4/8</td>
 				<td>
-					<select name='inwon_1471309564'>
+					<select name='inwon_select_l'>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 						<option value='6'>6</option>
@@ -279,7 +294,7 @@ $(document).ready(function(){
 				<td>25평형</td>
 				<td>4/8</td>
 				<td>
-					<select name='inwon_1471309602'>
+					<select name='inwon_select_d'>
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 						<option value='6'>6</option>
