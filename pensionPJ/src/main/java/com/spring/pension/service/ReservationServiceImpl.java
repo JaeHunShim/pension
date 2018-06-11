@@ -71,9 +71,8 @@ public class ReservationServiceImpl implements ReservationService {
 		calender.setMiddle_pay(calender.getMiddle_pay());
 		calender.setAdd_pay(calender.getInwon_check());
 		calender.setTotal_pay(calender.getMiddle_pay(), calender.getAdd_pay());
-		//System.out.println("추가되는 돈:" + calender.getAdd_pay());
-		//System.out.println("총돈 "+calender.getTotal_pay());
-		/*calender.setTotal_pay(calender.getMiddle_pay(),calender.getAdd_pay());*/
+		calender.setFullDate(calender.getYear(), calender.getMonth(), calender.getdNum());
+		calender.setLastFullDate(calender.getFullDate(), calender.getSelect());
 		
 		return calender;
 	}

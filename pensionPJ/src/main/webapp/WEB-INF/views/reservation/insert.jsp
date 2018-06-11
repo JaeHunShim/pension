@@ -13,19 +13,22 @@
 <script>
 //숫자에 콤마찍는 함수
 function numberWithCommas(x) {
-	$('tr td').each(function(){
+	$('#info').children('td').each(function(){
 		var x = $(this).text();
 		var y = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		$(this).text(y);
-	});	
+
+	});
 }
 $(document).ready(function(){
 	//숫자에 콤마 직는 부분
-	$('tr td').each(function(){
+	$('#info').children('td').each(function(){
 		var x = $(this).text();
-		numberWithCommas(x);
+		numberWithCommas(x)
+		return x;
 	});
 });
+
 </script>
 </head>
 <body>
@@ -79,7 +82,7 @@ $(document).ready(function(){
 			</thead>
        
 			<tbody>
-				<tr>
+				<tr id="info">
 					<td class="txt">${calender.room_name}</td>
 					<td>${calender.room_width}</td>
 					<td>4/8</td>
@@ -96,17 +99,18 @@ $(document).ready(function(){
 			<tr>
 				<th width="20%" scope="row">숙박기간</th>
 				<td>
-						<input type="hidden" name="rDay_txt" value="2018-06-07 ~ 2018-06-08 (1박 2일)">
-							<fmt:formatDate pattern="yyyy-MM-dd" value="${calender.fullDate}"/> ~ 2018-06-08 (1박 2일)
+					<input type="hidden" name="rDay_txt" value="2018-06-07 ~ 2018-06-08 (1박 2일)"/>
+					<fmt:formatDate pattern="yyyy-MM-dd" value="${calender.fullDate}"/>~
+					<fmt:formatDate pattern="yyyy-MM-dd" value="${calender.lastFullDate}"/>(${calender.select}박${calender.select+1}일)
 				</td>
 			</tr>
-			<tr>
+			<tr id="info">
 				<th scope="row">결제금액</th>
 				<td class="red"><strong><em id="totalM">￦${calender.total_pay}</em></strong></td>
 			</tr>
 			<tr>
 				<th scope="row">성 명</th>
-				<td><input name="name"  size="20"></td>
+				<td><input name="name"  size="20"/></td>
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>

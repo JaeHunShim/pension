@@ -128,7 +128,8 @@ $(document).ready(function(){
 		var x = $(this).text();
 		numberWithCommas(x);
 	});
-	
+	var a = $('input[name="fullDate"]').val();
+	console.log(typeof(a));
 });
 </script>
 <body>
@@ -167,7 +168,7 @@ $(document).ready(function(){
 	<input type='hidden' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
 	<input type='hidden' name ='dNum' value='${date.dNum}'><!-- 예약일 -->
 	<input type='hidden' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
-	<input type="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
+	<input type="text" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
 	<input type="hidden" name='room_name' value ='${calender.room_name}'><!--  방이름 -->
 	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 -->
 	<input type="hidden" name="pay" value="${calender.pay}"><!--  가격 -->

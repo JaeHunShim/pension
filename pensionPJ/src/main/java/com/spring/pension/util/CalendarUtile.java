@@ -1,5 +1,6 @@
 package com.spring.pension.util;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,7 +10,7 @@ public class CalendarUtile {
 	
 	private int inwon_check=4; //선택한 인원
 	private int pay; //숙박에 따라서 바뀌는 돈 
-	private Date fullDate; //년도 full(문자열을 Date로 합침)
+	private Date fullDate; //년도 full(문자열을 Date로 합침), 숙박 시작 날짜
 	private int year; //년도
 	private int month; //달력
 	private int date; //현재 날짜
@@ -24,8 +25,18 @@ public class CalendarUtile {
 	private int middle_pay;//숙박기간에 따른 지불할 금액 중간 집계가격
 	private int add_pay; // 인원에 따른 추가 금액 
 	private int total_pay;// 숙박기간 + 인원에 대한 금액
+	private Date lastFullDate; // 숙박 마지막날짜(1박,2박,3박에 따라서 날짜를 변환시켜야 해서 씀)
 	
-	
+	public Date getLastFullDate() {
+		return lastFullDate;
+	}
+	public void setLastFullDate(Date fullDate,int select) {
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(fullDate);
+		cal.add(Calendar.DATE,select);
+		this.lastFullDate = cal.getTime(); 
+	}
 	public int getTotal_pay() {
 		return total_pay;
 	}
@@ -77,15 +88,15 @@ public class CalendarUtile {
 		this.room_name = room_name;
 	}
 	public Date getFullDate() {
+		
 		return fullDate;
 	}
 	// 파라미터로 년도,월,일을 문자열로 합친후 date형식으로 바꿈 
 	public void setFullDate(int year, int month,int dNum) throws ParseException {
-		
+		month = month+1;
 		String strd = year+"-"+month+"-"+dNum;
-		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strd);
-		
-		this.fullDate = date;
+		Date fullDate = new SimpleDateFormat("yyyy-MM-dd").parse(strd);
+		this.fullDate = fullDate;
 	}
 
 	public int getRoom_check() {
