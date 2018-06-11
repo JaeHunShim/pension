@@ -27,6 +27,18 @@ $(document).ready(function(){
 		numberWithCommas(x)
 		return x;
 	});
+	//동의버튼 안눌렀을때  다음단계로 넘어가지 못하게 하는 부분 
+	$('.btn').on('click',function(){
+		var checkconfirm =$('input:checkbox').prop('checked');
+		if(checkconfirm == false){
+			alert('약관에 동의 하셔야 합니다.');
+			return false;
+		}else{
+		var prm = document.prm;
+		$('#prm').attr('action','/reservation/confirm');
+		prm.submit();
+		}
+	});
 });
 
 </script>
@@ -56,7 +68,7 @@ $(document).ready(function(){
 	</div>
 </div>
 <!-- //Sub Title -->
-<form name="frm" method="post" action="" onsubmit="return reser_send()">
+<form name="prm" id="prm" method="post">
 	
 	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
 	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
@@ -110,21 +122,21 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">성 명</th>
-				<td><input name="name"  size="20"/></td>
+				<td><input name="user_id"  size="20"/></td>
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>
-				<td><input name="hp1"  size="6" maxlength="3"> - <input name="hp2"  size="8" maxlength="4"> - <input name="hp3"  size="8" maxlength="4"></td>
+				<td><input name="user_phone"  size="6" maxlength="3"> - <input name="hp2"  size="8" maxlength="4"> - <input name="hp3"  size="8" maxlength="4"></td>
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>
-				<td><input name="email"  size="30"></td>
+				<td><input name="user_email"  size="30"></td>
 			</tr>
 			<tr>
 				<th scope="row">입실예정시간</th>
 				<td>
 					<select name="reser_time">
-						<option value="오후 3시"  selected>오후 3시</option>
+						<option value="오후 3시">오후 3시</option>
 						<option value="오후 4시">오후 4시</option>
 						<option value="오후 5시">오후 5시</option>
 						<option value="오후 6시">오후 6시</option>
@@ -155,7 +167,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">입금자명</th>
-				<td><input name="inName"  size="20"></td>
+				<td><input name="user_name"  size="20"></td>
 			</tr>
 		</table>
     
