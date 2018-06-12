@@ -1,4 +1,4 @@
-package com.spring.pension.util;
+package com.spring.pension.domain;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -12,6 +12,8 @@ import org.imgscalr.Scalr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;
+
+import com.spring.pension.util.MediaUtils;
 
 public class UploadFileUtils {
 

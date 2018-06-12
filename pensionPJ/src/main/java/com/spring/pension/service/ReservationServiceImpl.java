@@ -5,7 +5,9 @@ import java.util.Calendar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import com.spring.pension.util.CalendarUtile;
+
+import com.spring.pension.domain.CalendarUtile;
+import com.spring.pension.domain.ReserVO;
 @Service
 public class ReservationServiceImpl implements ReservationService {
 	
@@ -55,6 +57,7 @@ public class ReservationServiceImpl implements ReservationService {
 		return calender;
 	}
 	//숙박에 따른 값 변동
+	@Override
 	public CalendarUtile changePay(CalendarUtile calender) throws Exception {
 		
 		calender.setPay(calender.getSelect());
@@ -64,7 +67,7 @@ public class ReservationServiceImpl implements ReservationService {
 	//숙박에 관한 세부정보 입력
 	@Override
 	public CalendarUtile insert(CalendarUtile calender) throws Exception {
-		
+		calender.setRoom_max(calender.getRoom_max());
 		calender.setRoom_name(calender.getRoom_name());
 		calender.setRoom_width(calender.getRoom_width());
 		calender.setInwon_check(calender.getInwon_check());
@@ -76,4 +79,22 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		return calender;
 	}
+	//최종 숙박확인
+	@Override
+	public ReserVO confirm(CalendarUtile calender) throws Exception {
+		
+		ReserVO reserVO = new ReserVO();
+		CalendarUtile calender1  = new CalendarUtile();
+		System.out.println(calender1.toString());
+		
+		reserVO.setRoom_name(calender.getRoom_name());
+		reserVO.setInwon_check(calender.getInwon_check());
+		reserVO.setTotal_pay(calender.getTotal_pay());
+		reserVO.setFullDate(calender.getFullDate());
+		reserVO.setLastFullDate(calender.getLastFullDate());
+		reserVO.setSelect(calender.getSelect());
+		
+		return reserVO;
+	}
+
 }

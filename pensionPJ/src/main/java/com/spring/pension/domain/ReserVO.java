@@ -4,72 +4,57 @@ import java.util.Date;
 
 public class ReserVO {
 
-		private Integer rCode;	//예약코드
-		private Date reserDate; //예약날짜
-		private String roomN;//방이름
-		private String room; //방크기
-		private String max;//최대인원수
-		private Integer fee; // 가격
-		private Integer addfee; //추가 가격
-		private String choice; //방선택
+	private String room_name;
+	private int inwon_check;
+	private int total_pay;
+	private Date fullDate;
+	private Date lastFullDate;
+	private int select;
+	public String getRoom_name() {
+		return room_name;
+	}
+	public void setRoom_name(String room_name) {
+		this.room_name = room_name;
+	}
+	public int getInwon_check() {
+		return inwon_check;
+	}
+	public void setInwon_check(int inwon_check) {
+		this.inwon_check = inwon_check;
+	}
+	public int getTotal_pay() {
+		return total_pay;
+	}
+	public void setTotal_pay(int total_pay) {
+		this.total_pay = total_pay;
+	}
+	public Date getFullDate() {
+		return fullDate;
+	}
+	public void setFullDate(Date fullDate) {
+		this.fullDate = fullDate;
+	}
+	public Date getLastFullDate() {
+		return lastFullDate;
+	}
+	public void setLastFullDate(Date lastFullDate) {
+		this.lastFullDate = lastFullDate;
+	}
+	public int getSelect() {
+		return select;
+	}
+	public void setSelect(int select) {
+		this.select = select;
+	}
+	@Override
+	public String toString() {
+		return "ReserVO [room_name=" + room_name + ", inwon_check=" + inwon_check + ", total_pay=" + total_pay
+				+ ", fullDate=" + fullDate + ", lastFullDate=" + lastFullDate + ", select=" + select
+				+ ", getRoom_name()=" + getRoom_name() + ", getInwon_check()=" + getInwon_check() + ", getTotal_pay()="
+				+ getTotal_pay() + ", getFullDate()=" + getFullDate() + ", getLastFullDate()=" + getLastFullDate()
+				+ ", getSelect()=" + getSelect() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
 		
-		public Integer getrCode() {
-			return rCode;
-		}
-		public void setrCode(Integer rCode) {
-			this.rCode = rCode;
-		}
-		public Date getReserDAte() {
-			return reserDate;
-		}
-		public void setReserDAte(Date reserDAte) {
-			this.reserDate = reserDAte;
-		}
-		public String getRoomN() {
-			return roomN;
-		}
-		public void setRoomN(String roomN) {
-			this.roomN = roomN;
-		}
-		public String getRoom() {
-			return room;
-		}
-		public void setRoom(String room) {
-			this.room = room;
-		}
-		public String getMax() {
-			return max;
-		}
-		public void setMax(String max) {
-			this.max = max;
-		}
-		public Integer getFee() {
-			return fee;
-		}
-		public void setFee(Integer fee) {
-			this.fee = fee;
-		}
-		public Integer getAddfee() {
-			return addfee;
-		}
-		public void setAddfee(Integer addfee) {
-			this.addfee = addfee;
-		}
-		public String getChoice() {
-			return choice;
-		}
-		public void setChoice(String choice) {
-			this.choice = choice;
-		}
-		@Override
-		public String toString() {
-			return "BoardVO [rCode=" + rCode + ", reserDAte=" + reserDate + ", roomN=" + roomN + ", room=" + room
-					+ ", max=" + max + ", fee=" + fee + ", addfee=" + addfee + ", choice=" + choice + ", getrCode()="
-					+ getrCode() + ", getReserDAte()=" + getReserDAte() + ", getRoomN()=" + getRoomN() + ", getRoom()="
-					+ getRoom() + ", getMax()=" + getMax() + ", getFee()=" + getFee() + ", getAddfee()=" + getAddfee()
-					+ ", getChoice()=" + getChoice() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-					+ ", toString()=" + super.toString() + "]";
-		}
-		
-		
+	
 }

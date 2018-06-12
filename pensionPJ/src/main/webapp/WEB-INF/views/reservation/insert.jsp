@@ -20,6 +20,13 @@ function numberWithCommas(x) {
 
 	});
 }
+//이전단계로 가는 부분 
+function backPage(){
+	var frm = document.prm;
+	$('#frm').attr('method','get');
+	$('#frm').attr('action','/reservation/select');
+	prm.submit();
+}
 $(document).ready(function(){
 	//숫자에 콤마 직는 부분
 	$('#info').children('td').each(function(){
@@ -29,14 +36,14 @@ $(document).ready(function(){
 	});
 	//동의버튼 안눌렀을때  다음단계로 넘어가지 못하게 하는 부분 
 	$('.btn').on('click',function(){
-		var checkconfirm =$('input:checkbox').prop('checked');
+ 		var checkconfirm =$('input:checkbox').prop('checked');
 		if(checkconfirm == false){
 			alert('약관에 동의 하셔야 합니다.');
 			return false;
 		}else{
-		var prm = document.prm;
-		$('#prm').attr('action','/reservation/confirm');
-		prm.submit();
+		var frm = document.prm;
+		$('#frm').attr('action','/reservation/confirm');
+		frm.submit();
 		}
 	});
 });
@@ -68,12 +75,15 @@ $(document).ready(function(){
 	</div>
 </div>
 <!-- //Sub Title -->
-<form name="prm" id="prm" method="post">
+<form name="frm" id="frm" method="post">
 	
+	<input type ="text" name='room_name' value='${calender.room_name}'><!--  방이름 -->
+	<input type="text" name="inwon_check" value="${calender.inwon_check }"><!-- 인원 -->
+	<input type="text" name="total_pay" value="${calender.total_pay}"><!-- 전체금액 -->
+	<input type ="text" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
+	<input type="text" name="lastFullDate" value='${calender.lastFullDate}'><!-- 예약마지막 날짜 -->
+	<input type ="text" name='select' value="${calender.select }"><!-- 숙박기간 -->
 	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
-	<input type ="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
-	<input type ="hidden" name='room_name' value = '${calender.room_name}'><!--  방이름 -->
-	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 --> 
 	<input type="hidden" name="pay" value ="${calender.pay}"> <!-- 숙박비 -->
 <!-- Contents -->   
 	<div class="conT">
@@ -97,7 +107,7 @@ $(document).ready(function(){
 				<tr id="info">
 					<td class="txt">${calender.room_name}</td>
 					<td>${calender.room_width}</td>
-					<td>4/8</td>
+					<td>${calender.room_max}</td>
 					<td>${calender.inwon_check}명</td>
 					<td>￦${calender.middle_pay}</td>
 					<td>￦${calender.add_pay}</td>
@@ -203,7 +213,8 @@ $(document).ready(function(){
 		<p><input type="checkbox" class="bnone" name="cla"> 상기 개인정보 취급정책 및 예약규정에 동의합니다.</p>
 	</div>
     
-<p class="btn"><input type="image" src="/resources/img/reservation/btn.png" alt="예약하기"></a> &nbsp; <img src="/resources/img/reservation/bt_pre.gif" alt="이전단계" onclick="backPage();" style="cursor:pointer"></p>
+<p class="btn"><input type="image" src="/resources/img/reservation/btn.png" alt="예약하기">&nbsp; 
+<img src="/resources/img/reservation/bt_pre.gif" alt="이전단계" onclick="backPage();" style="cursor:pointer"></p>
   <!-- //객실예약 -->
 </form>
 <!-- //Contents --> 

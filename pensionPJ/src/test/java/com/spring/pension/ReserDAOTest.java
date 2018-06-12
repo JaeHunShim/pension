@@ -25,12 +25,12 @@ public class ReserDAOTest {
 	public void testInsertReser() throws Exception{
 		
 		ReserVO reser = new ReserVO();
-		reser.setAddfee(1000);
+/*		reser.setAddfee(1000);
 		reser.setChoice("Y");
 		reser.setFee(24000);
 		reser.setMax("4명");
 		reser.setRoom("24평");
-		reser.setRoomN("재훈방");
+		reser.setRoomN("재훈방");*/
 		
 		dao.create(reser);
 	}

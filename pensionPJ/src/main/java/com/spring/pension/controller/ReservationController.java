@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.pension.domain.CalendarUtile;
 import com.spring.pension.domain.ReservationVO;
 import com.spring.pension.service.ReservationService;
-import com.spring.pension.util.CalendarUtile;
 
 
 @Controller
@@ -87,5 +88,11 @@ public class ReservationController {
 		model.addAttribute("room_check",reserService.getCheck(calender.getRoom_check()));
 	
 		return mav;
+	}
+	//예약 확인하는 부분 
+	@RequestMapping(value="/confirm",method=RequestMethod.POST)
+	public void reserConfirm(@ModelAttribute CalendarUtile calender,ReservationVO reVO,Model model) throws Exception {
+		
+		model.addAttribute("reserVO",reserService.confirm(calender));
 	}
 }

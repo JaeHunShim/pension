@@ -34,33 +34,38 @@ function insert(){
 
 //insertController로 form 전송할 값을 라디오 버튼으로 클릭한 값으로 변동해서 전송함 
 function changeInsertValue(){
-	var first_value = $('input[name="pay"]').val();
-	var select = $('input[name="select"]').val();
-	var m =$("select[name='inwon_select_m']").val();
-	var i =$("select[name='inwon_select_i']").val();
-	var l =$("select[name='inwon_select_l']").val();
-	var d =$("select[name='inwon_select_d']").val();
+	
+	var first_value = $('input[name="pay"]').val(); //숙박에 대한 추가가격(1박,2박,3박에 관한 )
+	var select = $('input[name="select"]').val(); //인원
+	var m =$("select[name='inwon_select_m']").val(); //magaret방의 인원 
+	var i =$("select[name='inwon_select_i']").val();//ivy방의 인원
+	var l =$("select[name='inwon_select_l']").val();//lily방의 인원
+	var d =$("select[name='inwon_select_d']").val();//daisy방의 인원
 	$('#hkBox:checked').each(function(){
 		if(this.value ==1){
 			$('input[name="room_name"]').val("데이지(복층)");
 			$('input[name="room_width"]').val("25평형");
 			$('input[name="inwon_check"]').val(d);
 			$('input[name="middle_pay"]').val(first_value);
+			$('input[name="room_max"]').val("4/8");
 		}else if(this.value==2){
 			$('input[name="room_name"]').val("릴리(복층)");
 			$('input[name="room_width"]').val("25평형");
 			$('input[name="inwon_check"]').val(l);
 			$('input[name="middle_pay"]').val(first_value);
+			$('input[name="room_max"]').val("4/8");
 		}else if(this.value==3){
 			$('input[name="room_name"]').val("아이비");
 			$('input[name="room_width"]').val("20평형");
 			$('input[name="inwon_check"]').val(i);
 			$('input[name="middle_pay"]').val(first_value-select*20000);
+			$('input[name="room_max"]').val("4/6");
 		}else{
 			$('input[name="room_name"]').val("마가렛");
 			$('input[name="room_width"]').val("25평형");
 			$('input[name="inwon_check"]').val(m);
 			$('input[name="middle_pay"]').val(first_value);
+			$('input[name="room_max"]').val("4/8");
 		}
 		return true;
 	});
@@ -168,12 +173,13 @@ $(document).ready(function(){
 	<input type='hidden' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
 	<input type='hidden' name ='dNum' value='${date.dNum}'><!-- 예약일 -->
 	<input type='hidden' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
-	<input type="text" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
+	<input type="hidden" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
 	<input type="hidden" name='room_name' value ='${calender.room_name}'><!--  방이름 -->
 	<input type="hidden" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 -->
 	<input type="hidden" name="pay" value="${calender.pay}"><!--  가격 -->
 	<input type="hidden" name="room_width" value="${calender.room_width}"><!--방마다 방크기 -->
 	<input type="hidden" name="middle_pay" value="${calender.middle_pay}"><!--숙박기간에 다른 가격에 대해 지불할값  -->
+	<input type="hidden" name="room_max" value="${calender.room_max}"><!--방의 최대 인원  -->
 	<!-- content -->
     <!-- 숙박 기간 선택 -->
 	<div class="yms dayS wRap">
