@@ -41,7 +41,7 @@ $(document).ready(function(){
 			alert('약관에 동의 하셔야 합니다.');
 			return false;
 		}else{
-		var frm = document.prm;
+		var frm = document.frm;
 		$('#frm').attr('action','/reservation/confirm');
 		frm.submit();
 		}
@@ -82,7 +82,7 @@ $(document).ready(function(){
 	<input type="text" name="total_pay" value="${calender.total_pay}"><!-- 전체금액 -->
 	<input type ="text" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
 	<input type="text" name="lastFullDate" value='${calender.lastFullDate}'><!-- 예약마지막 날짜 -->
-	<input type ="text" name='select' value="${calender.select }"><!-- 숙박기간 -->
+	<input type ="text" name='select' value="${calender.select}"><!-- 숙박기간 -->
 	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
 	<input type="hidden" name="pay" value ="${calender.pay}"> <!-- 숙박비 -->
 <!-- Contents -->   

@@ -43,7 +43,7 @@ public class CalendarUtile {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(fullDate);
 		cal.add(Calendar.DATE,select);
-		this.lastFullDate = cal.getTime(); 
+		this.lastFullDate = cal.getTime();
 	}
 	public int getTotal_pay() {
 		return total_pay;
@@ -106,7 +106,6 @@ public class CalendarUtile {
 		Date fullDate = new SimpleDateFormat("yyyy-MM-dd").parse(strd);
 		this.fullDate = fullDate;
 	}
-
 	public int getRoom_check() {
 		return room_check;
 	}
