@@ -91,8 +91,9 @@ public class ReservationController {
 	}
 	//예약 확인하는 부분 
 	@RequestMapping(value="/confirm",method=RequestMethod.POST)
-	public void reserConfirm(CalendarUtile calender,ReservationVO reVO,Model model) throws Exception {
+	public void reserConfirm(CalendarUtile calender,Model model) throws Exception {
 		
-		model.addAttribute("calender", reserService.confirm(calender));
+		model.addAttribute("calender",reserService.insert(calender));
+		
 	}
 }

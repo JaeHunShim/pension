@@ -47,21 +47,21 @@
 				<th width="20%" scope="row">숙박기간</th>
 				<td>
 					<input type="hidden" name="rDay_txt" value="2018-06-07 ~ 2018-06-08 (1박 2일)"/>
-					<fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.fullDate}"/>~
-					<fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.lastFullDate}"/>(${reserVO.select}박${reserVO.select+1}일)
+					<fmt:formatDate pattern="yyyy-MM-dd" value="${calender.fullDate}"/>~
+					<fmt:formatDate pattern="yyyy-MM-dd" value="${calender.lastFullDate}"/>(${calender.select}박${calender.select+1}일)
 				</td>
 			</tr>
 			<tr id="info">
 				<th scope="row">결제금액</th>
-				<td class="red"><strong><em id="totalM">￦${reserVO.total_pay}</em></strong></td>
+				<td class="red"><strong><em id="totalM">￦${calender.total_pay}</em></strong></td>
 			</tr>
 			<tr>
 				<th scope="row">객실명</th>
-				<td>${reserVO.room_name}</td>
+				<td>${calender.room_name}</td>
 			</tr>
 			<tr>
 				<th scope="row">객실 인원</th>
-				<td>${reserVO.inwon_check}명</td>
+				<td>${calender.inwon_check}명</td>
 			</tr>
 			<tr>
 				<th scope="row">id</th>

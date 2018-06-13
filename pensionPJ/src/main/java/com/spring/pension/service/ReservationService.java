@@ -17,6 +17,5 @@ public interface ReservationService {
 	public CalendarUtile changePay(CalendarUtile calender) throws Exception;
 	// 예약에 대한 정보 입력 
 	public CalendarUtile insert(CalendarUtile calender) throws Exception;
-	// 마지막 예약확인 부분 
-	public CalendarUtile confirm(CalendarUtile calender) throws Exception;
+
 }

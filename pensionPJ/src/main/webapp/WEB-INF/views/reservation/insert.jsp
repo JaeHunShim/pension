@@ -76,15 +76,18 @@ $(document).ready(function(){
 </div>
 <!-- //Sub Title -->
 <form name="frm" id="frm" method="post">
-	
-	<input type ="text" name='room_name' value='${calender.room_name}'><!--  방이름 -->
-	<input type="text" name="inwon_check" value="${calender.inwon_check }"><!-- 인원 -->
-	<input type="text" name="total_pay" value="${calender.total_pay}"><!-- 전체금액 -->
-	<input type ="text" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
-	<input type="text" name="lastFullDate" value='${calender.lastFullDate}'><!-- 예약마지막 날짜 -->
-	<input type ="text" name='select' value="${calender.select}"><!-- 숙박기간 -->
-	<input type ='hidden' name='check_day' value='${reVO.chk_day}'> <!-- 숙박기간의 value값  -->
-	<input type="hidden" name="pay" value ="${calender.pay}"> <!-- 숙박비 -->
+
+	<input type='text' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
+	<input type='text' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
+	<input type="text" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
+	<input type="text" name='room_name' value ='${calender.room_name}'><!--  방이름 -->
+	<input type="text" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 -->
+	<input type="text" name="pay" value="${calender.pay}"><!--  가격 -->
+	<input type="text" name="middle_pay" value="${calender.middle_pay}"><!--숙박기간에 다른 가격에 대해 지불할값  -->
+	<input type="text" name="room_max" value="${calender.room_max}"><!--방의 최대 인원  -->
+	<input type='text' name ='year' value='${calender.year}'>	<!--  해당년도  -->
+	<input type='text' name ='month' value='${calender.month}'>	<!-- 해당월 -->
+	<input type='text' name ='dNum' value='${calender.dNum}'><!-- 예약일 -->
 <!-- Contents -->   
 	<div class="conT">
     

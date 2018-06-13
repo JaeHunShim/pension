@@ -77,14 +77,6 @@ public class ReservationServiceImpl implements ReservationService {
 		calender.setFullDate(calender.getYear(), calender.getMonth(), calender.getdNum());
 		calender.setLastFullDate(calender.getFullDate(), calender.getSelect());
 
-		System.out.println(calender.toString());
-		return calender;
-	}
-	//최종 숙박확인
-	@Override
-	public CalendarUtile confirm(CalendarUtile calender) throws Exception {
-		
-		
 		return calender;
 	}
 
