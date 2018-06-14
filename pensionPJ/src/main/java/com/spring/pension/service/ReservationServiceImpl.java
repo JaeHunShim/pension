@@ -76,7 +76,16 @@ public class ReservationServiceImpl implements ReservationService {
 		calender.setTotal_pay(calender.getMiddle_pay(), calender.getAdd_pay());
 		calender.setFullDate(calender.getYear(), calender.getMonth(), calender.getdNum());
 		calender.setLastFullDate(calender.getFullDate(), calender.getSelect());
-
+		//좀더 편하게 하기위해서 db에 저장되는 데이터는 따로 빼서 관리 
+		ReserVO reVO = new ReserVO();
+		reVO.setFullDate(calender.getFullDate());
+		reVO.setInwon_check(calender.getInwon_check());
+		reVO.setLastFullDate(calender.getLastFullDate());
+		reVO.setRoom_name(calender.getRoom_name());
+		reVO.setSelect(calender.getSelect());
+		reVO.setTotal_pay(calender.getTotal_pay());
+		
+		System.out.println(reVO.toString());
 		return calender;
 	}
 

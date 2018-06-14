@@ -135,15 +135,15 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">성 명</th>
-				<td><input name="user_id"  size="20"/></td>
+				<td><input name="user_id"  size="20" value="${login.user_name}"/></td>
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>
-				<td><input name="user_phone"  size="6" maxlength="3"> - <input name="hp2"  size="8" maxlength="4"> - <input name="hp3"  size="8" maxlength="4"></td>
+				<td><input name="user_phone"  size="6" maxlength="3" value="${login.user_phone}"><!--  - <input name="hp2"  size="8" maxlength="4"> - <input name="hp3"  size="8" maxlength="4"> --></td>
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>
-				<td><input name="user_email"  size="30"></td>
+				<td><input name="user_email"  size="30" value="${login.user_email}"></td>
 			</tr>
 			<tr>
 				<th scope="row">입실예정시간</th>

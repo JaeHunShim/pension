@@ -65,23 +65,23 @@
 			</tr>
 			<tr>
 				<th scope="row">id</th>
-				<td><%-- ${user_id} --%></td>
+				<td>"${login.user_name}</td>
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>
-				<td><%-- ${user_phone} --%></td>
+				<td>"${login.user_phone}</td>
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>
-				<td><%-- ${user_email} --%></td>
+				<td>"${login.user_name}</td>
 			</tr>
 			<tr>
 				<th scope="row">입실예정시간</th>
-				<td><%-- ${calender.entance_time} --%></td>
+				<td>${calender.entance_time}</td>
 			</tr>
 			<tr>
 				<th scope="row">전달사항</th>
-				<td><textarea rows="3" name="reser_content"></textarea></td>
+				<td><textarea rows="3" name="${reser_content}"></textarea></td>
 			</tr>
 			<tr>
 				<th scope="row">결제수단</th>
@@ -94,7 +94,7 @@
 			</tr>
 			<tr>
 				<th scope="row">입금자명</th>
-				<td><%-- ${user_name} --%></td>
+				<td>${user_name}</td>
 			</tr>
 		</table>
 	</div>

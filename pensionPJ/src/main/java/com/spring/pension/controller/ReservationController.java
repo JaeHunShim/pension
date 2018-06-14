@@ -72,7 +72,7 @@ public class ReservationController {
 	}
 	//정보입력하는 부분
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public void infoInsert(CalendarUtile calender,ReservationVO reVO ,Model model) throws Exception {
+	public void infoInsert(CalendarUtile calender,ReservationVO reVO ,HttpSession session ,Model model) throws Exception {
 		
 		model.addAttribute("calender",reserService.insert(calender));
 	}
@@ -91,7 +91,7 @@ public class ReservationController {
 	}
 	//예약 확인하는 부분 
 	@RequestMapping(value="/confirm",method=RequestMethod.POST)
-	public void reserConfirm(CalendarUtile calender,Model model) throws Exception {
+	public void reserConfirm(CalendarUtile calender,HttpSession session ,Model model) throws Exception {
 		
 		model.addAttribute("calender",reserService.insert(calender));
 		
