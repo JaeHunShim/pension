@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.pension.domain.CalendarUtile;
+import com.spring.pension.domain.ReserVO;
 import com.spring.pension.domain.ReservationVO;
 import com.spring.pension.service.ReservationService;
 
@@ -72,9 +73,11 @@ public class ReservationController {
 	}
 	//정보입력하는 부분
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public void infoInsert(CalendarUtile calender,ReservationVO reVO ,HttpSession session ,Model model) throws Exception {
+	public void infoInsert(CalendarUtile calender,ReservationVO reVO,HttpSession session,Model model) throws Exception {
 		
 		model.addAttribute("calender",reserService.insert(calender));
+
+		
 	}
 	//숙박에 따라서 가격바꾸는 부분 (ModelAndView 사용 )
 	@RequestMapping(value="/pay",method=RequestMethod.POST)
@@ -91,9 +94,9 @@ public class ReservationController {
 	}
 	//예약 확인하는 부분 
 	@RequestMapping(value="/confirm",method=RequestMethod.POST)
-	public void reserConfirm(CalendarUtile calender,HttpSession session ,Model model) throws Exception {
+	public void reserConfirm(@ModelAttribute("calender") CalendarUtile calender,HttpSession session,Model model) throws Exception {
 		
-		model.addAttribute("calender",reserService.insert(calender));
-		
+		model.addAttribute("reserVO",reserService.confirm(calender));
+	
 	}
 }

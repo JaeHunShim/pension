@@ -1,5 +1,9 @@
 package com.spring.pension.service;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import com.spring.pension.domain.CalendarUtile;
 import com.spring.pension.domain.ReserVO;
 
@@ -17,5 +21,7 @@ public interface ReservationService {
 	public CalendarUtile changePay(CalendarUtile calender) throws Exception;
 	// 예약에 대한 정보 입력 
 	public CalendarUtile insert(CalendarUtile calender) throws Exception;
+	// 예약 마지막 확인하는 부분  
+	public ReserVO confirm(CalendarUtile calender) throws Exception;
 
 }

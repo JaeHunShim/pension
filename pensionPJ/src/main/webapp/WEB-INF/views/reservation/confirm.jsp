@@ -10,6 +10,23 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/style.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+function numberWithCommas(x) {
+	$('#info').children('td').each(function(){
+		var x = $(this).text();
+		var y = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$(this).text(y);
+
+	});
+}
+$(document).ready(function(){
+	$('#info').children('td').each(function(){
+		var x = $(this).text();
+		numberWithCommas(x)
+		return x;
+	});
+});
+</script>
 </head>
 <body>
 <div class="header wRap">
@@ -47,45 +64,45 @@
 				<th width="20%" scope="row">숙박기간</th>
 				<td>
 					<input type="hidden" name="rDay_txt" value="2018-06-07 ~ 2018-06-08 (1박 2일)"/>
-					<fmt:formatDate pattern="yyyy-MM-dd" value="${calender.fullDate}"/>~
-					<fmt:formatDate pattern="yyyy-MM-dd" value="${calender.lastFullDate}"/>(${calender.select}박${calender.select+1}일)
+					<fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.fullDate}"/>~
+					<fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.lastFullDate}"/>(${reserVO.reser_select}박${reserVO.reser_select+1}일)
 				</td>
 			</tr>
 			<tr id="info">
 				<th scope="row">결제금액</th>
-				<td class="red"><strong><em id="totalM">￦${calender.total_pay}</em></strong></td>
+				<td class="red"><strong><em id="totalM">￦${reserVO.total_pay}</em></strong></td>
 			</tr>
 			<tr>
 				<th scope="row">객실명</th>
-				<td>${calender.room_name}</td>
+				<td>${reserVO.room_name}</td>
 			</tr>
 			<tr>
 				<th scope="row">객실 인원</th>
-				<td>${calender.inwon_check}명</td>
+				<td>${reserVO.inwon_check}명</td>
 			</tr>
 			<tr>
 				<th scope="row">id</th>
-				<td>"${login.user_name}</td>
+				<td>${login.user_name}</td>
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>
-				<td>"${login.user_phone}</td>
+				<td>${login.user_phone}</td>
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>
-				<td>"${login.user_name}</td>
+				<td>${login.user_name}</td>
 			</tr>
 			<tr>
 				<th scope="row">입실예정시간</th>
-				<td>${calender.entance_time}</td>
+				<td>${reserVO.entance_time}</td>
 			</tr>
 			<tr>
 				<th scope="row">전달사항</th>
-				<td><textarea rows="3" name="${reser_content}"></textarea></td>
+				<td><textarea rows="3" name="reser_content">${reserVO.reser_content}</textarea></td>
 			</tr>
 			<tr>
 				<th scope="row">결제수단</th>
-				<td><input type="radio" class="bnone" name="method" value="01" checked> 
+				<td><input type="radio" class="bnone" name="payment" value="01" checked> 
 			        무통장입금</td>
 			</tr>
 			<tr>
@@ -94,7 +111,7 @@
 			</tr>
 			<tr>
 				<th scope="row">입금자명</th>
-				<td>${user_name}</td>
+				<td>${login.user_name}</td>
 			</tr>
 		</table>
 	</div>

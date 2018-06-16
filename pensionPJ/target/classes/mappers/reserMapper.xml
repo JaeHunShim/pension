@@ -2,10 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring.mapper.ReserMapper">
-	<select id="listAll" resultType="ReserVO">
-		select * from board;
-	</select>
-	<insert id="create">
-		insert into reservation(roomN,room,max,fee,addfee,choice) values(#{roomN},#{room},#{max},#{fee},#{addfee},#{choice})
+	<!-- 예약하는 부분  -->
+	<insert id="insert">
+		insert into values(#{user_id}#{room_name},#{inwon_check},#{total_pay},#{fullDate},#{lastFullDate},#{reser_select},
+		#{entance_time},#{reser_content},#{payment})
 	</insert>
 </mapper>

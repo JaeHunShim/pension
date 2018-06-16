@@ -27,8 +27,22 @@ public class CalendarUtile {
 	private int add_pay; // 인원에 따른 추가 금액 
 	private int total_pay;// 숙박기간 + 인원에 대한 금액
 	private Date lastFullDate; // 숙박 마지막날짜(1박,2박,3박에 따라서 날짜를 변환시켜야 해서 씀)
+	private String reser_content; //전달사항
+	private String entance_time;	//입실 예정시간
 	
 	
+	public String getReser_content() {
+		return reser_content;
+	}
+	public void setReser_content(String reser_content) {
+		this.reser_content = reser_content;
+	}
+	public String getEntance_time() {
+		return entance_time;
+	}
+	public void setEntance_time(String entance_time) {
+		this.entance_time = entance_time;
+	}
 	public String getRoom_max() {
 		return room_max;
 	}

@@ -25,9 +25,17 @@ function backPage(){
 	var frm = document.prm;
 	$('#frm').attr('method','get');
 	$('#frm').attr('action','/reservation/select');
-	prm.submit();
+	frm.submit();
 }
 $(document).ready(function(){
+	//입실시간
+	var entance_time =$('select[name="entance_time"]').text();
+	$('input[name="entance_time"]').val(entance_time);
+	
+	//전달사항
+	var reser_content =$('textarea[name="reser_content"]').text();
+	$('input[name="entance_time"]').val(reser_content);
+	
 	//숫자에 콤마 직는 부분
 	$('#info').children('td').each(function(){
 		var x = $(this).text();
@@ -77,17 +85,22 @@ $(document).ready(function(){
 <!-- //Sub Title -->
 <form name="frm" id="frm" method="post">
 
-	<input type='text' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
-	<input type='text' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
-	<input type="text" name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
-	<input type="text" name='room_name' value ='${calender.room_name}'><!--  방이름 -->
-	<input type="text" name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 -->
-	<input type="text" name="pay" value="${calender.pay}"><!--  가격 -->
-	<input type="text" name="middle_pay" value="${calender.middle_pay}"><!--숙박기간에 다른 가격에 대해 지불할값  -->
-	<input type="text" name="room_max" value="${calender.room_max}"><!--방의 최대 인원  -->
-	<input type='text' name ='year' value='${calender.year}'>	<!--  해당년도  -->
-	<input type='text' name ='month' value='${calender.month}'>	<!-- 해당월 -->
-	<input type='text' name ='dNum' value='${calender.dNum}'><!-- 예약일 -->
+	<input type='hidden' name='room_check' value='${calender.room_check}'> <!-- 방체크정보 -->
+	<input type='hidden' name='select' value='${calender.select}'> <!-- 숙박기간의 value값  -->
+	<input type='hidden' name ='fullDate' value='${calender.fullDate}'> <!-- 예약한 날짜 full -->
+	<input type='hidden' name='room_name' value ='${calender.room_name}'><!--  방이름 -->
+	<input type='hidden' name="inwon_check" value="${calender.inwon_check}"><!-- 숙박인원 -->
+	<input type='hidden' name="pay" value="${calender.pay}"><!--  가격 -->
+	<input type='hidden' name="middle_pay" value="${calender.middle_pay}"><!--숙박기간에 다른 가격에 대해 지불할값  -->
+	<input type='hidden' name="room_max" value="${calender.room_max}"><!--방의 최대 인원  -->
+	<input type='hidden' name ='year' value='${calender.year}'>	<!--  해당년도  -->
+	<input type='hidden' name ='month' value='${calender.month}'>	<!-- 해당월 -->
+	<input type='hidden' name ='dNum' value='${calender.dNum}'><!-- 예약일 -->
+	<input type="hidden" name="total_pay" value="${calender.total_pay}">
+	<input type="hidden" name="fullDate" value="${calender.fullDate}">
+	<input type="hidden" name ="total_pay" value="${calender.total_pay}">
+	<input type='hidden' name="entance_time" value="${calender.entance_time}"><!-- 입실 예정시간 -->
+	<input type="hidden" name="reser_content" value="${calender.reser_content}"><!-- 내용  -->
 <!-- Contents -->   
 	<div class="conT">
     
@@ -134,21 +147,21 @@ $(document).ready(function(){
 				<td class="red"><strong><em id="totalM">￦${calender.total_pay}</em></strong></td>
 			</tr>
 			<tr>
-				<th scope="row">성 명</th>
-				<td><input name="user_id"  size="20" value="${login.user_name}"/></td>
+				<th scope="row">아이디</th>
+				<td><input name="user_id"  size="20" value="${login.user_id}" readonly/></td>
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>
-				<td><input name="user_phone"  size="6" maxlength="3" value="${login.user_phone}"><!--  - <input name="hp2"  size="8" maxlength="4"> - <input name="hp3"  size="8" maxlength="4"> --></td>
+				<td><input name="user_phone"  size="6" maxlength="7" value="${login.user_phone}"><!--  - <input name="hp2"  size="8" maxlength="4"> - <input name="hp3"  size="8" maxlength="4"> --></td>
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>
-				<td><input name="user_email"  size="30" value="${login.user_email}"></td>
+				<td><input name="user_email"  size="30" value="${login.user_email}" readonly></td>
 			</tr>
 			<tr>
 				<th scope="row">입실예정시간</th>
 				<td>
-					<select name="reser_time">
+					<select name="entance_time">
 						<option value="오후 3시">오후 3시</option>
 						<option value="오후 4시">오후 4시</option>
 						<option value="오후 5시">오후 5시</option>
@@ -167,7 +180,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">결제수단</th>
-				<td><input type="radio" class="bnone" name="method" value="01" checked> 
+				<td><input type="radio" class="bnone" name="payment" value="01" checked> 
 			        무통장입금</td>
 			</tr>
 			<tr>
@@ -180,7 +193,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">입금자명</th>
-				<td><input name="user_name"  size="20"></td>
+				<td><input name="user_name"  size="20" value="${login.user_name}"></td>
 			</tr>
 		</table>
     

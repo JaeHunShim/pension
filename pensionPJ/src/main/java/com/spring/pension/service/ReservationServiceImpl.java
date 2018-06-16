@@ -1,6 +1,10 @@
 package com.spring.pension.service;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,6 +71,7 @@ public class ReservationServiceImpl implements ReservationService {
 	//숙박에 관한 세부정보 입력
 	@Override
 	public CalendarUtile insert(CalendarUtile calender) throws Exception {
+		
 		calender.setRoom_max(calender.getRoom_max());
 		calender.setRoom_name(calender.getRoom_name());
 		calender.setRoom_width(calender.getRoom_width());
@@ -76,17 +81,34 @@ public class ReservationServiceImpl implements ReservationService {
 		calender.setTotal_pay(calender.getMiddle_pay(), calender.getAdd_pay());
 		calender.setFullDate(calender.getYear(), calender.getMonth(), calender.getdNum());
 		calender.setLastFullDate(calender.getFullDate(), calender.getSelect());
-		//좀더 편하게 하기위해서 db에 저장되는 데이터는 따로 빼서 관리 
-		ReserVO reVO = new ReserVO();
-		reVO.setFullDate(calender.getFullDate());
-		reVO.setInwon_check(calender.getInwon_check());
-		reVO.setLastFullDate(calender.getLastFullDate());
-		reVO.setRoom_name(calender.getRoom_name());
-		reVO.setSelect(calender.getSelect());
-		reVO.setTotal_pay(calender.getTotal_pay());
 		
-		System.out.println(reVO.toString());
+		
 		return calender;
 	}
-
+	@Override
+	public ReserVO confirm(CalendarUtile calender)throws Exception {
+		calender.setRoom_max(calender.getRoom_max());
+		calender.setRoom_name(calender.getRoom_name());
+		calender.setRoom_width(calender.getRoom_width());
+		calender.setInwon_check(calender.getInwon_check());
+		calender.setMiddle_pay(calender.getMiddle_pay());
+		calender.setAdd_pay(calender.getInwon_check());
+		calender.setTotal_pay(calender.getMiddle_pay(), calender.getAdd_pay());
+		calender.setFullDate(calender.getYear(), calender.getMonth(), calender.getdNum());
+		calender.setLastFullDate(calender.getFullDate(), calender.getSelect());
+		calender.setEntance_time(calender.getEntance_time());
+		calender.setReser_content(calender.getReser_content());
+		
+		ReserVO reserVO = new ReserVO();
+		reserVO.setFullDate(calender.getFullDate());
+		reserVO.setInwon_check(calender.getInwon_check());
+		reserVO.setLastFullDate(calender.getLastFullDate());
+		reserVO.setRoom_name(calender.getRoom_name());
+		reserVO.setReser_select(calender.getSelect());
+		reserVO.setTotal_pay(calender.getTotal_pay());
+		reserVO.setEntance_time(calender.getEntance_time());
+		reserVO.setReser_content(calender.getReser_content());
+		System.out.println(reserVO.getEntance_time());
+		return reserVO;
+	}
 }
