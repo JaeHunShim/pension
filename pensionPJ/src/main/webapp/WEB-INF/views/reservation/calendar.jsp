@@ -37,7 +37,15 @@ $(document).ready(function(){
 		$('#prm').attr('action','/reservation/calender');
 		prm.submit();
 	});
+	//로그인 해야 에약할수 있게 처리
+	$('li a').on('click',function(event){
+		event.preventDefault();
+		var user_id = ${login.user_id}
+		if(user_id == ){
+			alert('로그인을 해야 이용하실수 있습니다.');
+			self.location ="/user/login";
 
+	});
 });
 
 </script>
@@ -76,6 +84,7 @@ $(document).ready(function(){
 		<input type='hidden' name ='week' value='${calender.week}'>
 		<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
 		<input type='hidden' name ='date' value='${calender.date}'>
+		<input type='hidden' name="user_id" value='${login.user_id}'>
     	<div class="yms wRap">
 			<a style="cursor:pointer" class='prev'>이전 </a>
  				<p><b>${calender.year}</b>년<b>${calender.month+1}</b>월</p>
@@ -128,10 +137,10 @@ $(document).ready(function(){
 											<li>예약완료</li>
 										</c:when>
 										<c:when test="${current.month eq calender.month && current.date <= dNum || current.month <calender.month}">
-											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=1'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='daisy' style='color:#6a6a6a'>데이지(복층)</span></a></li>
-											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=2'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name='lily' style='color:#6a6a6a'>릴리(복층)</span></a></li>
-											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=3'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span name= 'ivy'style='color:#6a6a6a'>아이비</span></a></li>
-											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=4'><img src='/resources/img/reservat	ion/ico_ye.gif' alt='예' align='absmiddle'><span name= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=1'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span id='daisy' style='color:#6a6a6a'>데이지(복층)</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=2'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span id='lily' style='color:#6a6a6a'>릴리(복층)</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=3'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span id= 'ivy'style='color:#6a6a6a'>아이비</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=4'><img src='/resources/img/reservat	ion/ico_ye.gif' alt='예' align='absmiddle'><span id= 'magaret' style='color:#6a6a6a'>마가렛</span></a></li>
 										</c:when>
 									</c:choose>
 								</ul>

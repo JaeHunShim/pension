@@ -29,16 +29,15 @@
 <!-- bootstrap -->
 <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
 <script src="/resources/js/bootstrap/npm.js"></script>
-
 </head>
 <body>
 	<div class="header">
 	<div class="top_box">
         <ul>
         	<!-- Join Start-->
-        <c:set var="user_name" value="${login.user_name}"/>
+        <c:set var="user_id" value="${login.user_id}"/>
         	<c:choose>
-        		<c:when test="${empty user_name}">
+        		<c:when test="${empty user_id}">
         		<li>
         			<a data-toggle="modal" href="/user/join" data-target="#joinForm" role="button" data-backdrop="static">
  						<span class="btn btn-xs btn-success">Join</span>
@@ -72,7 +71,7 @@
         			<a href="/user/logout"><span class="btn btn-xs btn-success">sign out</span></a>
         		</li>
         		<li>
-        			<span style="color:pink">${login.user_name}</span>
+        			<span style="color:pink" id="user_id">${login.user_id}</span>
         		</li>
 				</c:otherwise>
 			</c:choose>

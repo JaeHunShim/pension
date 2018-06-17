@@ -29,7 +29,7 @@ function backPage(){
 }
 $(document).ready(function(){
 	//입실시간
-	var entance_time =$('select[name="entance_time"]').text();
+	var entance_time =$('select[name="entance_time"]').val();
 	$('input[name="entance_time"]').val(entance_time);
 	
 	//전달사항
@@ -99,8 +99,8 @@ $(document).ready(function(){
 	<input type="hidden" name="total_pay" value="${calender.total_pay}">
 	<input type="hidden" name="fullDate" value="${calender.fullDate}">
 	<input type="hidden" name ="total_pay" value="${calender.total_pay}">
-	<input type='hidden' name="entance_time" value="${calender.entance_time}"><!-- 입실 예정시간 -->
-	<input type="hidden" name="reser_content" value="${calender.reser_content}"><!-- 내용  -->
+<%-- 	<input type='hidden' name="entance_time" value="${calender.entance_time}"><!-- 입실 예정시간 -->
+	<input type="hidden" name="reser_content" value="${calender.reser_content}"><!-- 내용  --> --%>
 <!-- Contents -->   
 	<div class="conT">
     
@@ -152,7 +152,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>
-				<td><input name="user_phone"  size="6" maxlength="7" value="${login.user_phone}"><!--  - <input name="hp2"  size="8" maxlength="4"> - <input name="hp3"  size="8" maxlength="4"> --></td>
+				<td><input name="user_phone"  size="20" value="${login.user_phone}" readonly></td>
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>

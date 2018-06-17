@@ -98,12 +98,11 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">전달사항</th>
-				<td><textarea rows="3" name="reser_content">${reserVO.reser_content}</textarea></td>
+				<td><textarea rows="3" name="reser_content" readonly>${reserVO.reser_content}</textarea></td>
 			</tr>
 			<tr>
 				<th scope="row">결제수단</th>
-				<td><input type="radio" class="bnone" name="payment" value="01" checked> 
-			        무통장입금</td>
+				<td>무통장입금</td>
 			</tr>
 			<tr>
 				<th scope="row">입금하실은행</th>
