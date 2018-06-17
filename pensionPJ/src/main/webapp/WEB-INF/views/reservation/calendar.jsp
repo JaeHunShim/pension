@@ -39,12 +39,13 @@ $(document).ready(function(){
 	});
 	//로그인 해야 에약할수 있게 처리
 	$('li a').on('click',function(event){
-		event.preventDefault();
-		var user_id = ${login.user_id}
-		if(user_id == ){
+		if(<%=session.getAttribute("login")%>==null){
+			event.preventDefault();
 			alert('로그인을 해야 이용하실수 있습니다.');
 			self.location ="/user/login";
-
+		}else{
+			alert('모야');
+		}
 	});
 });
 
