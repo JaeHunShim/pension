@@ -9,7 +9,8 @@
 <script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/style.css" />
 <script>
-$(document).ready(function(){	
+$(document).ready(function(){
+
 	// 전개월
 	$('.prev').on('click',function(){
 		var prm = document.prm;
@@ -38,13 +39,10 @@ $(document).ready(function(){
 		prm.submit();
 	});
 	//로그인 해야 에약할수 있게 처리
-	$('li a').on('click',function(event){
+	$('li a').on('click',function(){
 		if(<%=session.getAttribute("login")%>==null){
-			event.preventDefault();
 			alert('로그인을 해야 이용하실수 있습니다.');
-			self.location ="/user/login";
-		}else{
-			alert('모야');
+			return false;
 		}
 	});
 });

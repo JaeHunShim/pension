@@ -12,7 +12,8 @@
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
-			<iframe src="/reservation/calendar" frameBorder="no" width="100%" height="900px"  scrolling="auto"></iframe>
+			<iframe name='iframe' src="/reservation/calendar" frameBorder="no" width="100%" height="900px"  scrolling="auto">
+			</iframe>
     </div>	
 </section> 
 <%@ include file="../include/footer.jsp" %>

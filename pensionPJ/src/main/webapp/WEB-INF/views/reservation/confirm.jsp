@@ -25,6 +25,11 @@ $(document).ready(function(){
 		numberWithCommas(x)
 		return x;
 	});
+	$('.btn').on('click',function(){
+		var prm = document.prm;
+		$('#prm').attr('action','/reservation/lastInsert');
+		prm.submit();
+	});
 });
 </script>
 </head>
@@ -90,7 +95,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>
-				<td>${login.user_name}</td>
+				<td>${login.user_email}</td>
 			</tr>
 			<tr>
 				<th scope="row">입실예정시간</th>

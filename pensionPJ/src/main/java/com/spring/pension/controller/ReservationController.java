@@ -99,4 +99,10 @@ public class ReservationController {
 		model.addAttribute("reserVO",reserService.confirm(calender));
 	
 	}
+	//예약 처리 하는 부분 
+	@RequestMapping(value="/lastInsert",method =RequestMethod.POST )
+	public String lastInsert() throws Exception{
+		
+		return "/main/index";
+	}
 }
