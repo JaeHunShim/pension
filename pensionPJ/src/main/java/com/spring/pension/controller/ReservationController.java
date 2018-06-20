@@ -2,6 +2,7 @@ package com.spring.pension.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -101,8 +102,10 @@ public class ReservationController {
 	}
 	//예약 처리 하는 부분 
 	@RequestMapping(value="/lastInsert",method =RequestMethod.POST )
-	public String lastInsert() throws Exception{
+	public String lastInsert(ReserVO reserVO,HttpSession session) throws Exception{
 		
-		return "/main/index";
+		reserService.insertConfirm(reserVO);
+		
+		return "redirect:/main/index";
 	}
 }

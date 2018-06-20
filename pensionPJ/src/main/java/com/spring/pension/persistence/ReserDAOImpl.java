@@ -13,19 +13,13 @@ import com.spring.pension.domain.ReserVO;
 public class ReserDAOImpl implements ReserDAO {
 	
 	@Inject
-	private SqlSession session;
+	private SqlSession sqlSession;
 	
-	private static String namespace ="com.spring.mapper.ReserMapper";
-
+	private static final String namespace ="com.spring.mapper.ReserMapper";
+	//예약정보
 	@Override
-	public List<ReserVO> listAll() throws Exception {
+	public void insert(ReserVO reserVO) throws Exception {
 		
-		return session.selectList(namespace+".listAll");
-	}
-
-	@Override
-	public void create(ReserVO vo) throws Exception {
-		
-		session.insert(namespace+".create", vo);
+		sqlSession.insert(namespace +".insertReser", reserVO);
 	}
 }

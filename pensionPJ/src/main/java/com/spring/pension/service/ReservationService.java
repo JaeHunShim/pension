@@ -23,5 +23,6 @@ public interface ReservationService {
 	public CalendarUtile insert(CalendarUtile calender) throws Exception;
 	// 예약 마지막 확인하는 부분  
 	public ReserVO confirm(CalendarUtile calender) throws Exception;
-
+	// 예약정보 삽입
+	public void insertConfirm(ReserVO reserVO) throws Exception;
 }

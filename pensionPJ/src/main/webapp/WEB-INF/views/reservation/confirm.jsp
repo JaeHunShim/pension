@@ -20,16 +20,21 @@ function numberWithCommas(x) {
 	});
 }
 $(document).ready(function(){
+	
 	$('#info').children('td').each(function(){
 		var x = $(this).text();
 		numberWithCommas(x)
 		return x;
 	});
 	$('.btn').on('click',function(){
+		// iframe 나가고 controller처리 
 		var prm = document.prm;
 		$('#prm').attr('action','/reservation/lastInsert');
 		prm.submit();
+		/* window.top.location.href = "/main/index"; */
 	});
+	var full = $('input[name="fullDate"]').val();
+	console.log(typeof(full));
 });
 </script>
 </head>
@@ -59,7 +64,17 @@ $(document).ready(function(){
 </div>
 <!-- //Sub Title -->
 <form name="prm" id="prm" method="post">
-
+	<%-- <input type ="text" name="user_id" value="${login.user_id}">
+	<input type="text" name="user_name" value="${login.user_name}">
+	<input type ="text" name="room_name" value="${reserVO.room_name}">
+	<input type ="text" name="inwon_check" value="${reserVO.inwon_check}">
+	<input type ="text" name="total_pay" value="${reserVO.total_pay}">
+	<input type ="text" name="fullDate" value="${reserVO.fullDate}">
+	<input type ="text" name="lastFullDate" value="${reserVO.lastFullDate}">
+	<input type ="text" name="reser_select" value="${reserVO.reser_select}">
+	<input type ="text" name="entance_time" value="${reserVO.entance_time}">
+	<input type ="text" name="reser_content" value="${reserVO.reser_content}">
+	<input type ="text" name="payment" value="무통장입금"> --%>
 <!-- Contents -->   
 	<div class="conT">
 		<h3>예약정보입력</h3>
@@ -68,26 +83,28 @@ $(document).ready(function(){
 			<tr>
 				<th width="20%" scope="row">숙박기간</th>
 				<td>
-					<input type="hidden" name="rDay_txt" value="2018-06-07 ~ 2018-06-08 (1박 2일)"/>
-					<fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.fullDate}"/>~
-					<fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.lastFullDate}"/>(${reserVO.reser_select}박${reserVO.reser_select+1}일)
+					<input type="hidden" name="reser_select" value="${reserVO.reser_select}">
+					<input type="text" name="fullDate" value="${reserVO.fullDate}">
+					<%-- <input name="fullDate" type="text" value="<fmt:formatDate value="${reserVO.fullDate}" pattern="yyyy-MM-dd" />" /> --%>
+					<%-- <fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.fullDate}"/>~
+					<fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.lastFullDate}"/>(${reserVO.reser_select}박${reserVO.reser_select+1}일) --%>
 				</td>
 			</tr>
 			<tr id="info">
 				<th scope="row">결제금액</th>
-				<td class="red"><strong><em id="totalM">￦${reserVO.total_pay}</em></strong></td>
+				<td class="red"><strong><input type="text" name="total_pay" value="${reserVO.total_pay}">￦${reserVO.total_pay}</strong></td>
 			</tr>
 			<tr>
 				<th scope="row">객실명</th>
-				<td>${reserVO.room_name}</td>
+				<td><input type="text" name="room_name" value="${reserVO.room_name}"></td>
 			</tr>
 			<tr>
 				<th scope="row">객실 인원</th>
-				<td>${reserVO.inwon_check}명</td>
+				<td><input type="text" name="inwon_check" value="${reserVO.inwon_check}"></td>
 			</tr>
 			<tr>
 				<th scope="row">id</th>
-				<td>${login.user_name}</td>
+				<td><input type="text" name="user_id" value="${login.user_id}"></td>
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>
@@ -99,7 +116,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">입실예정시간</th>
-				<td>${reserVO.entance_time}</td>
+				<td><input type="text" name="entance_time" value="${reserVO.entance_time}"></td>
 			</tr>
 			<tr>
 				<th scope="row">전달사항</th>
@@ -107,7 +124,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">결제수단</th>
-				<td>무통장입금</td>
+				<td><input type="text" name="payment" value="무동장입급"></td>
 			</tr>
 			<tr>
 				<th scope="row">입금하실은행</th>
@@ -115,7 +132,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">입금자명</th>
-				<td>${login.user_name}</td>
+				<td><input type="text" name="user_name" value="${login.user_name}"></td>
 			</tr>
 		</table>
 	</div>

@@ -42,7 +42,7 @@ $(document).ready(function(){
 	$('li a').on('click',function(){
 		if(<%=session.getAttribute("login")%>==null){
 			alert('로그인을 해야 이용하실수 있습니다.');
-			return false;
+			window.top.location.href = "/user/login";
 		}
 	});
 });

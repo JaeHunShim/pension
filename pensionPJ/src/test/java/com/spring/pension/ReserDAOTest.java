@@ -1,5 +1,8 @@
 package com.spring.pension;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -24,14 +27,22 @@ public class ReserDAOTest {
 	@Test
 	public void testInsertReser() throws Exception{
 		
-		ReserVO reser = new ReserVO();
-/*		reser.setAddfee(1000);
-		reser.setChoice("Y");
-		reser.setFee(24000);
-		reser.setMax("4명");
-		reser.setRoom("24평");
-		reser.setRoomN("재훈방");*/
-		
-		dao.create(reser);
+		ReserVO reserVO = new ReserVO();
+		reserVO.setUser_id("jaehuniya");
+		reserVO.setEntance_time("3시");
+		reserVO.setUser_name("심재훈");
+		String a = "2014-2-20";
+		String b = "2014-2-21";
+		Date date =new SimpleDateFormat("yyyy-MM-dd").parse(a);
+		Date date1 =new SimpleDateFormat("yyyy-MM-dd").parse(b);
+		reserVO.setFullDate(date);
+		reserVO.setLastFullDate(date1);
+		reserVO.setPayment("무동장입금");
+		reserVO.setReser_content("테스트");
+		reserVO.setRoom_name("데이지");
+		reserVO.setReser_select(1);
+		reserVO.setTotal_pay(200000);
+		reserVO.setInwon_check(3);
+		dao.insert(reserVO);
 	}
 }
