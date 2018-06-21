@@ -4,7 +4,7 @@
 <mapper namespace="com.spring.mapper.ReserMapper">
 	<!-- 예약하는 부분  -->
 	<insert id="insertReser">
-		insert into reservation(user_id,user_name,inwon_check,room_name,total_pay,fullDate,lastFullDate,reser_select,entance_time,reser_content,payment)
-		values(#{user_id},#{user_name},#{inwon_check},#{room_name},#{total_pay},#{fullDate},#{lastFullDate},#{reser_select},#{entance_time},#{reser_content},#{payment})
+		insert into reservation(user_id,user_name,inwon_check,room_name,total_pay,r_fullDate,r_lastFullDate,reser_select,entance_time,reser_content,payment)
+		values(#{user_id},#{user_name},#{inwon_check},#{room_name},#{total_pay},#{r_fullDate},#{r_lastFullDate},#{reser_select},#{entance_time},#{reser_content},#{payment})
 	</insert>
 </mapper>

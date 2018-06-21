@@ -1,5 +1,7 @@
 package com.spring.pension.controller;
 
+import java.beans.PropertyEditorSupport;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +16,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -102,10 +106,14 @@ public class ReservationController {
 	}
 	//예약 처리 하는 부분 
 	@RequestMapping(value="/lastInsert",method =RequestMethod.POST )
-	public String lastInsert(ReserVO reserVO,HttpSession session) throws Exception{
-		
+	public String lastInsert(ReserVO reserVO,HttpSession session,String fullDate,String lastFullDate) throws Exception{
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fullDate);
+		Date lastdate = new SimpleDateFormat("yyyy-MM-dd").parse(lastFullDate);
+		reserVO.setR_fullDate(date);
+		reserVO.setR_lastFullDate(lastdate);
 		reserService.insertConfirm(reserVO);
 		
 		return "redirect:/main/index";
 	}
+	
 }

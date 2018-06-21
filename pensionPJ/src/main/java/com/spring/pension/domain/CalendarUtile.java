@@ -118,8 +118,6 @@ public class CalendarUtile {
 		month = month+1;
 		String strd = year+"-"+month+"-"+dNum;
 		Date fullDate = new SimpleDateFormat("yyyy-MM-dd").parse(strd);
-		String b = new SimpleDateFormat("yyyy-MM-dd").format(strd);
-		System.out.println(b);
 		this.fullDate = fullDate;
 	}
 	public int getRoom_check() {

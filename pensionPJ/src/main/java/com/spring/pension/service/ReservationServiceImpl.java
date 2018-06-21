@@ -108,9 +108,9 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		
 		ReserVO reserVO = new ReserVO();
-		reserVO.setFullDate(calender.getFullDate());
+		reserVO.setR_fullDate(calender.getFullDate());
 		reserVO.setInwon_check(calender.getInwon_check());
-		reserVO.setLastFullDate(calender.getLastFullDate());
+		reserVO.setR_lastFullDate(calender.getLastFullDate());
 		reserVO.setRoom_name(calender.getRoom_name());
 		reserVO.setReser_select(calender.getSelect());
 		reserVO.setTotal_pay(calender.getTotal_pay());

@@ -84,27 +84,31 @@ $(document).ready(function(){
 				<th width="20%" scope="row">숙박기간</th>
 				<td>
 					<input type="hidden" name="reser_select" value="${reserVO.reser_select}">
-					<input type="text" name="fullDate" value="${reserVO.fullDate}">
-					<%-- <input name="fullDate" type="text" value="<fmt:formatDate value="${reserVO.fullDate}" pattern="yyyy-MM-dd" />" /> --%>
-					<%-- <fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.fullDate}"/>~
-					<fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.lastFullDate}"/>(${reserVO.reser_select}박${reserVO.reser_select+1}일) --%>
+					<input type="hidden" name="fullDate" value="<fmt:formatDate value="${reserVO.r_fullDate}" pattern="yyyy-MM-dd" />">
+					<input type="hidden" name="lastFullDate" value="<fmt:formatDate value="${reserVO.r_lastFullDate}" pattern="yyyy-MM-dd" />">
+					<input type="text" name="total_pay" value="${reserVO.total_pay}">
+					<input type="text" name="room_name" value="${reserVO.room_name}">
+					<input type="text" name="inwon_check" value="${reserVO.inwon_check}">
+					<input type="text" name="user_id" value="${login.user_id}">
+					<input type="text" name="entance_time" value="${reserVO.entance_time}">
+					<input type="text" name="user_name" value="${login.user_name}">
 				</td>
 			</tr>
 			<tr id="info">
 				<th scope="row">결제금액</th>
-				<td class="red"><strong><input type="text" name="total_pay" value="${reserVO.total_pay}">￦${reserVO.total_pay}</strong></td>
+				<td class="red"><strong><em>￦${reserVO.total_pay}</em></strong></td>
 			</tr>
 			<tr>
 				<th scope="row">객실명</th>
-				<td><input type="text" name="room_name" value="${reserVO.room_name}"></td>
+				<td>${reserVO.room_name}</td>
 			</tr>
 			<tr>
 				<th scope="row">객실 인원</th>
-				<td><input type="text" name="inwon_check" value="${reserVO.inwon_check}"></td>
+				<td>${reserVO.inwon_check}명</td>
 			</tr>
 			<tr>
 				<th scope="row">id</th>
-				<td><input type="text" name="user_id" value="${login.user_id}"></td>
+				<td>${login.user_id}</td>
 			</tr>
 			<tr>
 				<th scope="row">휴대폰</th>
@@ -116,7 +120,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">입실예정시간</th>
-				<td><input type="text" name="entance_time" value="${reserVO.entance_time}"></td>
+				<td>${reserVO.entance_time}</td>
 			</tr>
 			<tr>
 				<th scope="row">전달사항</th>
@@ -132,7 +136,7 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<th scope="row">입금자명</th>
-				<td><input type="text" name="user_name" value="${login.user_name}"></td>
+				<td>${login.user_name}</td>
 			</tr>
 		</table>
 	</div>
