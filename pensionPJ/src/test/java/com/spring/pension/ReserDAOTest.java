@@ -35,8 +35,8 @@ public class ReserDAOTest {
 		String b = "2014-2-21";
 		Date date =new SimpleDateFormat("yyyy-MM-dd").parse(a);
 		Date date1 =new SimpleDateFormat("yyyy-MM-dd").parse(b);
-		reserVO.setFullDate(date);
-		reserVO.setLastFullDate(date1);
+		reserVO.setR_fullDate(date);
+		reserVO.setR_lastFullDate(date1);
 		reserVO.setPayment("무동장입금");
 		reserVO.setReser_content("테스트");
 		reserVO.setRoom_name("데이지");

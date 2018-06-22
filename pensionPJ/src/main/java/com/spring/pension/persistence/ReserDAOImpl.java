@@ -16,10 +16,17 @@ public class ReserDAOImpl implements ReserDAO {
 	private SqlSession sqlSession;
 	
 	private static final String namespace ="com.spring.mapper.ReserMapper";
-	//예약정보
+	//예약정보 삽입
 	@Override
 	public void insert(ReserVO reserVO) throws Exception {
 		
 		sqlSession.insert(namespace +".insertReser", reserVO);
 	}
+	//예약번호 받아오기 
+	@Override
+	public ReserVO getReserNo() throws Exception {
+		
+		return sqlSession.selectOne(namespace+".getReserNo");
+	}
+
 }

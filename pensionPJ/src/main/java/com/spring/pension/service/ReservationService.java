@@ -1,5 +1,6 @@
 package com.spring.pension.service;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -25,4 +26,6 @@ public interface ReservationService {
 	public ReserVO confirm(CalendarUtile calender) throws Exception;
 	// 예약정보 삽입
 	public void insertConfirm(ReserVO reserVO) throws Exception;
+	// 예약정보 가지고오기 
+	public ReserVO getReserNo() throws Exception;
 }

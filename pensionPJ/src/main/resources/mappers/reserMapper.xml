@@ -4,7 +4,11 @@
 <mapper namespace="com.spring.mapper.ReserMapper">
 	<!-- 예약하는 부분  -->
 	<insert id="insertReser">
-		insert into reservation(user_id,user_name,inwon_check,room_name,total_pay,r_fullDate,r_lastFullDate,reser_select,entance_time,reser_content,payment)
-		values(#{user_id},#{user_name},#{inwon_check},#{room_name},#{total_pay},#{r_fullDate},#{r_lastFullDate},#{reser_select},#{entance_time},#{reser_content},#{payment})
+		insert into reservation(reserNo,user_id,user_name,inwon_check,room_name,total_pay,r_fullDate,r_lastFullDate,reser_select,entance_time,reser_content,payment)
+		values(#{reserNo},#{user_id},#{user_name},#{inwon_check},#{room_name},#{total_pay},#{r_fullDate},#{r_lastFullDate},#{reser_select},#{entance_time},#{reser_content},#{payment})
 	</insert>
+	<!-- 예약 정보 모두 받아오기 -->
+	<select id="getReserNo" resultType="ReserVO">
+		select reserNo from reservation;
+	</select>
 </mapper>

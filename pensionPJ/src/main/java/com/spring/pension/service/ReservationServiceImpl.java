@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -125,4 +126,11 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		reserDAO.insert(reserVO);
 	}
+	//예약 번호 받아오는 부분
+	@Override
+	public ReserVO getReserNo() throws Exception {
+		
+		return reserDAO.getReserNo();
+	}
+	
 }

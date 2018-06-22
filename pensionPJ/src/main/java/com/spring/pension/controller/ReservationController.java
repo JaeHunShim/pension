@@ -61,13 +61,13 @@ public class ReservationController {
 		model.addAttribute("calender",reserService.moveCalenders(calender));
 		model.addAttribute("date",reserService.getdNum(dNum));
 		model.addAttribute("room_check",reserService.getCheck(room_check));
-		
 	}
 	//현재 켈린더 가지고 오는 부분 
 	@RequestMapping(value ="/calendar",method=RequestMethod.GET)
 	public void calendar(CalendarUtile calender, Model model, HttpSession session) throws Exception {
 		
 		model.addAttribute("calender",reserService.calenders(calender));
+		model.addAttribute("reserVO",reserService.getReserNo());
 		session.setAttribute("current", reserService.calenders(calender));
 	}
 	//캘린더 움직이는 부분 
@@ -106,14 +106,16 @@ public class ReservationController {
 	}
 	//예약 처리 하는 부분 
 	@RequestMapping(value="/lastInsert",method =RequestMethod.POST )
-	public String lastInsert(ReserVO reserVO,HttpSession session,String fullDate,String lastFullDate) throws Exception{
+	public String lastInsert(ReserVO reserVO,HttpSession session,String fullDate,String lastFullDate,Integer reserNo,Model model) throws Exception{
 		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fullDate);
 		Date lastdate = new SimpleDateFormat("yyyy-MM-dd").parse(lastFullDate);
 		reserVO.setR_fullDate(date);
 		reserVO.setR_lastFullDate(lastdate);
+		reserVO.setReserNo(reserNo);
 		reserService.insertConfirm(reserVO);
+		reserService.getReserNo();
 		
-		return "redirect:/main/index";
+		return "redirect:/reservation/reservation_main";
 	}
 	
 }

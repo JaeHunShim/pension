@@ -11,6 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script>
+//가격에 콤마찍는 함수 
 function numberWithCommas(x) {
 	$('#info').children('td').each(function(){
 		var x = $(this).text();
@@ -19,22 +20,48 @@ function numberWithCommas(x) {
 
 	});
 }
+//예약 번호 생성하는 함수 
+function reserNoCreate(fullDate,room_name){
+	var reserNo = $('input[name="reserNo"]').val();
+	var room_name =$('input[name="room_name"]').val();
+	$('input[name="reserNo"]').val();
+	//-문자열 없애기
+	var result=reserNo.replace(/-/g,'');
+
+	console.log(result);
+	if(room_name =="데이지(복층)"){
+		$('input[name="reserNo"]').val(result+"1");
+	}else if(room_name =="릴리(복층)"){
+		$('input[name="reserNo"]').val(result+"2");
+	}else if(room_name =="아이비"){
+		$('input[name="reserNo"]').val(result+"3");
+	}else{
+		$('input[name="reserNo"]').val(result+"4");
+	}
+}
 $(document).ready(function(){
+	//reserNo생성하는 부분
+	var fulldate = $('input[name="fullDate"]').val();
+	var room_name =$('input[name="room_name"]').val();
+	reserNoCreate(fulldate,room_name);
 	
+	//콤마찍는 부분
 	$('#info').children('td').each(function(){
 		var x = $(this).text();
 		numberWithCommas(x)
 		return x;
 	});
+	//form 처리 하는 부분 
 	$('.btn').on('click',function(){
-		// iframe 나가고 controller처리 
 		var prm = document.prm;
 		$('#prm').attr('action','/reservation/lastInsert');
 		prm.submit();
-		/* window.top.location.href = "/main/index"; */
+		// iframe 나가고 controller처리
+		window.top.location.href = "/reservation/reservation_main";
 	});
 	var full = $('input[name="fullDate"]').val();
 	console.log(typeof(full));
+
 });
 </script>
 </head>
@@ -64,17 +91,16 @@ $(document).ready(function(){
 </div>
 <!-- //Sub Title -->
 <form name="prm" id="prm" method="post">
-	<%-- <input type ="text" name="user_id" value="${login.user_id}">
-	<input type="text" name="user_name" value="${login.user_name}">
-	<input type ="text" name="room_name" value="${reserVO.room_name}">
-	<input type ="text" name="inwon_check" value="${reserVO.inwon_check}">
-	<input type ="text" name="total_pay" value="${reserVO.total_pay}">
-	<input type ="text" name="fullDate" value="${reserVO.fullDate}">
-	<input type ="text" name="lastFullDate" value="${reserVO.lastFullDate}">
-	<input type ="text" name="reser_select" value="${reserVO.reser_select}">
-	<input type ="text" name="entance_time" value="${reserVO.entance_time}">
-	<input type ="text" name="reser_content" value="${reserVO.reser_content}">
-	<input type ="text" name="payment" value="무통장입금"> --%>
+	<input type="hidden" name="reser_select" value="${reserVO.reser_select}">
+	<input type="hidden" name="fullDate" value="<fmt:formatDate value="${reserVO.r_fullDate}" pattern="yyyy-MM-dd" />">
+	<input type="hidden" name="lastFullDate" value="<fmt:formatDate value="${reserVO.r_lastFullDate}" pattern="yyyy-MM-dd" />">
+	<input type="hidden" name="total_pay" value="${reserVO.total_pay}">
+	<input type="hidden" name="room_name" value="${reserVO.room_name}">
+	<input type="hidden" name="inwon_check" value="${reserVO.inwon_check}">
+	<input type="hidden" name="user_id" value="${login.user_id}">
+	<input type="hidden" name="entance_time" value="${reserVO.entance_time}">
+	<input type="hidden" name="user_name" value="${login.user_name}">
+	<input type="text" name ="reserNo" value="<fmt:formatDate value="${reserVO.r_fullDate}" pattern="yyyy-M-d"/>">
 <!-- Contents -->   
 	<div class="conT">
 		<h3>예약정보입력</h3>
@@ -83,15 +109,8 @@ $(document).ready(function(){
 			<tr>
 				<th width="20%" scope="row">숙박기간</th>
 				<td>
-					<input type="hidden" name="reser_select" value="${reserVO.reser_select}">
-					<input type="hidden" name="fullDate" value="<fmt:formatDate value="${reserVO.r_fullDate}" pattern="yyyy-MM-dd" />">
-					<input type="hidden" name="lastFullDate" value="<fmt:formatDate value="${reserVO.r_lastFullDate}" pattern="yyyy-MM-dd" />">
-					<input type="text" name="total_pay" value="${reserVO.total_pay}">
-					<input type="text" name="room_name" value="${reserVO.room_name}">
-					<input type="text" name="inwon_check" value="${reserVO.inwon_check}">
-					<input type="text" name="user_id" value="${login.user_id}">
-					<input type="text" name="entance_time" value="${reserVO.entance_time}">
-					<input type="text" name="user_name" value="${login.user_name}">
+					<fmt:formatDate value="${reserVO.r_fullDate}" pattern="yyyy-MM-dd" />~
+					<fmt:formatDate value="${reserVO.r_lastFullDate}" pattern="yyyy-MM-dd" />
 				</td>
 			</tr>
 			<tr id="info">
