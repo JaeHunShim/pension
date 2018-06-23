@@ -38,14 +38,16 @@ $(document).ready(function(){
 		prm.submit();
 	});
 	//로그인 해야 에약할수 있게 처리
-	<%-- $('li a').on('click',function(){
-		if(<%=session.getAttribute("login")%>==null){
+	$('li a').on('click',function(){
+		var user_id =$('input[name="user_id"]').val();
+		if($('input[name="user_id"]').val().length<1){
 			alert('로그인을 해야 이용하실수 있습니다.');
 			window.top.location.href = "/user/login";
 		}
-	}); --%>
-	//예약된 방에 대해서 css변경
-	
+	});
+	//예약된 방에 대해서 css바꿈 처리
+	var a = $(this).attr("id");
+	console.log(a);
 });
 
 </script>
@@ -84,7 +86,7 @@ $(document).ready(function(){
 		<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
 		<input type='hidden' name ='date' value='${calender.date}'>
 		<input type='hidden' name="user_id" value='${login.user_id}'>
-		<input type='text' name="reserNo" value='${reserVO.reserNo}'>
+		<input type='hidden' name="reserNo" value='${reserVO.reserNo}'>
     	<div class="yms wRap">
 			<a style="cursor:pointer" class='prev'>이전 </a>
  				<p><b>${calender.year}</b>년<b>${calender.month+1}</b>월</p>
