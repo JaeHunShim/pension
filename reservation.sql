@@ -13,7 +13,7 @@ create table reservation(
     reser_content varchar(3000),
     payment varchar(20) not null,
     inwon_check int not null,
-    primary key(user_id),
+    primary key(reserNo),
     foreign key(user_id) references user(user_id)
     on delete cascade
 );

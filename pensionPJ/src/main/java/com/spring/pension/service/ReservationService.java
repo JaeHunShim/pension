@@ -27,5 +27,5 @@ public interface ReservationService {
 	// 예약정보 삽입
 	public void insertConfirm(ReserVO reserVO) throws Exception;
 	// 예약정보 가지고오기 
-	public ReserVO getReserNo() throws Exception;
+	public List<ReserVO> getReserNo() throws Exception;
 }

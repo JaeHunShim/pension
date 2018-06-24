@@ -24,9 +24,9 @@ public class ReserDAOImpl implements ReserDAO {
 	}
 	//예약번호 받아오기 
 	@Override
-	public ReserVO getReserNo() throws Exception {
+	public List<ReserVO> getReserNo() throws Exception {
 		
-		return sqlSession.selectOne(namespace+".getReserNo");
+		return sqlSession.selectList(namespace+".getReserNo");
 	}
 
 }

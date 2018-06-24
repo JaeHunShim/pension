@@ -128,7 +128,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 	//예약 번호 받아오는 부분
 	@Override
-	public ReserVO getReserNo() throws Exception {
+	public List<ReserVO> getReserNo() throws Exception {
 		
 		return reserDAO.getReserNo();
 	}

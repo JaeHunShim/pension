@@ -46,16 +46,15 @@ $(document).ready(function(){
 		}
 	});
 	//예약된 방에 대해서 css바꿈 처리
-	var reserNo = $('input[name="reserNo"]').val();
-	$('li img').each(function(){
-		var b = $(this).attr('id');
-		console.log(b);
-		if(reserNo == b ){
-			$(this).attr('src','/resources/img/reservation/ico_end.gif');
-			return;
-		}
+	$('input[name="reserNo"]').each(function(){
+		var reserNo = $(this).val();
+		$('li img').each(function(){
+			var b = $(this).attr('id');
+			if(reserNo == b ){
+				$(this).attr('src','/resources/img/reservation/ico_end.gif');
+			}
+		});
 	});
-	
 });
 
 </script>
@@ -94,7 +93,9 @@ $(document).ready(function(){
 		<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
 		<input type='hidden' name ='date' value='${calender.date}'>
 		<input type='hidden' name="user_id" value='${login.user_id}'>
-		<input type='text' name="reserNo" value='${reserVO.reserNo}'>
+		<c:forEach items="${reserVO}" var="reserVO">
+		<input type='hidden' name="reserNo" id='${reserVO.reserNo}' value='${reserVO.reserNo}'>	
+		</c:forEach>
     	<div class="yms wRap">
 			<a style="cursor:pointer" class='prev'>이전 </a>
  				<p><b>${calender.year}</b>년<b>${calender.month+1}</b>월</p>
