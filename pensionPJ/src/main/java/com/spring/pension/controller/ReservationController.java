@@ -72,9 +72,10 @@ public class ReservationController {
 	}
 	//캘린더 움직이는 부분 
 	@RequestMapping(value="/calendar",method=RequestMethod.POST)
-	public void moveCalendar(CalendarUtile calender, Model model) throws Exception {
+	public void moveCalendar(CalendarUtile calender,ReserVO reserVO,Model model) throws Exception {
 		
 		model.addAttribute("calender", reserService.moveCalenders(calender));
+		model.addAttribute("reserVO",reserService.getReserNo());
 	}
 	//정보입력하는 부분
 	@RequestMapping(value="/insert",method=RequestMethod.POST)

@@ -46,8 +46,16 @@ $(document).ready(function(){
 		}
 	});
 	//예약된 방에 대해서 css바꿈 처리
-	var a = $(this).attr("id");
-	console.log(a);
+	var reserNo = $('input[name="reserNo"]').val();
+	$('li img').each(function(){
+		var b = $(this).attr('id');
+		console.log(b);
+		if(reserNo == b ){
+			$(this).attr('src','/resources/img/reservation/ico_end.gif');
+			return;
+		}
+	});
+	
 });
 
 </script>
@@ -86,7 +94,7 @@ $(document).ready(function(){
 		<input type='hidden' name ='lastDate' value='${calender.lastDate}'>
 		<input type='hidden' name ='date' value='${calender.date}'>
 		<input type='hidden' name="user_id" value='${login.user_id}'>
-		<input type='hidden' name="reserNo" value='${reserVO.reserNo}'>
+		<input type='text' name="reserNo" value='${reserVO.reserNo}'>
     	<div class="yms wRap">
 			<a style="cursor:pointer" class='prev'>이전 </a>
  				<p><b>${calender.year}</b>년<b>${calender.month+1}</b>월</p>
@@ -142,10 +150,10 @@ $(document).ready(function(){
 											<li>${calender.year}${calender.month+1}${dNum}1</li>
 											<li>${calender.year}${calender.month+1}${dNum}2</li>
 											<li>${calender.year}${calender.month+1}${dNum}3</li>
-											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=1'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span id='${calender.year}${calender.month+1}${dNum}1' style='color:#6a6a6a'>데이지(복층)</span></a></li>
-											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=2'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span id='${calender.year}${calender.month+1}${dNum}2' style='color:#6a6a6a'>릴리(복층)</span></a></li>
-											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=3'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span id='${calender.year}${calender.month+1}${dNum}3'style='color:#6a6a6a'>아이비</span></a></li>
-											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=4'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle'><span id='${calender.year}${calender.month+1}${dNum}4' style='color:#6a6a6a'>마가렛</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=1'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle' id='${calender.year}${calender.month+1}${dNum}1'><span  style='color:#6a6a6a'>데이지(복층)</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=2'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle' id='${calender.year}${calender.month+1}${dNum}2'><span style='color:#6a6a6a'>릴리(복층)</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=3'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle' id='${calender.year}${calender.month+1}${dNum}3'><span style='color:#6a6a6a'>아이비</span></a></li>
+											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=4'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle' id='${calender.year}${calender.month+1}${dNum}4'><span style='color:#6a6a6a'>마가렛</span></a></li>
 										</c:when>
 									</c:choose>
 								</ul>
