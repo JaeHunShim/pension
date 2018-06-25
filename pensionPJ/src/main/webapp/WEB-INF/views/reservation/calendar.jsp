@@ -37,12 +37,17 @@ $(document).ready(function(){
 		$('#prm').attr('action','/reservation/calender');
 		prm.submit();
 	});
-	//로그인 해야 에약할수 있게 처리
-	$('li a').on('click',function(){
+	//로그인 해야 에약할수 있게 처리 , 예약된 방을 클릭시 예약되어있다고 알림 
+	$('li a').on('click',function(event){
 		var user_id =$('input[name="user_id"]').val();
 		if($('input[name="user_id"]').val().length<1){
 			alert('로그인을 해야 이용하실수 있습니다.');
 			window.top.location.href = "/user/login";
+		}
+		if($(this).children().attr('alt')=="예약완료"){
+			alert("예약이 완료된 방입니다.");
+			event.preventDefault();
+			return false;
 		}
 	});
 	//예약된 방에 대해서 css바꿈 처리
@@ -52,6 +57,7 @@ $(document).ready(function(){
 			var b = $(this).attr('id');
 			if(reserNo == b ){
 				$(this).attr('src','/resources/img/reservation/ico_end.gif');
+				$(this).attr('alt','예약완료');
 			}
 		});
 	});
