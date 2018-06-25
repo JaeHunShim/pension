@@ -15,25 +15,19 @@ $(document).ready(function(){
 		var prm = document.prm;
 		var currentYear = '${calender.year}';
 		var currentMonth = '${calender.month}';
-		
 		$('input[name="year"]').val(currentYear);
 		$('input[name="month"]').val(currentMonth-1);
-		
 		$('#prm').attr('action','/reservation/calender');
-
 		prm.submit();
 		
 	});
 	// 다음개월
 	$('.next').on('click',function(){
-		
 		var prm = document.prm;
 		var cYear = '${calender.year}';
 		var cMonth = '${calender.month}';
-		
 		$('input[name="year"]').val(cYear);
 		$('input[name="month"]').val(Number(cMonth)+1);
-		
 		$('#prm').attr('action','/reservation/calender');
 		prm.submit();
 	});
@@ -154,9 +148,6 @@ $(document).ready(function(){
 											<li>예약완료</li>
 										</c:when>
 										<c:when test="${current.month eq calender.month && current.date <= dNum || current.month <calender.month}">
-											<li>${calender.year}${calender.month+1}${dNum}1</li>
-											<li>${calender.year}${calender.month+1}${dNum}2</li>
-											<li>${calender.year}${calender.month+1}${dNum}3</li>
 											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=1'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle' id='${calender.year}${calender.month+1}${dNum}1'><span  style='color:#6a6a6a'>데이지(복층)</span></a></li>
 											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=2'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle' id='${calender.year}${calender.month+1}${dNum}2'><span style='color:#6a6a6a'>릴리(복층)</span></a></li>
 											<li><a href='/reservation/select?year=${calender.year}&month=${calender.month}&date=${calender.date}&week=${calender.week}&lastDate=${calender.lastDate}&dNum=${dNum}&room_check=3'><img src='/resources/img/reservation/ico_ye.gif' alt='예' align='absmiddle' id='${calender.year}${calender.month+1}${dNum}3'><span style='color:#6a6a6a'>아이비</span></a></li>

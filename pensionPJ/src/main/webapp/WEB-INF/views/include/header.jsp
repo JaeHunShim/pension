@@ -105,10 +105,10 @@
                                 <li class="gnb_2"><a href="/sub2/sub1.htm">객실안내</a>
                                     <div class="sub_menu">
                                         <ul class="depth2">
-                                            <li class="first"><a href="/sub2/sub1.htm">데이지</a></li>
-                                            <li><a href="/sub2/sub2.htm">릴리</a></li>
-                                            <li><a href="/sub2/sub3.htm">아이비</a></li>
-                                            <li><a href="/sub2/sub4.htm">마가렛</a></li>
+                                            <li class="first"><a href="/room/daisy">데이지</a></li>
+                                            <li><a href="/room/lily">릴리</a></li>
+                                            <li><a href="/room/ivy">아이비</a></li>
+                                            <li><a href="/room/margaret">마가렛</a></li>
                                         </ul>
                                     </div>
                                 </li>                                                                
@@ -157,35 +157,35 @@
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/reservation_main">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
                 <div class="data-2">
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/reservation_main">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
                 <div class="data-3">
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/reservation_main">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
                 <div class="data-4">
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/reservation_main">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
                 <div class="data-5">
                         <div class="opa water01"></div>
                         <div class="opa water0102"></div>
                         <div class="opa water02">신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. <br />고품격의 여유로움속으로 당신을 초대합니다.</div>
-                        <div class="opa water03"><a href="/reservation/realRes">실시간예약</a></div>
+                        <div class="opa water03"><a href="/reservation/reservation_main">실시간예약</a></div>
                     <div class="opa prd"></div>
 				</div>
 			</div>
