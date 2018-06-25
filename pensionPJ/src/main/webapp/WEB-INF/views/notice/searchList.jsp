@@ -21,6 +21,15 @@
 			+ $('select option:selected').val()
 			+ "&keyword=" +encodeURIComponent($('#keywordInput').val());
 		});
+		//관리자만 사용할수 있게 함 
+		$('.write').on('click',function(event){
+			var user_id = $('input[name="user_id"]').val()
+			if(user_id!="jaehuniya"){
+				alert('관리자만 사용할수 있습니다.');
+				event.preventDefault();
+				return false;
+			}
+		});
 	});
 </script>
 <section class="sub_con sub02" id="scene1">
@@ -35,6 +44,7 @@
 <script src="/resources/js/module/board.js"></script>
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
 <div class="zz_new_list">
+	<input type="text" name="user_id" value="${login.user_id}">
 	<div class="zz_new_list_header">
     	<ul class="zz_search_box">
         	<li>

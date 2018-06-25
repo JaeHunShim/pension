@@ -6,9 +6,9 @@
         <h3>신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실수 있습니다.  고품격의 여유로움 속으로 당신을 초대합니다.</h3>
         <ul>
             <li><a href="/main/intro" class="ban01">이루펜션소개</a></li>
-            <li><a href="/reservation/realRes" class="ban02">실시간예약</a></li>
-            <li><a href="/reservation/resGuide" class="ban03">예약안내</a></li>
-            <li><a href="#" class="ban04">오시는길</a></li>
+            <li><a href="/reservation/reservation_main" class="ban02">실시간예약</a></li>
+            <li><a href="/reservation/reservation_guide" class="ban03">예약안내</a></li>
+            <li><a href="/reservation/" class="ban04">오시는길</a></li>
         </ul>
     </div>
 </div>

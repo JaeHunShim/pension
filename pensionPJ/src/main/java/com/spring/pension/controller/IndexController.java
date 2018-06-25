@@ -24,4 +24,9 @@ public class IndexController {
 		logger.info("소개 페이지로 이동");
 		return "/index/intro";
 	}
+	@RequestMapping(value="/map" ,method=RequestMethod.GET)
+	public String map() {
+		
+		return "/index/map"; 
+	}
 }

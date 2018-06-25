@@ -20,6 +20,8 @@
 			+ $('select option:selected').val()
 			+ "&keyword=" +encodeURIComponent($('#keywordInput').val());
 		});
+		// 관리자가 아니면 글쓰기 못하게 막는 부분 
+		
 	});
 </script>
 <section class="sub_con sub02" id="scene1">

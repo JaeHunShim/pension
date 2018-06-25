@@ -45,7 +45,7 @@
 		]]>
 	</select>
 <!-- 2. 공지사항 목록보기 (검색과 페이징 처리 둘다)  -->
-	<select id ="listSearch" resultType ="noticeVO">
+	<select id ="listSearch" resultType ="NoticeVO">
 		<![CDATA[
 		select
 			bno,title,content,writer,regdate,viewcnt

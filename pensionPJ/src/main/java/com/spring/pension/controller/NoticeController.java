@@ -1,6 +1,7 @@
 package com.spring.pension.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,6 @@ public class NoticeController {
 	// 글 삽입 페이지로 이동
 	@RequestMapping(value="/register",method=RequestMethod.GET)
 	public void registerGET() throws Exception {
-		
 		logger.info("글쓰기 페이지로 이동------------");
 	}
 	// 글삽입후 처리
