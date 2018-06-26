@@ -50,7 +50,7 @@
     					</div>
 					</div>
 				</li>
-			
+				
 			<!-- Join End -->
 			<!-- Login Start -->
         		<li>
@@ -66,14 +66,27 @@
 					</div>
 				</li>
         		</c:when>
-        		<c:otherwise>
+        		<c:when test="${user_id eq 'jaehuniya'}">
+        		<li>
+					<a href="/admin/management" data-toggle="modal" data-target="#login-modal">
+ 						<span class="btn btn-xs btn-success">예약현황 보기</span>
+					</a>
+				</li>
 				<li>
         			<a href="/user/logout"><span class="btn btn-xs btn-success">sign out</span></a>
         		</li>
         		<li>
         			<span style="color:pink" id="user_id">${login.user_id}</span>
         		</li>
-				</c:otherwise>
+				</c:when>
+				<c:when test="${!empty user_id}">
+				<li>
+        			<a href="/user/logout"><span class="btn btn-xs btn-success">sign out</span></a>
+        		</li>
+        		<li>
+        			<span style="color:pink" id="user_id">${login.user_id}</span>
+        		</li>
+        		</c:when>
 			</c:choose>
 			<!-- Login Out -->
             <li><a href="/main/intro">contact us</a></li>

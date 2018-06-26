@@ -118,5 +118,4 @@ public class ReservationController {
 		
 		return "redirect:/reservation/reservation_main";
 	}
-	
 }
