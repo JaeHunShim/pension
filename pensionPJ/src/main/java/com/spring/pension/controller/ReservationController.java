@@ -118,4 +118,10 @@ public class ReservationController {
 		
 		return "redirect:/reservation/reservation_main";
 	}
+	@RequestMapping(value="/management", method=RequestMethod.GET)
+	public void management(Model model) throws Exception {
+		
+		model.addAttribute("list",reserService.adminList());
+		System.out.println("받아오는것들" + reserService.adminList().toString());
+	}
 }

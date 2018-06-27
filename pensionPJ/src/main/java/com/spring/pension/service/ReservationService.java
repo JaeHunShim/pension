@@ -28,4 +28,6 @@ public interface ReservationService {
 	public void insertConfirm(ReserVO reserVO) throws Exception;
 	// 예약정보 가지고오기 
 	public List<ReserVO> getReserNo() throws Exception;
+	//관리자가볼 예약정보 가지고오기
+	public List<Map<String,Object>> adminList() throws Exception;
 }

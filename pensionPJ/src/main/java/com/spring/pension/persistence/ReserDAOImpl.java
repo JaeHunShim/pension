@@ -1,6 +1,7 @@
 package com.spring.pension.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -27,6 +28,12 @@ public class ReserDAOImpl implements ReserDAO {
 	public List<ReserVO> getReserNo() throws Exception {
 		
 		return sqlSession.selectList(namespace+".getReserNo");
+	}
+	//관리자가볼 에약정보 받아오기 
+	@Override
+	public List<Map<String, Object>> admin() throws Exception {
+		
+		return sqlSession.selectList(namespace+".adminList");
 	}
 
 }

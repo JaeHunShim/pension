@@ -132,5 +132,13 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		return reserDAO.getReserNo();
 	}
+	//관리자가볼 예약 정보 가지고오기
+	@Override
+	public List<Map<String, Object>> adminList() throws Exception {
+		
+		System.out.println(reserDAO.admin());
+		
+		return reserDAO.admin();
+	}
 	
 }
