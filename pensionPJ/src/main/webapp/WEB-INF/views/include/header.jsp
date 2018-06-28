@@ -68,7 +68,7 @@
         		</c:when>
         		<c:when test="${user_id eq 'admin'}">
         		<li>
-					<a href="/reservation/management" data-toggle="modal">
+					<a href="/reservation/managementPaging" data-toggle="modal">
  						<span class="btn btn-xs btn-success">예약현황 보기</span>
 					</a>
 				</li>

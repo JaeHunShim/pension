@@ -4,17 +4,34 @@
 <mapper namespace="com.spring.mapper.ReserMapper">
 	<!-- 예약하는 부분  -->
 	<insert id="insertReser">
-		insert into reservation(reserNo,user_id,user_name,inwon_check,room_name,total_pay,r_fullDate,r_lastFullDate,reser_select,entance_time,reser_content,payment)
-		values(#{reserNo},#{user_id},#{user_name},#{inwon_check},#{room_name},#{total_pay},#{r_fullDate},#{r_lastFullDate},#{reser_select},#{entance_time},#{reser_content},#{payment})
+		insert into reservation(reserNo,user_id,user_name,inwon_check,room_name,total_pay,r_fullDate,r_lastFullDate,
+		reser_select,entance_time,reser_content,payment)
+		values(#{reserNo},#{user_id},#{user_name},#{inwon_check},#{room_name},#{total_pay},#{r_fullDate},
+		#{r_lastFullDate},#{reser_select},#{entance_time},#{reser_content},#{payment})
 	</insert>
 	<!-- 예약 정보 모두 받아오기 -->
 	<select id="getReserNo" resultType="ReserVO">
 		select reserNo from reservation;
 	</select>
-	<!-- 관리자페이지에서 볼 ㅔ약정보 불러오기 -->
+	<!-- 1. 관리자페이지에서 볼 예약정보 불러오기 -->
 	<select id="adminList" resultType="java.util.HashMap">
-		select r_fullDate,r_lastfullDate,reser_select,reservation.user_id,user_email,reservation.user_name,room_name,user_phone,inwon_check,total_pay
-		from user,reservation where user.user_id = reservation.user_id
-		order by r_fullDate;
+		select reserNo,r_fullDate,r_lastfullDate,reser_select,reservation.user_id,user_email,reservation.user_name,
+		room_name,user_phone,inwon_check,total_pay
+		from 
+		user,reservation where user.user_id = reservation.user_id
+		order by r_fullDate desc
+	</select>
+	<!-- 예약정보 갯수 구하기 (페이징 처리 하기 위해서) -->
+	<select id="count" resultType="int">
+		<![CDATA[select count(reserNo) from reservation where reserNo>0]]>
+	</select>
+	<!-- 2. 관리자페이지에서 볼 예약정보 불러오기 -->
+	<select id="adminListCri" resultType="java.util.HashMap">
+		select reserNo,r_fullDate,r_lastfullDate,reser_select,reservation.user_id,user_email,reservation.user_name,
+		room_name,user_phone,inwon_check,total_pay
+		from 
+		user,reservation where user.user_id = reservation.user_id
+		order by r_fullDate desc
+		limit #{pageStart},#{perPageNum}
 	</select>
 </mapper>

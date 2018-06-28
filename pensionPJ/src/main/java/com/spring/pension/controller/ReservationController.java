@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.pension.domain.CalendarUtile;
+import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.PageMaker;
 import com.spring.pension.domain.ReserVO;
 import com.spring.pension.domain.ReservationVO;
 import com.spring.pension.service.ReservationService;
@@ -118,10 +120,21 @@ public class ReservationController {
 		
 		return "redirect:/reservation/reservation_main";
 	}
+	//1. 관리자가 예약현황 보기
 	@RequestMapping(value="/management", method=RequestMethod.GET)
 	public void management(Model model) throws Exception {
 		
 		model.addAttribute("list",reserService.adminList());
 		System.out.println("받아오는것들" + reserService.adminList().toString());
+	}
+	//2. 관리자가 예약현황 보기(페이징처리)
+	@RequestMapping(value="/managementPaging",method=RequestMethod.GET)
+	public void managementPaging(@ModelAttribute("cri")Criteria cri,Model model) throws Exception {
+		
+		model.addAttribute("list", reserService.managementList(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(reserService.listCount(cri));
+		model.addAttribute("pageMaker",pageMaker);
 	}
 }

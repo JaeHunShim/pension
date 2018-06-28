@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.spring.pension.domain.CalendarUtile;
+import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.ReserVO;
 import com.spring.pension.persistence.ReserDAO;
 @Service
@@ -132,13 +133,25 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		return reserDAO.getReserNo();
 	}
-	//관리자가볼 예약 정보 가지고오기
+	//1. 관리자가볼 예약 정보 가지고오기
 	@Override
 	public List<Map<String, Object>> adminList() throws Exception {
 		
 		System.out.println(reserDAO.admin());
 		
 		return reserDAO.admin();
+	}
+	//예약정보 데이터 갯수 가지고 오기 (페이징 처리)
+	@Override
+	public int listCount(Criteria cri) throws Exception {
+		
+		return reserDAO.conutPage(cri);
+	}
+	//2. 관리자가볼 예약정보 가지고 오기(페이징 처리)
+	@Override
+	public List<Map<String, Object>> managementList(Criteria cri) throws Exception {
+		
+		return reserDAO.management(cri);
 	}
 	
 }

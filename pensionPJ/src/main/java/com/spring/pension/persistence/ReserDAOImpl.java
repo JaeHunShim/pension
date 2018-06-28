@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.ReserVO;
 
 @Repository
@@ -29,11 +30,23 @@ public class ReserDAOImpl implements ReserDAO {
 		
 		return sqlSession.selectList(namespace+".getReserNo");
 	}
-	//관리자가볼 에약정보 받아오기 
+	//1.관리자가볼 에약정보 받아오기 
 	@Override
 	public List<Map<String, Object>> admin() throws Exception {
 		
 		return sqlSession.selectList(namespace+".adminList");
+	}
+	// 예약테이블 데이터 갯수 구하기 (페이징 처리 하기 위해서)
+	@Override
+	public int conutPage(Criteria cri) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".count",cri);
+	}
+	//2. 관리자가 볼 예약정보 받아오기(페이징 처리)
+	@Override
+	public List<Map<String, Object>> management(Criteria cri) throws Exception {
+		
+		return sqlSession.selectList(namespace+".adminListCri", cri);
 	}
 
 }
