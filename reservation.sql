@@ -32,3 +32,5 @@ drop table reservation;
  
  -- reserNo 받아오기
  select reserNo from reservation;
+ 
+ insert into reservation values(2018813,'amdin','심재훈','아이비',480000,'2018-08-01','2018-08-02',1,'오후3시','이양','무통장입금',6);

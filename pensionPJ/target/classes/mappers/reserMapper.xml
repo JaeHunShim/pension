@@ -34,4 +34,8 @@
 		order by r_fullDate desc
 		limit #{pageStart},#{perPageNum}
 	</select>
+	<!-- 예약정보 삭제하는 부분  -->
+	<select id= "delete">
+		delete from reservation where reserNo = #{reserNo}
+	</select>
 </mapper>

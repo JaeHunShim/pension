@@ -153,5 +153,11 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		return reserDAO.management(cri);
 	}
+	//관리자가 게시물 삭제
+	@Override
+	public void delete(int reserNo) throws Exception {
+		
+		reserDAO.delete(reserNo);
+	}
 	
 }

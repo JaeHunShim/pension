@@ -35,4 +35,6 @@ public interface ReservationService {
 	public int listCount(Criteria cri) throws Exception;
 	//2. 관리자가볼 예약정보 가지고오기(페이징처리)
 	public List<Map<String,Object>> managementList(Criteria cri) throws Exception;
+	//관리자가 예약물 삭제
+	public void delete(int reserNo) throws Exception;
 }

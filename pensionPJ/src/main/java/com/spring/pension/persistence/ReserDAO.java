@@ -16,4 +16,6 @@ public interface ReserDAO {
 	public int conutPage(Criteria cri) throws Exception;
 	//2.관리자가 볼 예약페이지 (페이징처리)
 	public List<Map<String,Object>> management(Criteria cri) throws Exception;
+	//관리자가 게시물 삭제
+	public void delete(int reserNo) throws Exception;
 }

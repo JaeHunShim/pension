@@ -22,7 +22,16 @@ function numberWithCommas(x) {
 	});
 	
 }
+//삭제에 관한 메세지 
+var result='${msg}';
+
+if(result='${sucess}'){
+	alert('삭제되었습니다.');
+}
+</script>
+<script>
 $(document).ready(function(){
+	
 	$('tr').children('#total_pay').each(function(){
 		var x = $(this).text();
 		numberWithCommas(x);
@@ -42,6 +51,14 @@ $(document).ready(function(){
     });
     
     $("[data-toggle=tooltip]").tooltip();
+     
+  	//선택한 게시물 삭제 하는 부분
+    $('#delete').on('click',function(){
+    	if(confirm("정말로 삭제 하시겠습니까?")){
+    		self.location ="/reservation/delete?reserNo="+$('input[type=checkbox]:checked').val()
+    	}
+    	
+    });	
 });
 
 </script>
@@ -105,7 +122,7 @@ $(document).ready(function(){
 						<tbody>
 						<c:forEach items="${list}" var="management">
 							<tr>
-								<td><input type="checkbox" class="checkthis" /></td>
+								<td><input type="checkbox" value="${management.reserNo}"class="checkthis" /></td>
 								<td>${management.reserNo}</td>
 								<td>${management.r_fullDate}</td>
 								<td>${management.r_lastfullDate}</td>
@@ -118,26 +135,33 @@ $(document).ready(function(){
 								<td>${management.inwon_check}명</td>
 								<td id="total_pay">${management.total_pay}원</td>
 								<td></td>
-								<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-								<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+								<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+								<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button id="delete" class="btn btn-danger btn-xs" data-title="Delete"\><span class="glyphicon glyphicon-trash"></span></button></p></td>
 							</tr>
 						</c:forEach>
 						</tbody>        
 					</table>
-
-<div class="clearfix"></div>
-<ul class="pagination pull-right">
-<li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
-<li class="active"><a href="#">1</a></li>
-<li><a href="#">2</a></li>
-<li><a href="#">3</a></li>
-<li><a href="#">4</a></li>
-<li><a href="#">5</a></li>
-<li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+						<div class="clearfix"></div>
+							<ul class="pagination pull-right">
+								<%-- <c:if test="${pageMaker.prev}"> --%>
+								<li <c:out value="${pageMaker.prev == false?'class=disabled':''}"/>>
+									<a href="/reservation/managementPaging${pageMaker.makeQuery(pageMaker.startPage-1)}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+								</li>
+								<%-- </c:if> --%>
+								<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage }" var="idx">
+								<li <c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
+									<a href="/reservation/managementPaging${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+								</c:forEach>
+								<%-- <c:if test="${pageMaker.next}"> --%>
+								<li <c:out value="${pageMaker.next == false?'class=disabled':''}"/>>
+									<a href="/reservation/managementPaging${pageMaker.makeQuery(pageMaker.endPage+1)}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+								</li>
+								<%-- </c:if> --%>	
+							</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <%@ include file="../include/footer.jsp" %>

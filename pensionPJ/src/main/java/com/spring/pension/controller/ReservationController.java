@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.pension.domain.CalendarUtile;
 import com.spring.pension.domain.Criteria;
@@ -136,5 +137,14 @@ public class ReservationController {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(reserService.listCount(cri));
 		model.addAttribute("pageMaker",pageMaker);
+	}
+	// 관리자가 예약정보 삭제하는 부분 
+	@RequestMapping(value="/delete",method=RequestMethod.GET)
+	public String delete(int reserNo,RedirectAttributes rttr) throws Exception {
+		logger.info("관리자 페이지에서 삭제하기-------------------------------- ");
+		logger.info("reserNo 정보:" + reserNo);
+		reserService.delete(reserNo);
+		rttr.addFlashAttribute("msg", "success");
+		return "redirect:/reservation/managementPaging";
 	}
 }
