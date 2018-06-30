@@ -28,7 +28,7 @@
 	<!-- 2. 관리자페이지에서 볼 예약정보 불러오기 -->
 	<select id="adminListCri" resultType="java.util.HashMap">
 		select reserNo,r_fullDate,r_lastfullDate,reser_select,reservation.user_id,user_email,reservation.user_name,
-		room_name,user_phone,inwon_check,total_pay
+		room_name,user_phone,inwon_check,total_pay,deposit
 		from 
 		user,reservation where user.user_id = reservation.user_id
 		order by r_fullDate desc
@@ -38,4 +38,8 @@
 	<select id= "delete">
 		delete from reservation where reserNo = #{reserNo}
 	</select>
+	<!--입금정보 수정  -->
+	<update id='modiDeposit'>
+		update reservation set deposit=if(deposit='입금전','입금완료','입금전') where reserNo = #{reserNo}; 
+	</update>
 </mapper>

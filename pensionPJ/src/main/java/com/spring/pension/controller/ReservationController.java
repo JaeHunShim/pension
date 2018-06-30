@@ -19,6 +19,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -145,6 +146,15 @@ public class ReservationController {
 		logger.info("reserNo 정보:" + reserNo);
 		reserService.delete(reserNo);
 		rttr.addFlashAttribute("msg", "success");
+		return "redirect:/reservation/managementPaging";
+	}
+	// 입금현황 바꾸는 부분
+	@RequestMapping(value="/modifyDeposit",method=RequestMethod.GET)
+	public String modiDeposit(int reserNo)throws Exception {
+		logger.info("입금현황 수정하기 -------------------------------------------");
+		logger.info("reserNo정보:" + reserNo);
+		reserService.modiDeposit(reserNo);
+		
 		return "redirect:/reservation/managementPaging";
 	}
 }

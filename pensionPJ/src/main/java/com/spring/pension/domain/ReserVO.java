@@ -17,6 +17,7 @@ public class ReserVO {
 	private String entance_time;	// 입실예정시간
 	private String reser_content;	//전달사항
 	private String payment;	//결제수단 
+	private String deposit; // 결제여부
 	
 	public Integer getReserNo() {
 		return reserNo;
@@ -90,20 +91,27 @@ public class ReserVO {
 	public void setPayment(String payment) {
 		this.payment = payment;
 	}
+	
+	
+	public String getDeposit() {
+		return deposit;
+	}
+	public void setDeposit(String deposit) {
+		this.deposit = deposit;
+	}
 	@Override
 	public String toString() {
 		return "ReserVO [reserNo=" + reserNo + ", user_id=" + user_id + ", user_name=" + user_name + ", room_name="
 				+ room_name + ", total_pay=" + total_pay + ", inwon_check=" + inwon_check + ", r_fullDate=" + r_fullDate
 				+ ", r_lastFullDate=" + r_lastFullDate + ", reser_select=" + reser_select + ", entance_time="
-				+ entance_time + ", reser_content=" + reser_content + ", payment=" + payment + ", getReserNo()="
-				+ getReserNo() + ", getUser_id()=" + getUser_id() + ", getUser_name()=" + getUser_name()
-				+ ", getRoom_name()=" + getRoom_name() + ", getTotal_pay()=" + getTotal_pay() + ", getInwon_check()="
-				+ getInwon_check() + ", getR_fullDate()=" + getR_fullDate() + ", getR_lastFullDate()="
-				+ getR_lastFullDate() + ", getReser_select()=" + getReser_select() + ", getEntance_time()="
-				+ getEntance_time() + ", getReser_content()=" + getReser_content() + ", getPayment()=" + getPayment()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+				+ entance_time + ", reser_content=" + reser_content + ", payment=" + payment + ", deposit=" + deposit
+				+ ", getReserNo()=" + getReserNo() + ", getUser_id()=" + getUser_id() + ", getUser_name()="
+				+ getUser_name() + ", getRoom_name()=" + getRoom_name() + ", getTotal_pay()=" + getTotal_pay()
+				+ ", getInwon_check()=" + getInwon_check() + ", getR_fullDate()=" + getR_fullDate()
+				+ ", getR_lastFullDate()=" + getR_lastFullDate() + ", getReser_select()=" + getReser_select()
+				+ ", getEntance_time()=" + getEntance_time() + ", getReser_content()=" + getReser_content()
+				+ ", getPayment()=" + getPayment() + ", getDeposit()=" + getDeposit() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
 	
 }

@@ -37,4 +37,6 @@ public interface ReservationService {
 	public List<Map<String,Object>> managementList(Criteria cri) throws Exception;
 	//관리자가 예약물 삭제
 	public void delete(int reserNo) throws Exception;
+	// 입금 현황 수정하는 부분 
+	public void modiDeposit(int reserNo) throws Exception;
 }

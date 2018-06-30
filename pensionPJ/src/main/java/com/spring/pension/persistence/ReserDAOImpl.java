@@ -54,5 +54,11 @@ public class ReserDAOImpl implements ReserDAO {
 		
 		sqlSession.delete(namespace+".delete", reserNo);
 	}
+	//입금현황 수정하는 부분 
+	@Override
+	public void modiDeposit(int reserNo) throws Exception {
+		
+		sqlSession.update(namespace+".modiDeposit", reserNo);
+	}
 
 }

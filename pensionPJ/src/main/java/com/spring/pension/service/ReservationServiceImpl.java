@@ -159,5 +159,10 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		reserDAO.delete(reserNo);
 	}
+	@Override
+	public void modiDeposit(int reserNo) throws Exception {
+		
+		reserDAO.modiDeposit(reserNo);
+	}
 	
 }

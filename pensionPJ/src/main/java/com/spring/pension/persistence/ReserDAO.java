@@ -18,4 +18,6 @@ public interface ReserDAO {
 	public List<Map<String,Object>> management(Criteria cri) throws Exception;
 	//관리자가 게시물 삭제
 	public void delete(int reserNo) throws Exception;
+	//입금현황 수정 하는 부분
+	public void modiDeposit(int reserNo) throws Exception;
 }

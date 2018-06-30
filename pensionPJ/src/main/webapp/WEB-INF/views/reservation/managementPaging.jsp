@@ -11,6 +11,10 @@
   .container {
     width:1500px;
   }
+}  
+table{
+	text-align:center;
+}
 </style>
 <script>
 //가격에 콤마찍는 부분
@@ -31,7 +35,11 @@ if(result='${sucess}'){
 </script>
 <script>
 $(document).ready(function(){
-	
+	//텍스트 center
+	$('th').each(function(){
+		$(this).attr('class',"text-center");	
+	});
+	//금액에 콤마찍는 부분 
 	$('tr').children('#total_pay').each(function(){
 		var x = $(this).text();
 		numberWithCommas(x);
@@ -53,12 +61,33 @@ $(document).ready(function(){
     $("[data-toggle=tooltip]").tooltip();
      
   	//선택한 게시물 삭제 하는 부분
-    $('#delete').on('click',function(){
-    	if(confirm("정말로 삭제 하시겠습니까?")){
+  	
+    $('.btn-danger').on('click',function(){
+    	if($('input[type=checkbox]').is(':checked')==false){
+    		alert("삭제할것을 선택해주세요");
+    		return false;
+    	}else if(confirm("정말로 삭제 하시겠습니까?")){
     		self.location ="/reservation/delete?reserNo="+$('input[type=checkbox]:checked').val()
     	}
     	
-    });	
+    });
+  	//입금 여부 바꾸는 부분 (deposit이 1이면 미입금, deposit이 2이면 입금)
+  	$('.btn-primary').on('click',function(){
+  		if($('input[type=checkbox]').is(':checked')==false){
+    		alert("변경하실 입금현황을 선택해주세요");
+    		return false;
+    	}else if(confirm("입급완료!!")){
+    		self.location = "/reservation/modifyDeposit?reserNo="+$('input[type=checkbox]:checked').val()	
+    	}		
+  	});
+  	$('.btn-success').on('click',function(){
+  		if($('input[type=checkbox]').is(':checked')==false){
+    		alert("변경하실 입금현황을 선택해주세요");
+    		return false;
+    	}else if(confirm("미입금으로 수정!!")){
+    		self.location = "/reservation/modifyDeposit?reserNo="+$('input[type=checkbox]:checked').val()	
+    	}		
+  	})
 });
 
 </script>
@@ -115,7 +144,6 @@ $(document).ready(function(){
 								<th>숙박 인원</th>
 								<th>금액</th>
 								<th>입금여부</th>
-								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
 						</thead>
@@ -134,9 +162,15 @@ $(document).ready(function(){
 								<td>${management.room_name}</td>
 								<td>${management.inwon_check}명</td>
 								<td id="total_pay">${management.total_pay}원</td>
-								<td></td>
-								<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-								<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button id="delete" class="btn btn-danger btn-xs" data-title="Delete"\><span class="glyphicon glyphicon-trash"></span></button></p></td>
+								<c:choose>
+								<c:when test="${management.deposit == '입금전'}">
+									<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-remove" ></span></button></p></td>								
+								</c:when>
+								<c:otherwise>
+									<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-success btn-xs" data-title="Edit"><span class="glyphicon glyphicon-ok"></span></button></p></td>
+								</c:otherwise>
+								</c:choose>
+								<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete"\><span class="glyphicon glyphicon-trash"></span></button></p></td>
 							</tr>
 						</c:forEach>
 						</tbody>        
@@ -157,7 +191,7 @@ $(document).ready(function(){
 								<li <c:out value="${pageMaker.next == false?'class=disabled':''}"/>>
 									<a href="/reservation/managementPaging${pageMaker.makeQuery(pageMaker.endPage+1)}"><span class="glyphicon glyphicon-chevron-right"></span></a>
 								</li>
-								<%-- </c:if> --%>	
+								<%-- </c:if> --%>
 							</ul>
 				</div>
 			</div>
