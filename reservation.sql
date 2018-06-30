@@ -61,5 +61,4 @@ drop table reservation;
  -- 입금 칼럼 수정
  alter table reservation change deposit deposit varchar(5) default "입금전";
  -- deposit 수정
- update reservation set deposit = case when deposit ='입금전' then deposit='입금완료' when deposit='입금완료' then deposit='입금전' end where reserNo = 20188123; 
- update reservation set deposit=if(deposit='입금전','입금완료',deposit) where reserNo = 20188123;
+ update reservation set deposit=if(deposit='입금전','입금완료','입금전') where reserNo = 20188123;
