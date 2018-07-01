@@ -114,7 +114,38 @@
 			<groupId>org.imgscalr</groupId>
 			<artifactId>imgscalr-lib</artifactId>
 			<version>4.2</version>
-		</dependency>		
+		</dependency>
+		<!-- 엑셀다운로드  처리 라이브러리  -->
+		<dependency>
+              <groupId>net.sf.jxls</groupId>
+               <artifactId>jxls-core</artifactId>
+             <version>1.0.6</version>
+       	</dependency>
+       	<dependency>
+            <groupId>org.jxls</groupId>
+            <artifactId>jxls-poi</artifactId>
+            <version>1.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jxls</groupId>
+            <artifactId>jxls</artifactId>
+            <version>2.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jxls</groupId>
+            <artifactId>jxls-jexcel</artifactId>
+            <version>1.0.6</version>
+        </dependency>	
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>

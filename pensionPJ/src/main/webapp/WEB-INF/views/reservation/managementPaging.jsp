@@ -87,7 +87,13 @@ $(document).ready(function(){
     	}else if(confirm("미입금으로 수정!!")){
     		self.location = "/reservation/modifyDeposit?reserNo="+$('input[type=checkbox]:checked').val()	
     	}		
-  	})
+  	});
+  	//엑셀로 출력하는 부분 
+  	$('.btn-warning').on('click',function(){
+  		if(confirm("엑셀로 다운로드 하시겠습니까?")){
+  			self.location = "/download/exel";	
+  		}
+  	});
 });
 
 </script>
@@ -124,9 +130,12 @@ $(document).ready(function(){
 </div>
 <section>
 	<div class="container">
+	<ul>
+		<li><h3>Reservation Infromation</h3></li>
+		<li><button class="btn btn-warning btn pull-right"><span class="glyphicon glyphicon-download-alt"></span></button></li>
+	</ul>
 		<div class="row">
 			<div class="col-md-12">
-				<h4>Reservation Infromation</h4>
 				<div class="table-responsive">
 					<table id="mytable" class="table table-bordred table-striped">
 						<thead>
@@ -177,21 +186,17 @@ $(document).ready(function(){
 					</table>
 						<div class="clearfix"></div>
 							<ul class="pagination pull-right">
-								<%-- <c:if test="${pageMaker.prev}"> --%>
 								<li <c:out value="${pageMaker.prev == false?'class=disabled':''}"/>>
 									<a href="/reservation/managementPaging${pageMaker.makeQuery(pageMaker.startPage-1)}"><span class="glyphicon glyphicon-chevron-left"></span></a>
 								</li>
-								<%-- </c:if> --%>
 								<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage }" var="idx">
 								<li <c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
 									<a href="/reservation/managementPaging${pageMaker.makeQuery(idx)}">${idx}</a>
 								</li>
 								</c:forEach>
-								<%-- <c:if test="${pageMaker.next}"> --%>
 								<li <c:out value="${pageMaker.next == false?'class=disabled':''}"/>>
 									<a href="/reservation/managementPaging${pageMaker.makeQuery(pageMaker.endPage+1)}"><span class="glyphicon glyphicon-chevron-right"></span></a>
 								</li>
-								<%-- </c:if> --%>
 							</ul>
 				</div>
 			</div>
