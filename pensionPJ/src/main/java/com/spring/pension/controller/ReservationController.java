@@ -168,8 +168,9 @@ public class ReservationController {
 		
 		System.out.println("엑셀이 들어갈 데이터:" + reserService.adminList());
 		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("management", reserService.adminList());
+		List<Map<String,Object>> management = reserService.adminList();
+		map.put("management", management);
 		MakeExcel exel = new MakeExcel();
-		exel.download(request, response, map, "예약현황", "예약현황.xlsx", "으앙");
+		exel.download(request, response, map, "예약현황", "예약현황.xlsx", "있어도그만 없어도 그만");
 	}
 }

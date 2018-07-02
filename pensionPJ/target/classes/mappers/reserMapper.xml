@@ -16,7 +16,7 @@
 	<!-- 1. 관리자페이지에서 볼 예약정보 불러오기 -->
 	<select id="adminList" resultType="java.util.HashMap">
 		select reserNo,r_fullDate,r_lastfullDate,reser_select,reservation.user_id,user_email,reservation.user_name,
-		room_name,user_phone,inwon_check,total_pay
+		room_name,user_phone,inwon_check,total_pay,reservation.deposit
 		from 
 		user,reservation where user.user_id = reservation.user_id
 		order by r_fullDate desc

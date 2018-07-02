@@ -31,6 +31,8 @@ var result='${msg}';
 
 if(result='${sucess}'){
 	alert('삭제되었습니다.');
+}else if(result="${complate}"){
+	alert('다운로드가 완료되엇습니다.');
 }
 </script>
 <script>
