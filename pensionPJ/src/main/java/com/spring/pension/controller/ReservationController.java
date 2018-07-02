@@ -6,15 +6,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -34,6 +38,7 @@ import com.spring.pension.domain.PageMaker;
 import com.spring.pension.domain.ReserVO;
 import com.spring.pension.domain.ReservationVO;
 import com.spring.pension.service.ReservationService;
+import com.spring.pension.util.MakeExcel;
 
 
 @Controller
@@ -156,5 +161,15 @@ public class ReservationController {
 		reserService.modiDeposit(reserNo);
 		
 		return "redirect:/reservation/managementPaging";
+	}
+	// 예약현황 엑셀 파일로 저장
+	@RequestMapping(value="/exel",method=RequestMethod.GET)
+	public void downloadExel(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws Exception{
+		
+		System.out.println("엑셀이 들어갈 데이터:" + reserService.adminList());
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("management", reserService.adminList());
+		MakeExcel exel = new MakeExcel();
+		exel.download(request, response, map, "예약현황", "예약현황.xlsx", "으앙");
 	}
 }

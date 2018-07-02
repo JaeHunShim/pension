@@ -91,7 +91,7 @@ $(document).ready(function(){
   	//엑셀로 출력하는 부분 
   	$('.btn-warning').on('click',function(){
   		if(confirm("엑셀로 다운로드 하시겠습니까?")){
-  			self.location = "/download/exel";	
+  			self.location = "/reservation/exel"	
   		}
   	});
 });
