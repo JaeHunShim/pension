@@ -138,7 +138,7 @@ public class ReservationServiceImpl implements ReservationService {
 	public List<Map<String, Object>> adminList() throws Exception {
 		
 		System.out.println(reserDAO.admin());
-		Map<String,Object> map = new HashMap<String,Object>();
+		Map<String,String> map = new HashMap<String,String>();
 		
 		return reserDAO.admin();
 	}

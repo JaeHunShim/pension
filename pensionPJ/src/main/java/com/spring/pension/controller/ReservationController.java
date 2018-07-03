@@ -166,22 +166,20 @@ public class ReservationController {
 	}
 	// 예약현황 엑셀 파일로 저장
 	@RequestMapping(value="/excel",method=RequestMethod.GET)
-	public void downloadExel(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws Exception{
-		
+	public void downloadExcel(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws Exception{
+		//엑셀로 데이트 형식이 출력이 안되서 받아온 데이터를 반복돌려서 데이트 형식을 String형태로 변환
 		Map<String,Object> map = new HashMap<String,Object>();
-		Map<String,Object> map1 = new HashMap<String,Object>();
+		Map<String,Object> a = new HashMap<String,Object>();
 		List<Map<String,Object>> management = reserService.adminList();
+
 		for(int i=0; i<management.size(); i++) {
-			map = management.get(i);
-			
-			String aa = new SimpleDateFormat("yyyy-MM-dd").format(map.get("r_fullDate"));
-			System.out.println("fullDate:" + map.get("r_fullDate"));
-			map.put("aa", aa);
-			System.out.println(aa);
-			
-			management.add(map);
+			a = management.get(i);
+			String f_Date= new SimpleDateFormat("yyyy-MM-dd").format(a.get("r_fullDate"));
+			String l_Date= new SimpleDateFormat("yyyy-MM-dd").format(a.get("r_lastfullDate"));
+			a.put("f_Date",f_Date);
+			a.put("l_Date", l_Date);
 		}
-		/*map.put("management", management);*/
+		map.put("management", management);
 		System.out.println("management정보:" + management);
 		MakeExcel exel = new MakeExcel();
 		exel.download(request, response, map, "예약현황", "예약현황.xlsx", "있어도그만 없어도 그만");
