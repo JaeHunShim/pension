@@ -138,6 +138,7 @@ public class ReservationServiceImpl implements ReservationService {
 	public List<Map<String, Object>> adminList() throws Exception {
 		
 		System.out.println(reserDAO.admin());
+		Map<String,Object> map = new HashMap<String,Object>();
 		
 		return reserDAO.admin();
 	}
@@ -159,6 +160,7 @@ public class ReservationServiceImpl implements ReservationService {
 		
 		reserDAO.delete(reserNo);
 	}
+	//관리자 게시물 수정(입금완료,입금전)
 	@Override
 	public void modiDeposit(int reserNo) throws Exception {
 		

@@ -3,9 +3,11 @@ package com.spring.pension.controller;
 import java.beans.PropertyEditorSupport;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -163,13 +165,24 @@ public class ReservationController {
 		return "redirect:/reservation/managementPaging";
 	}
 	// 예약현황 엑셀 파일로 저장
-	@RequestMapping(value="/exel",method=RequestMethod.GET)
+	@RequestMapping(value="/excel",method=RequestMethod.GET)
 	public void downloadExel(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws Exception{
 		
-		System.out.println("엑셀이 들어갈 데이터:" + reserService.adminList());
 		Map<String,Object> map = new HashMap<String,Object>();
+		Map<String,Object> map1 = new HashMap<String,Object>();
 		List<Map<String,Object>> management = reserService.adminList();
-		map.put("management", management);
+		for(int i=0; i<management.size(); i++) {
+			map = management.get(i);
+			
+			String aa = new SimpleDateFormat("yyyy-MM-dd").format(map.get("r_fullDate"));
+			System.out.println("fullDate:" + map.get("r_fullDate"));
+			map.put("aa", aa);
+			System.out.println(aa);
+			
+			management.add(map);
+		}
+		/*map.put("management", management);*/
+		System.out.println("management정보:" + management);
 		MakeExcel exel = new MakeExcel();
 		exel.download(request, response, map, "예약현황", "예약현황.xlsx", "있어도그만 없어도 그만");
 	}

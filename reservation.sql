@@ -62,3 +62,9 @@ drop table reservation;
  alter table reservation change deposit deposit varchar(5) default "입금전";
  -- deposit 수정
  update reservation set deposit=if(deposit='입금전','입금완료','입금전') where reserNo = 20188123;
+ 
+ 		select reserNo,r_fullDate,r_lastfullDate,reser_select,reservation.user_id,user_email,reservation.user_name,
+		room_name,user_phone,inwon_check,total_pay,deposit
+		from 
+		user,reservation where user.user_id = reservation.user_id
+		order by r_fullDate desc
