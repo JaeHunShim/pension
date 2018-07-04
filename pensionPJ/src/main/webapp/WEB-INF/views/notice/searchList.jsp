@@ -44,7 +44,6 @@
 <script src="/resources/js/module/board.js"></script>
 <link rel="stylesheet" href="/resources/css/question/default.css"/>	
 <div class="zz_new_list">
-	<input type="text" name="user_id" value="${login.user_id}">
 	<div class="zz_new_list_header">
     	<ul class="zz_search_box">
         	<li>

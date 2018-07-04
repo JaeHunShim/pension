@@ -82,7 +82,7 @@ $(document).ready(function(){
     		self.location = "/reservation/modifyDeposit?reserNo="+$('input[type=checkbox]:checked').val()	
     	}		
   	});
-  	$('.btn-success').on('click',function(){
+  	$('#deModify').on('click',function(){
   		if($('input[type=checkbox]').is(':checked')==false){
     		alert("변경하실 입금현황을 선택해주세요");
     		return false;
@@ -178,7 +178,7 @@ $(document).ready(function(){
 									<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-remove" ></span></button></p></td>								
 								</c:when>
 								<c:otherwise>
-									<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-success btn-xs" data-title="Edit"><span class="glyphicon glyphicon-ok"></span></button></p></td>
+									<td><p data-placement="top" data-toggle="tooltip" title="Edit"><button id="deModify" class="btn btn-success btn-xs" data-title="Edit"><span class="glyphicon glyphicon-ok"></span></button></p></td>
 								</c:otherwise>
 								</c:choose>
 								<td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete"\><span class="glyphicon glyphicon-trash"></span></button></p></td>

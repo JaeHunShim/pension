@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap.min.css" />
+<script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
 <script>
 	var idcheck= 0; //아이디 체크했는지 안했는지 판별 
 	$(document).ready(function(){
