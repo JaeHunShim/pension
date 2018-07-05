@@ -24,9 +24,10 @@ public class IndexController {
 		logger.info("소개 페이지로 이동");
 		return "/index/intro";
 	}
-	@RequestMapping(value="/map" ,method=RequestMethod.GET)
+	//daummap 사용해서 지도 출력 
+	@RequestMapping(value="/directions" ,method=RequestMethod.GET)
 	public String map() {
-		
-		return "/index/map"; 
+		 
+		return "/index/directions";
 	}
 }

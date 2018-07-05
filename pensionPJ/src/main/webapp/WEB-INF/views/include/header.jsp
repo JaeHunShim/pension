@@ -10,6 +10,7 @@
 <meta name="description" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta name="keywords" content="충남 보령 무창포펜션, 무창포 해수욕장, 가족펜션, 객실개별바베큐, 수영장">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/sub_layout.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/top/layout.css" />
@@ -50,7 +51,6 @@
     					</div>
 					</div>
 				</li>
-				
 			<!-- Join End -->
 			<!-- Login Start -->
         		<li>
@@ -84,7 +84,7 @@
         			<a href="/user/logout"><span class="btn btn-xs btn-success">sign out</span></a>
         		</li>
         		<li>
-        			<span style="color:pink" id="user_id">${login.user_id}</span>
+      				<a href="/user/modify"><span style="color:pink" id="user_id">${login.user_id}</span></a>
         		</li>
         		</c:when>
 			</c:choose>
@@ -111,7 +111,7 @@
                                     <div class="sub_menu">
                                         <ul class="depth2">
                                             <li class="first"><a href="/main/intro">인사말</a></li>
-                                            <li><a href="/main/location">오시는 길</a></li>
+                                            <li><a href="/main/directions">오시는 길</a></li>
                                         </ul>
                                     </div>
                                 </li>
