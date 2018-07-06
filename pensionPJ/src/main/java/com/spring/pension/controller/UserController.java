@@ -156,4 +156,9 @@ public class UserController {
 		}
 		return "redirect:/main/index";
 	}
+	//자신의 정보 보기 (수정과 자신의 예약현황 확인)
+	@RequestMapping(value="/info",method=RequestMethod.GET)
+	public void modify() throws Exception {
+		
+	}
 }
