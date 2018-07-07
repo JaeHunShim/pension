@@ -48,5 +48,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		return sqlSession.selectOne(namespace+".getpassword", userVO);
 	}
+	//유저 정보 받아오기 
+	@Override
+	public UserVO info(String user_id) throws Exception {
+	
+		return sqlSession.selectOne(namespace+".info",user_id);
+	}
 
 }

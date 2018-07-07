@@ -84,7 +84,7 @@
         			<a href="/user/logout"><span class="btn btn-xs btn-success">sign out</span></a>
         		</li>
         		<li>
-      				<a href="/user/info"><span style="color:pink" id="user_id">${login.user_id}</span></a>
+      				<a href="/user/info?user_id=${login.user_id}"><span style="color:pink" id="user_id">${login.user_id}</span></a>
         		</li>
         		</c:when>	
 			</c:choose>

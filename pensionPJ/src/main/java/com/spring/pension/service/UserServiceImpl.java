@@ -83,5 +83,11 @@ public class UserServiceImpl implements UserService {
 		}
 		
 	}
+	//유저 정보 받아오기
+	@Override
+	public UserVO userInfo(String user_id) throws Exception {
+		
+		return userDAO.info(user_id);
+	}
 
 }

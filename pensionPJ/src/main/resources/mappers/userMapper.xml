@@ -18,4 +18,8 @@
 	<select id= "getpassword" resultType="UserVO">
 		select * from user where user_id =#{user_id} 
 	</select>
+	<!-- 회원정보 받아오기 -->
+	<select id="info" resultType="UserVO">
+		select user_id,user_name,user_address,user_email,user_phone from user where user_id=#{user_id}
+	</select>
 </mapper>

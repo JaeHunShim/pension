@@ -13,4 +13,6 @@ public interface UserService {
 	public UserVO loginCheck(UserVO userVO) throws Exception;
 	// 아이디로 email가지고 오기
 	public boolean findPassword(UserVO userVO) throws Exception;
+	//유저 정보 받아오기 
+	public UserVO userInfo(String user_id) throws Exception;
 }
