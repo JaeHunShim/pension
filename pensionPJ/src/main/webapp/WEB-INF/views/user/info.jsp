@@ -26,27 +26,27 @@
 					<table class="table table-striped">
 						<tr>
 							<td>아이디</td>
-							<td></td>
+							<td>${userVO.user_id}</td>
 						</tr>
 					  
 						<tr>
 							<td>이름</td>
-							<td></td>
+							<td>${userVO.user_name}</td>
 						</tr>
 					  
 						<tr>
 							<td>이메일</td>
-							<td></td>
+							<td>${userVO.user_email}</td>
 					  	</tr>
 					  
 						<tr>
 							<td>핸드폰 번호</td>
-							<td></td>
+							<td>${userVO.user_phone}</td>
 						</tr>
 					  
 						<tr>
 							<td>주소</td>
-							<td></td>
+							<td>${userVO.user_address}</td>
 						</tr>
 					  
 						<tr>
@@ -70,26 +70,26 @@
 					<table class="table table-striped">
 					  <tr>
 						<td>아이디</td>
-						<td>${userVO.user_id}</td>
+						<td></td>
 					  </tr>
 					  <tr>
 						<td>이름</td>
-						<td>${userVO.user_name}</td>
+						<td></td>
 					  </tr>
 					  
 					  <tr>
 						<td>이메일</td>
-						<td>${userVO.user_email}</td>
+						<td></td>
 					  </tr>
 					  
 					  <tr>
 						<td>핸드폰 번호</td>
-						<td>${userVO.user_phone }</td>
+						<td></td>
 					  </tr>
 					  
 					  <tr>
 						<td>주소</td>
-						<td>${userVO.user_address }</td>
+						<td></td>
 					  </tr>
 					  
 					<tr>
