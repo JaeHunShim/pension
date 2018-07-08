@@ -96,6 +96,10 @@ $(document).ready(function(){
   			self.location = "/reservation/excel";
   		}
   	});
+	//전페이지나 다음페이지가 없으면 밑에 페이징 처리 막아버리기 
+	$('.disabled').children('a').on('click',function(event){
+		event.preventDefault();
+	});
 });
 
 </script>

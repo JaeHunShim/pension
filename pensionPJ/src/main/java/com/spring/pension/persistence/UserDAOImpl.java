@@ -1,6 +1,7 @@
 package com.spring.pension.persistence;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -10,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.ReserVO;
 import com.spring.pension.domain.UserVO;
 
 @Repository
@@ -53,6 +56,32 @@ public class UserDAOImpl implements UserDAO {
 	public UserVO info(String user_id) throws Exception {
 	
 		return sqlSession.selectOne(namespace+".info",user_id);
+	}
+	//자신의 예약정보 받아오기
+	@Override
+	public List<ReserVO> reserInfo(String user_id,Criteria cri) throws Exception {
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("user_id", user_id);
+		map.put("pageStart",cri.getPageStart());
+		map.put("perPageNum", cri.getPerPageNum());
+		
+		return sqlSession.selectList(namespace+".reserInfo",map);
+	}
+	//자신의 예약한 갯수
+	@Override
+	public int totalCount(String user_id) throws Exception {
+		
+		return sqlSession.selectOne(namespace+".countInfo",user_id);
+	}
+	//회원 탈퇴
+	@Override
+	public void deleteUser(UserVO userVO) throws Exception {
+		
+		/*Map<String,Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("user_password",user_password);*/
+		
+		sqlSession.delete(namespace+".deleteUser",userVO);
 	}
 
 }

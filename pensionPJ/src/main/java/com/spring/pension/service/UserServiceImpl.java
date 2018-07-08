@@ -1,5 +1,7 @@
 package com.spring.pension.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
 
@@ -9,6 +11,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.ReserVO;
 import com.spring.pension.domain.UserVO;
 import com.spring.pension.persistence.UserDAO;
 import com.spring.pension.util.MailHandler;
@@ -88,6 +92,24 @@ public class UserServiceImpl implements UserService {
 	public UserVO userInfo(String user_id) throws Exception {
 		
 		return userDAO.info(user_id);
+	}
+	//자신의 예약현황보기 
+	@Override
+	public List<ReserVO> reserInfo(String user_id,Criteria cri) throws Exception {
+		
+		return userDAO.reserInfo(user_id,cri);
+	}
+	//자신의 예약정보 갯수
+	@Override
+	public int totalInfo(String user_id) throws Exception {
+		
+		return userDAO.totalCount(user_id);
+	}
+	//회원 탈퇴
+	@Override
+	public void deleteUser(UserVO userVO) throws Exception {
+		
+		userDAO.deleteUser(userVO);
 	}
 
 }

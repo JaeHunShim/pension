@@ -1,5 +1,9 @@
 package com.spring.pension.service;
 
+import java.util.List;
+
+import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.ReserVO;
 import com.spring.pension.domain.UserVO;
 
 public interface UserService {
@@ -15,4 +19,10 @@ public interface UserService {
 	public boolean findPassword(UserVO userVO) throws Exception;
 	//유저 정보 받아오기 
 	public UserVO userInfo(String user_id) throws Exception;
+	//자신의 예약한 정보 갯수 가지고 오기
+	public int totalInfo(String user_id) throws Exception;
+	//자신의 예약 정보 받아오기
+	public List<ReserVO> reserInfo(String user_id,Criteria cri) throws Exception;
+	//회원 탈퇴하기 
+	public void deleteUser(UserVO userVO) throws Exception;
 }

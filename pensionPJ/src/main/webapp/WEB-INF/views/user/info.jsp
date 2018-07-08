@@ -7,14 +7,42 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
 <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
 <title>Insert title here</title>
+<script>
+function numberWithCommas(x) {
+	$('tr').children('#total_pay').each(function(){
+		var x = $(this).text();
+		var y = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		$(this).text(y);
+	});
+	
+}
+function popupOpen(){
+	var url="/user/secession";
+	var width=400;
+	var height=300;
+	var popupOption ="width="+width+"height="+height;
+	window.open(url,"_blank",popupOption,false);
+}
+$(document).ready(function(){
+	//금액에 콤마찍는 부분 
+	$('tr').children('#total_pay').each(function(){
+		var x = $(this).text();
+		numberWithCommas(x);
+	});
+	//전페이지나 다음페이지가 없으면 밑에 페이징 처리 막아버리기 
+	$('.disabled').children('a').on('click',function(event){
+		event.preventDefault();
+	});
+});
+</script>
 </head>
 <body>
-<form name="modify">
+<form name="frm">
 <div class="container-fluid">   
 </div>
 <div class="container">
@@ -51,9 +79,9 @@
 					  
 						<tr>
 							<td class="text-center" colspan="2">
-								<button onclick="location.href='MemberUpdateForm.jsp?id='" class="btn btn-primary">수정하기</button>
-								<button onclick="location.href='MemberDeleteForm.jsp?id='" class="btn btn-danger">탈퇴하기</button>
-								<button onclick="location.href='MemberList.jsp'" class="btn btn-warning">예약하러가기</button>
+								<button class="btn btn-primary" onclick="">수정하기</button>
+								<button class="btn btn-danger"  onclick = "window.open('/user/secession','','width=400,height=300'); return false;" target="_blank">탈퇴하기</button>
+								<button class="btn btn-warning" formaction="/reservation/reservation_main">예약하러가기</button>
 						 	</td>	
 						</tr>	
 					</table>
@@ -63,49 +91,57 @@
 </div> <!-- container end-->
 <div class="container">
 	<div class="row">
-		<div class="col-sm-12">
-			<div class="col-sm-2"></div>
-				<div class="col-sm-9">
-					<h2 class="text-center">예약 현황</h2>
-					<table class="table table-striped">
-					  <tr>
-						<td>아이디</td>
-						<td></td>
-					  </tr>
-					  <tr>
-						<td>이름</td>
-						<td></td>
-					  </tr>
-					  
-					  <tr>
-						<td>이메일</td>
-						<td></td>
-					  </tr>
-					  
-					  <tr>
-						<td>핸드폰 번호</td>
-						<td></td>
-					  </tr>
-					  
-					  <tr>
-						<td>주소</td>
-						<td></td>
-					  </tr>
-					  
-					<tr>
-						 <td class="text-center" colspan="2">
-<button onclick="location.href='MemberUpdateForm.jsp?id='" class="btn btn-danger">예약취소하기</button>
-
-
-						 
-						 </td>	
-					</tr>	
+	<h2 class="text-center">예약 현황</h2>
+			<div class="col-md-12">
+				<div class="table-responsive">
 				
-					  
+					<table id="mytable" class="table table-bordred table-striped">
+						<thead>
+							<tr>
+								<th><input type="checkbox" id="checkall" /></th>
+								<th>예약번호</th>
+								<th>예약날짜</th>
+								<th>퇴실날짜</th>
+								<th>숙박기간</th>
+								<th>방이름</th>
+								<th>숙박 인원</th>
+								<th>금액</th>
+								<th>입금여부</th>
+							</tr>
+						</thead>
+						<tbody>
+						<c:forEach items="${list}" var="reserVO">
+							<tr>
+								<td><input type="checkbox" value="${reserVO.reserNo}"class="checkthis" /></td>
+								<td>${reserVO.reserNo}</td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.r_fullDate}"/></td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd" value="${reserVO.r_lastFullDate}"/></td>
+								<td>${reserVO.reser_select}박${reserVO.reser_select+1}일 </td>
+								<td>${reserVO.room_name}</td>
+								<td>${reserVO.inwon_check}명</td>
+								<td id="total_pay">${reserVO.total_pay}원</td>
+								<td>${reserVO.deposit}</td>
+							</tr>
+						</c:forEach>
+						</tbody>        
 					</table>
+						<div class="clearfix"></div>
+							<ul class="pagination pull-right">
+								<li <c:out value="${pageMaker.prev == false?'class=disabled':''}"/>>
+									<a href="/user/info${pageMaker.makeQuery(pageMaker.startPage-1)}&user_id=${login.user_id}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+								</li>
+								<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage }" var="idx">
+								<li <c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
+									<a href="/user/info${pageMaker.makeQuery(idx)}&user_id=${login.user_id}">${idx}</a>
+								</li>
+								</c:forEach>
+								<li <c:out value="${pageMaker.next == false?'class=disabled':''}"/>>
+									<a href="/user/info${pageMaker.makeQuery(pageMaker.endPage+1)}&user_id=${login.user_id}"><span class="glyphicon glyphicon-chevron-right"></span></a>
+								</li>
+							</ul>
 				</div>
-		</div> <!-- col-sm-12 -->
-	</div><!-- row -->
+			</div>
+		</div>
 </div> <!-- container end-->
 </form>	
 </body>

@@ -22,4 +22,18 @@
 	<select id="info" resultType="UserVO">
 		select user_id,user_name,user_address,user_email,user_phone from user where user_id=#{user_id}
 	</select>
+	<!-- 해당 유저 예약 정보 (자신의 예약현황을 보기 위해서) 페이징 처리까지 -->
+	<select id="reserInfo" resultType="ReserVO">
+		select reserNo,r_fullDate,r_lastfullDate,reser_select,room_name,inwon_check,total_pay,deposit from reservation 
+		where user_id=#{user_id} order by r_fullDate desc 
+		limit #{pageStart},#{perPageNum}
+	</select>
+	<!-- 해당 유저의 예약정보 갯수(페이징 처리 하기 위해서  -->
+	<select id="countInfo" resultType="int">
+		select count(reserNo) from reservation where user_id = #{user_id} 
+	</select>
+	<!-- 회원 탈퇴 하는 부분 -->
+	<delete id="deleteUser">
+		delete from user where user_password = #{user_password} 
+	</delete>
 </mapper>

@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.PageMaker;
 import com.spring.pension.domain.UserVO;
 import com.spring.pension.service.UserService;
 import com.spring.pension.util.MailHandler;
@@ -159,8 +161,37 @@ public class UserController {
 	}
 	//자신의 정보 보기 (수정과 자신의 예약현황 확인)
 	@RequestMapping(value="/info",method=RequestMethod.GET)
-	public void modify(@RequestParam("user_id") String user_id, Model model) throws Exception {
+	public void modify(@RequestParam("user_id") String user_id, @ModelAttribute("cri") Criteria cri ,Model model) throws Exception {
 		
 		model.addAttribute("userVO", userService.userInfo(user_id));
+		model.addAttribute("list", userService.reserInfo(user_id,cri));
+		
+		System.out.println("cri정보" + cri);
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(userService.totalInfo(user_id));
+		model.addAttribute("pageMaker", pageMaker);
+	}
+	//탈퇴팝업창
+	@RequestMapping(value="/secession",method=RequestMethod.GET)
+	public void secession() throws Exception {
+		
+	}
+	//탈퇴처리 하는 부분
+	@ResponseBody
+	@RequestMapping(value="/secession", method=RequestMethod.POST)
+	public ResponseEntity<String> secessionPost(@RequestBody UserVO userVO) throws Exception {
+		System.out.println("받아오는 패스워드" + userVO.getUser_id());
+		System.out.println("받아오는 아이디" + userVO.getUser_password());
+		ResponseEntity<String> entity = null;
+		try {
+			userService.deleteUser(userVO);
+			entity= new ResponseEntity<String>("success",HttpStatus.OK);
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
 	}
 }
