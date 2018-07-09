@@ -30,6 +30,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.PageMaker;
 import com.spring.pension.domain.UserVO;
+import com.spring.pension.service.ReservationService;
 import com.spring.pension.service.UserService;
 import com.spring.pension.util.MailHandler;
 import com.spring.pension.util.TempKey;
@@ -41,6 +42,9 @@ public class UserController {
 
 	@Inject
 	private UserService userService;
+	
+	@Inject
+	private ReservationService reserService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	//회원가입 폼 불러오는 부분 (modal처리)
@@ -166,7 +170,7 @@ public class UserController {
 		model.addAttribute("userVO", userService.userInfo(user_id));
 		model.addAttribute("list", userService.reserInfo(user_id,cri));
 		
-		System.out.println("cri정보" + cri);
+		logger.info("cri정보" + cri);
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(userService.totalInfo(user_id));
@@ -181,8 +185,8 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value="/secession", method=RequestMethod.POST)
 	public ResponseEntity<String> secessionPost(@RequestBody UserVO userVO) throws Exception {
-		System.out.println("받아오는 패스워드" + userVO.getUser_id());
-		System.out.println("받아오는 아이디" + userVO.getUser_password());
+		logger.info("받아오는 패스워드" + userVO.getUser_id());
+		logger.info("받아오는 아이디" + userVO.getUser_password());
 		ResponseEntity<String> entity = null;
 		try {
 			userService.deleteUser(userVO);
@@ -193,5 +197,15 @@ public class UserController {
 		}
 		
 		return entity;
+	}
+	// 선택 게시물 삭제(아이디도 같이 안보내면 오류가 뜸)
+	@RequestMapping(value="/deleteRes",method=RequestMethod.GET)
+	public String deleteRes(int reserNo,HttpSession session,RedirectAttributes rttr) throws Exception {
+		UserVO userVO = (UserVO)session.getAttribute("login");
+		
+		reserService.delete(reserNo);
+		rttr.addFlashAttribute("msg", "success");
+		rttr.addAttribute("user_id", userVO.getUser_id());
+		return "redirect:/user/info";
 	}
 }

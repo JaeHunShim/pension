@@ -13,22 +13,20 @@
 <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <script>
+//콤마직는 부분 
 function numberWithCommas(x) {
 	$('tr').children('#total_pay').each(function(){
 		var x = $(this).text();
 		var y = x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		$(this).text(y);
-	});
-	
+	});	
 }
-function popupOpen(){
-	var url="/user/secession";
-	var width=400;
-	var height=300;
-	var popupOption ="width="+width+"height="+height;
-	window.open(url,"_blank",popupOption,false);
-}
+
 $(document).ready(function(){
+	var msg='${msg}';
+	if(msg=="success"){
+		alert('삭제되었습니다.');
+	}
 	//금액에 콤마찍는 부분 
 	$('tr').children('#total_pay').each(function(){
 		var x = $(this).text();
@@ -38,14 +36,38 @@ $(document).ready(function(){
 	$('.disabled').children('a').on('click',function(event){
 		event.preventDefault();
 	});
+	//전체 선택하는 부분 
+	$("#mytable #checkall").click(function () {
+        if ($("#mytable #checkall").is(':checked')) {
+            $("#mytable input[type=checkbox]").each(function () {
+                $(this).prop("checked", true);
+            });
+
+        } else {
+            $("#mytable input[type=checkbox]").each(function () {
+                $(this).prop("checked", false);
+            });
+        }
+    });
+    
+    $("[data-toggle=tooltip]").tooltip();
+    //자신이 선택한 것 예약취소하기 
+    $('button[name="cancel"]').on('click',function(){
+    	
+    	if($('input[type=checkbox]').is(':checked')==false){
+    		alert("삭제할것을 선택해주세요");
+    		return false;
+    	}else if(confirm("예약 취소하시겠습니까")){
+    		self.location ="/user/deleteRes?reserNo="+$('input[type=checkbox]:checked').val()
+    	}
+    });
 });
 </script>
 </head>
 <body>
-<form name="frm">
 <div class="container-fluid">   
 </div>
-<div class="container">
+<div class="container" align="center">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="col-sm-2"></div>
@@ -76,25 +98,23 @@ $(document).ready(function(){
 							<td>주소</td>
 							<td>${userVO.user_address}</td>
 						</tr>
-					  
 						<tr>
 							<td class="text-center" colspan="2">
 								<button class="btn btn-primary" onclick="">수정하기</button>
 								<button class="btn btn-danger"  onclick = "window.open('/user/secession','','width=400,height=300'); return false;" target="_blank">탈퇴하기</button>
-								<button class="btn btn-warning" formaction="/reservation/reservation_main">예약하러가기</button>
+								<button class="btn btn-warning" onclick ="location.href='/reservation/reservation_main'">예약하러가기</button>
 						 	</td>	
 						</tr>	
 					</table>
 				</div>
-			</div> <!-- col-sm-12 -->
-		</div><!-- row -->
-</div> <!-- container end-->
+			</div> 
+		</div>
+</div>
 <div class="container">
 	<div class="row">
 	<h2 class="text-center">예약 현황</h2>
 			<div class="col-md-12">
 				<div class="table-responsive">
-				
 					<table id="mytable" class="table table-bordred table-striped">
 						<thead>
 							<tr>
@@ -123,7 +143,13 @@ $(document).ready(function(){
 								<td>${reserVO.deposit}</td>
 							</tr>
 						</c:forEach>
-						</tbody>        
+						</tbody>
+						<tr>
+							<td class="text-center" colspan="9">
+								<button name="cancel" class="btn btn-danger">예약취소</button>
+								
+						 	</td>	
+						</tr>	        
 					</table>
 						<div class="clearfix"></div>
 							<ul class="pagination pull-right">
@@ -143,6 +169,5 @@ $(document).ready(function(){
 			</div>
 		</div>
 </div> <!-- container end-->
-</form>	
 </body>
 </html>

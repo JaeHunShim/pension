@@ -79,7 +79,8 @@ $(document).ready(function(){
     		alert("변경하실 입금현황을 선택해주세요");
     		return false;
     	}else if(confirm("입급완료!!")){
-    		self.location = "/reservation/modifyDeposit?reserNo="+$('input[type=checkbox]:checked').val()	
+    		self.location = "/reservation/modifyDeposit?reserNo="+$('input[type=checkbox]:checked').val()
+    
     	}		
   	});
   	$('#deModify').on('click',function(){

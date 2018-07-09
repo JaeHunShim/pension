@@ -39,7 +39,9 @@ import com.spring.pension.domain.Criteria;
 import com.spring.pension.domain.PageMaker;
 import com.spring.pension.domain.ReserVO;
 import com.spring.pension.domain.ReservationVO;
+import com.spring.pension.domain.UserVO;
 import com.spring.pension.service.ReservationService;
+import com.spring.pension.service.UserService;
 import com.spring.pension.util.MakeExcel;
 
 
@@ -146,9 +148,10 @@ public class ReservationController {
 		pageMaker.setTotalCount(reserService.listCount(cri));
 		model.addAttribute("pageMaker",pageMaker);
 	}
-	// 관리자가 예약정보 삭제하는 부분 
+	// 관리자가 예약정보 삭제하는 부분 + 유저가 삭제하는 부분 (session에 있는 아이디 값으로 해서 서로 다르게 리턴함)
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
 	public String delete(int reserNo,RedirectAttributes rttr) throws Exception {
+	
 		logger.info("관리자 페이지에서 삭제하기-------------------------------- ");
 		logger.info("reserNo 정보:" + reserNo);
 		reserService.delete(reserNo);
