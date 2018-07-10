@@ -42,7 +42,7 @@ import com.spring.pension.domain.ReservationVO;
 import com.spring.pension.domain.UserVO;
 import com.spring.pension.service.ReservationService;
 import com.spring.pension.service.UserService;
-import com.spring.pension.util.MakeExcel;
+
 
 
 @Controller
@@ -168,7 +168,7 @@ public class ReservationController {
 		return "redirect:/reservation/managementPaging";
 	}
 	// 예약현황 엑셀 파일로 저장
-	@RequestMapping(value="/excel",method=RequestMethod.GET)
+	/*@RequestMapping(value="/excel",method=RequestMethod.GET)
 	public void downloadExcel(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws Exception{
 		//엑셀로 데이트 형식이 출력이 안되서 받아온 데이터를 반복돌려서 데이트 형식을 String형태로 변환
 		Map<String,Object> map = new HashMap<String,Object>();
@@ -186,5 +186,5 @@ public class ReservationController {
 		System.out.println("management정보:" + management);
 		MakeExcel exel = new MakeExcel();
 		exel.download(request, response, map, "예약현황", "예약현황.xlsx", "있어도그만 없어도 그만");
-	}
+	}*/
 }
