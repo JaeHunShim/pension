@@ -94,7 +94,8 @@ $(document).ready(function(){
   	//엑셀로 출력하는 부분 
   	$('.btn-warning').on('click',function(){
   		if(confirm("엑셀로 다운로드 하시겠습니까?")){
-  			self.location = "/reservation/excel";
+  			var user_id= '${login.user_id}'
+  			self.location ="/excel";
   		}
   	});
 	//전페이지나 다음페이지가 없으면 밑에 페이징 처리 막아버리기 

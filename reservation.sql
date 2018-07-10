@@ -63,8 +63,9 @@ drop table reservation;
  -- deposit 수정
  update reservation set deposit=if(deposit='입금전','입금완료','입금전') where reserNo = 20188123;
  
- 		select reserNo,r_fullDate,r_lastfullDate,reser_select,reservation.user_id,user_email,reservation.user_name,
-		room_name,user_phone,inwon_check,total_pay,deposit
+ 				select reserNo,r_fullDate,r_lastfullDate,reser_select,reservation.user_id As user_id,
+		user_email,reservation.user_name AS user_name,
+		room_name,user_phone,inwon_check,total_pay,reservation.deposit as deposit
 		from 
-		user,reservation where user.user_id = reservation.user_id
-		order by r_fullDate desc
+		user,reservation
+		where user.user_id = reservation.user_id

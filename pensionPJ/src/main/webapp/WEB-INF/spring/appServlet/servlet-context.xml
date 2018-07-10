@@ -18,11 +18,19 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2"/> <!-- bean객체를 view객체로 사용하기위해서 우선순위를 2번째로함  -->
 	</beans:bean>
+	<!-- bean객체를 view객체로 사용하기위해서 우선순위를 1번째로함  order-->
+	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="1"/>
+	</beans:bean>
+	
+    <!-- excel view bean객체로 등록  -->
+	<beans:bean name="excelView" class="com.spring.pension.util.ExcelView"/>
 	
 	<context:component-scan base-package="com.spring.pension" />
 	<context:component-scan base-package="com.spring.pension.controller" />
-
+	
 	<!-- 파일 업로드 처리 -->
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
