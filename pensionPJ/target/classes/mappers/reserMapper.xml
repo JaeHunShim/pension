@@ -13,8 +13,8 @@
 	<select id="getReserNo" resultType="ReserVO">
 		select reserNo from reservation;
 	</select>
-	<!-- 1. 관리자페이지에서 볼 예약정보 불러오기 -->
-	<select id="adminList" resultType="java.util.HashMap">
+	<!-- 1. 관리자페이지에서 볼 예약정보 불러오기(엑셀 출력할때 사용함) -->
+	<select id="adminList" resultType="ReserDTO">
 		select reserNo,r_fullDate,r_lastfullDate,reser_select,reservation.user_id,user_email,reservation.user_name,
 		room_name,user_phone,inwon_check,total_pay,reservation.deposit
 		from 
@@ -42,4 +42,5 @@
 	<update id='modiDeposit'>
 		update reservation set deposit=if(deposit='입금전','입금완료','입금전') where reserNo = #{reserNo}; 
 	</update>
+	
 </mapper>

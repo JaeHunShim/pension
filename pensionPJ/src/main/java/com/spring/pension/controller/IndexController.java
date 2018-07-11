@@ -30,4 +30,10 @@ public class IndexController {
 		 
 		return "/index/directions";
 	}
+	//팝업창
+	@RequestMapping(value="/popup",method=RequestMethod.GET)
+	public String popup() {
+		
+		return "/index/popup";
+	}
 }

@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.ReserDTO;
 import com.spring.pension.domain.ReserVO;
 
 @Repository
@@ -33,7 +34,7 @@ public class ReserDAOImpl implements ReserDAO {
 	}
 	//1.관리자가볼 에약정보 받아오기 
 	@Override
-	public List<Map<String, Object>> admin() throws Exception {
+	public List<ReserDTO> admin() throws Exception {
 		
 		return sqlSession.selectList(namespace+".adminList");
 	}

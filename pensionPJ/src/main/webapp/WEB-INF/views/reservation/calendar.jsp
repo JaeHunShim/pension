@@ -55,17 +55,22 @@ $(document).ready(function(){
 			}
 		});
 	});
+	//예약확인 보는 부분 
+	$('a[title="예약확인"]').on('click',function(){
+		var user_id = '${login.user_id}';
+		$(this).attr('href','/user/info?user_id='+user_id)
+	});
 });
 
 </script>
 </head>
-<body>
+<body>	
 <div class="header wRap">
    <h1>이루펜션</h1>
    <div class="Right">
      <a href="/reservation/reservation_main"><img src="/resources/img/reservation/top1on.gif" alt="예약하기"></a> <!-- //이미지파일이름...on.gif -->
      <a href="/reservation/reservation_guide"><img src="/resources/img/reservation/top2.gif" alt="예약안내"></a> <!-- /pen/img/top2on.gif -->
-     <a href="/reservation/confirm"><img src="/resources/img/reservation/top3.gif" alt="예약확인"></a> <!-- /pen/img/top3on.gif -->
+     <a href="#" title="예약확인"><img src="/resources/img/reservation/top3.gif" alt="예약확인"></a> <!-- /pen/img/top3on.gif -->
    </div>
 </div>
 <div class="sTitle wRap">

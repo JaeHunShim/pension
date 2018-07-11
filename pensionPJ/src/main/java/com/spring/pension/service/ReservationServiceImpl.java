@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.pension.domain.CalendarUtile;
 import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.ReserDTO;
 import com.spring.pension.domain.ReserVO;
 import com.spring.pension.persistence.ReserDAO;
 @Service
@@ -135,7 +136,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 	//1. 관리자가볼 예약 정보 가지고오기
 	@Override
-	public List<Map<String, Object>> adminList() throws Exception {
+	public List<ReserDTO> adminList() throws Exception {
 		
 		System.out.println(reserDAO.admin());
 		Map<String,String> map = new HashMap<String,String>();

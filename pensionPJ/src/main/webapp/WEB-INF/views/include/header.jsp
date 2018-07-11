@@ -89,7 +89,7 @@
         		</c:when>	
 			</c:choose>
 			<!-- Login Out -->
-            <li><a href="/main/intro">contact us</a></li>
+            <li><a href="/main/directions">contact us</a></li>
             <li><a href="/main/index">HOME</a></li>
         </ul>
     </div>

@@ -3,6 +3,23 @@
 <%@ include file="../include/header.jsp" %>
 <!-- 아래쪽 슬라이 js -->
 <script src="/resources/js/rolling/owl.carousel.js"></script>
+<script>
+//처음 나올때 팝업창 띄우기 
+function popupOpen(){
+
+	var popUrl = "/main/popup";	//팝업창에 출력될 페이지 URL
+
+	var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+
+		window.open(popUrl,"",popOption);
+}	
+
+</script>
+<script>
+$(document).ready(function(){
+	popupOpen();
+});
+</script>
 <div class="room_box">
 	<h2><b>Room</b> Information</h2>
     <h3>무창포 이루펜션의 바다의 향기를 느껴보세요.</h3>

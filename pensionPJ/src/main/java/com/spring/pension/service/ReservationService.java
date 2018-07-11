@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import com.spring.pension.domain.CalendarUtile;
 import com.spring.pension.domain.Criteria;
+import com.spring.pension.domain.ReserDTO;
 import com.spring.pension.domain.ReserVO;
 
 public interface ReservationService {
@@ -29,8 +30,8 @@ public interface ReservationService {
 	public void insertConfirm(ReserVO reserVO) throws Exception;
 	// 예약정보 가지고오기 
 	public List<ReserVO> getReserNo() throws Exception;
-	//1. 관리자가볼 예약정보 가지고오기
-	public List<Map<String,Object>> adminList() throws Exception;
+	//1. 관리자가볼 예약정보 가지고오기 + 엑셀출력을 하기위한 service
+	public List<ReserDTO> adminList() throws Exception;
 	// 예약정보 데이터 갯수 가지고 오기
 	public int listCount(Criteria cri) throws Exception;
 	//2. 관리자가볼 예약정보 가지고오기(페이징처리)
