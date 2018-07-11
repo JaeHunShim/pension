@@ -23,4 +23,6 @@ public interface UserDAO {
 	public int totalCount(String user_id) throws Exception;
 	//회원 탈퇴하는 부분 
 	public void deleteUser(UserVO userVO) throws Exception;
+	//회원 정보 수정
+	public void modify(UserVO userVO) throws Exception;
 }

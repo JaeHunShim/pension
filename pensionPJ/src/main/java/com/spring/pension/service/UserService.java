@@ -25,4 +25,6 @@ public interface UserService {
 	public List<ReserVO> reserInfo(String user_id,Criteria cri) throws Exception;
 	//회원 탈퇴하기 
 	public void deleteUser(UserVO userVO) throws Exception;
+	//회원정보 수정
+	public void userUpdate(UserVO userVO) throws Exception;
 }

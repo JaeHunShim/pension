@@ -36,4 +36,9 @@
 	<delete id="deleteUser">
 		delete from user where user_password = #{user_password} 
 	</delete>
+	<!-- 회원정보 수정하는 부분  -->
+	<update id="modify">
+		update user set user_password=#{user_password},user_address=#{user_address},user_email=#{user_email},user_phone=#{user_phone},updatedate=now()
+		where user_id =#{user_id}
+	</update>
 </mapper>

@@ -208,4 +208,42 @@ public class UserController {
 		rttr.addAttribute("user_id", userVO.getUser_id());
 		return "redirect:/user/info";
 	}
+	//패스워드 입력창 띄우는곳 (회원정보 수정하기 위해서 사용)
+	@RequestMapping(value="/passInput", method=RequestMethod.GET)
+	public void passInputGet() throws Exception {
+		
+	}
+	//비밀번호 일치하는지 확인
+	@ResponseBody
+	@RequestMapping(value="/confirm" ,method=RequestMethod.POST)
+	public ResponseEntity<String> passConfrim(@RequestBody UserVO userVO) throws Exception {
+		
+		ResponseEntity<String> entity = null;
+		
+		try {
+			UserVO vo = userService.loginCheck(userVO);
+			logger.info("vo정보:" + vo);
+			if(vo !=null) {
+				entity= new ResponseEntity<String>("success",HttpStatus.OK);
+			}else if(vo ==null){
+				entity= new ResponseEntity<String>("fail",HttpStatus.OK);
+			}	
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;
+	}
+	//회원 정보 수정하는 페이지 불러오기 
+	@RequestMapping(value="/modify",method=RequestMethod.GET)
+	public void userModify() throws Exception {
+		
+	}
+	@RequestMapping(value="/modify",method=RequestMethod.POST)
+	public String userModifyPOST(UserVO userVO) throws Exception {
+		userService.userUpdate(userVO);
+		
+		return "redirect:/user/logout";
+	}
 }

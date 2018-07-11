@@ -83,5 +83,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		sqlSession.delete(namespace+".deleteUser",userVO);
 	}
+	//회원정보 수정
+	@Override
+	public void modify(UserVO userVO) throws Exception {
+		
+		sqlSession.update(namespace+".modify", userVO);
+	}
 
 }

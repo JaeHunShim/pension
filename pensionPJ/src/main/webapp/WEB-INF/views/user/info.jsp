@@ -22,6 +22,16 @@ function numberWithCommas(x) {
 	});	
 }
 
+//처음 나올때 팝업창 띄우기 
+function passInputOpen(){
+
+	var popUrl = "/user/passInput";	//팝업창에 출력될 페이지 URL
+
+	var popOption = "width=400, height=300, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+
+		window.open(popUrl,"",popOption);
+}	
+
 $(document).ready(function(){
 	var msg='${msg}';
 	if(msg=="success"){
@@ -100,7 +110,7 @@ $(document).ready(function(){
 						</tr>
 						<tr>
 							<td class="text-center" colspan="2">
-								<button class="btn btn-primary" onclick="">수정하기</button>
+								<button class="btn btn-primary" onclick="passInputOpen()">수정하기</button>
 								<button class="btn btn-danger"  onclick = "window.open('/user/secession','','width=400,height=300'); return false;" target="_blank">탈퇴하기</button>
 								<button class="btn btn-warning" onclick ="location.href='/reservation/reservation_main'">예약하러가기</button>
 						 	</td>	

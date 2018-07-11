@@ -111,5 +111,11 @@ public class UserServiceImpl implements UserService {
 		
 		userDAO.deleteUser(userVO);
 	}
+	//회원정보 수정
+	@Override
+	public void userUpdate(UserVO userVO) throws Exception {
+	
+		userDAO.modify(userVO);
+	}
 
 }

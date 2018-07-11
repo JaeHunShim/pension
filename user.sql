@@ -10,6 +10,7 @@ create table user(
     user_email varchar(100) not null,
     user_phone varchar(50) not null,
     regdate timestamp not null default now(),
+    updatedate timestamp not null default now(),
     primary key(user_id)
 );
 
@@ -35,3 +36,9 @@ select count(reserNo) from reservation where user_id = #{user_id}
 select * from user where user_id=#{user_id} and user_password=#{user_password}
  -- 회원 삭제 
 delete from user where user_password='12' and user_id='jaehuniya1';
+ -- 회원 수정한 날짜 기입
+alter table user add updatedate timestamp not null default now();
+
+-- 회원정보 수정 
+update user set user_password=#{user_password},user_address=#{user_address},user_email=#{user_email},user_phone=#{user_phone},updatedate=now()
+		where user_id =#{user_id}
