@@ -112,7 +112,7 @@ $(document).ready(function(){
 							<td class="text-center" colspan="2">
 								<button class="btn btn-primary" onclick="passInputOpen()">수정하기</button>
 								<button class="btn btn-danger"  onclick = "window.open('/user/secession','','width=400,height=300'); return false;" target="_blank">탈퇴하기</button>
-								<button class="btn btn-warning" onclick ="location.href='/reservation/reservation_main'">예약하러가기</button>
+								<button class="btn btn-warning" onclick ="window.top.location.href='/reservation/reservation_main'">예약하러가기</button>
 						 	</td>	
 						</tr>	
 					</table>

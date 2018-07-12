@@ -6,7 +6,8 @@ CREATE TABLE `pension`.`question` (
   `qno` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(200) NOT NULL,
   `content` TEXT NULL,
-  `writer` VARCHAR(45) NOT NULL,
+  'secret' varchar(20) not null default 'n',
+  `user_id` VARCHAR(45) NOT NULL,
   `regdate` DATETIME NULL DEFAULT now(),
   `viewcnt` INT NULL,
   `password` VARCHAR(50) CHARACTER SET 'utf8' NULL,
@@ -14,6 +15,17 @@ CREATE TABLE `pension`.`question` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+-- 칼럼명 바꾸기
+
+alter table question change writer user_id varchar(50) not null;
+alter table question modify secret varchar(5);
+-- password 칼럼 추가 
+alter table question add column password varchar(50);
+
+-- 비밀글과 공개글 여부
+alter table question add column secret varchar(5) not null default 'n';
+
+alter table question drop password;
 -- 질문 삽입 sql문 --
 
 insert into question(title,content,writer,password) values('첫번째글','첫번째글 등록입니다.','심재훈','1');

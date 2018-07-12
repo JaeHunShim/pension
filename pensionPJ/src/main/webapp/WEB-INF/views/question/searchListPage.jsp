@@ -91,7 +91,13 @@
             <td>${questionVO.qno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
             <td><a href="/question/passwordCheck${pageMaker.makeSearchQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">							
-            ${questionVO.title}</a><strong>[${questionVO.replycnt}]</strong><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
+            ${questionVO.title}</a><strong>[${questionVO.replycnt}]</strong>
+            <!-- 비밀글에 대한 처리 시작 -->
+            <c:if test="${questionVO.secret =='y'}">
+            <font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font>
+            </c:if>
+            <!-- 비밀글 처리 끝  -->
+            </td>
           	<!-- 댓글이 달리면 답변완료 활성화 시킴 -->
 					<td>
 						<c:if test="${questionVO.replycnt ne 0 }">
@@ -101,7 +107,7 @@
 							<p class='flag_but'>대기중</p>
 						</c:if>			
 					</td>
-            <td>${questionVO.writer}</td>
+            <td>${questionVO.user_id}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></td>
             <td>${questionVO.viewcnt}</td>
            </tr>

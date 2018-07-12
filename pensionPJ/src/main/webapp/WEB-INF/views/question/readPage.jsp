@@ -110,10 +110,13 @@
 					</ul>
 				</div>
 				<!--  댓글에 대한 처리 부분  -->
+				
 				<div class="zz_new_view but">
-					<a
-						href="/question/searchListPage?	page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
+					<a href="/question/searchListPage?	page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
 						class="list">리스트</a>
+				<!-- session 정보가 없을시 댓글달수 없게 함 -->
+				<c:choose>
+					<c:when test="${not empty login.user_id }">
 					<ul>
 						<li><a
 							href="/question/modifyPage?qno=${questionVO.qno}&amp;page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
@@ -122,6 +125,8 @@
 							href="/question/deletePage?qno=${questionVO.qno}&amp;page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
 							class='delete'>삭제</a></li>
 					</ul>
+					</c:when>
+				</c:choose>
 				</div>
 		</div>
     </div>	

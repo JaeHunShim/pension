@@ -23,11 +23,27 @@
         });
         //전송버튼
         $("#insertBoard").click(function(){
+        	//secret에 대한 정보 같이 보냄
+        	   var secret=$('input[type="radio"]:checked').val();
+	           $('input[name="secret"]').val(secret)
             //id가 smarteditor인 textarea에 에디터에서 대입
+ 
             obj.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
             //폼 submit
+            
             $("#writeF").submit();
         });
+		
+        //비밀글일때 비밀번호 활성화 아니면 readony로 입력 못하게 함 
+		$('input[in_ttl="비밀글"]').on('click',function(){
+			$('input[type="password"]').prop("readonly",false).css('background-color','');
+			
+		});
+		$('input[in_ttl="공개글"]').on('click',function(){
+			$('input[type="password"]').prop("readonly",true).css('background-color','gray');
+			
+		});
+
     });
 </script>
 
@@ -46,52 +62,52 @@
 		<script src='/resources/js/module/ajax.js'></script> -->
 		<link rel='stylesheet' href='/resources/css/question/default.css'/>
 	<form method='post' name='writeF'id="writeF" action="/question/register">
+		<input type="hidden" name="secret" id="secet" >
 		<style type="text/css">
 			.zz_new_write{margin:0 auto; position:relative; padding-bottom:90px; width:100%}
 		</style>
 <div class="zz_new_write">  
     <div class="zz_new_write contenter">
     	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="zz_write_table">
-													 <tr>
-            <th scope="row">제목</th>
+			<tr>
+            	<th scope="row">제목</th>
             	<td>
-            		<input type='text' name='title' id='title' value="" in_ttl='제목'  in_mode='y' in_type='01' class='iptborder' style='width:300px'>
+            		<input type='text' name='title' id='title'  in_ttl='제목'  in_mode='y' in_type='01' class='iptborder' style='width:300px'>
             		
             	</td>
-          </tr>
-									 <tr>
+			</tr>
+			<tr>
             <th scope="row">비밀글</th>
             	<td>
-            		<input type='radio' name='privacy' id='privacy' value='y'  in_lng='1' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> y<input type='radio' name='privacy' id='privacy' value='n' checked in_lng='2' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> n</td>
-          </tr>
-									 <tr>
+            		<input type='radio' name='s' id='privacy' value='y' in_lng='1' in_ttl='비밀글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> y
+            		<input type='radio' name='s' id='privacy' value='n' in_lng='2' in_ttl='공개글'  in_mode='y' in_type='02' class='iptborder'  style='border:0'> n</td>
+			</tr>
+			<tr>
             <th scope="row">성명</th>
             	<td>
-            		<input type='text' name='writer' id='writer' value="" in_ttl='성명'  in_mode='y' in_type='01' class='iptborder' >
+            		<input type='text' name='user_id' id='user_id' value="${login.user_id}" in_ttl='성명'  in_mode='y' in_type='01' class='iptborder' readonly>
 					
             	</td>
-          </tr>
-									 <tr>
-            <th scope="row">비밀번호</th>
-            	<td>
-            		<input type='password' name='password' id='password' value="" in_ttl='비밀번호'  in_mode='y' in_type='10' class='iptborder' >
-            		
-            	</td>
-          </tr>
-				          <tr>
+			</tr>
+			<tr>
+		        <th scope="row">비밀번호</th>
+                <td>
+                    <input type='password' name='password' id='password' in_ttl='비밀번호'  in_mode='y' in_type='10' class='iptborder'>
+                </td>
+			</tr>
+	         <tr>
             <th scope="row">내용</th>
             <td>
-		<textarea name='content' id='content' style='width:800px; height:470px;display:none;'></textarea>
-		
-		</td>
+				<textarea name='content' id='content' style='width:800px; height:470px;display:none;'></textarea>
+			</td>
           </tr>
-                  <tr>
+			<tr>
             <th scope="row">첨부파일</th>
             <td><input type='file' name='upfile1' id='upfile1' class='iptboarder'>          
              <br /><p class="stxt">* 파일크기는 2MB 이하, JPG, PNG 또는 GIF 형식의 파일만 가능합니다.</p>
             </td>
           </tr>
-				        </table>
+	</table>
     </div>
     <div class="zz_new_write but">
 		<button type="button" id="insertBoard" class="ok">확인</button>

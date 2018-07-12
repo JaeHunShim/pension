@@ -132,7 +132,6 @@ public class ReservationController {
 		reserVO.setReserNo(reserNo);
 		reserService.insertConfirm(reserVO);
 		reserService.getReserNo();
-		
 		return "redirect:/reservation/reservation_main";
 	}
 	//1. 관리자가 예약현황 보기
