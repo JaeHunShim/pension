@@ -95,13 +95,21 @@
 		]]>
 		<include refid="search"></include>
 	</select>
-	<!-- 상세페이지 받아오는 부분 -->
+	<!-- 상세페이지 받아오는 부분 --><!-- secert정보를 가지고와서 비밀글과 공개글 처리함 -->
 	<select id="read" resultType="QuestionVO">
-		select qno,title,content,regdate,viewcnt,user_id 
+		select qno,title,content,regdate,viewcnt,user_id,secret 
 		from 
 			question 
 		where 
+		<choose>
+		<when test="password==null">
+			qno=#{qno}
+		</when>
+		<otherwise>
 			qno=#{qno} and password=#{password}
+		</otherwise>
+			
+		</choose>
 	</select>
 	<!-- 조회수 증가 시키기  -->
 	<update id="updateViewCnt">

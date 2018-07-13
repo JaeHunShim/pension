@@ -121,6 +121,7 @@ public class QuestionController {
 		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
 		logger.info("------------------------------------------------------------------");
 		model.addAttribute(questionService.read(qno,password));
+		//전페이지와 이후 페이지에 대한 처리
 		model.addAttribute("list", questionService.preNePage(qno));
 	}
 	// 게시글 삭제 하기: 정보유지 안했을때 

@@ -90,8 +90,16 @@
           <tr>
             <td>${questionVO.qno}</td>
             <!-- uri에 페이지 정보를 유지할수 있도록 함  -->
-            <td><a href="/question/passwordCheck${pageMaker.makeSearchQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">							
-            ${questionVO.title}</a><strong>[${questionVO.replycnt}]</strong>
+            <td>
+            <c:choose>
+            <c:when test="${questionVO.secret=='y'}">
+            <a href="/question/passwordCheck${pageMaker.makeSearchQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">${questionVO.title}</a>
+            </c:when>
+            <c:otherwise>
+            <a href="/question/readPage${pageMaker.makeSearchQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">${questionVO.title}</a>
+            </c:otherwise>
+            </c:choose>
+            <strong>[${questionVO.replycnt}]</strong>
             <!-- 비밀글에 대한 처리 시작 -->
             <c:if test="${questionVO.secret =='y'}">
             <font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font>

@@ -28,7 +28,7 @@
     	<li><input type="hidden" name="searchType" value="${cri.searchType}"></li>
     	<li><input type="hidden" name="keyword" value="${cri.keyword}"></li>
     	
-    	<li>작성자:${questionVO.writer}</li>
+    	<li>작성자:${questionVO.user_id}</li>
     	<li><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></li>
         <li>조회수 :${questionVO.viewcnt}</li>
     </ul>
@@ -37,8 +37,15 @@
         <h3 class="zz_view_title">${questionVO.title}</h3>
         <div class="file">
 			<ul>
-                <li>비밀글</li>
-                <li>y</li>
+			<c:choose>
+				<c:when test="${questionVO.secret=='y'}">
+				<li>비밀글</li>	
+				</c:when>
+				<c:otherwise>
+				<li>공개글</li>
+				</c:otherwise>
+				</c:choose>
+                <li>${questionVO.secret}</li>
             </ul>
            	<div class="zz_new_view contenter">
            		<div class='zzbbs_view_content'>${questionVO.content}
@@ -81,14 +88,14 @@
 								<li>
 									<p class="left">다음글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[1].qno}&password=1">${list[1].title}</a></p>
+									<a href="/question/readPage?qno=${list[1].qno}">${list[1].title}</a></p>
 								</li>	
 							</c:when>
 							<c:when test="${fn:length(list) == 2 and questionVO.qno < list[0].qno }">
 								<li>
 									<p class="left">이전글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[0].qno}&password=1">${list[0].title}</a></p>
+									<a href="/question/readPage?qno=${list[0].qno}">${list[0].title}</a></p>
 								</li>
 								<li>
 									<p class="left">다음글</p><p class="right">다음글이 없습니다.</p>
@@ -112,7 +119,7 @@
 				<!--  댓글에 대한 처리 부분  -->
 				
 				<div class="zz_new_view but">
-					<a href="/question/searchListPage?	page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
+					<a href="/question/searchListPage?page=${cri.page}&amp;perPageNum=${cri.perPageNum}&amp;searchType=${cri.searchType}&amp;keyword=${cri.keyword}"
 						class="list">리스트</a>
 				<!-- session 정보가 없을시 댓글달수 없게 함 -->
 				<c:choose>

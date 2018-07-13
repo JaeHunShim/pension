@@ -111,7 +111,7 @@
     </div>
     <div class="zz_new_write but">
 		<button type="button" id="insertBoard" class="ok">확인</button>
-    	<a href="/question/listAll" class="list">리스트</a>
+    	<a href="/question/searchListPage" class="list">리스트</a>
     </div>
 </div>
 </form>
