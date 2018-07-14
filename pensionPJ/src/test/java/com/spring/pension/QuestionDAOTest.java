@@ -34,7 +34,7 @@ public class QuestionDAOTest {
 		qVO.setTitle(i+"번째 데이터 입니다.");
 		qVO.setContent(i+"번째 글 등록했습니다. 제대로 되야해");
 		qVO.setPassword("1");
-		qVO.setWriter("심재훈"+i);
+		
 		
 		dao.creat(qVO);
 		}

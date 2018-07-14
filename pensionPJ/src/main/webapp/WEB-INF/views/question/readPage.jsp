@@ -5,6 +5,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="../include/header.jsp" %>
 <%@ include file="../include/reply.jsp" %>
+<script>
+	var result='${msg}';
+	
+	if(result='fail'){
+		alert('비밀번호가 틀렸습니다.');
+		self.location = "/question/passwordCheck?qno="+${qno}
+	}
+</script>
+<script>
+//다음글이나 이전글이 비밀글이라면 passwordCheck로 가게끔 처리 
+$(document).ready(function(){
+	$('p').children('a').on('click',function(event){
+		if($(this).attr("id")=='y'){
+			$(this).attr('href',"/question/passwordCheck?qno=${list[1].qno}")
+		}
+		
+	});
+});
+</script>
 <section class="sub_con sub02" id="scene1">
 <div class="title">
         <h2>community</h2>
@@ -61,7 +80,8 @@
 				<li>
 					<p class="left">성명</p>
 					<p class="right">
-						<input type='text' id= 'replyer' name='replyer'/>
+						<!-- <input type='text' id= 'replyer' name='replyer'/> -->
+						<input type="text" name="user_id" value="${login.user_id }" readonly/>
 						<input type="hidden" name="qno" id="qno" value="${questionVO.qno}">
 					</p>
 				</li>
@@ -88,14 +108,14 @@
 								<li>
 									<p class="left">다음글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[1].qno}">${list[1].title}</a></p>
+									<a id='${list[1].secret}' href="/question/readPage?qno=${list[1].qno}">${list[1].title}</a></p>
 								</li>	
 							</c:when>
 							<c:when test="${fn:length(list) == 2 and questionVO.qno < list[0].qno }">
 								<li>
 									<p class="left">이전글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[0].qno}">${list[0].title}</a></p>
+									<a id='${list[1].secret}' href="/question/readPage?qno=${list[0].qno}">${list[0].title}</a></p>
 								</li>
 								<li>
 									<p class="left">다음글</p><p class="right">다음글이 없습니다.</p>
@@ -105,12 +125,12 @@
 								<li>
 									<p class="left">이전글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[0].qno}&password=1">${list[0].title}</a></p>
+									<a id='${list[1].secret}' href="/question/readPage?qno=${list[0].qno}">${list[0].title}</a></p>
 								</li>
 								<li>
 									<p class="left">다음글</p>
 									<p class="right">
-									<a href="/question/readPage?qno=${list[2].qno}&password=1">${list[2].title}</a></p>
+									<a  id='${list[1].secret}' href="/question/readPage?qno=${list[2].qno}">${list[2].title}</a></p>
 								</li>	
 							</c:when>
 						</c:choose>

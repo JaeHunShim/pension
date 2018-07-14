@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.pension.domain.Criteria;
@@ -88,14 +89,14 @@ public class QuestionController {
 		
 		return "redirect:/question/searchListPage";
 	}
-	//글조회 할때 password 입력창 불러오기
+	//1. 글조회 할때 password 입력창 불러오기
 	@RequestMapping(value="/password" ,method=RequestMethod.GET)
 	public void password(@RequestParam("qno") int qno ,Model model) {
 		logger.info("패스워드 입력창 출력-------------");
 		logger.info("받아온 qno-------" + qno);	
 		model.addAttribute("qno", qno);
 	}
-	// 패스워드 체크란에서 페이징 정보 받아오기 (검색기능 추가후 Criteria 에서 SearchCriteria 로 수정)
+	// 1. 패스워드 체크란에서 페이징 정보 받아오기 (검색기능 추가후 Criteria 에서 SearchCriteria 로 수정)
 	@RequestMapping(value="/passwordCheck",method=RequestMethod.GET)
 	public void passwordCheck(@RequestParam("qno") int qno, @ModelAttribute("cri")SearchCriteria cri, Model model) {
 		logger.info("------------------passwordCheck 부분----------------------------");
@@ -105,6 +106,7 @@ public class QuestionController {
 		logger.info("--------------------------------------------------------------");
 		model.addAttribute("qno",qno);
 	}
+
 	//조건에 맞는 상세페이지 불러오기 
 	@RequestMapping(value="/read",method=RequestMethod.POST)
 	public void read(int qno ,String password, Model model) throws Exception{
@@ -116,13 +118,20 @@ public class QuestionController {
 	//조건에 맞는 상세 페이지 불러오기:페이징 정보를 받아와서 페이지 정보 유지
 	//이전과 다음글에 대한 처리 추가 .
 	@RequestMapping(value="/readPage",method=RequestMethod.GET)
-	public void readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") SearchCriteria cri,Model model) throws Exception{
+	public void readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") SearchCriteria cri,Model model,RedirectAttributes rttr) throws Exception{
+		
 		logger.info("-------------------readPage로 이동하기--------------------------------");
 		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
 		logger.info("------------------------------------------------------------------");
-		model.addAttribute(questionService.read(qno,password));
-		//전페이지와 이후 페이지에 대한 처리
-		model.addAttribute("list", questionService.preNePage(qno));
+		// 비밀번호가 틀렸을시 처리 하는 부분 
+		if(questionService.read(qno,password) == null) {
+			System.out.println("정보들:" +questionService.read(qno,password));
+			rttr.addFlashAttribute("msg", "fail");
+			model.addAttribute("qno", qno);
+		}else {
+			model.addAttribute(questionService.read(qno,password));
+			model.addAttribute("list", questionService.preNePage(qno));
+		}
 	}
 	// 게시글 삭제 하기: 정보유지 안했을때 
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
