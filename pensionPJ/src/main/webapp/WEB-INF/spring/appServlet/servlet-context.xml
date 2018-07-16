@@ -59,4 +59,10 @@
 	</interceptors>
 	<!-- 웹소캣 관련 bean설정 -->
 	<beans:bean id="chatHandler" class="com.spring.pension.util.ChatWebSocketHandler"/>
+	<websocket:handlers>
+		<websocket:mapping handler="chatHandler" path="/chat"/>
+		<websocket:handshake-interceptors>
+			<beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
+		</websocket:handshake-interceptors>
+	</websocket:handlers>
 </beans:beans>
