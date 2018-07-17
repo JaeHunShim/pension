@@ -18,6 +18,6 @@ create table chatroom(
 	chatroom_id int(11) auto_increment,
     USER_user_id varchar(45),
     TUTOR_USER_user_id varchar(45),
-    CLASS_class_id int(11)
+    CLASS_class_id int(11),
     primary key(chatroom_id)
 );

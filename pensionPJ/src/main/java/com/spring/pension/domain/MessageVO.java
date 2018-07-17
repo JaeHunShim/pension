@@ -2,6 +2,8 @@ package com.spring.pension.domain;
 
 import java.util.Date;
 
+import com.google.gson.Gson;
+
 public class MessageVO {
 	
 	private String message_id;
@@ -144,6 +146,12 @@ public class MessageVO {
 	}
 	public void setUnReadCount(int unReadCount) {
 		this.unReadCount = unReadCount;
+	}
+	public static MessageVO convertMessage(String source) {
+		MessageVO message = new MessageVO();
+		Gson gson = new Gson();
+		message = gson.fromJson(source,  MessageVO.class);
+		return message;
 	}
 	@Override
 	public String toString() {
