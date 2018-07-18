@@ -14,11 +14,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/resources/js/basic/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="/resources/js/websocket/sockjs.min.js"></script>
-
-<title>Insert title here</title>
-</head>
-<body>
-   <style>
+<style>
       .box {
           width: 300px;
           float: left;
@@ -48,15 +44,27 @@
           font-family: "Arial";
       }
     </style>
+<title>Insert title here</title>
+</head>
+<body>
 </head><body lang="en">
     <h1>SockJS Express example</h1>
 
     <div id="first" class="box">
       <div></div>
-      <form><input autocomplete="off" value="Type here..."></input></form>
+      <form>
+      	<input autocomplete="off" value=""></input>
+      </form>
     </div>
 
     <script>
+    	function msg(){
+    		chat={}
+    		chat.content  = $('#first input').val();
+    		chat.user_id = '${login.user_id}';
+    		 
+    		sockjs.send(JSON.stringify(chat));
+    	}
         var sockjs_url = '/chat';
         var sockjs = new SockJS(sockjs_url);
         $('#first input').focus();
@@ -69,12 +77,12 @@
             div.append($("<br>"));
             div.scrollTop(div.scrollTop()+10000);
         };
-        sockjs.onopen    = function()  {print('[*] open', sockjs.protocol);};
-        sockjs.onmessage = function(e) {print('[.] message', e.data);};
+        sockjs.onopen   = function()  {print('[*] open', sockjs.protocol);};
+        sockjs.onmessage = function(e) {print(e.data);};
         sockjs.onclose   = function()  {print('[*] close');};
         form.submit(function() {
-            print('[ ] sending', inp.val());
-            sockjs.send(inp.val());
+           /*  print('[ ] sending', inp.val()); */
+            msg();
             inp.val('');
             return false;
         });
