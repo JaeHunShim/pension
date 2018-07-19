@@ -164,7 +164,7 @@
             <artifactId>jxls-jexcel</artifactId>
             <version>1.0.6</version>
         </dependency>
-        <!-- google Gson -->
+        <!-- google Gson Json처리를 쉽게 해줌  -->
         <dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>

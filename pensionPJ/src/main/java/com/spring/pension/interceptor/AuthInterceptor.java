@@ -25,6 +25,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		}
 		return true;
 	}
+	// 현재 페이지에 대한 url주소 저장하는 부분 
 	private void saveDest(HttpServletRequest req) {
 		String  uri = req.getRequestURI();
 		

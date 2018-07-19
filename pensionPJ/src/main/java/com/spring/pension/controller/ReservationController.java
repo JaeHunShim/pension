@@ -195,7 +195,7 @@ public class ReservationController {
 	public ModelAndView excelDownload(Map<String,Object> ModelMap,HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		
-		String target = getNowYMD();
+		String target = getNowYMD();//파일명을 현재 날짜로 하기 위해서 사용함 
 		String docName= URLEncoder.encode(target,"UTF-8");
 		
 		response.setHeader("Content-Disposition", "attachment;filename=" + docName + ".xlsx");

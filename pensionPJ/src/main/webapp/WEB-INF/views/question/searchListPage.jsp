@@ -9,6 +9,11 @@
 	if(result='success'){
 		alert('입력이 정사적으로 처리 되었습니다.');
 	}
+	//select버튼 값 유지하기 
+	function perPageNum(){
+		var p = '${pageMaker.cri.perPageNum}'
+		$('select[name="change_perPage"]').val(p).prop("selected",true);
+	}
 </script>
 <script>
 	//검색했을때 page를 다시 1로 돌려여 하기때문에 makeQuery의 page에 1을 대입시켜놓음  
@@ -17,9 +22,20 @@
 			self.location="/question/searchListPage"
 			+ '${pageMaker.makeQuery(1)}'
 			+ "&searchType="
-			+ $('select option:selected').val()
+			+ $('select[name="searchType"]').val()
 			+ "&keyword=" +encodeURIComponent($('#keywordInput').val());
 		});
+		//prePageNum변경하기 
+		$('select[name="change_perPage"]').on("change",function(){
+			var change =$(this).val()
+			self.location ="/question/searchListPage?"
+				+ 'page=1&'
+				+ 'perPageNum='+change+''
+				+ "&searchType="
+				+ $('select[name="searchType"]').val()
+				+ "&keyword=" +encodeURIComponent($('#keywordInput').val());
+		});
+	perPageNum();
 	});
 </script>
 <section class="sub_con sub02" id="scene1">
@@ -45,6 +61,13 @@
 	<input type="hidden" name="perPageNum" id="perPageNum" value="${pageMaker.cri.perPageNum}">
 	<div class="zz_new_list_header">
     	<ul class="zz_search_box">
+    		<li>
+    			<select name="change_perPage" id="change_perPage">
+    				<option value="10">10개씩보기</option>
+    				<option value="20">20개씩보기</option>
+    				<option value="30">30개씩보기</option>
+    			</select>
+    		</li>
         	<li>
             	<select name="searchType">
                     <option value="n"

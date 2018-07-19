@@ -35,7 +35,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			session.setAttribute(LOGIN, userVO);
 			/*response.sendRedirect("/");*/
 			Object dest = session.getAttribute("dest");
-			response.sendRedirect(dest!=null?(String)dest:"/"); //session에 저장
+			response.sendRedirect(dest!=null?(String)dest:"/"); //request객체에 저장했던 곳으로 sendRedirect해주는 부분 
 			logger.info("로그인 성공");
 		}else {
 			logger.info("로그인 실패");

@@ -48,7 +48,7 @@
 </head>
 <body>
 </head><body lang="en">
-    <h1>SockJS Express example</h1>
+    <h1>1:1채팅방 </h1>
 
     <div id="first" class="box">
       <div></div>
@@ -62,7 +62,7 @@
     		chat={}
     		chat.content  = $('#first input').val();
     		chat.user_id = '${login.user_id}';
-    		 
+    		 //json을 문자열 처리해서 서버로 보냄 
     		sockjs.send(JSON.stringify(chat));
     	}
         var sockjs_url = '/chat';
@@ -78,7 +78,7 @@
             div.scrollTop(div.scrollTop()+10000);
         };
         sockjs.onopen   = function()  {print('[*] open', sockjs.protocol);};
-        sockjs.onmessage = function(e) {print(e.data);};
+        sockjs.onmessage = function(e) {print(e.data);}; //서버에서 받아오는 메세지이기도함 
         sockjs.onclose   = function()  {print('[*] close');};
         form.submit(function() {
            /*  print('[ ] sending', inp.val()); */
