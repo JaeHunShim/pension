@@ -54,7 +54,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler{
         
         for(WebSocketSession sess : sessionList){
         	
-            sess.sendMessage(new TextMessage(chatVO.getUser_id() +" : "+ chatVO.getContent()));
+            sess.sendMessage(new TextMessage(chatVO.getMe_user_id() +" : "+ chatVO.getMe_content()));
             
         }
 

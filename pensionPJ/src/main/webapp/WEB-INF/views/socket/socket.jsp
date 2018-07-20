@@ -60,8 +60,8 @@
     <script>
     	function msg(){
     		chat={}
-    		chat.content  = $('#first input').val();
-    		chat.user_id = '${login.user_id}';
+    		chat.me_content  = $('#first input').val();
+    		chat.me_user_id = '${login.user_id}';
     		 //json을 문자열 처리해서 서버로 보냄 
     		sockjs.send(JSON.stringify(chat));
     	}
