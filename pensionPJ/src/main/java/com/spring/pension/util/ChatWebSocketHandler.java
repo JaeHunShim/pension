@@ -47,7 +47,6 @@ public class ChatWebSocketHandler extends TextWebSocketHandler{
 
     	
         logger.info("{}로 부터 {} 받음", session.getId(), message.getPayload());
-    	
         //Json형태로 넘어온 데이터를 Gson을 이용해서 Convert시킴 
         ChatVO chatVO  = ChatVO.convertMessage(message.getPayload());
     	System.out.println("convert한것들" + chatVO);
@@ -56,8 +55,10 @@ public class ChatWebSocketHandler extends TextWebSocketHandler{
         	
             sess.sendMessage(new TextMessage(chatVO.getMe_user_id() +" : "+ chatVO.getMe_content()));
             
+            
         }
-
+        
+        System.out.println("sess값:" + session);
     }
 
     /**

@@ -36,4 +36,10 @@ public class IndexController {
 		
 		return "/index/popup";
 	}
+	//주변관광지 보는 부분 
+	@RequestMapping(value="/tourist",method=RequestMethod.GET)
+	public String tourist() throws Exception {
+		
+		return "/tourist/tourist";
+	}
 }
