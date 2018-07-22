@@ -5,14 +5,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="../include/header.jsp" %>
 <%@ include file="../include/reply.jsp" %>
-<script>
+<!-- <script>
 	var result='${msg}';
 	
 	if(result='fail'){
 		alert('비밀번호가 틀렸습니다.');
 		self.location = "/question/passwordCheck?qno="+${qno}
 	}
-</script>
+</script> -->
 <script>
 //다음글이나 이전글이 비밀글이라면 passwordCheck로 가게끔 처리 
 $(document).ready(function(){
@@ -80,14 +80,13 @@ $(document).ready(function(){
 				<li>
 					<p class="left">성명</p>
 					<p class="right">
-						<!-- <input type='text' id= 'replyer' name='replyer'/> -->
-						<input type="text" name="user_id" value="${login.user_id }" readonly/>
+						<input type='text' id= 'replyer' name='replyer' value="${login.user_id}" readonly style="background-color:#A9F5F2;"/>
 						<input type="hidden" name="qno" id="qno" value="${questionVO.qno}">
 					</p>
 				</li>
 				<div class="comment_box">
 					<textarea name='relytext' id= 'replytext' class="comment_txt" cols="" rows=""></textarea>
-						<button type="button" name="commentInsertBtn" style="width: 100px; height: 102px;background-color: pink">댓글입력</button>
+					<button type="button" name="commentInsertBtn" style="width: 100px; height: 102px;background-color: pink">댓글입력</button>
 				</div>
 			</ul>
 		</div>

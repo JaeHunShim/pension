@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <script>
 $(document).ready(function(){
 	
 	// 댓글 버튼 클릭시  ajax처리 하고 데이터 분해하는 부분 
 	$('[name=commentInsertBtn]').on('click',function(){
-		var replyer = $('#replyer').val();
+		//var replyer = $('#replyer').val();
+		var replyer=$('#replyer').val();
 		var replytext= $('#replytext').val();
 		var qno =$('#qno').val();
 		commentInsert(replyer,replytext,qno);
+		
 	});
 	// 댓글 리스트 불러오기 (밑에 함수처리했음)
 	commentList();
@@ -44,16 +49,21 @@ function commentList(){
 		data:{qno:qno},
 		success:function(data){
 			var a="";
+			var user_id ='${login.user_id}';
 			$.each(data,function(key,value){
+				
 				 a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
 	             a += '<div class="commentInfo'+value.rno+'">'+'댓글번호 : '+value.rno+' / 작성자 : '+value.replyer;
-	             a += '<a onclick="commentUpdate('+value.rno+',\''+value.replytext+'\');"> 수정 </a>';
-	             a += '<a onclick="commentDelete('+value.rno+');"> 삭제 </a> </div>';
+	             //로그인 한사람과 글작성한 사람만 수정 삭제 버튼 나오게 수정
+	             if(user_id == value.replyer){
+	            	 a+= '<a onclick="commentUpdate('+value.rno+',\''+value.replytext+'\');"> 수정 </a>';
+		             a+= '<a onclick="commentDelete('+value.rno+');"> 삭제 </a> </div>';	 
+	             }
 	             a += '<div class="commentContent'+value.rno+'"> <p> 내용 : '+value.replytext +'</p>';
 	             a += '</div></div>';
-
 			});
 			$(".commentList").html(a);
+			
 		}
 	});		
 }

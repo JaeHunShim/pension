@@ -12,6 +12,12 @@ create table reply(
     primary key(rno),
     constraint fk_question foreign key(qno) references question(qno)
 );
+-- replyer 를 user_id로 컬럼명 바꿈
+
+select * from reply;
+alter table reply change replyer user_id varchar(50);
+
+alter table reply change user_id replyer varchar(50);
 -- 댓글 삽입
 insert into reply(qno, replytext,replyer) values(#{qno},#{replytext},#{replyer});
 -- 1. 댓글 목록 불러오기

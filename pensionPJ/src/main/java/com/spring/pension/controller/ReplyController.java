@@ -32,7 +32,7 @@ public class ReplyController {
 	// 질문 게시판에서 댓글 등록(ajax처리로 해야 하기때문에  json 형태로 넘어온 데이터를 RequestBody로 겍체화 시킴) 
 	@RequestMapping(value="",method=RequestMethod.POST)
 	public ResponseEntity<String> register(@RequestBody ReplyVO replyVO) throws Exception {
-		
+		System.out.println("댓글에서 받아오는 데이터 " + replyVO);
 		ResponseEntity<String> entity = null;
 		
 		try {

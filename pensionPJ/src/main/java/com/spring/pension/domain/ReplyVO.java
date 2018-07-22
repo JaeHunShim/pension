@@ -7,7 +7,7 @@ public class ReplyVO {
 		private Integer rno;
 		private Integer qno;
 		private String replytext;
-		private String replyer;
+		private String replyer; 
 		private Date regdate;
 		private Date updatedate;
 		

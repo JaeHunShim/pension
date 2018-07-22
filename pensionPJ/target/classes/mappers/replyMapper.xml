@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.mapper.ReplyMapper">
-<!-- 질문에 대한 댓글 작성 -->
+<!-- 질문에 대한 댓글 작성 (replyer에서 session 처리로 인해서 user_id로 바꿈 )-->
 <insert id="create">
 	insert into reply(qno,replytext,replyer)values(#{qno},#{replytext},#{replyer})
 </insert>

@@ -54,6 +54,8 @@
 		</interceptor>
 		<interceptor>
 			<mapping path="/question/register"/> <!-- session 정보없으면 접근 못하게함  -->
+			<mapping path="/question/deletePage"/>
+			<mapping path="/question/modifyPage"/>
 			<beans:ref bean="authIntercpetor"/>
 		</interceptor>
 	</interceptors>
