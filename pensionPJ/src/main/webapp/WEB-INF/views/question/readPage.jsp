@@ -5,14 +5,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ include file="../include/header.jsp" %>
 <%@ include file="../include/reply.jsp" %>
-<!-- <script>
-	var result='${msg}';
-	
-	if(result='fail'){
+<script>
+	var result='${result}';
+	if(result="fail"){
 		alert('비밀번호가 틀렸습니다.');
 		self.location = "/question/passwordCheck?qno="+${qno}
 	}
-</script> -->
+</script>
 <script>
 //다음글이나 이전글이 비밀글이라면 passwordCheck로 가게끔 처리 
 $(document).ready(function(){

@@ -124,10 +124,11 @@ public class QuestionController {
 		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
 		logger.info("------------------------------------------------------------------");
 		// 비밀번호가 틀렸을시 처리 하는 부분 
-		if(questionService.read(qno,password) == null) {
+		if(questionService.read(qno,password)== null) {
 			System.out.println("정보들:" +questionService.read(qno,password));
-			rttr.addFlashAttribute("msg", "fail");
+			rttr.addFlashAttribute("result","fail");
 			model.addAttribute("qno", qno);
+			
 		}else {
 			model.addAttribute(questionService.read(qno,password));
 			model.addAttribute("list", questionService.preNePage(qno));

@@ -39,12 +39,14 @@
 						 //alert('사용불가');
 						 $('font[name=usercheck]').text('');
 						 $('font[name=usercheck]').html('현재 아이디는 사용중입니다.');
+						 $('font[name=usercheck]').css('color','#FF0000')
 						 $('#user_id').focus();
 
 					}else{
 						 //alert('사용가능');
 						 $('font[name=usercheck]').text('');
 						 $('font[name=usercheck]').html('사용할수 있는 아이디 입니다.');
+						 $('font[name=usercheck]').css('color','#0000FF')
 						 $('#password').focus();
 						 idcheck=1;
 					}
@@ -59,10 +61,12 @@
 			
 			if($('#user_password').val()!=$('#user_password1').val()){
 				$('font[name=check]').text('');
-				$('font[name=check]').html('암호가 일치하지 않흡니다.');
+				$('font[name=check]').html('암호가 일치하지 않습니다.');
+				$('font[name=check]').css('color','#FF0000')
 			}else{
 				$('font[name=check]').text('');
 				$('font[name=check]').html('암호가 일치 합니다.');
+				$('font[name=check]').css('color','#0000FF')
 			}
 		});
 		//회원가입 
