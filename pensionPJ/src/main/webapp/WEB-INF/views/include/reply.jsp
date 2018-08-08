@@ -51,7 +51,6 @@ function commentList(){
 			var a="";
 			var user_id ='${login.user_id}';
 			$.each(data,function(key,value){
-				
 				 a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
 	             a += '<div class="commentInfo'+value.rno+'">'+'댓글번호 : '+value.rno+' / 작성자 : '+value.replyer;
 	             //로그인 한사람과 글작성한 사람만 수정 삭제 버튼 나오게 수정
