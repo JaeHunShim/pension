@@ -10,7 +10,6 @@
 	width: 100%;
 	height: 100%;
 }
-
 #menubar2 .navbar-nav li{
 	margin-left:50px;
 	margin-right:50px;
@@ -119,7 +118,6 @@
 		</ul>
 		</div>
 	</div>
-	
 	<!-- second navbar end -->
 	<!-- carousel start -->
 	<div id="main_slide" class="carousel slide" data-ride="carousel" data-pause="hovor">
@@ -128,22 +126,44 @@
 			<li data-target="#main_slide" data-slide-to="1" >
 			<li data-target="#main_slide" data-slide-to="2" >
 			<li data-target="#main_slide" data-slide-to="3" >
+			<li data-target="#main_slide" data-slide-to="4" >
+			
 		</ul>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<img src="/resources/img/main/main_img.jpg">
+				<div class="carousel-caption">
+					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다.
+					 <br />고품격의 여유로움속으로 당신을 초대합니다.</p>
+				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/resources/img/main/main_img1.jpg">
+				<div class="carousel-caption">
+					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다.
+					 <br />고품격의 여유로움속으로 당신을 초대합니다.</p>
+				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/resources/img/main/main_img2.jpg">
+				<div class="carousel-caption">
+					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. 
+					<br />고품격의 여유로움속으로 당신을 초대합니다.</p>
+				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/resources/img/main/main_img3.jpg">
+				<div class="carousel-caption">
+					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. 
+					<br />고품격의 여유로움속으로 당신을 초대합니다.</p>
+				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/resources/img/main/main_img4.jpg">
+				<div class="carousel-caption">
+					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다.
+					<br />고품격의 여유로움속으로 당신을 초대합니다.</p>
+				</div>
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#main-slide" data-slide="prev">
