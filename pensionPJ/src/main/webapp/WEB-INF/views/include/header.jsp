@@ -43,7 +43,7 @@
         			<a data-toggle="modal" href="/user/join" data-target="#joinForm" role="button" data-backdrop="static">
  						<span class="btn btn-xs btn-success">Join</span>
 					</a>
- 					<div id="joinForm" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"">
+ 					<div id="joinForm" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     					<div class="modal-dialog modal-sm" style="width:1200px;height:700px">
         					<div class="modal-content">
         				<!-- modal 내용 들어오는 부분  -->
