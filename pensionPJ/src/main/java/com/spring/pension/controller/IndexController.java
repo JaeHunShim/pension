@@ -42,4 +42,10 @@ public class IndexController {
 		
 		return "/tourist/tourist";
 	}
+	//연습main페이지 
+	@RequestMapping(value="/exmain" ,method=RequestMethod.GET)
+	public String exmain() throws Exception {
+		
+		return "/main/index";
+	}
 }
