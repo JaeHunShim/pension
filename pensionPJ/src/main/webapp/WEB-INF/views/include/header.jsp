@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/sub_layout.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/top/layout.css" />
 <!-- <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap.min.css" /> -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/font-awesome.min.css"/>
 <!-- <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/style.css"/> -->
 <!--<![endif]-->
@@ -42,13 +42,14 @@
         	<c:choose>
         		<c:when test="${empty user_id}">
         		<li>
-        			<a data-toggle="modal" href="/user/join" data-target="#joinForm" role="button" data-backdrop="static">
- 						<span class="btn btn-xs btn-success">Join</span>
+					<a data-toggle="modal" href="/user/join" data-target="#joinForm" role="button" data-backdrop="static">
+						<span class="btn btn-xs btn-success">Join</span>
 					</a>
- 					<div id="joinForm" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    					<div class="modal-dialog modal-sm" style="width:1200px;height:700px">
+ 					    <div id="joinForm" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm" style="width:1200px;height:700px">
+
         					<div class="modal-content">
-        				<!-- modal 내용 들어오는 부분  -->
+        					<!-- modal내용 들어오는 부분 -->
         					</div>
     					</div>
 					</div>
