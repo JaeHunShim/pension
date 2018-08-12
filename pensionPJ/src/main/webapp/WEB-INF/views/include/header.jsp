@@ -14,7 +14,8 @@
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="/resources/css/reservation/sub_layout.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/top/layout.css" />
-<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap.min.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap.min.css" /> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/font-awesome.min.css"/>
 <!-- <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/style.css"/> -->
 <!--<![endif]-->
@@ -28,7 +29,8 @@
 <script src="/resources/js/rolling/TweenMax.min.js"></script>
 <script src="/resources/js/rolling/main.js"></script>
 <!-- bootstrap -->
-<script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+<!--<script src="/resources/js/bootstrap/bootstrap.min.js"></script>-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/resources/js/bootstrap/npm.js"></script>
 </head>
 <body>
@@ -43,7 +45,7 @@
         			<a data-toggle="modal" href="/user/join" data-target="#joinForm" role="button" data-backdrop="static">
  						<span class="btn btn-xs btn-success">Join</span>
 					</a>
- 					<div id="joinForm" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"">
+ 					<div id="joinForm" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     					<div class="modal-dialog modal-sm" style="width:1200px;height:700px">
         					<div class="modal-content">
         				<!-- modal 내용 들어오는 부분  -->
@@ -87,7 +89,8 @@
       				<a href="/user/info?user_id=${login.user_id}"><span style="color:pink" id="user_id">${login.user_id}</span></a>
         		</li>
         		</c:when>	
-			</c:choose>
+			</c:choose>	
+
 			<!-- Login Out -->
             <li><a href="/main/directions">contact us</a></li>
             <li><a href="/main/index">HOME</a></li>
