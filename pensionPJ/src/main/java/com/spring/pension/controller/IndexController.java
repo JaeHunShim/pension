@@ -5,8 +5,11 @@ import javax.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.spring.pension.domain.WeatherCrolling;
 
 @Controller
 @RequestMapping("/main/*")
@@ -42,10 +45,14 @@ public class IndexController {
 		
 		return "/tourist/tourist";
 	}
-	//연습main페이지 
-	@RequestMapping(value="/exmain" ,method=RequestMethod.GET)
-	public String exmain() throws Exception {
+	//크롤링 연습 긁어오는 부분
+	@RequestMapping(value="/croll",method=RequestMethod.GET)
+	public void croll(Model model) throws Exception {
 		
-		return "/main/index";
+		
+		WeatherCrolling croll = new WeatherCrolling();
+		
+		model.addAttribute("weather", croll.getWeahterText());
+		
 	}
 }
