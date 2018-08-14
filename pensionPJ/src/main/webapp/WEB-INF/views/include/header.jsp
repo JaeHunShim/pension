@@ -139,7 +139,16 @@
                                 </li>
                                 
                                 <li class="gnb_4"><a href="/main/tourist">주변관광지</a>
-                                    
+                                    <div class="sub_menu">
+                                        <ul class="depth2">
+                                            <li class="first"><a href="/main/tourist">대천해수욕장</a></li>
+                                            <li><a href="/main/tourist">무창포해수욕장</a></li>
+                                            <li><a href="/main/tourist">어촌체험마을</a></li>
+                                            <li><a href="/main/tourist">무창포타워</a></li>
+                                            <li><a href="/main/tourist">신비의 바닷길 축제</a></li>
+                                            <li><a href="/main/tourist">대하, 전어 축제</a></li>
+                                        </ul>
+                                    </div> 
                                 </li>                                                                
                                 <li class="gnb_5"><a href="/question/searchListpage">커뮤니티</a>
                                     <div class="sub_menu">

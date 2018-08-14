@@ -3,24 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/resources/js/basic/jQuery-2.1.4.min.js"></script>
 <script>
 	var idcheck= 0; //아이디 체크했는지 안했는지 판별 
 	$(document).ready(function(){
 		//가입 취소 누를때 입력했던 데이터 지워버리기 
 		$('#cancel').on('click',function(){
-			var user_id = $('#user_id').val();
-			var user_password=$('#user_password').val();
-			var user_password1=$('#user_password1').val();
-			var user_address=$('#user_address').val();
-			var user_name=$('#user_name').val();
-			var user_phone=$('#user_phone').val();
-			var user_email=$('#user_email').val();
-			var idcheck=$('font[name=usercheck]').text();
-			var passwordcheck=$('font[name=check]').text();
-			
-			resetData(user_id,user_password,user_password1,user_address,user_name,user_phone,user_email,idcheck,passwordcheck);
+			history.go(-1);
 		});
 		//아이디 중복 유효성 검사
 		$('#idCheck').on('click',function(){
@@ -216,7 +207,7 @@
 <!-- session 값 (회원가입할때 인증코드 검사하기 위해서 사용 -->
 <input type ="hidden" id="key" value='${sessionScope.key}'>
  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">×</button>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <form name="modify" method='post' action="/user/modify">
 <div class="modal-body">

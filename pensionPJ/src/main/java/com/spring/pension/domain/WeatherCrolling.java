@@ -22,7 +22,6 @@ public class WeatherCrolling{
 			System.out.println("크롤링 해오는 것들 " + str[i]);
 		}
 			
-		Elements elem2=doc.select(".tbl_weather tbody>tr:nth-child(1) img");
 		
 		return elem;
 		
