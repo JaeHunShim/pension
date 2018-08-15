@@ -56,9 +56,14 @@ $(document).ready(function(){
 		});
 	});
 	//예약확인 보는 부분 
-	$('a[title="예약확인"]').on('click',function(){
+	$('a[title="예약확인"]').on('click',function(event){
 		var user_id = '${login.user_id}';
+		if( user_id == ""){
+			alert('로그인시 이용가능합니다.');
+			self.location="/user/login";
+		}else{
 		$(this).attr('href','/user/info?user_id='+user_id)
+		}
 	});
 });
 
