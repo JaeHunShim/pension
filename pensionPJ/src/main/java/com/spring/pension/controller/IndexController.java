@@ -55,4 +55,9 @@ public class IndexController {
 		model.addAttribute("weather", croll.getWeahterText());
 		
 	}
+	@RequestMapping(value="/adrress", method=RequestMethod.GET)
+	public String adrress() throws Exception {
+		
+		return "/index/ex";
+	}
 }

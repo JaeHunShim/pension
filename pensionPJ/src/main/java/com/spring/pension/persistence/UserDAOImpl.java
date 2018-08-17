@@ -24,10 +24,10 @@ public class UserDAOImpl implements UserDAO {
 	private static String namespace ="com.spring.mapper.UserMapper"; 
 	private static final Logger logger = LoggerFactory.getLogger(UserDAOImpl.class);
 	
-	//회원 가입
+	//회원 가입(daum api 사용해서  주소와 상세주소 문자열을 합쳐서 user_address에 넣음)
 	@Override
 	public void join(UserVO userVO) throws Exception {
-		
+		userVO.setUser_address(userVO.getUser_address()+userVO.getUser_address2());  //문자열 합치는 부분 
 		sqlSession.insert(namespace +".create", userVO);
 	}
 	// 아이디 중복 체크 하기 위해서 userid 가지고오기

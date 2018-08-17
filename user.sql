@@ -41,4 +41,6 @@ alter table user add updatedate timestamp not null default now();
 
 -- 회원정보 수정 
 update user set user_password=#{user_password},user_address=#{user_address},user_email=#{user_email},user_phone=#{user_phone},updatedate=now()
-		where user_id =#{user_id}
+		where user_id =#{user_id}user;
+        
+alter table user drop user_address2;

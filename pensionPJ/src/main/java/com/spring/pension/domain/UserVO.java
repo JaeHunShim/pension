@@ -9,7 +9,15 @@ public class UserVO {
     private String user_email; //이메일
     private String user_authorization; //인증번호
     private String user_phone; //폰번호
+    private String user_address2; //자세한 주소 
     
+    
+	public String getUser_address2() {
+		return user_address2;
+	}
+	public void setUser_address2(String user_address2) {
+		this.user_address2 = user_address2;
+	}
 	public String getUser_authorization() {
 		return user_authorization;
 	}
@@ -38,6 +46,7 @@ public class UserVO {
 		return user_address;
 	}
 	public void setUser_address(String user_address) {
+
 		this.user_address = user_address;
 	}
 	public String getUser_email() {
@@ -56,12 +65,12 @@ public class UserVO {
 	public String toString() {
 		return "UserVO [user_id=" + user_id + ", user_password=" + user_password + ", user_name=" + user_name
 				+ ", user_address=" + user_address + ", user_email=" + user_email + ", user_authorization="
-				+ user_authorization + ", user_phone=" + user_phone + ", getUser_authorization()="
-				+ getUser_authorization() + ", getUser_id()=" + getUser_id() + ", getUser_password()="
-				+ getUser_password() + ", getUser_name()=" + getUser_name() + ", getUser_address()=" + getUser_address()
-				+ ", getUser_email()=" + getUser_email() + ", getUser_phone()=" + getUser_phone() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ user_authorization + ", user_phone=" + user_phone + ", user_address2=" + user_address2
+				+ ", getUser_address2()=" + getUser_address2() + ", getUser_authorization()=" + getUser_authorization()
+				+ ", getUser_id()=" + getUser_id() + ", getUser_password()=" + getUser_password() + ", getUser_name()="
+				+ getUser_name() + ", getUser_address()=" + getUser_address() + ", getUser_email()=" + getUser_email()
+				+ ", getUser_phone()=" + getUser_phone() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
-	
 	
 }

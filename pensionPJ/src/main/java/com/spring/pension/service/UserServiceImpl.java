@@ -30,7 +30,6 @@ public class UserServiceImpl implements UserService {
 	//회원 가입
 	@Override
 	public void join(UserVO userVO) throws Exception {
-		
 		userDAO.join(userVO);
 	}
 	//회원 아이디 체크

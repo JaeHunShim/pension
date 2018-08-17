@@ -57,12 +57,13 @@ public class UserController {
 	public void login() {
 		
 	}
-	//회원 가입
+	//회원 가입(daum api를 사용하면서 user_address2를 받아와서 문자를 합침)
 	@RequestMapping(value="/join",method=RequestMethod.POST)
 	public ResponseEntity<String> join(@RequestBody UserVO userVO) throws Exception {
 		
 		ResponseEntity<String> entity = null;
 		try {
+			System.out.println(userVO.getUser_address2());
 			userService.join(userVO);
 			entity = new ResponseEntity<String>("success",HttpStatus.OK);
 			
