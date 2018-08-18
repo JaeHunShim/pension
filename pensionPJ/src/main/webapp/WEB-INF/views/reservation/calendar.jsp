@@ -49,10 +49,14 @@ $(document).ready(function(){
 		var reserNo = $(this).val();
 		$('li img').each(function(){
 			var b = $(this).attr('id');
-			if(reserNo == b ){
-				$(this).attr('src','/resources/img/reservation/ico_end.gif');
-				$(this).attr('alt','예약완료');
+			var c = parseInt(reserNo.charAt(reserNo.length-2));
+			for(var i=0; i<c; i++){
+				if(Number(reserNo)+Number(i)== Number(b)+Number(i)){
+					$(this).attr('src','/resources/img/reservation/ico_end.gif');
+					$(this).attr('alt','예약완료');
+				}
 			}
+			
 		});
 	});
 	//예약확인 보는 부분 
@@ -104,7 +108,7 @@ $(document).ready(function(){
 		<input type='hidden' name ='date' value='${calender.date}'>
 		<input type='hidden' name="user_id" value='${login.user_id}'>
 		<c:forEach items="${reserVO}" var="reserVO">
-		<input type='hidden' name="reserNo" id='${reserVO.reserNo}' value='${reserVO.reserNo}'>	
+		<input type='text' name="reserNo" id='${reserVO.reserNo}' value='${reserVO.reserNo}'>
 		</c:forEach>
     	<div class="yms wRap">
 			<a style="cursor:pointer" class='prev'>이전 </a>

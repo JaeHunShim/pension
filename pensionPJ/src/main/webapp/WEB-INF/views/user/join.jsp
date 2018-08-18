@@ -125,8 +125,7 @@
 			}
 		});
 		//회원가입 
-		$('#join').on('click',function(event){
-			event.preventDefault();
+		$('#join').on('click',function(){
 			var user_id = $('#user_id').val();
 			var user_password=$('#user_password').val();
 			var user_password1=$('#user_password1').val();
@@ -137,7 +136,6 @@
 			var user_email=$('#user_email').val();
 			var idcheck=$('font[name=usercheck]').text();
 			var passwordcheck=$('font[name=check]').text();
-			console.log(user_address2);
 			
 			if(idcheck == 0){
 				alert('아이디 중복체크를 해주세요');
@@ -283,7 +281,7 @@
 			return false;
  		}else if(key ==""){
 			alert("인증번호를 입력해주세요");
-			return false; 
+			return false;
 		}else{
 			alert('인증되었습니다.');
 			return true;

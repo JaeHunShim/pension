@@ -28,6 +28,7 @@
 <script src="/resources/js/rolling/jquery.slides.min.js"></script>
 <script src="/resources/js/rolling/TweenMax.min.js"></script>
 <script src="/resources/js/rolling/main.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <!-- bootstrap -->
 <!--<script src="/resources/js/bootstrap/bootstrap.min.js"></script>-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
