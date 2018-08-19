@@ -101,6 +101,7 @@ $(document).ready(function(){
 	<input type="hidden" name="entance_time" value="${reserVO.entance_time}">
 	<input type="hidden" name="user_name" value="${login.user_name}">
 	<input type="hidden" name ="reserNo" value="<fmt:formatDate value="${reserVO.r_fullDate}" pattern="yyyy-M-d"/>">
+	<input type='hidden' name="reser_select" value="${reserVO.reser_select }">
 <!-- Contents -->   
 	<div class="conT">
 		<h3>예약정보입력</h3>

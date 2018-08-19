@@ -9,9 +9,9 @@
 		values(#{reserNo},#{user_id},#{user_name},#{inwon_check},#{room_name},#{total_pay},#{r_fullDate},
 		#{r_lastFullDate},#{reser_select},#{entance_time},#{reser_content},#{payment})
 	</insert>
-	<!-- 예약 정보 모두 받아오기 -->
+	<!-- 예약 정보 에있는 reserNo, reser_select 받아오기-->
 	<select id="getReserNo" resultType="ReserVO">
-		select reserNo from reservation;
+		select reserNo,r_fullDate,r_lastfullDate from reservation;
 	</select>
 	<!-- 1. 관리자페이지에서 볼 예약정보 불러오기(엑셀 출력할때 사용함) -->
 	<select id="adminList" resultType="ReserDTO">
