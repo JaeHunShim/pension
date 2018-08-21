@@ -126,12 +126,37 @@ public class ReservationServiceImpl implements ReservationService {
 	@Override
 	public void insertConfirm(ReserVO reserVO) throws Exception {
 		
+		Date r_fullDate = reserVO.getR_fullDate(); // 예약 시작날짜 
+		System.out.println("받아오는 r_fullDAte" + r_fullDate);
+		Calendar fullDate = Calendar.getInstance();
+		fullDate.setTime(r_fullDate); //r_fullDate를 Calendar형식으로 바꿈
+		String room_name = reserVO.getRoom_name(); //방이름에 따라서 1,2,3,4 처리 (앞단에서 처리하기위해서)
+		int reser_select = reserVO.getReser_select(); //예약한 숙박날짜에 따라서 반복을 돌리기 위해서 받아옴
+		int a=0; //fullDate를 다시 초기화 시키기위해서 사용함 (-i를 위해서 사용)
+		String num;
+		if(room_name =="데이지(복층)") {
+			num ="1";
+		}else if(room_name=="릴리(복층)") {
+			num="2";
+		}else if(room_name=="아이비") {
+			num="3";
+		}else {
+			num="4";
+		}
+		for(int i=0; i<reser_select; i++) {
+			fullDate.add(Calendar.DATE, i); //Date에 i를 더해서 날짜를 늘림 
+			r_fullDate = (Date)fullDate.getTime();
+			String reser_complete_date =new SimpleDateFormat("yyyyMdd").format(r_fullDate)+num; // 앞단의 데이터와 일치하기 위해서 num을 뒤에 붙임 
+			System.out.println("더하기한 date" + reser_complete_date);
+			reserDAO.reser_complete(reser_complete_date); //반복적으로 데이터를 하나씩 집어넣음 
+			fullDate.add(Calendar.DATE, a-i); //fullDate 초기화 
+			
+		}
 		reserDAO.insert(reserVO);
 	}
 	//예약 번호 받아오는 부분
 	@Override
 	public List<ReserVO> getReserNo() throws Exception {
-		
 		return reserDAO.getReserNo();
 	}
 	//1. 관리자가볼 예약 정보 가지고오기

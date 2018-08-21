@@ -16,8 +16,8 @@ public class ReserDTO {
 	private String deposit; // 결제여부
     private String user_email; //이메일
     private String user_phone;
-	
-    public Integer getReserNo() {
+    
+	public Integer getReserNo() {
 		return reserNo;
 	}
 	public void setReserNo(Integer reserNo) {

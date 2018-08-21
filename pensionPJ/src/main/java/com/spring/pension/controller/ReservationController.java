@@ -82,7 +82,6 @@ public class ReservationController {
 	//현재 켈린더 가지고 오는 부분 
 	@RequestMapping(value ="/calendar",method=RequestMethod.GET)
 	public void calendar(CalendarUtile calender, Model model, HttpSession session) throws Exception {
-		
 		model.addAttribute("calender",reserService.calenders(calender));
 		model.addAttribute("reserVO",reserService.getReserNo());
 		session.setAttribute("current", reserService.calenders(calender));

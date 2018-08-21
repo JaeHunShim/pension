@@ -62,5 +62,12 @@ public class ReserDAOImpl implements ReserDAO {
 		
 		sqlSession.update(namespace+".modiDeposit", reserNo);
 	}
+	//입급 완료된 날짜와 방 넣는 부분 (앞단에서 예약완료 처리하기위해서 추가함)
+	@Override
+	public void reser_complete(String reser_complete_date) throws Exception {
+		
+		sqlSession.selectOne(namespace+".reser_complete_date",reser_complete_date);
+		
+	}
 
 }

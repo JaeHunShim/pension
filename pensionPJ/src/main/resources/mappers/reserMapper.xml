@@ -9,9 +9,9 @@
 		values(#{reserNo},#{user_id},#{user_name},#{inwon_check},#{room_name},#{total_pay},#{r_fullDate},
 		#{r_lastFullDate},#{reser_select},#{entance_time},#{reser_content},#{payment})
 	</insert>
-	<!-- 예약 정보 에있는 reserNo, reser_select 받아오기-->
+	<!-- 예약 정보 에있는 reserNo 와 reser_complete 테이블 데이터 받아오기 -->
 	<select id="getReserNo" resultType="ReserVO">
-		select reserNo,r_fullDate,r_lastfullDate from reservation;
+		select reserNo,reser_complete_date from reservation,reser_complete;
 	</select>
 	<!-- 1. 관리자페이지에서 볼 예약정보 불러오기(엑셀 출력할때 사용함) -->
 	<select id="adminList" resultType="ReserDTO">
@@ -42,5 +42,8 @@
 	<update id='modiDeposit'>
 		update reservation set deposit=if(deposit='입금전','입금완료','입금전') where reserNo = #{reserNo}; 
 	</update>
-	
+	<!-- 예약완료 데이터 넣기  -->
+	<insert id='reser_complete_date'>
+		insert into reser_complete(reser_complete_date) values(#{reser_complete_date})
+	</insert>
 </mapper>

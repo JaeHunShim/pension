@@ -18,6 +18,14 @@ public class ReserVO {
 	private String reser_content;	//전달사항
 	private String payment;	//결제수단 
 	private String deposit; // 결제여부
+	private String reser_complete_date; //예약완료된 reserNo처리를 위한 필드데이터 
+    
+    public String getReser_complete_date() {
+		return reser_complete_date;
+	}
+	public void setReser_complete_date(String reser_complete_date) {
+		this.reser_complete_date = reser_complete_date;
+	}
 	
 	public Integer getReserNo() {
 		return reserNo;

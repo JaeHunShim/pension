@@ -21,5 +21,6 @@ public interface ReserDAO {
 	public void delete(int reserNo) throws Exception;
 	//입금현황 수정 하는 부분
 	public void modiDeposit(int reserNo) throws Exception;
-
+	//숙박에 따른 reser_complete 추가하는 부분 
+	public void reser_complete(String reser_complete_date) throws Exception;
 }

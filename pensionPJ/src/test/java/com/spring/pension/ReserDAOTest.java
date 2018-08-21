@@ -45,4 +45,8 @@ public class ReserDAOTest {
 		reserVO.setInwon_check(3);
 		dao.insert(reserVO);
 	}
+	@Test
+	public void ex() throws Exception {
+		
+	}
 }
