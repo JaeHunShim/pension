@@ -134,11 +134,11 @@ public class ReservationServiceImpl implements ReservationService {
 		int reser_select = reserVO.getReser_select(); //예약한 숙박날짜에 따라서 반복을 돌리기 위해서 받아옴
 		int a=0; //fullDate를 다시 초기화 시키기위해서 사용함 (-i를 위해서 사용)
 		String num;
-		if(room_name =="데이지(복층)") {
+		if(room_name.equals("데이지(복층)")) {
 			num ="1";
-		}else if(room_name=="릴리(복층)") {
+		}else if(room_name.equals("릴리(복층)")) {
 			num="2";
-		}else if(room_name=="아이비") {
+		}else if(room_name.equals("아이비")) {
 			num="3";
 		}else {
 			num="4";
