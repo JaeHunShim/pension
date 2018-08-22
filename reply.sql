@@ -17,7 +17,7 @@ create table reply(
 select * from reply;
 alter table reply change replyer user_id varchar(50);
 
-alter table reply change user_id replyer varchar(50);
+alter table reply change user_id replyer varchar(50);chat
 -- 댓글 삽입
 insert into reply(qno, replytext,replyer) values(#{qno},#{replytext},#{replyer});
 -- 1. 댓글 목록 불러오기

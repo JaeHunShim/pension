@@ -146,7 +146,7 @@ public class ReservationServiceImpl implements ReservationService {
 		for(int i=0; i<reser_select; i++) {
 			fullDate.add(Calendar.DATE, i); //Date에 i를 더해서 날짜를 늘림 
 			r_fullDate = (Date)fullDate.getTime();
-			String reser_complete_date =new SimpleDateFormat("yyyyMdd").format(r_fullDate)+num; // 앞단의 데이터와 일치하기 위해서 num을 뒤에 붙임 
+			String reser_complete_date =new SimpleDateFormat("yyyyMd").format(r_fullDate)+num; // 앞단의 데이터와 일치하기 위해서 num을 뒤에 붙임 
 			System.out.println("더하기한 date" + reser_complete_date);
 			reserDAO.reser_complete(reser_complete_date); //반복적으로 데이터를 하나씩 집어넣음 
 			fullDate.add(Calendar.DATE, a-i); //fullDate 초기화 

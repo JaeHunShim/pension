@@ -105,7 +105,7 @@ $(document).ready(function(){
 		<input type='hidden' name="user_id" value='${login.user_id}'>
 		<c:forEach items="${reserVO}" var="reserVO">
 		<input type='hidden' name="reserNo" id='${reserVO.reserNo}' value='${reserVO.reserNo}'>
-		<input type="text" id="reser_complete_date" value="${reserVO.reser_complete_date}">
+		<input type="hidden" id="reser_complete_date" value="${reserVO.reser_complete_date}">
 		</c:forEach>
     	<div class="yms wRap">
 			<a style="cursor:pointer" class='prev'>이전 </a>
