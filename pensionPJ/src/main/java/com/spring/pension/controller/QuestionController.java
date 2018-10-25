@@ -126,17 +126,18 @@ public class QuestionController {
 		String password2 = questionService.getPassword(qno,password);
 		System.out.println("password정보:" + password);
 		System.out.println("password2정보:" + password2);
-		if(password2==null) {
-			mav.setViewName("/question/passwordCheck");
-			mav.addObject("qno",qno);
-			mav.addObject("result","failure");
-			return mav;
-		}else {
+		
+		if(password2 !=null || password == null){
 			mav.setViewName("/question/readPage");
 			mav.addObject(questionService.read(qno,password));
 			mav.addObject("list", questionService.preNePage(qno));
 			/*model.addAttribute(questionService.read(qno,password));
 			model.addAttribute("list", questionService.preNePage(qno));*/
+			return mav;
+		}else {
+			mav.setViewName("/question/passwordCheck");
+			mav.addObject("qno",qno);
+			mav.addObject("result","failure");
 			return mav;
 		}
 		// 비밀번호가 틀렸을시 처리 하는 부분 
