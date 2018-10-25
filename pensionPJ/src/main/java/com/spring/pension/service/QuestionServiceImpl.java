@@ -59,13 +59,19 @@ public class QuestionServiceImpl implements QuestionService {
 		
 		return questionDAO.listSearchConunt(cri);
 	}
+	//비밀번호 받아오는 부분 (qno 와 일치하는 password받아오기)
+	@Override
+	public String getPassword(int qno,String password) throws Exception {
+		
+		return questionDAO.getPassword(qno,password);
+	}
 	// 상세글 가지고오기 
 	@Transactional
 	@Override
 	public QuestionVO read(Integer qno, String password) throws Exception {
-		logger.info("가져오는 데이터 " + questionDAO.read(qno, password));
 		//상세페이지 볼때 viewCnt 증가시키기 
 		questionDAO.updateViewCnt(qno);
+		logger.info("몇번돌아가나요?");
 		return questionDAO.read(qno,password);
 	}
 	//게시물 삭제

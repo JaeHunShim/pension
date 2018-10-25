@@ -21,6 +21,7 @@ public class IndexController {
 	public String main() {
 		logger.info("메인페이지로 이동");
 		return "/index/index";
+		
 	}
 	@RequestMapping(value="/intro" ,method=RequestMethod.GET)
 	public String intro() {

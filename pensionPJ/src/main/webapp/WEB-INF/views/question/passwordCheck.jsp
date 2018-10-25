@@ -4,6 +4,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ include file="../include/header.jsp" %>
+<script>
+$(document).ready(function(){
+	var result='${result}';
+	if(result =="failure"){
+		alert("비밀번호가 틀렸습니다.");
+	}
+});
+</script>
 <section class="sub_con sub02" id="scene1">
 
 <div class="title">

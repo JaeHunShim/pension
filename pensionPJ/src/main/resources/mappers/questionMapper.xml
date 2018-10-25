@@ -31,6 +31,10 @@
 		]]>	
 	
 	</select>
+	<!--  qno와 일치하는 패스워드 받아오는부분  -->
+	<select id="getPassword" resultType="string">
+		select password from question where qno=#{qno} and password=#{password}
+	</select>
 	<!-- 댓글 갯수  업데이트 하는 부분 -->
 	<update id="updateReplyCnt">
 		update question set replycnt = replycnt+#{amount} where qno =#{qno}

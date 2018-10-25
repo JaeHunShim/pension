@@ -20,6 +20,8 @@ public interface QuestionService {
 	public int listCountCriteria(Criteria cri) throws Exception;
 	// 2) 총게시물 수 가져오기(검색결과와 같은 )
 	public int listSearchCount(SearchCriteria cri) throws Exception;
+	// qno와 일치하는 password 가지고오기 
+	public String getPassword(int qno,String password) throws Exception;
 	// 상세페이지 가지고오기
 	public QuestionVO read(Integer qno, String password) throws Exception;
 	// 게시물 삭제하기 

@@ -22,6 +22,8 @@ public interface QuestionDAO {
 	public int countPaging(Criteria cri) throws Exception;
 	//2). 총 게시물 수를 구하기 위한 부분 :색결과물의 갯수를 가지고 오는 부분 
 	public int listSearchConunt(SearchCriteria cri) throws Exception;
+	//비밀번호(qno와 일치하는 password) 받아오는 부분
+	public String getPassword(int qno,String passowrd) throws Exception;
 	//게시글 상세 페이지 보여주는 부분 
 	public QuestionVO read(Integer qno, String password) throws Exception;
 	//조회수 증가 시키기 

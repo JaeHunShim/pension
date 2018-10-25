@@ -72,6 +72,16 @@ public class QuestionDAOImpl implements QuestionDAO {
 				
 		return sqlSession.selectOne(namespace+".listSearchCount", cri);
 	}	
+	//비밀번호(qno와 일치하는 passoword) 받아오는 부분
+	@Override
+	public String getPassword(int qno,String password) throws Exception {
+		Map<String,Object> map = new HashMap<String,Object>();
+		
+		map.put("qno", qno);
+		map.put("password", password);
+		
+		return sqlSession.selectOne(namespace+".getPassword",map);
+	}
 	// 게시물 상세 보여주는 부분
 	@Override
 	public QuestionVO read(Integer qno, String password) throws Exception {

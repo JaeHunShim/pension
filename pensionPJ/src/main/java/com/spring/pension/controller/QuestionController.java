@@ -118,21 +118,38 @@ public class QuestionController {
 	//조건에 맞는 상세 페이지 불러오기:페이징 정보를 받아와서 페이지 정보 유지
 	//이전과 다음글에 대한 처리 추가 .
 	@RequestMapping(value="/readPage",method=RequestMethod.GET)
-	public void readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") SearchCriteria cri,Model model,RedirectAttributes rttr) throws Exception{
-		
+	public ModelAndView readPage(@RequestParam("qno")int qno, String password, @ModelAttribute("cri") SearchCriteria cri,Model model,RedirectAttributes rttr) throws Exception{
+		ModelAndView mav = new ModelAndView();
 		logger.info("-------------------readPage로 이동하기--------------------------------");
 		logger.info("passwordChcek에서 가지고오는 데이터" + cri.toString());
 		logger.info("------------------------------------------------------------------");
+		String password2 = questionService.getPassword(qno,password);
+		System.out.println("password정보:" + password);
+		System.out.println("password2정보:" + password2);
+		if(password2==null) {
+			mav.setViewName("/question/passwordCheck");
+			mav.addObject("qno",qno);
+			mav.addObject("result","failure");
+			return mav;
+		}else {
+			mav.setViewName("/question/readPage");
+			mav.addObject(questionService.read(qno,password));
+			mav.addObject("list", questionService.preNePage(qno));
+			/*model.addAttribute(questionService.read(qno,password));
+			model.addAttribute("list", questionService.preNePage(qno));*/
+			return mav;
+		}
 		// 비밀번호가 틀렸을시 처리 하는 부분 
-		if(questionService.read(qno,password)== null) {
+		/*if(questionService.read(qno,password)== null) {
 			System.out.println("정보들:" +questionService.read(qno,password));
 			rttr.addFlashAttribute("result","fail");
 			model.addAttribute("qno", qno);
 			
-		}else {
-			model.addAttribute(questionService.read(qno,password));
-			model.addAttribute("list", questionService.preNePage(qno));
-		}
+		}else {*/
+			//System.out.println("비밀번호:" + password);
+			/*model.addAttribute(questionService.read(qno,password));
+			model.addAttribute("list", questionService.preNePage(qno));*/
+		/*}*/
 	}
 	// 게시글 삭제 하기: 정보유지 안했을때 
 	@RequestMapping(value="/delete",method=RequestMethod.GET)

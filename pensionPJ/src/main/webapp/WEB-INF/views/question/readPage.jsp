@@ -7,7 +7,7 @@
 <%@ include file="../include/reply.jsp" %>
 <script>
 	var result='${result}';
-	if(result="fail"){
+	if(result=="fail"){
 		alert('비밀번호가 틀렸습니다.');
 		self.location = "/question/passwordCheck?qno="+${qno}
 	}
