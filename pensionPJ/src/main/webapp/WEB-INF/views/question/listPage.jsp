@@ -15,7 +15,7 @@
 <div class="title">
         <h2>community</h2>
         <h3>질문과답변</h3>
-        <h4>무창포 이루펜션의 바다의 향기를 느껴보세요. </h4>
+        <h4>무창포 J.P펜션의 바다의 향기를 느껴보세요. </h4>
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box"><script language="javascript" src="/resources/js/module/ajax.js"></script>
@@ -62,7 +62,7 @@
             <td><a href="/question/passwordCheck${pageMaker.makeQuery(pageMaker.cri.page)}&qno=${questionVO.qno}">							
             ${questionVO.title}</a><font color='red'><img src='/resources/img/question/icon_secret.gif' border='0' align='absmiddle'></font></td>
             <td><p class='flag_but'>대기중</p></td>
-            <td>${questionVO.writer}</td>
+            <td>${questionVO.user_id}</td>
             <td><fmt:formatDate pattern="yyyy-MM-dd" value="${questionVO.regdate}"/></td>
             <td>${questionVO.viewcnt}</td>
            </tr>

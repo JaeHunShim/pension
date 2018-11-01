@@ -181,17 +181,20 @@
 					'Content-Type':'application/json'
 				},
 				success:function(data){
-					if(data==true){
+					if(data.result==true){
 						alert('인증번호를 발송했습니다.');
+						var key = data.key;
+						$('#key').val(key);
 					}
 				}
 			});
 		});
 		$('#emailCheckInput').on('click',function(){
-			var key = $('#key').val();
+			
+			var key =$('#key').val();
+			console.log("키값:" + key);
 			var user_cer=$('#user_cer').val();
-			console.log(user_cer);
-			console.log(key);
+			console.log("내가인증입력한값:" + user_cer);
 			emailAutorization(key,user_cer);
 		});
 	});
@@ -257,7 +260,7 @@
 		} 
 	}
 	//내용 리셋
-	function resetData(user_id,user_password,user_password1,user_address,user_address2,user_name,user_phone,user_email,idcheck,passwordcheck,){
+	function resetData(user_id,user_password,user_password1,user_address,user_address2,user_name,user_phone,user_email,idcheck,passwordcheck){
 		
 		var user_id = $('#user_id').val('');
 		var user_password=$('#user_password').val('');
@@ -273,7 +276,7 @@
 	}
 	//이메일 인증 번호확인
 	function emailAutorization(key,user_cer){
-		var key = $('#key').val();
+		var key =$('#key').val();
 		var user_cer = $('#user_cer').val();
 		
 		if(key != user_cer){
@@ -289,7 +292,7 @@
 	}
 </script>
 <!-- session 값 (회원가입할때 인증코드 검사하기 위해서 사용 -->
-<input type="hidden" id="key" value='${sessionScope.key}'>
+<input type="hidden" id="key" name="key" value=''>
  <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">×</button>
 </div>

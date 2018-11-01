@@ -4,8 +4,8 @@
 <section class="sub_con sub02" id="scene1">
 	<div class="title">
         <h2><b>Irupension</b> introduction</h2>
-      <h3>이루펜션 소개</h3>
-      <h4>신비의 바닷길 추억을 무창포 이루펜션에서 만나보실 수 있습니다.</h4>
+      <h3>J.P펜션 소개</h3>
+      <h4>신비의 바닷길 추억을 무창포 J.P펜션에서 만나보실 수 있습니다.</h4>
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
@@ -22,8 +22,8 @@
 <section class="sub_con sub03" id="scene2">
 	<div class="title">
     	<h2><b>External</b> view</h2>
-        <h3>이루펜션 외부전경</h3>
-        <h4>무창포 이루펜션의 바다의 향기를 느껴보세요.</h4>
+        <h3>J.P펜션 외부전경</h3>
+        <h4>무창포 J.P펜션의 바다의 향기를 느껴보세요.</h4>
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">

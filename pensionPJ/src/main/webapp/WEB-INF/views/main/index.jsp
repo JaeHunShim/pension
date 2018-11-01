@@ -36,7 +36,7 @@
 		});
 	});
 </script>
-<title>이루펜션</title>
+<title>J.P펜션</title>
 </head>
 <body>
 <div class="container-fulid">
@@ -75,7 +75,7 @@
 		<div class="collapse navbar-collapse justify-content-center" id="menubar2">
 		<ul class="navbar-nav">
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle text-primary" data-toggle="dropdown" href="#">이루펜션</a>
+				<a class="nav-link dropdown-toggle text-primary" data-toggle="dropdown" href="#">J.P펜션</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="#">인사말</a>
 					<a class="dropdown-item" href="#">오시는 길</a>
@@ -133,35 +133,35 @@
 			<div class="carousel-item active">
 				<img src="/resources/img/main/main_img.jpg">
 				<div class="carousel-caption">
-					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다.
+					<p class="animated bounce infinite text-dark">J.P패션신비의 바닷길과 추억을 무창포 J.P펜션에서 만나보실 수 있습니다.
 					 <br />고품격의 여유로움속으로 당신을 초대합니다.</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/resources/img/main/main_img1.jpg">
 				<div class="carousel-caption">
-					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다.
+					<p class="animated bounce infinite text-dark">J.P패션신비의 바닷길과 추억을 무창포 J.P펜션에서 만나보실 수 있습니다.
 					 <br />고품격의 여유로움속으로 당신을 초대합니다.</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/resources/img/main/main_img2.jpg">
 				<div class="carousel-caption">
-					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. 
+					<p class="animated bounce infinite text-dark">J.P패션신비의 바닷길과 추억을 무창포 J.P펜션에서 만나보실 수 있습니다. 
 					<br />고품격의 여유로움속으로 당신을 초대합니다.</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/resources/img/main/main_img3.jpg">
 				<div class="carousel-caption">
-					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다. 
+					<p class="animated bounce infinite text-dark">J.P패션신비의 바닷길과 추억을 무창포 J.P펜션에서 만나보실 수 있습니다. 
 					<br />고품격의 여유로움속으로 당신을 초대합니다.</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img src="/resources/img/main/main_img4.jpg">
 				<div class="carousel-caption">
-					<p class="animated bounce infinite text-dark">이루패션신비의 바닷길과 추억을 무창포 이루펜션에서 만나보실 수 있습니다.
+					<p class="animated bounce infinite text-dark">J.P패션신비의 바닷길과 추억을 무창포 J.P펜션에서 만나보실 수 있습니다.
 					<br />고품격의 여유로움속으로 당신을 초대합니다.</p>
 				</div>
 			</div>

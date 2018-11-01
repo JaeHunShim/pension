@@ -8,7 +8,7 @@
 <div class="title">
         <h2>community</h2>
         <h3>질문과답변</h3>
-        <h4>무창포 이루펜션의 바다의 향기를 느껴보세요. </h4>
+        <h4>무창포 J.P펜션의 바다의 향기를 느껴보세요. </h4>
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box">
@@ -55,7 +55,7 @@
           </tr>
 									 <tr>
             <th scope="row">성명</th>
-            <td><input type='text' name="writer" value="${questionVO.writer}" readonly ></td>
+            <td><input type='text' name="user_id" value="${questionVO.user_id}" readonly ></td>
           </tr>
 									 <tr>
             <th scope="row">비밀번호</th>

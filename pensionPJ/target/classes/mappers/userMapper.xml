@@ -35,7 +35,7 @@
 	</select>
 	<!-- 회원 탈퇴 하는 부분 -->
 	<delete id="deleteUser">
-		delete from user where user_password = #{user_password} 
+		delete from user where user_password = #{user_password} and user_id = #{user_id}
 	</delete>
 	<!-- 회원정보 수정하는 부분  -->
 	<update id="modify">

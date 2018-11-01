@@ -30,18 +30,20 @@ public class QuestionDAOTest {
 	public void testInsertQuestion() throws Exception{
 		
 		QuestionVO qVO = new QuestionVO();
-		for(int i=0; i<100; i++) {
-		qVO.setTitle(i+"번째 데이터 입니다.");
-		qVO.setContent(i+"번째 글 등록했습니다. 제대로 되야해");
-		qVO.setPassword("1");
 		
+		for(int i=0; i<10; i++) {
+		qVO.setTitle(i+"번째 글 제목입니다.");
+		qVO.setContent(i+"번째 글에대한 상세 내용입니다.");
+		qVO.setSecret("y");
+		qVO.setUser_id("jaehuniya");
+		qVO.setPassword("1");
 		
 		dao.creat(qVO);
 		}
 	}
 
 	//페이징 처리 테스트 
-	@Test
+	/*@Test
 	public void testCriteria() throws Exception{
 		
 		Criteria cri = new Criteria();
@@ -72,5 +74,5 @@ public class QuestionDAOTest {
 		
 		logger.info("==============================================================");
 		logger.info("갯수: " + dao.listSearchConunt(cri));
-	}
+	}*/
 }

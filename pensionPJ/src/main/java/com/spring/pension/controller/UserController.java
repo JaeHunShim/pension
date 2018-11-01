@@ -94,15 +94,20 @@ public class UserController {
 	//이메일 인증번호 발송 
 	@ResponseBody
 	@RequestMapping(value="/emailCertification",method=RequestMethod.POST)
-	public boolean emailAutorization(@RequestBody String user_email,HttpSession session) throws Exception {
-		
-			String key = new TempKey().getKey(50,false); //키 생성 
-			session.setAttribute("key", key); //생성한 키를 session에 저장(view단에서 session값과 입력한 값이 동일한지 검사할거임)
+	public Map<String,Object> emailAutorization(@RequestBody String user_email,HttpSession session) throws Exception {
+			
+			//session.removeAttribute("key");
+			String key = new TempKey().getKey(50,false); //키 생성
+			//session.setAttribute("key", key); //생성한 키를 session에 저장(view단에서 session값과 입력한 값이 동일한지 검사할거임)
+			System.out.println("key값:"+key);
 			String subject ="회원가입 승인번호입니다.";
 			StringBuilder sb = new StringBuilder();
 			sb.append("회원가입 승인번호는").append(key).append("입니다.");
-			
-			return userService.send(subject, sb.toString(),"jaehuniya@gmail.com", user_email);
+			boolean result = userService.send(subject, sb.toString(),"jaehuniya@gmail.com", user_email);
+			Map<String,Object> map = new HashMap<String,Object>();
+			map.put("result", result);
+			map.put("key", key);
+			return map;
 	}
 	//로그인 체크 처리
 	/*@ResponseBody
@@ -241,6 +246,7 @@ public class UserController {
 	public void userModify() throws Exception {
 		
 	}
+	// 자신의 정보 수정하는부분 
 	@RequestMapping(value="/modify",method=RequestMethod.POST)
 	public String userModifyPOST(UserVO userVO) throws Exception {
 		userService.userUpdate(userVO);

@@ -87,25 +87,25 @@ $(document).ready(function(){
             <div class="item">
             	<p class="room_img"><img src="/resources/img/main/room_img.jpg" /></p>
                 <p class="room_name">데이지</p>
-                <p class="room_txt">무창포 이루펜션</p>
+                <p class="room_txt">무창포 J.P펜션</p>
                 <p class="room_view"><a href="/sub2/sub1.htm">객실보기</a></p>
             </div>
             <div class="item">
             	<p class="room_img"><img src="/resources/img/main/room_img1.jpg" /></p>
                 <p class="room_name">릴리</p>
-                <p class="room_txt">무창포 이루펜션</p>
+                <p class="room_txt">무창포 J.P펜션</p>
                 <p class="room_view"><a href="/sub2/sub2.htm">객실보기</a></p>
             </div>
             <div class="item">
             	<p class="room_img"><img src="/resources/img/main/room_img2.jpg" /></p>
                 <p class="room_name">아이비</p>
-                <p class="room_txt">무창포 이루펜션</p>
+                <p class="room_txt">무창포 J.P펜션</p>
                 <p class="room_view"><a href="/sub2/sub3.htm">객실보기</a></p>
             </div>
             <div class="item">
             	<p class="room_img"><img src="/resources/img/main/room_img3.jpg" /></p>
                 <p class="room_name">마가렛</p>
-                <p class="room_txt">무창포 이루펜션</p>
+                <p class="room_txt">무창포 J.P펜션</p>
                 <p class="room_view"><a href="/sub2/sub4.htm">객실보기</a></p>
             </div>
         </div>

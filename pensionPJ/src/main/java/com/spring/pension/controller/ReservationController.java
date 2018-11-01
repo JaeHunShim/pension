@@ -123,7 +123,8 @@ public class ReservationController {
 	}
 	//예약 처리 하는 부분 
 	@RequestMapping(value="/lastInsert",method =RequestMethod.POST )
-	public String lastInsert(ReserVO reserVO,HttpSession session,String fullDate,String lastFullDate,Integer reserNo,Model model) throws Exception{
+	public String lastInsert(ReserVO reserVO,HttpSession session,String fullDate,String 
+							lastFullDate,Integer reserNo,Model model) throws Exception{
 		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(fullDate);
 		Date lastdate = new SimpleDateFormat("yyyy-MM-dd").parse(lastFullDate);
 		reserVO.setR_fullDate(date);
@@ -150,7 +151,7 @@ public class ReservationController {
 		pageMaker.setTotalCount(reserService.listCount(cri));
 		model.addAttribute("pageMaker",pageMaker);
 	}
-	// 관리자가 예약정보 삭제하는 부분 + 유저가 삭제하는 부분 (session에 있는 아이디 값으로 해서 서로 다르게 리턴함)
+	//3. 관리자가 예약정보 삭제하는 부분 + 유저가 삭제하는 부분 (session에 있는 아이디 값으로 해서 서로 다르게 리턴함)
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
 	public String delete(int reserNo,RedirectAttributes rttr) throws Exception {
 	
@@ -160,7 +161,7 @@ public class ReservationController {
 		rttr.addFlashAttribute("msg", "success");
 		return "redirect:/reservation/managementPaging";
 	}
-	// 입금현황 바꾸는 부분
+	//4. 입금현황 바꾸는 부분
 	@RequestMapping(value="/modifyDeposit",method=RequestMethod.GET)
 	public String modiDeposit(int reserNo)throws Exception {
 		logger.info("입금현황 수정하기 -------------------------------------------");

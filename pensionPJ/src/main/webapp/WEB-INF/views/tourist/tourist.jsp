@@ -7,7 +7,7 @@
 	<div class="title">
         <h2><b>tour</b> guide</h2>
         <h3>주변관광지</h3>
-        <h4>무창포 이루펜션의 바다의 향기를 느껴보세요.</h4>
+        <h4>무창포 J.P펜션의 바다의 향기를 느껴보세요.</h4>
         <p class="tit_line"></p>
     </div>
     <div class="sub_txt box"> 

@@ -131,8 +131,7 @@ public class QuestionController {
 			mav.setViewName("/question/readPage");
 			mav.addObject(questionService.read(qno,password));
 			mav.addObject("list", questionService.preNePage(qno));
-			/*model.addAttribute(questionService.read(qno,password));
-			model.addAttribute("list", questionService.preNePage(qno));*/
+			
 			return mav;
 		}else {
 			mav.setViewName("/question/passwordCheck");
@@ -140,17 +139,6 @@ public class QuestionController {
 			mav.addObject("result","failure");
 			return mav;
 		}
-		// 비밀번호가 틀렸을시 처리 하는 부분 
-		/*if(questionService.read(qno,password)== null) {
-			System.out.println("정보들:" +questionService.read(qno,password));
-			rttr.addFlashAttribute("result","fail");
-			model.addAttribute("qno", qno);
-			
-		}else {*/
-			//System.out.println("비밀번호:" + password);
-			/*model.addAttribute(questionService.read(qno,password));
-			model.addAttribute("list", questionService.preNePage(qno));*/
-		/*}*/
 	}
 	// 게시글 삭제 하기: 정보유지 안했을때 
 	@RequestMapping(value="/delete",method=RequestMethod.GET)
@@ -178,14 +166,14 @@ public class QuestionController {
 		
 		return "redirect:/question/searchListPage";
 	}
-	// 게시물 수정페이지로 이동: 수정위해서 read 페이지에서 qno 받아오기 model에 넝어서 modify 페이지에 뿌리기
+	// 1. 게시물 수정페이지로 이동: 수정위해서 read 페이지에서 qno 받아오기 model에 넝어서 modify 페이지에 뿌리기
 	@RequestMapping(value="/modify",method=RequestMethod.GET)
 	public void modifyGET(@RequestParam("qno")int qno,Model model) throws Exception{
 		logger.info("수정페이지로 가는 부분 -------------------------------------");
 		model.addAttribute(questionService.getQno(qno));
 		
 	}
-	//게시물 수정 페이지로 이동: 게시물 수정한 후에 페이지 유지
+	//2. 게시물 수정 페이지로 이동: 게시물 수정한 후에 페이지 유지
 	@RequestMapping(value="/modifyPage",method=RequestMethod.GET)
 	public void modifyPageGet(@RequestParam("qno")int qno,@ModelAttribute("cri")SearchCriteria cri ,Model model) throws Exception{
 		logger.info("--------------------수정페이지 불러오기 -------------------------------------");
